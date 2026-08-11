@@ -7,10 +7,10 @@ const CONSOLE = 'https://console.packory.app';
 const CHANNELS = ['Shopee', 'TikTok Shop', 'Lazada', 'Shopify', 'eBay', 'Amazon', 'WhatsApp', 'Google Drive'];
 
 const PILLARS = [
-  { key: 'PROOF', title: 'Proof', text: 'Every order leaves with video evidence. No he-said-she-said.' },
-  { key: 'SPEED', title: 'Speed', text: 'Hands-free by design. Scan, record, thumbs-up — zero screen touches.' },
-  { key: 'TRUST', title: 'Trust', text: 'Buyers see their order being packed before it ships. Disputes lose their fuel.' },
-  { key: 'SCALE', title: 'Scale', text: 'One camera or fifty. More orders without more chaos or more disputes.' },
+  { key: '01', title: 'PROOF', text: 'Every order leaves with video evidence. No he-said-she-said.' },
+  { key: '02', title: 'SPEED', text: 'Hands-free by design. Scan, record, thumbs-up — zero screen touches.' },
+  { key: '03', title: 'TRUST', text: 'Buyers see their order being packed before it ships. Disputes lose their fuel.' },
+  { key: '04', title: 'SCALE', text: 'One camera or fifty. More orders without more chaos or more disputes.' },
 ];
 
 const WORKFLOW = [
@@ -29,55 +29,55 @@ const STATIONS = [
 ];
 
 const METRICS = [
-  { label: 'Orders today', value: '1,842', amber: true },
-  { label: 'Videos captured', value: '1,840', amber: true },
-  { label: 'Evidence links delivered', value: '1,832', amber: true },
-  { label: 'Dispute win-rate', value: '98.4%', amber: true },
-  { label: 'Sync failures', value: '3', amber: false },
-  { label: 'On-time WhatsApp delivery', value: '99.1%', amber: true },
+  { label: 'Orders today', value: '1,842' },
+  { label: 'Videos captured', value: '1,840' },
+  { label: 'Evidence links delivered', value: '1,832' },
+  { label: 'Dispute win-rate', value: '98.4%' },
+  { label: 'Sync failures', value: '3' },
+  { label: 'On-time WhatsApp delivery', value: '99.1%' },
 ];
 
 const KPI = [
   { value: '100%', label: 'ORDERS ON VIDEO' },
   { value: '0', label: 'VIDEO BYTES ON OUR SERVERS' },
-  { value: '<24h', label: 'EVIDENCE ON BUYER’S WHATSAPP' },
+  { value: '<24H', label: 'EVIDENCE ON BUYER’S WHATSAPP' },
   { value: '98.4%', label: 'DISPUTES WON WITH VIDEO' },
 ];
 
 const FEATURES = [
   {
-    title: 'Hands-free video proof',
+    title: 'HANDS-FREE VIDEO PROOF',
     text: 'AWB detected automatically. Recording starts by itself and stops on a thumbs-up — packers never touch the screen.',
   },
   {
-    title: 'Terrible Wi-Fi? No problem',
+    title: 'TERRIBLE WI-FI? NO PROBLEM',
     text: 'Clips save to the device instantly and sync to the Admin’s private Google Drive in the background, resuming on reconnect.',
   },
   {
-    title: 'Zero server video overhead',
+    title: 'ZERO SERVER VIDEO OVERHEAD',
     text: 'Your videos never pass through our servers. Bring-your-own Google Drive storage with a scope-limited token.',
   },
   {
-    title: 'Dispute-proof orders',
+    title: 'DISPUTE-PROOF ORDERS',
     text: 'Beat parcel-swap and empty-box claims with timestamped, burned-in packing footage delivered to buyers on WhatsApp.',
   },
 ];
 
 const PRICING = [
-  { name: 'Free', price: 'RM 0', features: ['1 licensed camera', 'Manual WhatsApp links', 'Unlimited packing records'] },
-  { name: 'Starter', price: 'RM 49/mo', features: ['2 licensed cameras', 'WhatsApp credits available', 'Weekly sheet automation'] },
-  { name: 'Pro', price: 'RM 99/mo', features: ['5 licensed cameras', 'Direct seller channel', 'Priority support'] },
-  { name: 'Scale', price: 'RM 199/mo', features: ['15 licensed cameras', 'All channels unlocked', 'Onboarding assistance'] },
+  { name: 'FREE', price: 'RM 0', features: ['1 licensed camera', 'Manual WhatsApp links', 'Unlimited packing records'] },
+  { name: 'STARTER', price: 'RM 49/mo', features: ['2 licensed cameras', 'WhatsApp credits available', 'Weekly sheet automation'] },
+  { name: 'PRO', price: 'RM 99/mo', features: ['5 licensed cameras', 'Direct seller channel', 'Priority support'] },
+  { name: 'SCALE', price: 'RM 199/mo', features: ['15 licensed cameras', 'All channels unlocked', 'Onboarding assistance'] },
 ];
 
 const TESTIMONIALS = [
   {
     quote: 'We won every parcel-swap dispute last month — every single one had video proof.',
-    who: 'Shopee seller, 400+ orders/week',
+    who: 'SHOPEE SELLER · 400+ ORDERS/WEEK',
   },
   {
     quote: 'A buyer claimed the box arrived empty. We sent the packing video. Claim closed in a day.',
-    who: 'TikTok Shop seller, Malaysia',
+    who: 'TIKTOK SHOP SELLER · MALAYSIA',
   },
 ];
 ---
@@ -89,77 +89,79 @@ const TESTIMONIALS = [
   <header class="nav">
     <div class="container nav-inner">
       <a href="/" class="brand">
-        <svg class="logo-mark" viewBox="0 0 28 28" fill="none" aria-hidden="true">
-          <rect x="1" y="1" width="26" height="26" rx="6" stroke="#E8A33D" stroke-width="2"/>
-          <path d="M7 10h8v8H7zM13 16h8v3H13z" stroke="#EBEBED" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M11 10V7h7" stroke="#E8A33D" stroke-width="2" stroke-linecap="round"/>
-        </svg>
+        <span class="logo-box"></span>
         {APP_NAME}
       </a>
       <nav class="links">
-        <a href="#workflow">Product</a>
-        <a href="#pricing">Pricing</a>
-        <a href={`${CONSOLE}/login`}>Log In</a>
-        <a href={`${CONSOLE}/signup`} class="cta">Start Free</a>
+        <a href="#workflow">PRODUCT</a>
+        <a href="#pricing">PRICING</a>
+        <a href={`${CONSOLE}/login`}>LOG IN</a>
+        <a href={`${CONSOLE}/signup`} class="cta">START FREE</a>
       </nav>
     </div>
   </header>
 
   <!-- 1. HERO -->
   <section class="snap-screen hero">
-    <div class="container hero-inner">
-      <span class="eyebrow"><span class="dot-amber"></span>PACKING VERIFICATION FOR ECOMMERCE</span>
-      <h1>Every order.<br />On video.<br /><span class="accent">Dispute-proof.</span></h1>
-      <p class="sub">
-        Packory turns any cheap warehouse Android phone into a hands-free packing
-        verification camera. Every order is recorded with a burned-in timestamp, stored in
-        your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp.
-      </p>
-      <div class="actions">
-        <a href={`${CONSOLE}/signup`} class="btn-primary">Start free</a>
-        <a href="#workflow" class="btn-outline">See how it works</a>
+    <div class="hero-side" aria-hidden="true">
+      <span class="side-num">01</span>
+      <span class="side-line"></span>
+      <span class="side-meta">PKR·EST·2026</span>
+    </div>
+    <div class="container hero-main">
+      <span class="tag"><span class="dot"></span>PACKING VERIFICATION FOR ECOMMERCE</span>
+      <h1 class="display">
+        <span class="circle-word"><span class="word-circle orange">EVERY</span> ORDER.</span><br />
+        <span class="circle-word"><span class="word-circle teal">ON</span> VIDEO.</span><br />
+        <span class="accent">DISPUTE-PROOF.</span>
+      </h1>
+      <div class="hero-grid">
+        <p class="sub">
+          Packory turns any cheap warehouse Android phone into a hands-free packing
+          verification camera. Every order is recorded with a burned-in timestamp, stored in
+          your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp.
+        </p>
+        <div class="actions">
+          <a href={`${CONSOLE}/signup`} class="btn-primary">START FREE</a>
+          <a href="#workflow" class="btn-outline">SEE HOW IT WORKS</a>
+        </div>
       </div>
       <div class="terminal">
         <div class="term-bar">
-          <span class="term-title">packing-terminal · station A</span>
+          <span class="term-title">PACKING-TERMINAL · STATION A</span>
           <span class="live"><span class="pulse"></span>LIVE</span>
         </div>
         <div class="term-body">
           <div class="term-row"><span class="term-label">AWB</span><span class="term-val">123456789012 <span class="ok">✓</span></span></div>
-          <div class="term-row"><span class="term-label">Status</span><span class="term-val"><span class="rec"></span> RECORDING — UTC 12:04:31</span></div>
-          <div class="term-row"><span class="term-label">Sync</span><span class="term-val">Synced to Drive <span class="ok">✓</span></span></div>
-          <div class="term-row"><span class="term-label">WhatsApp</span><span class="term-val">Evidence link sent <span class="ok">✓</span></span></div>
-          <div class="term-flow">
-            {['SCAN', 'RECORD', 'SYNC', 'SENT'].map((s, i) => (
-              <span class="flow-node"><span class="flow-dot"></span>{s}</span>
-            ))}
-          </div>
-        </div>
-        <div class="term-barcode" aria-hidden="true">
-          <span class="barcode-bars"></span>
-          <span class="barcode-text">PKR-0A3F-9C2E-7741</span>
+          <div class="term-row"><span class="term-label">STATUS</span><span class="term-val"><span class="rec"></span> RECORDING — UTC 12:04:31</span></div>
+          <div class="term-row"><span class="term-label">SYNC</span><span class="term-val">SYNCED TO DRIVE <span class="ok">✓</span></span></div>
+          <div class="term-row"><span class="term-label">WHATSAPP</span><span class="term-val">EVIDENCE LINK SENT <span class="ok">✓</span></span></div>
         </div>
       </div>
       <div class="stats">
-        <div class="stat"><strong>0</strong><span>video bytes on our servers</span></div>
-        <div class="stat"><strong>&lt;100ms</strong><span>UI reset after each order</span></div>
-        <div class="stat"><strong>24/7</strong><span>background sync &amp; retry</span></div>
-        <div class="stat"><strong>1.5s</strong><span>throttled AWB scan rate</span></div>
+        <div class="stat"><strong>0</strong><span>VIDEO BYTES ON OUR SERVERS</span></div>
+        <div class="stat"><strong>&lt;100MS</strong><span>UI RESET AFTER EACH ORDER</span></div>
+        <div class="stat"><strong>24/7</strong><span>BACKGROUND SYNC &amp; RETRY</span></div>
+        <div class="stat"><strong>1.5S</strong><span>THROTTLED AWB SCAN RATE</span></div>
       </div>
     </div>
   </section>
 
   <!-- 2. CHANNELS -->
-  <section class="snap-screen section light">
+  <section class="snap-screen section teal">
+    <div class="section-side" aria-hidden="true">
+      <span class="side-num">02</span>
+      <span class="side-line"></span>
+    </div>
     <div class="container">
-      <p class="eyebrow-dark">INTEGRATIONS</p>
-      <h2>Prove every order,<br />on every channel.</h2>
-      <p class="section-sub">One evidence link, sent to the buyer on WhatsApp — regardless of marketplace.</p>
+      <span class="tag-dark">INTEGRATIONS</span>
+      <h2 class="display">PROVE EVERY ORDER.<br />ON EVERY CHANNEL.</h2>
+      <p class="sub-dark">One evidence link, sent to the buyer on WhatsApp — regardless of marketplace.</p>
       <div class="channel-grid">
         {CHANNELS.map((c) => (
           <div class="channel">
-            <span class="channel-name">{c}</span>
-            <span class="connected"><span class="dot-amber"></span>CONNECTED</span>
+            <span>{c}</span>
+            <span class="connected"><span class="dot"></span>CONNECTED</span>
           </div>
         ))}
       </div>
@@ -167,13 +169,17 @@ const TESTIMONIALS = [
   </section>
 
   <!-- 3. PROBLEM -->
-  <section class="snap-screen section dark">
+  <section class="snap-screen section orange">
+    <div class="section-side" aria-hidden="true">
+      <span class="side-num">03</span>
+      <span class="side-line"></span>
+    </div>
     <div class="container">
-      <p class="eyebrow">THE PROBLEM</p>
-      <h2 class="on-dark">More orders shouldn’t<br />mean more disputes.</h2>
+      <span class="tag-dark">THE PROBLEM</span>
+      <h2 class="display">MORE ORDERS SHOULDN’T<br />MEAN MORE DISPUTES.</h2>
       <div class="problem-grid">
         <div class="problem-box">
-          <h3 class="label-dark">BEFORE</h3>
+          <h3 class="meta">BEFORE</h3>
           <ul class="chaos">
             <li>Marketplace dispute</li>
             <li>Buyer claim: “empty box”</li>
@@ -183,14 +189,14 @@ const TESTIMONIALS = [
           </ul>
         </div>
         <div class="problem-arrow">→</div>
-        <div class="problem-box accent">
-          <h3 class="label-dark">WITH PACKORY</h3>
+        <div class="problem-box dark-box">
+          <h3 class="meta-light">WITH PACKORY</h3>
           <ul class="calm">
             <li>Automated, timestamped</li>
             <li>Tamper-evident video</li>
             <li>Evidence on WhatsApp</li>
             <li>Dispute fuel removed</li>
-            <li class="amber">ONE SYSTEM. EVERY ORDER.</li>
+            <li class="strong">ONE SYSTEM. EVERY ORDER.</li>
           </ul>
         </div>
       </div>
@@ -198,13 +204,17 @@ const TESTIMONIALS = [
   </section>
 
   <!-- 4. PILLARS -->
-  <section class="snap-screen section light">
+  <section class="snap-screen section white">
+    <div class="section-side" aria-hidden="true">
+      <span class="side-num">04</span>
+      <span class="side-line"></span>
+    </div>
     <div class="container">
-      <p class="eyebrow-dark">WHY PACKORY</p>
-      <h2>Four pillars.<br />One outcome: trust.</h2>
+      <span class="tag">WHY PACKORY</span>
+      <h2 class="display">FOUR PILLARS.<br />ONE OUTCOME: TRUST.</h2>
       <div class="pillar-grid">
-        {PILLARS.map((p) => (
-          <div class="pillar">
+        {PILLARS.map((p, i) => (
+          <div class={`pillar pillar-${i % 4}`}>
             <div class="pillar-key">{p.key}</div>
             <h3>{p.title}</h3>
             <p>{p.text}</p>
@@ -215,16 +225,20 @@ const TESTIMONIALS = [
   </section>
 
   <!-- 5. WORKFLOW -->
-  <section id="workflow" class="snap-screen section dark">
+  <section id="workflow" class="snap-screen section charcoal">
+    <div class="section-side" aria-hidden="true">
+      <span class="side-num">05</span>
+      <span class="side-line"></span>
+    </div>
     <div class="container">
-      <p class="eyebrow">HOW IT WORKS</p>
-      <h2 class="on-dark">From AWB scan to evidence sent.<br />Automatically.</h2>
+      <span class="tag-light">HOW IT WORKS</span>
+      <h2 class="display on-dark">FROM AWB SCAN TO<br />EVIDENCE SENT. AUTOMATICALLY.</h2>
       <div class="workflow">
         {WORKFLOW.map((w, i) => (
           <>
             <div class="wf-step">
               <span class={w.done ? 'wf-dot done' : 'wf-dot'}></span>
-              <span class="on-dark wf-label">{w.label}</span>
+              <span class="wf-label">{w.label}</span>
             </div>
             {i < WORKFLOW.length - 1 && <span class="wf-line"></span>}
           </>
@@ -234,46 +248,54 @@ const TESTIMONIALS = [
   </section>
 
   <!-- 6. STATIONS + AUTOMATION -->
-  <section class="snap-screen section dark">
+  <section class="snap-screen section teal">
+    <div class="section-side" aria-hidden="true">
+      <span class="side-num">06</span>
+      <span class="side-line"></span>
+    </div>
     <div class="container">
-      <p class="eyebrow">OPERATIONS</p>
-      <h2 class="on-dark">Run every packing station<br />from one place.</h2>
+      <span class="tag-dark">OPERATIONS</span>
+      <h2 class="display">RUN EVERY PACKING STATION<br />FROM ONE PLACE.</h2>
       <div class="station-grid">
         {STATIONS.map((s) => (
           <div class="station">
             <div class="station-head">
-              <span class="on-dark station-name">{s.name}</span>
+              <span class="station-name">{s.name}</span>
               {s.status === 'LIVE' && <span class="status-live"><span class="pulse"></span>LIVE</span>}
               {s.status === 'READY' && <span class="status-ready">READY</span>}
               {s.status === 'PAIR' && <span class="status-pair">PAIRING…</span>}
             </div>
-            <div class="station-detail on-dark-muted">{s.detail}</div>
-            <div class="station-orders on-dark">{s.orders}</div>
-            <div class="station-rate amber">{s.rate}</div>
+            <div class="station-detail">{s.detail}</div>
+            <div class="station-orders">{s.orders}</div>
+            <div class="station-rate">{s.rate}</div>
           </div>
         ))}
       </div>
       <div class="rule">
-        <p class="label-dark">AUTOMATE THE REPETITIVE WORK</p>
-        <div class="rule-title on-dark">Let the camera do the work.</div>
+        <p class="meta">AUTOMATE THE REPETITIVE WORK</p>
+        <div class="rule-title">LET THE CAMERA DO THE WORK.</div>
         <div class="rule-box">
-          <div class="rule-line on-dark"><span class="rule-if">IF</span> AWB barcode detected <span class="rule-then">THEN</span> start recording</div>
-          <div class="rule-line on-dark"><span class="rule-if">IF</span> thumbs-up detected <span class="rule-then">THEN</span> stop clip, save to device</div>
-          <div class="rule-line on-dark"><span class="rule-if">IF</span> upload complete <span class="rule-then">THEN</span> send WhatsApp link to buyer</div>
+          <div class="rule-line"><span class="rule-if">IF</span> AWB barcode detected <span class="rule-then">THEN</span> start recording</div>
+          <div class="rule-line"><span class="rule-if">IF</span> thumbs-up detected <span class="rule-then">THEN</span> stop clip, save to device</div>
+          <div class="rule-line"><span class="rule-if">IF</span> upload complete <span class="rule-then">THEN</span> send WhatsApp link to buyer</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- 7. ANALYTICS -->
-  <section class="snap-screen section light">
+  <section class="snap-screen section orange">
+    <div class="section-side" aria-hidden="true">
+      <span class="side-num">07</span>
+      <span class="side-line"></span>
+    </div>
     <div class="container">
-      <p class="eyebrow-dark">ANALYTICS</p>
-      <h2>See what’s happening before<br />it becomes a claim.</h2>
+      <span class="tag-dark">ANALYTICS</span>
+      <h2 class="display">SEE WHAT’S HAPPENING BEFORE<br />IT BECOMES A CLAIM.</h2>
       <div class="metric-grid">
         {METRICS.map((m) => (
           <div class="metric">
-            <div class="metric-value">{m.value}{m.amber && <span class="dot-amber"></span>}</div>
+            <div class="metric-value">{m.value}</div>
             <div class="metric-label">{m.label}</div>
           </div>
         ))}
@@ -290,13 +312,17 @@ const TESTIMONIALS = [
   </section>
 
   <!-- 8. FEATURES -->
-  <section id="features" class="snap-screen section light">
+  <section id="features" class="snap-screen section white">
+    <div class="section-side" aria-hidden="true">
+      <span class="side-num">08</span>
+      <span class="side-line"></span>
+    </div>
     <div class="container">
-      <p class="eyebrow-dark">FEATURES</p>
-      <h2>Engineered for hot,<br />noisy warehouses.</h2>
+      <span class="tag">FEATURES</span>
+      <h2 class="display">ENGINEERED FOR HOT,<br />NOISY WAREHOUSES.</h2>
       <div class="feature-grid">
-        {FEATURES.map((f) => (
-          <div class="feature">
+        {FEATURES.map((f, i) => (
+          <div class={`feature feature-${i % 2}`}>
             <h3>{f.title}</h3>
             <p>{f.text}</p>
           </div>
@@ -306,14 +332,18 @@ const TESTIMONIALS = [
   </section>
 
   <!-- 9. PRICING -->
-  <section id="pricing" class="snap-screen section light">
+  <section id="pricing" class="snap-screen section peach">
+    <div class="section-side" aria-hidden="true">
+      <span class="side-num">09</span>
+      <span class="side-line"></span>
+    </div>
     <div class="container">
-      <p class="eyebrow-dark">PRICING</p>
-      <h2>Pay per camera.</h2>
-      <p class="section-sub">One license per device. Paid securely via MYR FPX, cards, or local e-wallets.</p>
+      <span class="tag">PRICING</span>
+      <h2 class="display">PAY PER CAMERA.</h2>
+      <p class="sub">One license per device. Paid securely via MYR FPX, cards, or local e-wallets.</p>
       <div class="pricing-grid">
-        {PRICING.map((p) => (
-          <div class="price-card">
+        {PRICING.map((p, i) => (
+          <div class={`price-card price-${i % 2}`}>
             <div class="price-name">{p.name}</div>
             <div class="price-value">{p.price}</div>
             <ul>
@@ -321,7 +351,7 @@ const TESTIMONIALS = [
                 <li><span class="li-check">✓</span> {f}</li>
               ))}
             </ul>
-            <a href={`${CONSOLE}/signup`} class="btn-price">Get started</a>
+            <a href={`${CONSOLE}/signup`} class="btn-price">GET STARTED</a>
           </div>
         ))}
       </div>
@@ -329,24 +359,28 @@ const TESTIMONIALS = [
   </section>
 
   <!-- 10. TESTIMONIALS + FINAL CTA -->
-  <section class="snap-screen section dark">
+  <section class="snap-screen section charcoal">
+    <div class="section-side" aria-hidden="true">
+      <span class="side-num">10</span>
+      <span class="side-line"></span>
+    </div>
     <div class="container">
-      <p class="eyebrow">CUSTOMERS</p>
-      <h2 class="on-dark">Built for sellers who can’t afford<br />another empty-box claim.</h2>
+      <span class="tag-light">CUSTOMERS</span>
+      <h2 class="display on-dark">BUILT FOR SELLERS WHO CAN’T<br />AFFORD ANOTHER EMPTY-BOX CLAIM.</h2>
       <div class="testimonial-grid">
         {TESTIMONIALS.map((t) => (
           <div class="testimonial">
-            <p class="on-dark quote">“{t.quote}”</p>
-            <div class="testimonial-who amber">{t.who}</div>
+            <p class="quote">“{t.quote}”</p>
+            <div class="testimonial-who">{t.who}</div>
           </div>
         ))}
       </div>
       <div class="final-cta">
-        <h3 class="on-dark">Ready to put your orders<br />on the record?</h3>
+        <h3 class="display on-dark">READY TO PUT YOUR ORDERS<br />ON THE RECORD?</h3>
         <p class="on-dark-muted">Turn any Android phone into a hands-free packing verification camera. Free to start. Your videos stay in your own Google Drive.</p>
         <div class="actions">
-          <a href={`${CONSOLE}/signup`} class="btn-primary">Start free</a>
-          <a href={`${CONSOLE}/login`} class="btn-outline">Book a demo</a>
+          <a href={`${CONSOLE}/signup`} class="btn-primary">START FREE</a>
+          <a href={`${CONSOLE}/login`} class="btn-outline-light">BOOK A DEMO</a>
         </div>
       </div>
     </div>
@@ -355,25 +389,24 @@ const TESTIMONIALS = [
   <footer class="footer">
     <div class="container footer-inner">
       <span>© {new Date().getFullYear()} {APP_NAME}</span>
-      <span>Built for Malaysian e-commerce merchants 🇲🇾</span>
+      <span>BUILT FOR MALAYSIAN E-COMMERCE MERCHANTS 🇲🇾</span>
     </div>
   </footer>
 </Base>
 
 <style>
-  /* ===== DESIGN TOKENS — Black + Amber (tech trust × shipping) ===== */
+  /* ===== RETRO EDITORIAL SYSTEM — orange / teal / white / charcoal ===== */
   :root {
-    --ink: #0f1417;          /* carbon black — foundation */
-    --ink-deep: #0a0d0f;
-    --ink-soft: #1a2025;
-    --paper: #ebebed;        /* soft gray — light sections */
-    --paper-bright: #f5f5f4;
-    --amber: #e8a33d;        /* shipping accent — CTA, live, checks */
-    --amber-bright: #f2b44d;
-    --steel: #9aa3ad;        /* muted on dark */
-    --slate: #5b6470;        /* muted on light */
-    --hairline: rgba(235, 235, 237, 0.1);
-    --hairline-dark: rgba(15, 20, 23, 0.12);
+    --orange: #fd8405;
+    --burnt: #e45507;
+    --tangerine: #f89437;
+    --teal: #13b9b6;
+    --white: #fefefd;
+    --charcoal: #341c19;
+    --grey: #bfd1ce;
+    --peach: #f2b279;
+    --line: rgba(52, 28, 25, 0.18);
+    --line-light: rgba(254, 254, 253, 0.25);
   }
 
   /* ---------- NAV ---------- */
@@ -383,9 +416,8 @@ const TESTIMONIALS = [
     left: 0;
     right: 0;
     z-index: 50;
-    background: rgba(10, 13, 15, 0.85);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--hairline);
+    background: var(--charcoal);
+    border-bottom: 1px solid var(--line-light);
   }
 
   .nav-inner {
@@ -399,204 +431,283 @@ const TESTIMONIALS = [
     display: flex;
     align-items: center;
     gap: 0.625rem;
-    font-weight: 700;
+    font-weight: 800;
     font-size: 1.125rem;
-    color: var(--paper-bright);
-    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--white);
   }
 
-  .logo-mark {
-    width: 28px;
-    height: 28px;
-    flex-shrink: 0;
+  .logo-box {
+    width: 14px;
+    height: 14px;
+    background: var(--orange);
+    display: inline-block;
   }
 
   .links {
     display: flex;
     align-items: center;
-    gap: 1.75rem;
-    font-size: 0.875rem;
-    font-weight: 500;
+    gap: 1.5rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
   }
 
   .links a {
-    color: var(--steel);
-    transition: color 0.15s;
+    color: var(--white);
+    opacity: 0.75;
+    transition: opacity 0.15s;
   }
 
   .links a:hover {
-    color: var(--paper-bright);
+    opacity: 1;
   }
 
   .links .cta {
-    background: var(--amber);
-    color: var(--ink);
-    border-radius: 9999px;
+    background: var(--orange);
+    color: var(--charcoal);
+    border-radius: 0;
     padding: 0.5rem 1.25rem;
-    font-weight: 600;
+    font-weight: 800;
+    opacity: 1;
   }
 
-  /* ---------- BASE SECTIONS ---------- */
+  /* ---------- SIDE COLUMN (editorial) ---------- */
+  .hero-side, .section-side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 3.5rem;
+    flex-shrink: 0;
+    padding-top: 1rem;
+    border-right: 1px solid var(--line-light);
+  }
+
+  .section-side {
+    border-right: 1px solid var(--line);
+  }
+
+  .side-num {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--white);
+    opacity: 0.6;
+  }
+
+  .section-side .side-num {
+    color: var(--charcoal);
+  }
+
+  .side-line {
+    width: 1px;
+    flex: 1;
+    background: var(--line-light);
+    min-height: 3rem;
+  }
+
+  .section-side .side-line {
+    background: var(--line);
+  }
+
+  .side-meta {
+    writing-mode: vertical-rl;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--white);
+    opacity: 0.5;
+    padding-bottom: 1rem;
+  }
+
+  /* ---------- BASE ---------- */
   .section {
     min-height: 100svh;
     display: flex;
     align-items: center;
     padding-block: 6rem;
+    position: relative;
   }
 
-  .section.light {
-    background: var(--paper);
-  }
+  .section.teal { background: var(--teal); }
+  .section.orange { background: var(--orange); }
+  .section.white { background: var(--white); }
+  .section.charcoal { background: var(--charcoal); }
+  .section.peach { background: var(--peach); }
 
-  .section.dark {
-    background: var(--ink-deep);
-  }
-
-  h2 {
-    font-size: clamp(2rem, 5vw, 3.25rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
-    color: var(--ink);
-    margin-bottom: 1.25rem;
-    text-wrap: balance;
-  }
-
-  h2.on-dark {
-    color: var(--paper-bright);
-  }
-
-  .section-sub {
-    font-size: 1.0625rem;
-    line-height: 1.65;
-    color: var(--slate);
-    margin-bottom: 2.75rem;
-    max-width: 40rem;
-  }
-
-  .eyebrow, .eyebrow-dark {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
+  .display {
+    font-size: clamp(2rem, 5.5vw, 3.75rem);
+    font-weight: 900;
     text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1.02;
+    color: var(--charcoal);
     margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .eyebrow {
-    color: var(--amber);
-  }
-
-  .eyebrow-dark {
-    color: var(--slate);
-  }
-
-  .label-dark {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    color: var(--slate);
-    margin-bottom: 0.875rem;
-  }
-
-  .dot-amber {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--amber);
-    display: inline-block;
-    flex-shrink: 0;
-  }
-
-  .amber {
-    color: var(--amber) !important;
+    text-wrap: balance;
   }
 
   .on-dark {
-    color: var(--paper-bright);
+    color: var(--white);
   }
 
-  .on-dark-muted {
-    color: var(--steel);
+  /* tag */
+  .tag, .tag-dark, .tag-light {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.6875rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
   }
+
+  .tag { color: var(--teal); }
+  .tag-dark { color: var(--charcoal); }
+  .tag-light { color: var(--orange); }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--orange);
+    display: inline-block;
+  }
+
+  .tag-dark .dot { background: var(--charcoal); }
+  .tag-light .dot { background: var(--orange); }
+
+  /* sub */
+  .sub, .sub-dark {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    max-width: 40rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .sub { color: var(--charcoal); }
+  .sub-dark { color: var(--charcoal); }
+
+  .meta, .meta-light {
+    font-size: 0.6875rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    margin-bottom: 0.875rem;
+  }
+
+  .meta { color: var(--charcoal); }
+  .meta-light { color: var(--white); opacity: 0.7; }
+
+  .strong { font-weight: 800; color: var(--charcoal); }
 
   /* ---------- HERO ---------- */
   .hero {
-    background: var(--ink-deep);
+    background: var(--charcoal);
     min-height: 100svh;
     display: flex;
-    align-items: center;
-    padding-top: 7rem;
+    padding-top: 6.5rem;
     padding-bottom: 4rem;
   }
 
-  .hero-inner {
+  .hero-main {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    padding-left: 1.5rem;
+  }
+
+  .hero .display {
+    color: var(--white);
+    font-size: clamp(2.5rem, 7.5vw, 5rem);
+  }
+
+  .hero .accent {
+    color: var(--orange);
+  }
+
+  .circle-word {
+    display: inline-flex;
     align-items: center;
-    text-align: center;
+    position: relative;
   }
 
-  .hero h1 {
-    font-size: clamp(2.75rem, 8vw, 5.25rem);
-    font-weight: 700;
-    line-height: 1.02;
-    letter-spacing: -0.04em;
-    color: var(--paper-bright);
-    text-wrap: balance;
+  .word-circle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    padding: 0.15em 0.3em;
+    margin-right: 0.2em;
+    font-weight: 900;
   }
 
-  .hero h1 .accent {
-    color: var(--amber);
+  .word-circle.orange { background: var(--orange); color: var(--charcoal); }
+  .word-circle.teal { background: var(--teal); color: var(--white); }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: end;
+    width: 100%;
+    margin-top: 1rem;
   }
 
   .hero .sub {
-    max-width: 42rem;
-    margin-top: 1.5rem;
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    line-height: 1.7;
-    color: var(--steel);
+    color: var(--grey);
+    margin-bottom: 0;
+    max-width: 34rem;
   }
 
   .actions {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.75rem;
-    margin-top: 2rem;
+    gap: 0.625rem;
   }
 
   .btn-primary {
-    background: var(--amber);
-    color: var(--ink);
-    border-radius: 9999px;
-    padding: 0.8125rem 1.75rem;
-    font-weight: 600;
-    font-size: 0.9375rem;
+    background: var(--orange);
+    color: var(--charcoal);
+    border-radius: 0;
+    padding: 0.75rem 1.5rem;
+    font-weight: 800;
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   .btn-outline {
-    border: 1px solid var(--hairline);
-    color: var(--paper-bright);
-    border-radius: 9999px;
-    padding: 0.8125rem 1.75rem;
-    font-weight: 600;
-    font-size: 0.9375rem;
+    border: 1px solid var(--line-light);
+    color: var(--white);
+    border-radius: 0;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
-  /* Terminal mockup */
+  .btn-outline-light {
+    border: 1px solid var(--line-light);
+    color: var(--white);
+    border-radius: 0;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Terminal */
   .terminal {
     width: 100%;
     max-width: 34rem;
     margin-top: 3rem;
-    border: 1px solid var(--hairline);
-    border-radius: 12px;
-    background: #0d1215;
-    overflow: hidden;
+    border: 1px solid var(--line-light);
+    background: #2a1714;
     text-align: left;
   }
 
@@ -605,37 +716,37 @@ const TESTIMONIALS = [
     align-items: center;
     justify-content: space-between;
     padding: 0.625rem 1rem;
-    border-bottom: 1px solid var(--hairline);
+    border-bottom: 1px solid var(--line-light);
   }
 
   .term-title {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
     font-size: 0.6875rem;
-    color: var(--steel);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    color: var(--grey);
   }
 
   .live {
     display: inline-flex;
     align-items: center;
     gap: 0.375rem;
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
     font-size: 0.6875rem;
-    font-weight: 600;
+    font-weight: 800;
     letter-spacing: 0.12em;
-    color: var(--amber);
+    color: var(--teal);
   }
 
   .pulse {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background: var(--amber);
+    background: var(--teal);
     animation: pulse 1.6s ease-in-out infinite;
   }
 
   @keyframes pulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(232, 163, 61, 0.5); }
-    50% { opacity: 0.55; box-shadow: 0 0 0 6px rgba(232, 163, 61, 0); }
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(19, 185, 182, 0.5); }
+    50% { opacity: 0.55; box-shadow: 0 0 0 6px rgba(19, 185, 182, 0); }
   }
 
   .term-body {
@@ -653,124 +764,57 @@ const TESTIMONIALS = [
   }
 
   .term-label {
-    width: 6rem;
-    color: var(--steel);
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    width: 6.5rem;
+    color: var(--grey);
     font-size: 0.6875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
+    font-weight: 700;
+    letter-spacing: 0.1em;
   }
 
   .term-val {
-    color: var(--paper-bright);
+    color: var(--white);
     font-weight: 500;
   }
 
-  .ok {
-    color: var(--amber);
-    font-weight: 700;
-  }
-
+  .ok { color: var(--teal); font-weight: 800; }
   .rec {
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 8px; height: 8px;
     border-radius: 50%;
-    background: var(--amber);
+    background: var(--orange);
     animation: pulse 1.6s ease-in-out infinite;
-  }
-
-  .term-flow {
-    display: flex;
-    align-items: center;
-    gap: 0.875rem;
-    margin-top: 0.75rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--hairline);
-    flex-wrap: wrap;
-  }
-
-  .flow-node {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    color: var(--paper-bright);
-  }
-
-  .flow-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--amber);
-  }
-
-  /* Barcode */
-  .term-barcode {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.625rem 1.125rem;
-    border-top: 1px solid var(--hairline);
-    background: rgba(255, 255, 255, 0.015);
-  }
-
-  .barcode-bars {
-    display: inline-block;
-    height: 22px;
-    flex: 1;
-    max-width: 120px;
-    background-image: repeating-linear-gradient(
-      90deg,
-      var(--paper-bright) 0 2px,
-      transparent 2px 4px,
-      var(--paper-bright) 4px 5px,
-      transparent 5px 9px,
-      var(--paper-bright) 9px 12px,
-      transparent 12px 14px
-    );
-    opacity: 0.75;
-  }
-
-  .barcode-text {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 0.6875rem;
-    letter-spacing: 0.14em;
-    color: var(--steel);
   }
 
   /* Stats */
   .stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 0.75rem;
+    gap: 0;
     width: 100%;
     max-width: 46rem;
     margin-top: 2.5rem;
+    border: 1px solid var(--line-light);
   }
 
   .stat {
-    border: 1px solid var(--hairline);
-    border-radius: 10px;
     padding: 1rem;
-    background: rgba(255, 255, 255, 0.015);
+    border-right: 1px solid var(--line-light);
   }
+
+  .stat:last-child { border-right: none; }
 
   .stat strong {
     display: block;
     font-size: 1.375rem;
-    font-weight: 700;
-    color: var(--amber);
-    letter-spacing: -0.02em;
+    font-weight: 900;
+    color: var(--orange);
   }
 
   .stat span {
-    font-size: 0.75rem;
-    color: var(--steel);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--grey);
     line-height: 1.45;
     display: block;
     margin-top: 0.25rem;
@@ -780,36 +824,37 @@ const TESTIMONIALS = [
   .channel-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 0.75rem;
+    gap: 0;
+    border: 2px solid var(--charcoal);
+    background: var(--charcoal);
   }
 
   .channel {
     display: flex;
     flex-direction: column;
     gap: 0.625rem;
-    border: 1px solid var(--hairline-dark);
-    border-radius: 10px;
-    background: var(--paper-bright);
+    background: var(--white);
     padding: 1.125rem 1.25rem;
-  }
-
-  .channel-name {
-    font-weight: 600;
-    font-size: 0.9375rem;
-    color: var(--ink);
+    border: 1px solid var(--charcoal);
+    font-weight: 800;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--charcoal);
   }
 
   .connected {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    color: var(--ink);
+    font-size: 0.625rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--charcoal);
     display: inline-flex;
     align-items: center;
     gap: 0.375rem;
     width: fit-content;
   }
+
+  .connected .dot { background: var(--teal); }
 
   /* ---------- PROBLEM ---------- */
   .problem-grid {
@@ -821,14 +866,14 @@ const TESTIMONIALS = [
   }
 
   .problem-box {
-    border: 1px solid var(--hairline);
-    border-radius: 12px;
+    background: var(--white);
+    border: 2px solid var(--charcoal);
     padding: 1.5rem;
   }
 
-  .problem-box.accent {
-    border-color: rgba(232, 163, 61, 0.4);
-    background: rgba(232, 163, 61, 0.05);
+  .problem-box.dark-box {
+    background: var(--charcoal);
+    border-color: var(--charcoal);
   }
 
   .problem-box ul {
@@ -840,71 +885,57 @@ const TESTIMONIALS = [
     font-size: 0.875rem;
   }
 
-  .chaos li {
-    color: var(--steel);
-    padding-left: 1rem;
-    position: relative;
-  }
+  .chaos li { color: var(--charcoal); padding-left: 1rem; position: relative; }
+  .chaos li::before { content: '×'; position: absolute; left: 0; color: var(--burnt); font-weight: 800; }
 
-  .chaos li::before {
-    content: '×';
-    position: absolute;
-    left: 0;
-    color: #e5484d;
-    font-weight: 700;
-  }
-
-  .calm li {
-    color: var(--paper-bright);
-    padding-left: 1.125rem;
-    position: relative;
-  }
-
-  .calm li::before {
-    content: '✓';
-    position: absolute;
-    left: 0;
-    color: var(--amber);
-    font-weight: 700;
-  }
+  .calm li { color: var(--white); padding-left: 1.125rem; position: relative; }
+  .calm li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 800; }
 
   .problem-arrow {
-    font-size: 1.5rem;
-    color: var(--amber);
+    font-size: 1.75rem;
+    color: var(--charcoal);
+    font-weight: 900;
   }
 
   /* ---------- PILLARS ---------- */
   .pillar-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
   }
 
   .pillar {
-    border-top: 2px solid var(--ink);
-    padding: 1.25rem 0.25rem 0.5rem;
+    border: 2px solid var(--charcoal);
+    padding: 1.5rem 1.25rem;
+    min-height: 14rem;
   }
 
+  .pillar-0 { background: var(--orange); }
+  .pillar-1 { background: var(--teal); }
+  .pillar-2 { background: var(--white); }
+  .pillar-3 { background: var(--peach); }
+
   .pillar-key {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    color: var(--amber);
-    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
   }
 
   .pillar h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-size: 1.375rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
     margin-bottom: 0.625rem;
+    color: var(--charcoal);
   }
 
   .pillar p {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     line-height: 1.6;
-    color: var(--slate);
+    color: var(--charcoal);
+    opacity: 0.85;
   }
 
   /* ---------- WORKFLOW ---------- */
@@ -922,43 +953,40 @@ const TESTIMONIALS = [
   }
 
   .wf-dot {
-    width: 12px;
-    height: 12px;
+    width: 14px;
+    height: 14px;
     border-radius: 50%;
-    background: rgba(235, 235, 237, 0.25);
+    background: rgba(254, 254, 253, 0.25);
   }
 
-  .wf-dot.done {
-    background: var(--amber);
-  }
+  .wf-dot.done { background: var(--teal); }
 
   .wf-label {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 0.9375rem;
-    font-weight: 600;
+    font-size: 1rem;
+    font-weight: 800;
     letter-spacing: 0.12em;
+    color: var(--white);
   }
 
   .wf-line {
     width: 2px;
     height: 16px;
-    background: var(--hairline);
-    margin-left: 5px;
+    background: var(--line-light);
+    margin-left: 6px;
   }
 
   /* ---------- STATIONS ---------- */
   .station-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 0.875rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
     margin-bottom: 2.5rem;
   }
 
   .station {
-    border: 1px solid var(--hairline);
-    border-radius: 12px;
-    padding: 1.375rem;
-    background: rgba(255, 255, 255, 0.015);
+    background: var(--white);
+    border: 2px solid var(--charcoal);
+    padding: 1.25rem;
   }
 
   .station-head {
@@ -970,107 +998,84 @@ const TESTIMONIALS = [
   }
 
   .station-name {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
     font-size: 0.875rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    color: var(--charcoal);
   }
 
   .status-live {
     display: inline-flex;
     align-items: center;
     gap: 0.375rem;
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
     font-size: 0.6875rem;
-    font-weight: 600;
+    font-weight: 800;
     letter-spacing: 0.1em;
-    color: var(--amber);
+    color: var(--teal);
   }
 
   .status-ready {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
     font-size: 0.6875rem;
-    font-weight: 600;
+    font-weight: 800;
     letter-spacing: 0.1em;
-    color: var(--ink);
-    background: var(--amber);
-    border-radius: 9999px;
+    color: var(--white);
+    background: var(--charcoal);
     padding: 0.1875rem 0.625rem;
   }
 
   .status-pair {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
     font-size: 0.6875rem;
-    font-weight: 600;
+    font-weight: 800;
     letter-spacing: 0.1em;
-    color: var(--paper-bright);
-    border: 1px solid var(--hairline);
-    border-radius: 9999px;
+    color: var(--charcoal);
+    border: 1px solid var(--charcoal);
     padding: 0.1875rem 0.625rem;
   }
 
-  .station-detail {
-    font-size: 0.8125rem;
-    margin-bottom: 0.75rem;
-  }
+  .station-detail { font-size: 0.75rem; font-weight: 700; color: var(--charcoal); opacity: 0.7; margin-bottom: 0.75rem; letter-spacing: 0.04em; }
+  .station-orders { font-size: 1.0625rem; font-weight: 900; color: var(--charcoal); }
+  .station-rate { font-size: 0.8125rem; font-weight: 700; color: var(--charcoal); margin-top: 0.25rem; }
 
-  .station-orders {
-    font-size: 1.0625rem;
-    font-weight: 700;
-  }
-
-  .station-rate {
-    font-size: 0.8125rem;
-    margin-top: 0.25rem;
-  }
-
-  /* Automation rule */
+  /* Rule */
   .rule {
-    border: 1px solid var(--hairline);
-    border-radius: 12px;
+    background: var(--charcoal);
+    border: 2px solid var(--white);
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.015);
   }
+
+  .rule .meta { color: var(--orange); }
 
   .rule-title {
     font-size: 1.125rem;
-    font-weight: 700;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--white);
     margin-bottom: 1rem;
   }
 
-  .rule-box {
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-  }
+  .rule-box { display: flex; flex-direction: column; gap: 0.625rem; }
 
-  .rule-line {
-    font-size: 0.875rem;
-    line-height: 1.5;
-  }
+  .rule-line { font-size: 0.875rem; line-height: 1.5; color: var(--white); }
 
   .rule-if {
     display: inline-block;
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-weight: 700;
+    font-weight: 900;
     font-size: 0.6875rem;
     letter-spacing: 0.08em;
-    color: var(--paper-bright);
-    border: 1px solid var(--hairline);
-    border-radius: 6px;
+    color: var(--charcoal);
+    background: var(--orange);
     padding: 0.125rem 0.5rem;
     margin-right: 0.5rem;
   }
 
   .rule-then {
     display: inline-block;
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-weight: 700;
+    font-weight: 900;
     font-size: 0.6875rem;
     letter-spacing: 0.08em;
-    color: var(--ink);
-    background: var(--amber);
-    border-radius: 6px;
+    color: var(--charcoal);
+    background: var(--teal);
     padding: 0.125rem 0.5rem;
     margin-inline: 0.5rem;
   }
@@ -1078,119 +1083,82 @@ const TESTIMONIALS = [
   /* ---------- ANALYTICS ---------- */
   .metric-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 0.75rem;
     margin-bottom: 2.5rem;
   }
 
   .metric {
-    border: 1px solid var(--hairline-dark);
-    border-radius: 10px;
-    background: var(--paper-bright);
+    background: var(--white);
+    border: 2px solid var(--charcoal);
     padding: 1.125rem;
   }
 
-  .metric-value {
-    font-size: 1.625rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .metric-label {
-    font-size: 0.8125rem;
-    color: var(--slate);
-    margin-top: 0.25rem;
-  }
+  .metric-value { font-size: 1.75rem; font-weight: 900; color: var(--charcoal); letter-spacing: -0.02em; }
+  .metric-label { font-size: 0.75rem; font-weight: 700; color: var(--charcoal); opacity: 0.7; margin-top: 0.25rem; text-transform: uppercase; letter-spacing: 0.06em; }
 
   .kpi-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: 0.75rem;
   }
 
   .kpi {
-    border: 1px solid var(--hairline-dark);
-    border-radius: 10px;
-    background: var(--ink);
+    background: var(--charcoal);
+    border: 2px solid var(--charcoal);
     padding: 1.25rem;
   }
 
-  .kpi-value {
-    font-size: 1.875rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--amber);
-  }
-
-  .kpi-label {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    color: var(--steel);
-    margin-top: 0.375rem;
-  }
+  .kpi-value { font-size: 1.875rem; font-weight: 900; color: var(--teal); letter-spacing: -0.02em; }
+  .kpi-label { font-size: 0.625rem; font-weight: 800; letter-spacing: 0.1em; color: var(--grey); margin-top: 0.375rem; }
 
   /* ---------- FEATURES ---------- */
   .feature-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 
   .feature {
-    border: 1px solid var(--hairline-dark);
-    border-radius: 10px;
-    background: var(--paper-bright);
+    border: 2px solid var(--charcoal);
     padding: 1.5rem;
   }
 
+  .feature-0 { background: var(--white); }
+  .feature-1 { background: var(--peach); }
+
   .feature h3 {
     font-size: 1.125rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
     margin-bottom: 0.5rem;
+    color: var(--charcoal);
   }
 
-  .feature p {
-    font-size: 0.9375rem;
-    line-height: 1.65;
-    color: var(--slate);
-  }
+  .feature p { font-size: 0.9375rem; line-height: 1.65; color: var(--charcoal); opacity: 0.85; }
 
   /* ---------- PRICING ---------- */
   .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.75rem;
   }
 
   .price-card {
     display: flex;
     flex-direction: column;
     gap: 0.875rem;
-    border: 1px solid var(--hairline-dark);
-    border-radius: 12px;
-    background: var(--paper-bright);
-    padding: 1.5rem;
+    border: 2px solid var(--charcoal);
+    background: var(--white);
+    padding: 1.5rem 1.25rem;
   }
 
-  .price-name {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: var(--ink);
-  }
+  .price-1 { background: var(--teal); }
+  .price-3 { background: var(--orange); }
 
-  .price-value {
-    font-size: 1.75rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-  }
+  .price-name { font-size: 0.8125rem; font-weight: 900; letter-spacing: 0.1em; color: var(--charcoal); }
+  .price-value { font-size: 1.75rem; font-weight: 900; letter-spacing: -0.02em; color: var(--charcoal); }
 
   .price-card ul {
     list-style: none;
@@ -1199,85 +1167,79 @@ const TESTIMONIALS = [
     flex-direction: column;
     gap: 0.5rem;
     flex: 1;
-    font-size: 0.875rem;
-    color: var(--slate);
+    font-size: 0.8125rem;
+    color: var(--charcoal);
+    opacity: 0.9;
   }
 
-  .li-check {
-    color: var(--amber);
-    font-weight: 700;
-    margin-right: 0.25rem;
-  }
+  .li-check { color: var(--burnt); font-weight: 900; margin-right: 0.25rem; }
+  .price-1 .li-check, .price-3 .li-check { color: var(--charcoal); }
 
   .btn-price {
-    border: 1px solid var(--ink);
-    border-radius: 9999px;
+    border: 2px solid var(--charcoal);
+    border-radius: 0;
     text-align: center;
     padding: 0.625rem 1rem;
-    font-weight: 600;
-    font-size: 0.875rem;
-    color: var(--ink);
+    font-weight: 900;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--charcoal);
     transition: background 0.15s, color 0.15s;
   }
 
   .btn-price:hover {
-    background: var(--ink);
-    color: var(--paper-bright);
+    background: var(--charcoal);
+    color: var(--white);
   }
 
   /* ---------- TESTIMONIALS + CTA ---------- */
   .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
     margin-bottom: 3.5rem;
   }
 
   .testimonial {
-    border: 1px solid var(--hairline);
-    border-radius: 12px;
+    background: #2a1714;
+    border: 1px solid var(--line-light);
     padding: 1.5rem;
-    background: rgba(255, 255, 255, 0.015);
   }
 
   .testimonial .quote {
     font-size: 1rem;
     line-height: 1.65;
+    color: var(--white);
     margin-bottom: 1rem;
   }
 
   .testimonial-who {
-    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
-    font-size: 0.8125rem;
-    font-weight: 600;
+    font-size: 0.6875rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--orange);
   }
 
-  .final-cta {
-    text-align: center;
-  }
+  .final-cta { text-align: left; }
 
-  .final-cta h3 {
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 700;
-    letter-spacing: -0.03em;
-    line-height: 1.05;
+  .final-cta .display {
+    font-size: clamp(2rem, 5vw, 3.25rem);
     margin-bottom: 1rem;
-    text-wrap: balance;
   }
 
   .final-cta p {
     max-width: 38rem;
-    margin-inline: auto;
     font-size: 1rem;
     line-height: 1.65;
-    color: var(--steel);
+    color: var(--grey);
+    margin-bottom: 1.75rem;
   }
 
   /* ---------- FOOTER ---------- */
   .footer {
-    background: var(--ink-deep);
-    border-top: 1px solid var(--hairline);
-    padding-block: 1.75rem;
+    background: var(--charcoal);
+    border-top: 1px solid var(--line-light);
+    padding-block: 1.5rem;
   }
 
   .footer-inner {
@@ -1285,58 +1247,49 @@ const TESTIMONIALS = [
     flex-direction: column;
     align-items: center;
     gap: 0.25rem;
-    font-size: 0.8125rem;
-    color: var(--steel);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--grey);
     text-align: center;
   }
 
-  /* ---------- MOBILE: tiada word terputus, slide muat ---------- */
+  /* ---------- MOBILE ---------- */
+  @media (max-width: 900px) {
+    .pillar-grid { grid-template-columns: repeat(2, 1fr); }
+    .station-grid { grid-template-columns: 1fr; }
+    .metric-grid { grid-template-columns: repeat(2, 1fr); }
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .feature-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 640px) {
-    .section {
-      padding-block: 5rem;
-    }
+    .section { padding-block: 4.5rem; }
 
-    .links a:not(.cta) {
-      display: none;
-    }
+    .links a:not(.cta) { display: none; }
 
-    h2 {
-      font-size: 1.75rem;
-    }
+    .hero { padding-top: 7rem; }
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero .display { font-size: 2.5rem; }
 
-    .hero h1 {
-      font-size: 2.5rem;
-    }
+    .display { font-size: 1.75rem; }
 
-    .problem-grid {
-      grid-template-columns: 1fr;
-    }
+    .problem-grid { grid-template-columns: 1fr; }
+    .problem-arrow { transform: rotate(90deg); text-align: center; }
 
-    .problem-arrow {
-      transform: rotate(90deg);
-      text-align: center;
-    }
+    .pillar-grid, .station-grid, .metric-grid, .kpi-grid, .feature-grid, .pricing-grid, .testimonial-grid { grid-template-columns: 1fr; }
 
-    .stats {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .stat:nth-child(2) { border-right: none; }
+    .stat:nth-child(n+3) { border-top: 1px solid var(--line-light); }
 
-    .rule-line {
-      font-size: 0.8125rem;
-    }
-
-    .final-cta h3 {
-      font-size: 1.75rem;
-    }
+    .final-cta .display { font-size: 1.75rem; }
   }
 
   @media (max-width: 380px) {
-    .hero h1 {
-      font-size: 2.125rem;
-    }
-
-    .stats {
-      grid-template-columns: 1fr;
-    }
+    .hero .display { font-size: 2.125rem; }
+    .stats { grid-template-columns: 1fr; }
+    .stat { border-right: none; border-bottom: 1px solid var(--line-light); }
   }
 </style>
