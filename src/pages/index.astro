@@ -7,25 +7,25 @@ const CONSOLE = 'https://console.packory.app';
 const CHANNELS = ['Shopee', 'TikTok Shop', 'Lazada', 'Shopify', 'eBay', 'Amazon', 'WhatsApp', 'Google Drive'];
 
 const PILLARS = [
-  { key: '01', title: 'PROOF', text: 'Every order leaves with video evidence. No he-said-she-said.' },
-  { key: '02', title: 'SPEED', text: 'Hands-free by design. Scan, record, thumbs-up — zero screen touches.' },
-  { key: '03', title: 'TRUST', text: 'Buyers see their order being packed before it ships. Disputes lose their fuel.' },
-  { key: '04', title: 'SCALE', text: 'One camera or fifty. More orders without more chaos or more disputes.' },
+  { n: '01', kicker: 'PROOF', copy: 'Every order leaves with video evidence. No he-said-she-said.' },
+  { n: '02', kicker: 'SPEED', copy: 'Hands-free by design. Scan, record, thumbs-up — zero screen touches.' },
+  { n: '03', kicker: 'TRUST', copy: 'Buyers see their order being packed before it ships. Disputes lose their fuel.' },
+  { n: '04', kicker: 'SCALE', copy: 'One camera or fifty. More orders without more chaos or more disputes.' },
 ];
 
 const WORKFLOW = [
-  { label: 'AWB SCAN', done: true },
-  { label: 'RECORD', done: true },
-  { label: 'THUMBS-UP', done: true },
-  { label: 'SYNC TO DRIVE', done: true },
-  { label: 'WHATSAPP LINK', done: true },
-  { label: 'BUYER SEES PROOF', done: false },
+  { n: '01', label: 'AWB SCAN', copy: 'Barcode detected automatically, hands-free.' },
+  { n: '02', label: 'RECORD', copy: 'UTC timestamp burned into every frame.' },
+  { n: '03', label: 'THUMBS-UP', copy: 'Gesture stops the clip. Saved instantly.' },
+  { n: '04', label: 'SYNC TO DRIVE', copy: 'Background upload, resumes on reconnect.' },
+  { n: '05', label: 'WHATSAPP LINK', copy: 'Evidence link sent to buyer automatically.' },
+  { n: '06', label: 'BUYER SEES PROOF', copy: 'Their order, packed correctly, on video.' },
 ];
 
 const STATIONS = [
-  { name: 'STATION A', detail: 'Packing Line 1', orders: '1,248 orders verified', rate: '100% video coverage', status: 'LIVE' },
-  { name: 'STATION B', detail: 'Small Parcels', orders: '864 orders verified', rate: '99.2% sync success', status: 'READY' },
-  { name: 'STATION C', detail: 'Bulk / COD', orders: 'Pairing…', rate: 'Action needed', status: 'PAIR' },
+  { name: 'STATION A', detail: 'PACKING LINE 1', orders: '1,248 VERIFIED', rate: '100% COVERAGE', status: 'LIVE' },
+  { name: 'STATION B', detail: 'SMALL PARCELS', orders: '864 VERIFIED', rate: '99.2% SYNC', status: 'READY' },
+  { name: 'STATION C', detail: 'BULK / COD', orders: 'PAIRING…', rate: 'ACTION NEEDED', status: 'PAIR' },
 ];
 
 const METRICS = [
@@ -65,9 +65,9 @@ const FEATURES = [
 
 const PRICING = [
   { name: 'FREE', price: 'RM 0', features: ['1 licensed camera', 'Manual WhatsApp links', 'Unlimited packing records'] },
-  { name: 'STARTER', price: 'RM 49/mo', features: ['2 licensed cameras', 'WhatsApp credits available', 'Weekly sheet automation'] },
-  { name: 'PRO', price: 'RM 99/mo', features: ['5 licensed cameras', 'Direct seller channel', 'Priority support'] },
-  { name: 'SCALE', price: 'RM 199/mo', features: ['15 licensed cameras', 'All channels unlocked', 'Onboarding assistance'] },
+  { name: 'STARTER', price: 'RM 49/MO', features: ['2 licensed cameras', 'WhatsApp credits available', 'Weekly sheet automation'] },
+  { name: 'PRO', price: 'RM 99/MO', features: ['5 licensed cameras', 'Direct seller channel', 'Priority support'] },
+  { name: 'SCALE', price: 'RM 199/MO', features: ['15 licensed cameras', 'All channels unlocked', 'Onboarding assistance'] },
 ];
 
 const TESTIMONIALS = [
@@ -86,245 +86,168 @@ const TESTIMONIALS = [
   title="Packory — Every order. On video. Dispute-proof."
   description="Packory turns any cheap warehouse Android phone into a hands-free packing verification camera. Every order is recorded with a burned-in timestamp, stored in your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp."
 >
-  <header class="nav">
-    <div class="container nav-inner">
-      <a href="/" class="brand">
-        <span class="logo-box"></span>
-        {APP_NAME}
-      </a>
-      <nav class="links">
-        <a href="#workflow">PRODUCT</a>
-        <a href="#pricing">PRICING</a>
-        <a href={`${CONSOLE}/login`}>LOG IN</a>
-        <a href={`${CONSOLE}/signup`} class="cta">START FREE</a>
-      </nav>
-    </div>
+  <header class="topbar">
+    <div class="brand">{APP_NAME}.</div>
+    <nav class="nav">
+      <a href="#work">Product</a>
+      <a href="#pricing">Pricing</a>
+      <a href={`${CONSOLE}/login`}>Log In</a>
+      <a href={`${CONSOLE}/signup`} class="nav-cta">Start Free</a>
+    </nav>
   </header>
 
   <!-- 1. HERO -->
-  <section class="snap-screen hero">
-    <div class="hero-side" aria-hidden="true">
-      <span class="side-num">01</span>
-      <span class="side-line"></span>
-      <span class="side-meta">PKR·EST·2026</span>
+  <section class="hero">
+    <aside class="meta-rail"><div class="n">01</div><div class="year">2026<br />Selected</div><div class="menu-mark"></div></aside>
+    <div class="left">
+      <div class="wordmark">PACKORY</div>
+      <h1 class="title" style="margin-top:9vh">EVERY<br />ORDER.<br />ON VIDEO.<br /><span class="t-orange">DISPUTE-PROOF.</span></h1>
+      <p class="copy" style="margin-top:26px">Hands-free packing verification. Timestamped video evidence, synced to your own Google Drive, delivered to the buyer on WhatsApp.</p>
+      <div class="hero-actions" style="margin-top:32px">
+        <a href={`${CONSOLE}/signup`} class="btn-solid">Start Free</a>
+        <a href="#work" class="btn-ghost">See How It Works</a>
+      </div>
     </div>
-    <div class="container hero-main">
-      <span class="tag"><span class="dot"></span>PACKING VERIFICATION FOR ECOMMERCE</span>
-      <h1 class="display">
-        <span class="circle-word"><span class="word-circle orange">EVERY</span> ORDER.</span><br />
-        <span class="circle-word"><span class="word-circle teal">ON</span> VIDEO.</span><br />
-        <span class="accent">DISPUTE-PROOF.</span>
-      </h1>
-      <div class="hero-grid">
-        <p class="sub">
-          Packory turns any cheap warehouse Android phone into a hands-free packing
-          verification camera. Every order is recorded with a burned-in timestamp, stored in
-          your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp.
-        </p>
-        <div class="actions">
-          <a href={`${CONSOLE}/signup`} class="btn-primary">START FREE</a>
-          <a href="#workflow" class="btn-outline">SEE HOW IT WORKS</a>
+    <div class="right">
+      <div class="big-circle">
+        <div class="term">
+          <div class="term-bar"><span class="term-title">PACKING-TERMINAL · A</span><span class="live"><span class="pulse"></span>LIVE</span></div>
+          <div class="term-body">
+            <div class="term-row"><span class="tl">AWB</span><span class="tv">123456789012 <span class="ok">✓</span></span></div>
+            <div class="term-row"><span class="tl">STATUS</span><span class="tv"><span class="rec"></span> RECORDING</span></div>
+            <div class="term-row"><span class="tl">SYNC</span><span class="tv">SYNCED <span class="ok">✓</span></span></div>
+            <div class="term-row"><span class="tl">WA</span><span class="tv">LINK SENT <span class="ok">✓</span></span></div>
+          </div>
+          <div class="term-bc"><span class="bc-bars"></span><span class="bc-text">PKR-0A3F-9C2E-7741</span></div>
         </div>
       </div>
-      <div class="terminal">
-        <div class="term-bar">
-          <span class="term-title">PACKING-TERMINAL · STATION A</span>
-          <span class="live"><span class="pulse"></span>LIVE</span>
-        </div>
-        <div class="term-body">
-          <div class="term-row"><span class="term-label">AWB</span><span class="term-val">123456789012 <span class="ok">✓</span></span></div>
-          <div class="term-row"><span class="term-label">STATUS</span><span class="term-val"><span class="rec"></span> RECORDING — UTC 12:04:31</span></div>
-          <div class="term-row"><span class="term-label">SYNC</span><span class="term-val">SYNCED TO DRIVE <span class="ok">✓</span></span></div>
-          <div class="term-row"><span class="term-label">WHATSAPP</span><span class="term-val">EVIDENCE LINK SENT <span class="ok">✓</span></span></div>
-        </div>
-      </div>
-      <div class="stats">
-        <div class="stat"><strong>0</strong><span>VIDEO BYTES ON OUR SERVERS</span></div>
-        <div class="stat"><strong>&lt;100MS</strong><span>UI RESET AFTER EACH ORDER</span></div>
-        <div class="stat"><strong>24/7</strong><span>BACKGROUND SYNC &amp; RETRY</span></div>
-        <div class="stat"><strong>1.5S</strong><span>THROTTLED AWB SCAN RATE</span></div>
-      </div>
+      <div class="hatch"></div>
+      <div class="dot"></div>
     </div>
   </section>
 
   <!-- 2. CHANNELS -->
-  <section class="snap-screen section white">
-    <div class="section-side" aria-hidden="true">
-      <span class="side-num">02</span>
-      <span class="side-line"></span>
-    </div>
-    <div class="container">
-      <span class="tag">INTEGRATIONS</span>
-      <h2 class="display">PROVE EVERY ORDER.<br />ON EVERY CHANNEL.</h2>
-      <p class="sub">One evidence link, sent to the buyer on WhatsApp — regardless of marketplace.</p>
-      <div class="channel-grid">
-        {CHANNELS.map((c) => (
-          <div class="channel">
-            <span>{c}</span>
-            <span class="connected"><span class="dot"></span>CONNECTED</span>
+  <section id="work" class="section white">
+    <aside class="meta-rail"><div class="n">02</div><div class="year">2026<br />Work</div><div class="menu-mark"></div></aside>
+    <div class="section-body">
+      <div class="wordmark">CONNECTED.</div>
+      <h2 class="title" style="margin-top:34px">PROVE EVERY ORDER.<br />ON EVERY CHANNEL.</h2>
+      <p class="copy" style="margin-top:18px">One evidence link, sent to the buyer on WhatsApp — regardless of marketplace.</p>
+      <div class="editorial-grid" style="margin-top:40px">
+        {CHANNELS.map((c, i) => (
+          <div class={`chan chan-${i % 3}`}>
+            <span class="chan-name">{c}</span>
+            <span class="chan-status"><span class="dot-sm"></span>CONNECTED</span>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- 3. PROBLEM -->
-  <section class="snap-screen section teal">
-    <div class="section-side" aria-hidden="true">
-      <span class="side-num">03</span>
-      <span class="side-line"></span>
+  <!-- 3. PROBLEM — split color -->
+  <section class="split-color">
+    <div class="teal-panel">
+      <div class="wordmark">THE PROBLEM</div>
+      <h2 class="title" style="margin-top:52px">MORE ORDERS<br />SHOULDN’T MEAN<br />MORE DISPUTES.</h2>
+      <p class="copy" style="margin-top:28px">Parcel-swap and empty-box claims force refunds with no proof. The marketplace has no video — so someone always loses.</p>
     </div>
-    <div class="container">
-      <span class="tag-dark">THE PROBLEM</span>
-      <h2 class="display">MORE ORDERS SHOULDN’T<br />MEAN MORE DISPUTES.</h2>
-      <div class="problem-grid">
-        <div class="problem-box">
-          <h3 class="meta">BEFORE</h3>
-          <ul class="chaos">
-            <li>Marketplace dispute</li>
-            <li>Buyer claim: “empty box”</li>
-            <li>Refund forced</li>
-            <li>No proof of packing</li>
-            <li>Manual WhatsApp threads</li>
-          </ul>
-        </div>
-        <div class="problem-arrow">→</div>
-        <div class="problem-box dark-box">
-          <h3 class="meta-light">WITH PACKORY</h3>
-          <ul class="calm">
-            <li>Automated, timestamped</li>
-            <li>Tamper-evident video</li>
-            <li>Evidence on WhatsApp</li>
-            <li>Dispute fuel removed</li>
-            <li class="strong">ONE SYSTEM. EVERY ORDER.</li>
-          </ul>
-        </div>
+    <div class="orange-panel">
+      <div class="chaos-list">
+        <div class="chaos-item"><span class="x">×</span><span>Marketplace dispute</span></div>
+        <div class="chaos-item"><span class="x">×</span><span>Buyer claim: “empty box”</span></div>
+        <div class="chaos-item"><span class="x">×</span><span>Refund forced</span></div>
+        <div class="chaos-item"><span class="x">×</span><span>No proof of packing</span></div>
+        <div class="chaos-item ok-item"><span class="ok-mark">✓</span><span>With Packory: evidence on WhatsApp</span></div>
       </div>
     </div>
   </section>
 
   <!-- 4. PILLARS -->
-  <section class="snap-screen section white">
-    <div class="section-side" aria-hidden="true">
-      <span class="side-num">04</span>
-      <span class="side-line"></span>
-    </div>
-    <div class="container">
-      <span class="tag">WHY PACKORY</span>
-      <h2 class="display">FOUR PILLARS.<br />ONE OUTCOME: TRUST.</h2>
-      <div class="pillar-grid">
-        {PILLARS.map((p, i) => (
-          <div class={`pillar pillar-${i % 4}`}>
-            <div class="pillar-key">{p.key}</div>
-            <h3>{p.title}</h3>
-            <p>{p.text}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. WORKFLOW -->
-  <section id="workflow" class="snap-screen section teal">
-    <div class="section-side" aria-hidden="true">
-      <span class="side-num">05</span>
-      <span class="side-line"></span>
-    </div>
-    <div class="container">
-      <span class="tag-dark">HOW IT WORKS</span>
-      <h2 class="display">FROM AWB SCAN TO<br />EVIDENCE SENT. AUTOMATICALLY.</h2>
-      <div class="workflow">
-        {WORKFLOW.map((w, i) => (
-          <>
-            <div class="wf-step">
-              <span class={w.done ? 'wf-dot done' : 'wf-dot'}></span>
-              <span class="wf-label">{w.label}</span>
-            </div>
-            {i < WORKFLOW.length - 1 && <span class="wf-line"></span>}
-          </>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. STATIONS + AUTOMATION -->
-  <section class="snap-screen section white">
-    <div class="section-side" aria-hidden="true">
-      <span class="side-num">06</span>
-      <span class="side-line"></span>
-    </div>
-    <div class="container">
-      <span class="tag">OPERATIONS</span>
-      <h2 class="display">RUN EVERY PACKING STATION<br />FROM ONE PLACE.</h2>
-      <div class="station-grid">
-        {STATIONS.map((s) => (
-          <div class="station">
-            <div class="station-head">
-              <span class="station-name">{s.name}</span>
-              {s.status === 'LIVE' && <span class="status-live"><span class="pulse"></span>LIVE</span>}
-              {s.status === 'READY' && <span class="status-ready">READY</span>}
-              {s.status === 'PAIR' && <span class="status-pair">PAIRING…</span>}
-            </div>
-            <div class="station-detail">{s.detail}</div>
-            <div class="station-orders">{s.orders}</div>
-            <div class="station-rate">{s.rate}</div>
-          </div>
-        ))}
-      </div>
-      <div class="rule">
-        <p class="meta">AUTOMATE THE REPETITIVE WORK</p>
-        <div class="rule-title">LET THE CAMERA DO THE WORK.</div>
-        <div class="rule-box">
-          <div class="rule-line"><span class="rule-if">IF</span> AWB barcode detected <span class="rule-then">THEN</span> start recording</div>
-          <div class="rule-line"><span class="rule-if">IF</span> thumbs-up detected <span class="rule-then">THEN</span> stop clip, save to device</div>
-          <div class="rule-line"><span class="rule-if">IF</span> upload complete <span class="rule-then">THEN</span> send WhatsApp link to buyer</div>
+  <section id="about" class="section white">
+    <aside class="meta-rail"><div class="n">03</div><div class="year">2026<br />System</div><div class="menu-mark"></div></aside>
+    <div class="section-body">
+      <div class="grid-2">
+        <div>
+          <div class="wordmark teal-dot">WHY PACKORY</div>
+          <h2 class="title" style="margin-top:38px">FOUR PILLARS.<br />ONE OUTCOME:<br />TRUST.</h2>
+        </div>
+        <div class="lines">
+          {PILLARS.map((p) => (
+            <div class="line-item"><b>{p.n}</b><span class="kicker">{p.kicker}</span><span class="copy">{p.copy}</span></div>
+          ))}
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 7. ANALYTICS -->
-  <section class="snap-screen section teal">
-    <div class="section-side" aria-hidden="true">
-      <span class="side-num">07</span>
-      <span class="side-line"></span>
+  <!-- 5. WORKFLOW -->
+  <section class="section teal">
+    <aside class="meta-rail"><div class="n">04</div><div class="year">2026<br />Flow</div><div class="menu-mark"></div></aside>
+    <div class="section-body">
+      <div class="wordmark">HOW IT WORKS</div>
+      <h2 class="title" style="margin-top:34px">AWB SCAN TO EVIDENCE SENT.<br />AUTOMATICALLY.</h2>
+      <div class="lines" style="margin-top:44px">
+        {WORKFLOW.map((w) => (
+          <div class="line-item"><b>{w.n}</b><span class="kicker">{w.label}</span><span class="copy">{w.copy}</span></div>
+        ))}
+      </div>
     </div>
-    <div class="container">
-      <span class="tag-dark">ANALYTICS</span>
-      <h2 class="display">SEE WHAT’S HAPPENING BEFORE<br />IT BECOMES A CLAIM.</h2>
-      <div class="metric-grid">
-        {METRICS.map((m) => (
-          <div class="metric">
-            <div class="metric-value">{m.value}</div>
-            <div class="metric-label">{m.label}</div>
+  </section>
+
+  <!-- 6. STATIONS -->
+  <section id="studio" class="section orange">
+    <aside class="meta-rail"><div class="n">05</div><div class="year">2026<br />Ops</div><div class="menu-mark"></div></aside>
+    <div class="section-body">
+      <div class="wordmark teal-dot">OPERATIONS</div>
+      <h2 class="title" style="margin-top:34px">RUN EVERY STATION<br />FROM ONE PLACE.</h2>
+      <div class="gallery-wall" style="margin-top:44px">
+        {STATIONS.map((s) => (
+          <div class="station-card">
+            <div class="sc-head">
+              <span class="sc-name">{s.name}</span>
+              {s.status === 'LIVE' && <span class="sc-live"><span class="pulse"></span>LIVE</span>}
+              {s.status === 'READY' && <span class="sc-ready">READY</span>}
+              {s.status === 'PAIR' && <span class="sc-pair">PAIRING…</span>}
+            </div>
+            <div class="sc-detail">{s.detail}</div>
+            <div class="sc-orders">{s.orders}</div>
+            <div class="sc-rate">{s.rate}</div>
           </div>
         ))}
       </div>
-      <div class="kpi-grid">
+    </div>
+  </section>
+
+  <!-- 7. ANALYTICS -->
+  <section class="section white">
+    <aside class="meta-rail"><div class="n">06</div><div class="year">2026<br />Data</div><div class="menu-mark"></div></aside>
+    <div class="section-body">
+      <div class="wordmark">ANALYTICS</div>
+      <h2 class="title" style="margin-top:34px">SEE WHAT’S HAPPENING<br />BEFORE IT BECOMES A CLAIM.</h2>
+      <div class="metric-row" style="margin-top:40px">
+        {METRICS.map((m) => (
+          <div class="metric"><b>{m.value}</b><span class="kicker">{m.label}</span></div>
+        ))}
+      </div>
+      <div class="kpi-row" style="margin-top:26px">
         {KPI.map((k) => (
-          <div class="kpi">
-            <div class="kpi-value">{k.value}</div>
-            <div class="kpi-label">{k.label}</div>
-          </div>
+          <div class="kpi"><b>{k.value}</b><span class="kicker">{k.label}</span></div>
         ))}
       </div>
     </div>
   </section>
 
   <!-- 8. FEATURES -->
-  <section id="features" class="snap-screen section white">
-    <div class="section-side" aria-hidden="true">
-      <span class="side-num">08</span>
-      <span class="side-line"></span>
-    </div>
-    <div class="container">
-      <span class="tag">FEATURES</span>
-      <h2 class="display">ENGINEERED FOR HOT,<br />NOISY WAREHOUSES.</h2>
-      <div class="feature-grid">
+  <section id="features" class="section white">
+    <aside class="meta-rail"><div class="n">07</div><div class="year">2026<br />Build</div><div class="menu-mark"></div></aside>
+    <div class="section-body">
+      <div class="wordmark teal-dot">FEATURES</div>
+      <h2 class="title" style="margin-top:34px">ENGINEERED FOR HOT,<br />NOISY WAREHOUSES.</h2>
+      <div class="feature-grid" style="margin-top:40px">
         {FEATURES.map((f, i) => (
-          <div class={`feature feature-${i % 2}`}>
-            <h3>{f.title}</h3>
-            <p>{f.text}</p>
+          <div class={`feature f-${i % 2}`}>
+            <div class="kicker">{f.title}</div>
+            <p class="copy" style="margin-top:12px">{f.text}</p>
           </div>
         ))}
       </div>
@@ -332,24 +255,19 @@ const TESTIMONIALS = [
   </section>
 
   <!-- 9. PRICING -->
-  <section id="pricing" class="snap-screen section white">
-    <div class="section-side" aria-hidden="true">
-      <span class="side-num">09</span>
-      <span class="side-line"></span>
-    </div>
-    <div class="container">
-      <span class="tag">PRICING</span>
-      <h2 class="display">PAY PER CAMERA.</h2>
-      <p class="sub">One license per device. Paid securely via MYR FPX, cards, or local e-wallets.</p>
-      <div class="pricing-grid">
+  <section id="pricing" class="section peach">
+    <aside class="meta-rail"><div class="n">08</div><div class="year">2026<br />Plan</div><div class="menu-mark"></div></aside>
+    <div class="section-body">
+      <div class="wordmark">PRICING</div>
+      <h2 class="title" style="margin-top:34px">PAY PER CAMERA.</h2>
+      <p class="copy" style="margin-top:16px">One license per device. Paid securely via MYR FPX, cards, or local e-wallets.</p>
+      <div class="pricing-grid" style="margin-top:38px">
         {PRICING.map((p, i) => (
-          <div class={`price-card price-${i % 2}`}>
-            <div class="price-name">{p.name}</div>
-            <div class="price-value">{p.price}</div>
+          <div class={`price p-${i % 2}`}>
+            <div class="kicker">{p.name}</div>
+            <div class="price-val">{p.price}</div>
             <ul>
-              {p.features.map((f) => (
-                <li><span class="li-check">✓</span> {f}</li>
-              ))}
+              {p.features.map((f) => (<li><span class="li-check">✓</span>{f}</li>))}
             </ul>
             <a href={`${CONSOLE}/signup`} class="btn-price">GET STARTED</a>
           </div>
@@ -358,938 +276,207 @@ const TESTIMONIALS = [
     </div>
   </section>
 
-  <!-- 10. TESTIMONIALS + FINAL CTA -->
-  <section class="snap-screen section charcoal">
-    <div class="section-side" aria-hidden="true">
-      <span class="side-num">10</span>
-      <span class="side-line"></span>
-    </div>
-    <div class="container">
-      <span class="tag-light">CUSTOMERS</span>
-      <h2 class="display on-dark">BUILT FOR SELLERS WHO CAN’T<br />AFFORD ANOTHER EMPTY-BOX CLAIM.</h2>
-      <div class="testimonial-grid">
+  <!-- 10. TESTIMONIALS + CTA -->
+  <section id="contact" class="contact">
+    <aside class="meta-rail"><div class="n">09</div><div class="year">2026<br />Proof</div><div class="menu-mark"></div></aside>
+    <div class="section-body">
+      <div class="wordmark">CUSTOMERS</div>
+      <div class="testi-grid" style="margin-top:30px">
         {TESTIMONIALS.map((t) => (
-          <div class="testimonial">
-            <p class="quote">“{t.quote}”</p>
-            <div class="testimonial-who">{t.who}</div>
-          </div>
+          <div class="testi"><p class="t-quote">“{t.quote}”</p><span class="kicker">{t.who}</span></div>
         ))}
       </div>
-      <div class="final-cta">
-        <h3 class="display on-dark">READY TO PUT YOUR ORDERS<br />ON THE RECORD?</h3>
-        <p class="on-dark-muted">Turn any Android phone into a hands-free packing verification camera. Free to start. Your videos stay in your own Google Drive.</p>
-        <div class="actions">
-          <a href={`${CONSOLE}/signup`} class="btn-primary">START FREE</a>
-          <a href={`${CONSOLE}/login`} class="btn-outline-light">BOOK A DEMO</a>
-        </div>
+      <h2 class="title big" style="margin-top:52px">READY TO PUT<br />YOUR ORDERS<br />ON THE RECORD?</h2>
+      <div class="hero-actions" style="margin-top:34px">
+        <a href={`${CONSOLE}/signup`} class="btn-solid">Start Free</a>
+        <a href={`${CONSOLE}/login`} class="btn-ghost">Book a Demo</a>
       </div>
     </div>
   </section>
 
   <footer class="footer">
-    <div class="container footer-inner">
-      <span>© {new Date().getFullYear()} {APP_NAME}</span>
-      <span>BUILT FOR MALAYSIAN E-COMMERCE MERCHANTS 🇲🇾</span>
-    </div>
+    <span>© {new Date().getFullYear()} PACKORY</span>
+    <span>BUILT FOR MALAYSIAN E-COMMERCE MERCHANTS 🇲🇾</span>
   </footer>
 </Base>
 
 <style>
-  /* ===== RETRO EDITORIAL SYSTEM — orange / teal / white / charcoal ===== */
   :root {
-    --orange: #fd8405;
-    --burnt: #e45507;
-    --tangerine: #f89437;
-    --teal: #13b9b6;
-    --white: #fefefd;
-    --charcoal: #341c19;
-    --grey: #bfd1ce;
-    --peach: #f2b279;
-    --line: rgba(52, 28, 25, 0.18);
-    --line-light: rgba(254, 254, 253, 0.25);
+    --orange: #fd8405; --teal: #13b9b6; --white: #fefefd; --charcoal: #341c19;
+    --burnt: #e45507; --tangerine: #f89437; --mist: #bfd1ce; --peach: #f2b279;
   }
+  * { box-sizing: border-box; }
 
-  /* ---------- NAV ---------- */
-  .nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 50;
-    background: var(--charcoal);
-    border-bottom: 1px solid var(--line-light);
+  /* ===== BASE (ikut reference) ===== */
+  .topbar {
+    position: sticky; top: 0; z-index: 20; height: 72px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw; background: rgba(254,254,253,.96);
+    border-bottom: 1px solid rgba(52,28,25,.12);
   }
+  .brand { font-weight: 900; letter-spacing: -.04em; font-size: 21px; text-transform: uppercase; }
+  .nav { display: flex; gap: 28px; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; align-items: center; }
+  .nav a { color: var(--charcoal); opacity: .75; transition: opacity .15s; }
+  .nav a:hover { opacity: 1; }
+  .nav .nav-cta { background: var(--orange); color: var(--charcoal); padding: 10px 20px; opacity: 1; }
 
-  .nav-inner {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 4rem;
-  }
+  .kicker { font-size: 10px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
+  .copy { font-size: 11px; line-height: 1.65; max-width: 36ch; }
+  .title { margin: 0; font-size: clamp(30px, 4.4vw, 62px); line-height: .92; font-weight: 900; letter-spacing: -.04em; text-transform: uppercase; }
+  .wordmark { position: relative; z-index: 1; display: inline-block; font-size: clamp(22px, 3vw, 40px); font-weight: 900; letter-spacing: -.04em; text-transform: uppercase; }
+  .wordmark::before { content: ""; position: absolute; z-index: -1; width: .92em; height: .92em; border-radius: 50%; left: -.28em; top: 50%; transform: translateY(-50%); background: var(--orange); }
+  .wordmark.teal-dot::before { background: var(--teal); }
+  .dot { width: 32px; height: 32px; border-radius: 50%; background: var(--teal); }
+  .dot-sm { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); display: inline-block; }
+  .hatch { width: 44px; height: 44px; border-radius: 50%; background: repeating-linear-gradient(45deg, transparent 0 2px, rgba(255,255,255,.65) 2px 3px); }
 
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 0.625rem;
-    font-weight: 800;
-    font-size: 1.125rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--white);
-  }
+  .meta-rail { position: relative; padding: 22px 18px; border-right: 1px solid currentColor; min-width: 76px; }
+  .meta-rail .n { font-size: 17px; font-weight: 800; margin-bottom: 72px; }
+  .meta-rail .year { position: absolute; left: 18px; bottom: 70px; font-size: 8px; line-height: 1.4; }
+  .menu-mark { position: absolute; left: 18px; bottom: 18px; width: 22px; height: 14px; }
+  .menu-mark::before, .menu-mark::after { content: ""; position: absolute; left: 0; height: 4px; border-radius: 4px; background: currentColor; }
+  .menu-mark::before { width: 18px; top: 1px; } .menu-mark::after { width: 22px; bottom: 1px; }
 
-  .logo-box {
-    width: 14px;
-    height: 14px;
-    background: var(--orange);
-    display: inline-block;
-  }
+  /* ===== HERO (reference: 110px 1.05fr .95fr) ===== */
+  .hero { min-height: calc(100vh - 72px); display: grid; grid-template-columns: 110px 1.05fr .95fr; background: var(--white); }
+  .hero .left { background: var(--teal); color: white; padding: 6vw; display: flex; flex-direction: column; justify-content: center; }
+  .hero .left .title { color: white; }
+  .hero .left .t-orange { color: var(--orange); }
+  .hero .left .copy { color: rgba(255,255,255,.85); }
+  .hero .right { background: var(--orange); padding: 4vw; display: flex; align-items: center; justify-content: center; position: relative; }
+  .hero .right .big-circle { width: min(30vw, 440px); height: min(30vw, 440px); border-radius: 50%; overflow: hidden; background: var(--charcoal); display: flex; align-items: center; justify-content: center; }
+  .hero .right .hatch { position: absolute; right: 8%; top: 10%; }
+  .hero .right .dot { position: absolute; right: 8%; bottom: 8%; }
 
-  .links {
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-solid { background: var(--orange); color: var(--charcoal); padding: 14px 26px; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  .btn-ghost { border: 1px solid rgba(255,255,255,.5); color: white; padding: 13px 24px; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 
-  .links a {
-    color: var(--white);
-    opacity: 0.75;
-    transition: opacity 0.15s;
-  }
-
-  .links a:hover {
-    opacity: 1;
-  }
-
-  .links .cta {
-    background: var(--orange);
-    color: var(--charcoal);
-    border-radius: 0;
-    padding: 0.5rem 1.25rem;
-    font-weight: 800;
-    opacity: 1;
-  }
-
-  /* ---------- SIDE COLUMN (editorial) ---------- */
-  .hero-side, .section-side {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    width: 3.5rem;
-    flex-shrink: 0;
-    padding-top: 1rem;
-    border-right: 1px solid var(--line-light);
-  }
-
-  .section-side {
-    border-right: 1px solid var(--line);
-  }
-
-  .side-num {
-    font-size: 1.25rem;
-    font-weight: 800;
-    color: var(--white);
-    opacity: 0.6;
-  }
-
-  .section-side .side-num {
-    color: var(--charcoal);
-  }
-
-  .side-line {
-    width: 1px;
-    flex: 1;
-    background: var(--line-light);
-    min-height: 3rem;
-  }
-
-  .section-side .side-line {
-    background: var(--line);
-  }
-
-  .side-meta {
-    writing-mode: vertical-rl;
-    font-size: 0.625rem;
-    font-weight: 700;
-    letter-spacing: 0.2em;
-    color: var(--white);
-    opacity: 0.5;
-    padding-bottom: 1rem;
-  }
-
-  /* ---------- BASE ---------- */
-  .section {
-    min-height: 100svh;
-    display: flex;
-    align-items: center;
-    padding-block: 6rem;
-    position: relative;
-  }
-
-  .section.teal { background: var(--teal); }
-  .section.orange { background: var(--orange); }
-  .section.white { background: var(--white); }
-  .section.charcoal { background: var(--charcoal); }
-  .section.peach { background: var(--peach); }
-
-  .display {
-    font-size: clamp(2rem, 5.5vw, 3.75rem);
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: -0.02em;
-    line-height: 1.02;
-    color: var(--charcoal);
-    margin-bottom: 1.5rem;
-    text-wrap: balance;
-  }
-
-  .on-dark {
-    color: var(--white);
-  }
-
-  /* tag */
-  .tag, .tag-dark, .tag-light {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.6875rem;
-    font-weight: 800;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    margin-bottom: 1.25rem;
-  }
-
-  .tag { color: var(--teal); }
-  .tag-dark { color: var(--charcoal); }
-  .tag-light { color: var(--orange); }
-
-  .dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--orange);
-    display: inline-block;
-  }
-
-  .tag-dark .dot { background: var(--charcoal); }
-  .tag-light .dot { background: var(--orange); }
-
-  /* sub */
-  .sub, .sub-dark {
-    font-size: 1.0625rem;
-    line-height: 1.65;
-    max-width: 40rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .sub { color: var(--charcoal); }
-  .sub-dark { color: var(--charcoal); }
-
-  .meta, .meta-light {
-    font-size: 0.6875rem;
-    font-weight: 800;
-    letter-spacing: 0.16em;
-    margin-bottom: 0.875rem;
-  }
-
-  .meta { color: var(--charcoal); }
-  .meta-light { color: var(--white); opacity: 0.7; }
-
-  .strong { font-weight: 800; color: var(--charcoal); }
-
-  /* ---------- HERO ---------- */
-  .hero {
-    background: var(--charcoal);
-    min-height: 100svh;
-    display: flex;
-    padding-top: 6.5rem;
-    padding-bottom: 4rem;
-  }
-
-  .hero-main {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    width: 100%;
-    padding-left: 1.5rem;
-  }
-
-  .hero .display {
-    color: var(--white);
-    font-size: clamp(2.5rem, 7.5vw, 5rem);
-  }
-
-  .hero .accent {
-    color: var(--orange);
-  }
-
-  .circle-word {
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-  }
-
-  .word-circle {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    padding: 0.15em 0.3em;
-    margin-right: 0.2em;
-    font-weight: 900;
-  }
-
-  .word-circle.orange { background: var(--orange); color: var(--charcoal); }
-  .word-circle.teal { background: var(--teal); color: var(--white); }
-
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 2rem;
-    align-items: end;
-    width: 100%;
-    margin-top: 1rem;
-  }
-
-  .hero .sub {
-    color: var(--grey);
-    margin-bottom: 0;
-    max-width: 34rem;
-  }
-
-  .actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.625rem;
-  }
-
-  .btn-primary {
-    background: var(--orange);
-    color: var(--charcoal);
-    border-radius: 0;
-    padding: 0.75rem 1.5rem;
-    font-weight: 800;
-    font-size: 0.8125rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .btn-outline {
-    border: 1px solid var(--line-light);
-    color: var(--white);
-    border-radius: 0;
-    padding: 0.75rem 1.5rem;
-    font-weight: 700;
-    font-size: 0.8125rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .btn-outline-light {
-    border: 1px solid var(--line-light);
-    color: var(--white);
-    border-radius: 0;
-    padding: 0.75rem 1.5rem;
-    font-weight: 700;
-    font-size: 0.8125rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  /* Terminal */
-  .terminal {
-    width: 100%;
-    max-width: 34rem;
-    margin-top: 3rem;
-    border: 1px solid var(--line-light);
-    background: #2a1714;
-    text-align: left;
-  }
-
-  .term-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0.625rem 1rem;
-    border-bottom: 1px solid var(--line-light);
-  }
-
-  .term-title {
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    color: var(--grey);
-  }
-
-  .live {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    font-size: 0.6875rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    color: var(--teal);
-  }
-
-  .pulse {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--teal);
-    animation: pulse 1.6s ease-in-out infinite;
-  }
-
-  @keyframes pulse {
-    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(19, 185, 182, 0.5); }
-    50% { opacity: 0.55; box-shadow: 0 0 0 6px rgba(19, 185, 182, 0); }
-  }
-
-  .term-body {
-    padding: 1rem 1.125rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-  }
-
-  .term-row {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-    font-size: 0.8125rem;
-  }
-
-  .term-label {
-    width: 6.5rem;
-    color: var(--grey);
-    font-size: 0.6875rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-  }
-
-  .term-val {
-    color: var(--white);
-    font-weight: 500;
-  }
-
+  /* terminal dalam big circle */
+  .term { width: 72%; text-align: left; color: white; }
+  .term-bar { display: flex; justify-content: space-between; align-items: center; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.2); font-size: 8px; letter-spacing: .14em; }
+  .term-title { color: rgba(255,255,255,.6); font-weight: 700; }
+  .live { display: inline-flex; align-items: center; gap: 5px; color: var(--teal); font-weight: 800; }
+  .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(19,185,182,.5);} 50% { opacity:.55; box-shadow:0 0 0 6px rgba(19,185,182,0);} }
+  .term-body { padding-top: 10px; display: flex; flex-direction: column; gap: 7px; font-size: 9px; }
+  .term-row { display: flex; gap: 8px; align-items: baseline; }
+  .tl { width: 44px; color: rgba(255,255,255,.5); font-weight: 700; font-size: 7px; letter-spacing: .1em; }
+  .tv { font-weight: 500; }
   .ok { color: var(--teal); font-weight: 800; }
-  .rec {
-    display: inline-block;
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--orange);
-    animation: pulse 1.6s ease-in-out infinite;
-  }
-
-  /* Stats */
-  .stats {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    width: 100%;
-    max-width: 46rem;
-    margin-top: 2.5rem;
-    border: 1px solid var(--line-light);
-  }
-
-  .stat {
-    padding: 1rem;
-    border-right: 1px solid var(--line-light);
-  }
-
-  .stat:last-child { border-right: none; }
-
-  .stat strong {
-    display: block;
-    font-size: 1.375rem;
-    font-weight: 900;
-    color: var(--orange);
-  }
-
-  .stat span {
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    color: var(--grey);
-    line-height: 1.45;
-    display: block;
-    margin-top: 0.25rem;
-  }
-
-  /* ---------- CHANNELS ---------- */
-  .channel-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 0;
-    border: 2px solid var(--charcoal);
-    background: var(--charcoal);
-  }
-
-  .channel {
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-    background: var(--white);
-    padding: 1.125rem 1.25rem;
-    border: 1px solid var(--charcoal);
-    font-weight: 800;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--charcoal);
-  }
-
-  .connected {
-    font-size: 0.625rem;
-    font-weight: 800;
-    letter-spacing: 0.12em;
-    color: var(--charcoal);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    width: fit-content;
-  }
-
-  .connected .dot { background: var(--teal); }
-
-  /* ---------- PROBLEM ---------- */
-  .problem-grid {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 1.25rem;
-    align-items: center;
-    margin-top: 1.5rem;
-  }
-
-  .problem-box {
-    background: var(--white);
-    border: 2px solid var(--charcoal);
-    padding: 1.5rem;
-  }
-
-  .problem-box.dark-box {
-    background: var(--charcoal);
-    border-color: var(--charcoal);
-  }
-
-  .problem-box ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.625rem;
-    font-size: 0.875rem;
-  }
-
-  .chaos li { color: var(--charcoal); padding-left: 1rem; position: relative; }
-  .chaos li::before { content: '×'; position: absolute; left: 0; color: var(--burnt); font-weight: 800; }
-
-  .calm li { color: var(--white); padding-left: 1.125rem; position: relative; }
-  .calm li::before { content: '✓'; position: absolute; left: 0; color: var(--teal); font-weight: 800; }
-
-  .problem-arrow {
-    font-size: 1.75rem;
-    color: var(--charcoal);
-    font-weight: 900;
-  }
-
-  /* ---------- PILLARS ---------- */
-  .pillar-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.75rem;
-  }
-
-  .pillar {
-    border: 2px solid var(--charcoal);
-    padding: 1.5rem 1.25rem;
-    min-height: 14rem;
-  }
-
-  .pillar-0 { background: var(--orange); }
-  .pillar-1 { background: var(--teal); }
-  .pillar-2 { background: var(--white); }
-  .pillar-3 { background: var(--peach); }
-
-  .pillar-key {
-    font-size: 1.5rem;
-    font-weight: 900;
-    color: var(--charcoal);
-    margin-bottom: 1rem;
-  }
-
-  .pillar h3 {
-    font-size: 1.375rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    margin-bottom: 0.625rem;
-    color: var(--charcoal);
-  }
-
-  .pillar p {
-    font-size: 0.875rem;
-    line-height: 1.6;
-    color: var(--charcoal);
-    opacity: 0.85;
-  }
-
-  /* ---------- WORKFLOW ---------- */
-  .workflow {
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-    margin-top: 2rem;
-  }
-
-  .wf-step {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .wf-dot {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: rgba(52, 28, 25, 0.2);
-  }
-
-  .wf-dot.done { background: var(--orange); }
-
-  .wf-label {
-    font-size: 1rem;
-    font-weight: 900;
-    letter-spacing: 0.12em;
-    color: var(--charcoal);
-  }
-
-  .wf-line {
-    width: 2px;
-    height: 16px;
-    background: rgba(52, 28, 25, 0.2);
-    margin-left: 6px;
-  }
-
-  /* ---------- STATIONS ---------- */
-  .station-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.75rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .station {
-    background: var(--white);
-    border: 2px solid var(--charcoal);
-    padding: 1.25rem;
-  }
-
-  .station-head {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .station-name {
-    font-size: 0.875rem;
-    font-weight: 900;
-    letter-spacing: 0.1em;
-    color: var(--charcoal);
-  }
-
-  .status-live {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    font-size: 0.6875rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    color: var(--teal);
-  }
-
-  .status-ready {
-    font-size: 0.6875rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    color: var(--white);
-    background: var(--charcoal);
-    padding: 0.1875rem 0.625rem;
-  }
-
-  .status-pair {
-    font-size: 0.6875rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    color: var(--charcoal);
-    border: 1px solid var(--charcoal);
-    padding: 0.1875rem 0.625rem;
-  }
-
-  .station-detail { font-size: 0.75rem; font-weight: 700; color: var(--charcoal); opacity: 0.7; margin-bottom: 0.75rem; letter-spacing: 0.04em; }
-  .station-orders { font-size: 1.0625rem; font-weight: 900; color: var(--charcoal); }
-  .station-rate { font-size: 0.8125rem; font-weight: 700; color: var(--charcoal); margin-top: 0.25rem; }
-
-  /* Rule */
-  .rule {
-    background: var(--charcoal);
-    border: 2px solid var(--white);
-    padding: 1.5rem;
-  }
-
-  .rule .meta { color: var(--orange); }
-
-  .rule-title {
-    font-size: 1.125rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    color: var(--white);
-    margin-bottom: 1rem;
-  }
-
-  .rule-box { display: flex; flex-direction: column; gap: 0.625rem; }
-
-  .rule-line { font-size: 0.875rem; line-height: 1.5; color: var(--white); }
-
-  .rule-if {
-    display: inline-block;
-    font-weight: 900;
-    font-size: 0.6875rem;
-    letter-spacing: 0.08em;
-    color: var(--charcoal);
-    background: var(--orange);
-    padding: 0.125rem 0.5rem;
-    margin-right: 0.5rem;
-  }
-
-  .rule-then {
-    display: inline-block;
-    font-weight: 900;
-    font-size: 0.6875rem;
-    letter-spacing: 0.08em;
-    color: var(--charcoal);
-    background: var(--teal);
-    padding: 0.125rem 0.5rem;
-    margin-inline: 0.5rem;
-  }
-
-  /* ---------- ANALYTICS ---------- */
-  .metric-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.75rem;
-    margin-bottom: 2.5rem;
-  }
-
-  .metric {
-    background: var(--white);
-    border: 2px solid var(--charcoal);
-    padding: 1.125rem;
-  }
-
-  .metric-value { font-size: 1.75rem; font-weight: 900; color: var(--charcoal); letter-spacing: -0.02em; }
-  .metric-label { font-size: 0.75rem; font-weight: 700; color: var(--charcoal); opacity: 0.7; margin-top: 0.25rem; text-transform: uppercase; letter-spacing: 0.06em; }
-
-  .kpi-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.75rem;
-  }
-
-  .kpi {
-    background: var(--charcoal);
-    border: 2px solid var(--charcoal);
-    padding: 1.25rem;
-  }
-
-  .kpi-value { font-size: 1.875rem; font-weight: 900; color: var(--teal); letter-spacing: -0.02em; }
-  .kpi-label { font-size: 0.625rem; font-weight: 800; letter-spacing: 0.1em; color: var(--grey); margin-top: 0.375rem; }
-
-  /* ---------- FEATURES ---------- */
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-
-  .feature {
-    border: 2px solid var(--charcoal);
-    padding: 1.5rem;
-  }
-
-  .feature-0 { background: var(--white); }
-  .feature-1 { background: var(--peach); }
-
-  .feature h3 {
-    font-size: 1.125rem;
-    font-weight: 900;
-    text-transform: uppercase;
-    letter-spacing: 0.02em;
-    margin-bottom: 0.5rem;
-    color: var(--charcoal);
-  }
-
-  .feature p { font-size: 0.9375rem; line-height: 1.65; color: var(--charcoal); opacity: 0.85; }
-
-  /* ---------- PRICING ---------- */
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0.75rem;
-  }
-
-  .price-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.875rem;
-    border: 2px solid var(--charcoal);
-    background: var(--white);
-    padding: 1.5rem 1.25rem;
-  }
-
-  .price-1 { background: var(--teal); }
-  .price-3 { background: var(--orange); }
-
-  .price-name { font-size: 0.8125rem; font-weight: 900; letter-spacing: 0.1em; color: var(--charcoal); }
-  .price-value { font-size: 1.75rem; font-weight: 900; letter-spacing: -0.02em; color: var(--charcoal); }
-
-  .price-card ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    flex: 1;
-    font-size: 0.8125rem;
-    color: var(--charcoal);
-    opacity: 0.9;
-  }
-
-  .li-check { color: var(--burnt); font-weight: 900; margin-right: 0.25rem; }
-  .price-1 .li-check, .price-3 .li-check { color: var(--charcoal); }
-
-  .btn-price {
-    border: 2px solid var(--charcoal);
-    border-radius: 0;
-    text-align: center;
-    padding: 0.625rem 1rem;
-    font-weight: 900;
-    font-size: 0.75rem;
-    letter-spacing: 0.08em;
-    color: var(--charcoal);
-    transition: background 0.15s, color 0.15s;
-  }
-
-  .btn-price:hover {
-    background: var(--charcoal);
-    color: var(--white);
-  }
-
-  /* ---------- TESTIMONIALS + CTA ---------- */
-  .testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-    margin-bottom: 3.5rem;
-  }
-
-  .testimonial {
-    background: #2a1714;
-    border: 1px solid var(--line-light);
-    padding: 1.5rem;
-  }
-
-  .testimonial .quote {
-    font-size: 1rem;
-    line-height: 1.65;
-    color: var(--white);
-    margin-bottom: 1rem;
-  }
-
-  .testimonial-who {
-    font-size: 0.6875rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    color: var(--orange);
-  }
-
-  .final-cta { text-align: left; }
-
-  .final-cta .display {
-    font-size: clamp(2rem, 5vw, 3.25rem);
-    margin-bottom: 1rem;
-  }
-
-  .final-cta p {
-    max-width: 38rem;
-    font-size: 1rem;
-    line-height: 1.65;
-    color: var(--grey);
-    margin-bottom: 1.75rem;
-  }
-
-  /* ---------- FOOTER ---------- */
-  .footer {
-    background: var(--charcoal);
-    border-top: 1px solid var(--line-light);
-    padding-block: 1.5rem;
-  }
-
-  .footer-inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.25rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.06em;
-    color: var(--grey);
-    text-align: center;
-  }
-
-  /* ---------- MOBILE ---------- */
+  .rec { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: pulse 1.6s infinite; }
+  .term-bc { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,.2); }
+  .bc-bars { height: 14px; width: 70px; background-image: repeating-linear-gradient(90deg, white 0 2px, transparent 2px 4px, white 4px 5px, transparent 5px 9px); opacity: .6; }
+  .bc-text { font-size: 6px; letter-spacing: .14em; color: rgba(255,255,255,.5); }
+
+  /* ===== SECTION ===== */
+  .section { display: grid; grid-template-columns: 110px 1fr; min-height: 640px; }
+  .section.white { background: var(--white); color: var(--charcoal); }
+  .section.teal { background: var(--teal); color: white; }
+  .section.orange { background: var(--orange); color: white; }
+  .section.peach { background: var(--peach); color: var(--charcoal); }
+  .section-body { padding: 6vw; }
+
+  /* editorial grid → channels */
+  .editorial-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .chan { border: 2px solid var(--charcoal); padding: 18px 16px; display: flex; flex-direction: column; gap: 14px; }
+  .chan-0 { background: var(--white); }
+  .chan-1 { background: var(--peach); }
+  .chan-2 { background: var(--teal); color: white; }
+  .chan-name { font-size: 13px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
+  .chan-status { font-size: 8px; font-weight: 800; letter-spacing: .14em; display: inline-flex; align-items: center; gap: 6px; }
+
+  /* split-color */
+  .split-color { display: grid; grid-template-columns: .85fr 1.5fr; min-height: 620px; }
+  .split-color .teal-panel { background: var(--teal); color: white; padding: 6vw; display: flex; flex-direction: column; justify-content: center; }
+  .split-color .teal-panel .copy { color: rgba(255,255,255,.85); }
+  .split-color .orange-panel { background: var(--tangerine); padding: 5vw; display: flex; align-items: center; justify-content: center; }
+  .chaos-list { width: 100%; max-width: 420px; border: 2px solid var(--charcoal); background: var(--white); color: var(--charcoal); }
+  .chaos-item { display: flex; gap: 12px; align-items: center; padding: 16px 20px; border-bottom: 1px solid rgba(52,28,25,.15); font-size: 11px; font-weight: 600; }
+  .chaos-item:last-child { border-bottom: none; }
+  .x { color: var(--burnt); font-weight: 900; }
+  .ok-mark { color: var(--teal); font-weight: 900; }
+  .ok-item { background: var(--charcoal); color: white; }
+
+  /* lines */
+  .lines { margin-top: 42px; border-top: 1px solid currentColor; }
+  .line-item { display: grid; grid-template-columns: 60px 1fr 1fr; gap: 30px; padding: 24px 0; border-bottom: 1px solid currentColor; align-items: baseline; }
+  .line-item b { font-size: 17px; font-weight: 800; }
+
+  /* gallery wall → stations */
+  .gallery-wall { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+  .station-card { background: var(--charcoal); color: white; padding: 22px; display: flex; flex-direction: column; gap: 6px; border: 2px solid var(--charcoal); }
+  .sc-head { display: flex; justify-content: space-between; align-items: center; }
+  .sc-name { font-size: 13px; font-weight: 900; letter-spacing: .1em; }
+  .sc-live { display: inline-flex; align-items: center; gap: 5px; color: var(--teal); font-size: 9px; font-weight: 800; letter-spacing: .12em; }
+  .sc-ready { background: var(--teal); color: var(--charcoal); font-size: 9px; font-weight: 800; letter-spacing: .12em; padding: 3px 8px; }
+  .sc-pair { border: 1px solid rgba(255,255,255,.4); font-size: 9px; font-weight: 800; letter-spacing: .12em; padding: 3px 8px; }
+  .sc-detail { font-size: 8px; letter-spacing: .1em; opacity: .6; font-weight: 700; margin-top: 8px; }
+  .sc-orders { font-size: 16px; font-weight: 900; margin-top: 10px; }
+  .sc-rate { font-size: 9px; font-weight: 700; color: var(--teal); }
+
+  /* metrics + kpi */
+  .metric-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .metric { border: 2px solid var(--charcoal); padding: 20px; display: flex; flex-direction: column; gap: 8px; background: var(--white); }
+  .metric b { font-size: 26px; font-weight: 900; letter-spacing: -.02em; }
+  .metric .kicker { color: var(--charcoal); opacity: .7; }
+  .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .kpi { background: var(--charcoal); color: white; padding: 20px; display: flex; flex-direction: column; gap: 8px; }
+  .kpi b { font-size: 24px; font-weight: 900; color: var(--teal); }
+  .kpi .kicker { color: rgba(255,255,255,.6); }
+
+  /* features */
+  .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .feature { border: 2px solid var(--charcoal); padding: 26px; }
+  .f-0 { background: var(--white); }
+  .f-1 { background: var(--peach); }
+
+  /* pricing */
+  .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .price { border: 2px solid var(--charcoal); background: var(--white); padding: 24px 20px; display: flex; flex-direction: column; gap: 14px; }
+  .p-1 { background: var(--teal); color: white; }
+  .price-val { font-size: 26px; font-weight: 900; letter-spacing: -.02em; }
+  .price ul { list-style: none; margin: 0; padding: 0; flex: 1; display: flex; flex-direction: column; gap: 8px; font-size: 10px; }
+  .li-check { color: var(--teal); font-weight: 900; margin-right: 6px; }
+  .p-1 .li-check { color: var(--charcoal); }
+  .btn-price { border: 2px solid var(--charcoal); text-align: center; padding: 11px; font-size: 10px; font-weight: 900; letter-spacing: .1em; color: var(--charcoal); transition: background .15s, color .15s; }
+  .btn-price:hover { background: var(--charcoal); color: white; }
+
+  /* contact */
+  .contact { min-height: 620px; background: var(--teal); color: white; display: grid; grid-template-columns: 110px 1fr; }
+  .contact .section-body { display: flex; flex-direction: column; justify-content: center; }
+  .contact .title { font-size: clamp(44px, 6.5vw, 110px); }
+  .testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .testi { border: 1px solid rgba(255,255,255,.3); padding: 22px; display: flex; flex-direction: column; gap: 14px; }
+  .t-quote { margin: 0; font-size: 13px; line-height: 1.6; font-weight: 600; }
+  .testi .kicker { color: var(--orange); }
+
+  /* footer */
+  .footer { background: var(--charcoal); color: white; padding: 26px 5vw; display: flex; justify-content: space-between; font-size: 10px; letter-spacing: .1em; gap: 12px; flex-wrap: wrap; }
+
+  /* ===== RESPONSIVE (ikut reference) ===== */
   @media (max-width: 900px) {
-    .pillar-grid { grid-template-columns: repeat(2, 1fr); }
-    .station-grid { grid-template-columns: 1fr; }
-    .metric-grid { grid-template-columns: repeat(2, 1fr); }
-    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-    .feature-grid { grid-template-columns: 1fr; }
-    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    .hero, .section, .contact { grid-template-columns: 1fr; }
+    .meta-rail { display: none; }
+    .hero .left, .hero .right { min-height: 56vh; }
+    .hero .right .big-circle { width: min(60vw, 380px); height: min(60vw, 380px); }
+    .grid-2, .split-color, .feature-grid, .testi-grid { grid-template-columns: 1fr; }
+    .editorial-grid { grid-template-columns: repeat(2, 1fr); }
+    .metric-row { grid-template-columns: repeat(2, 1fr); }
+    .kpi-row, .pricing-grid, .gallery-wall { grid-template-columns: repeat(2, 1fr); }
+    .nav { gap: 16px; }
+    .nav a:not(.nav-cta) { display: none; }
   }
 
-  @media (max-width: 640px) {
-    .section { padding-block: 4.5rem; }
-
-    .links a:not(.cta) { display: none; }
-
-    .hero { padding-top: 7rem; }
-    .hero-grid { grid-template-columns: 1fr; }
-    .hero .display { font-size: 2.5rem; }
-
-    .display { font-size: 1.75rem; }
-
-    .problem-grid { grid-template-columns: 1fr; }
-    .problem-arrow { transform: rotate(90deg); text-align: center; }
-
-    .pillar-grid, .station-grid, .metric-grid, .kpi-grid, .feature-grid, .pricing-grid, .testimonial-grid { grid-template-columns: 1fr; }
-
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .stat:nth-child(2) { border-right: none; }
-    .stat:nth-child(n+3) { border-top: 1px solid var(--line-light); }
-
-    .final-cta .display { font-size: 1.75rem; }
-  }
-
-  @media (max-width: 380px) {
-    .hero .display { font-size: 2.125rem; }
-    .stats { grid-template-columns: 1fr; }
-    .stat { border-right: none; border-bottom: 1px solid var(--line-light); }
+  @media (max-width: 620px) {
+    .editorial-grid, .metric-row, .kpi-row, .pricing-grid, .gallery-wall { grid-template-columns: 1fr; }
+    .hero .left, .hero .right { min-height: auto; padding: 44px 24px; }
+    .hero { min-height: auto; }
+    .section { min-height: auto; }
+    .line-item { grid-template-columns: 40px 1fr; gap: 12px; }
+    .line-item .copy { grid-column: 2; }
+    .title { font-size: 30px; }
+    .split-color { min-height: auto; }
+    .contact .title { font-size: 44px; }
   }
 </style>
