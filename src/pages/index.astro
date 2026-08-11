@@ -95,8 +95,8 @@ const TESTIMONIALS = [
         your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp.
       </p>
       <div class="fo-hero__actions">
-        <a href={`${CONSOLE}/signup`} class="am-btn am-btn--primary am-btn--lime">Start Free</a>
-        <a href="#workflow" class="am-btn am-btn--outline am-btn--ondark">See how it works</a>
+        <a href={`${CONSOLE}/signup`} class="am-btn am-btn--navy">Start Free</a>
+        <a href="#workflow" class="am-btn am-btn--outline am-btn--navyline">See how it works</a>
       </div>
       <div class="fo-hero__visual">
         <div class="fo-code">
@@ -310,7 +310,8 @@ const TESTIMONIALS = [
   :root {
     --navy: #0f0e54;
     --navy-deep: #0a092e;
-    --lime: #d9f20c;
+    --neon: #39ff14;
+    --neon-soft: #7dff66;
     --ink: #111111;
     --ink-soft: #222222;
     --slate: #6b6b75;
@@ -335,16 +336,18 @@ const TESTIMONIALS = [
   /* ===== BUTTONS (foundry am-btn) ===== */
   .am-btn { cursor: pointer; min-height: 48px; transition: transform var(--dur-fast), background var(--dur), border-color var(--dur); border: 1px solid transparent; border-radius: 0; justify-content: center; align-items: center; gap: 9px; padding: 0 24px; font-weight: 700; font-size: 14px; display: inline-flex; }
   .am-btn:hover { transform: translateY(-2px); }
-  .am-btn--primary { background: var(--lime); color: var(--navy); }
-  .am-btn--lime { background: var(--lime); color: var(--navy); }
+  .am-btn--primary { background: var(--neon); color: var(--navy); }
+  .am-btn--lime { background: var(--neon); color: var(--navy); }
+  .am-btn--navy { background: var(--navy); color: var(--white); }
   .am-btn--outline { background: transparent; border-color: #d0d0d6; color: var(--ink); }
+  .am-btn--navyline { border-color: rgba(15,14,84,0.45); color: var(--navy); }
   .am-btn--ondark { border-color: rgba(255,255,255,0.35); color: var(--white); }
   .am-btn--ghostdark { background: transparent; color: var(--white); }
 
   /* ===== EYEBROW (foundry am-eyebrow) ===== */
-  .am-eyebrow { color: var(--lime); font-family: var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; align-items: center; gap: 10px; margin-bottom: 22px; font-size: 15px; font-weight: 600; display: flex; }
-  .am-eyebrow--ondark { color: var(--lime); }
-  .am-eyebrow:before { content: ""; width: 18px; height: 2px; background: var(--lime); display: block; }
+  .am-eyebrow { color: var(--neon); font-family: var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; align-items: center; gap: 10px; margin-bottom: 22px; font-size: 15px; font-weight: 600; display: flex; }
+  .am-eyebrow--ondark { color: var(--neon); }
+  .am-eyebrow:before { content: ""; width: 18px; height: 2px; background: var(--neon); display: block; }
 
   /* ===== SECTION TITLE (foundry am-section__title) ===== */
   .am-section__title { max-width: 720px; font-family: var(--font-display); letter-spacing: -0.055em; margin: 0; font-size: clamp(38px, 5.1vw, 68px); font-weight: 700; line-height: 0.98; }
@@ -360,28 +363,31 @@ const TESTIMONIALS = [
   .am-nav__mlink { }
   .am-nav__cta { min-height: 40px; padding: 0 18px; font-size: 13px; }
 
-  /* ===== HERO (foundry fo-hero) ===== */
-  .fo-hero { background: var(--navy); color: var(--white); min-height: 780px; padding: 140px 0 100px; position: relative; overflow: hidden; }
-  .fo-hero:before { content: ""; border: 150px solid rgba(217,242,12,0.06); width: 720px; height: 720px; position: absolute; inset: auto -6% -40% 48%; transform: rotate(20deg); }
-  .fo-hero__title { font-family: var(--font-display); letter-spacing: -0.05em; font-size: clamp(48px, 7.2vw, 96px); font-weight: 700; line-height: 0.95; color: var(--white); }
-  .fo-hero__lead { max-width: 620px; margin-top: 28px; font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.72); }
+  /* ===== HERO (foundry fo-hero) — NEON PRIMARY ===== */
+  .fo-hero { background: var(--neon); color: var(--navy); min-height: 780px; padding: 140px 0 100px; position: relative; overflow: hidden; }
+  .fo-hero:before { content: ""; border: 150px solid rgba(15,14,84,0.06); width: 720px; height: 720px; position: absolute; inset: auto -6% -40% 48%; transform: rotate(20deg); }
+  .fo-hero__title { font-family: var(--font-display); letter-spacing: -0.05em; font-size: clamp(48px, 7.2vw, 96px); font-weight: 700; line-height: 0.95; color: var(--navy); }
+  .fo-hero__lead { max-width: 620px; margin-top: 28px; font-size: 17px; line-height: 1.7; color: rgba(15,14,84,0.78); font-weight: 500; }
   .fo-hero__actions { display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap; }
   .fo-hero__visual { margin-top: 60px; max-width: 620px; }
+  .fo-hero .am-eyebrow { color: var(--navy); }
+  .fo-hero .am-eyebrow:before { background: var(--navy); }
+  .fo-hero .am-btn--outline { border-color: rgba(15,14,84,0.4); color: var(--navy); }
 
   /* code window (foundry fo-code) */
   .fo-code { border: 1px solid rgba(255,255,255,0.14); background: var(--navy-deep); border-radius: 10px; overflow: hidden; }
   .fo-code__bar { border-bottom: 1px solid rgba(255,255,255,0.1); align-items: center; gap: 7px; padding: 14px 16px; display: flex; }
   .fo-code__bar > span { background: #4b5159; border-radius: 50%; width: 8px; height: 8px; }
   .fo-code__bar em { margin-left: 8px; font-style: normal; font-family: var(--font-mono); font-size: 12px; color: rgba(255,255,255,0.5); flex: 1; }
-  .fo-code__live { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: var(--lime); font-style: normal; }
-  .fo-code__live i { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); animation: pulse 1.6s ease-in-out infinite; }
-  @keyframes pulse { 0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(217,242,12,0.5);} 50% { opacity:.55; box-shadow:0 0 0 6px rgba(217,242,12,0);} }
+  .fo-code__live { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: var(--neon); font-style: normal; }
+  .fo-code__live i { width: 7px; height: 7px; border-radius: 50%; background: var(--neon); animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(57,255,20,0.5);} 50% { opacity:.55; box-shadow:0 0 0 6px rgba(57,255,20,0);} }
   .fo-code__body { padding: 20px 24px; display: flex; flex-direction: column; gap: 14px; }
   .fo-code__row { display: flex; gap: 20px; align-items: baseline; font-family: var(--font-mono); font-size: 13px; }
   .fo-code__row span { width: 84px; color: rgba(255,255,255,0.4); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
   .fo-code__row strong { color: rgba(255,255,255,0.92); font-weight: 500; }
-  .ok { color: var(--lime); font-weight: 700; }
-  .rec { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--lime); animation: pulse 1.6s infinite; }
+  .ok { color: var(--neon); font-weight: 700; }
+  .rec { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--neon); animation: pulse 1.6s infinite; }
 
   /* ===== PROOFBAR (foundry fo-proofbar) ===== */
   .fo-proofbar { border-bottom: 1px solid var(--slate-200); background: var(--white); }
@@ -404,7 +410,7 @@ const TESTIMONIALS = [
   .fo-fit__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .fo-fit-card { background: var(--white); border: 1px solid var(--slate-200); padding: 34px; position: relative; overflow: hidden; transition: transform var(--dur); }
   .fo-fit-card:hover { transform: translateY(-3px); }
-  .fo-fit-card__accent { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--lime); transform: scaleY(0); transform-origin: top; transition: transform var(--dur); }
+  .fo-fit-card__accent { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--neon); transform: scaleY(0); transform-origin: top; transition: transform var(--dur); }
   .fo-fit-card:hover .fo-fit-card__accent { transform: scaleY(1); }
   .fo-fit-card h3 { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
   .fo-fit-card p { font-size: 14px; line-height: 1.65; color: var(--slate); }
@@ -415,17 +421,17 @@ const TESTIMONIALS = [
   .fo-why__points { display: flex; flex-direction: column; }
   .fo-why__point { display: flex; gap: 26px; padding: 26px 0; border-bottom: 1px solid var(--slate-200); align-items: baseline; }
   .fo-why__point:first-child { border-top: 1px solid var(--slate-200); }
-  .fo-why__point b { font-family: var(--font-mono); font-size: 15px; color: var(--lime); font-weight: 700; }
+  .fo-why__point b { font-family: var(--font-mono); font-size: 15px; color: var(--neon); font-weight: 700; }
   .fo-why__point div { display: flex; flex-direction: column; gap: 6px; }
   .fo-why__point strong { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
   .fo-why__point span { font-size: 14px; line-height: 1.6; color: var(--slate); }
 
   /* ===== WORKFLOW (dark) ===== */
   .fo-workflow { background: var(--navy); color: var(--white); padding: 120px 0; position: relative; overflow: hidden; }
-  .fo-workflow:after { content: ""; border-right: 160px solid var(--lime); border-top: 160px solid transparent; position: absolute; bottom: 0; right: 0; opacity: 0.9; }
+  .fo-workflow:after { content: ""; border-right: 160px solid var(--neon); border-top: 160px solid transparent; position: absolute; bottom: 0; right: 0; opacity: 0.9; }
   .fo-workflow__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 60px; }
   .fo-workflow__step { border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); padding: 28px; }
-  .fo-workflow__num { font-family: var(--font-mono); font-size: 14px; color: var(--lime); font-weight: 700; display: block; margin-bottom: 16px; }
+  .fo-workflow__num { font-family: var(--font-mono); font-size: 14px; color: var(--neon); font-weight: 700; display: block; margin-bottom: 16px; }
   .fo-workflow__step strong { font-family: var(--font-display); font-size: 17px; font-weight: 700; letter-spacing: 0.02em; display: block; margin-bottom: 8px; }
   .fo-workflow__step p { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.6); }
 
@@ -435,7 +441,7 @@ const TESTIMONIALS = [
   .fo-docs__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .fo-docs__card { border: 1px solid var(--slate-200); background: var(--paper); padding: 34px; display: block; transition: transform var(--dur), border-color var(--dur); }
   .fo-docs__card:hover { transform: translateY(-3px); border-color: var(--navy); }
-  .fo-docs__number { font-family: var(--font-mono); font-size: 14px; color: var(--lime); font-weight: 700; display: block; margin-bottom: 18px; }
+  .fo-docs__number { font-family: var(--font-mono); font-size: 14px; color: var(--neon); font-weight: 700; display: block; margin-bottom: 18px; }
   .fo-docs__card h3 { font-family: var(--font-display); font-size: 21px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
   .fo-docs__card p { font-size: 14px; line-height: 1.65; color: var(--slate); }
 
@@ -448,13 +454,13 @@ const TESTIMONIALS = [
   .fo-pricing__price { font-family: var(--font-display); font-size: 30px; font-weight: 700; letter-spacing: -0.03em; color: var(--navy); }
   .fo-pricing__card ul { list-style: none; padding: 0; margin: 0; flex: 1; display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: var(--ink-soft); }
   .fo-pricing__card li { display: flex; gap: 8px; align-items: baseline; }
-  .fo-pricing__card li b { color: var(--lime); font-weight: 700; }
+  .fo-pricing__card li b { color: var(--neon); font-weight: 700; }
   .fo-pricing__btn { margin-top: 16px; }
 
   /* ===== TESTIMONIALS ===== */
   .fo-testi { background: var(--white); padding: 100px 0; }
   .fo-testi__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .fo-testi__card { background: var(--paper); border-left: 4px solid var(--lime); padding: 32px; margin: 0; }
+  .fo-testi__card { background: var(--paper); border-left: 4px solid var(--neon); padding: 32px; margin: 0; }
   .fo-testi__card p { font-size: 16px; line-height: 1.65; font-weight: 500; margin-bottom: 16px; }
   .fo-testi__card footer { font-family: var(--font-mono); font-size: 12px; color: var(--slate); letter-spacing: 0.06em; text-transform: uppercase; }
 
@@ -475,7 +481,7 @@ const TESTIMONIALS = [
 
   /* ===== CTA (foundry fo-cta) ===== */
   .fo-cta { background: var(--navy); color: var(--white); padding: clamp(88px, 10vw, 140px) 0; position: relative; overflow: hidden; }
-  .fo-cta:after { content: ""; border-right: 180px solid var(--lime); border-top: 180px solid transparent; position: absolute; bottom: 0; right: 0; }
+  .fo-cta:after { content: ""; border-right: 180px solid var(--neon); border-top: 180px solid transparent; position: absolute; bottom: 0; right: 0; }
   .fo-cta__inner { z-index: 2; text-align: center; position: relative; }
   .fo-cta .am-section__title { margin-inline: auto; }
   .fo-cta__lead { max-width: 560px; margin: 24px auto 0; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.72); }
@@ -489,7 +495,7 @@ const TESTIMONIALS = [
   .am-footer__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
   .am-footer__col { display: flex; flex-direction: column; gap: 12px; }
   .am-footer__col a { font-size: 14px; color: rgba(255,255,255,0.7); transition: color var(--dur-fast); }
-  .am-footer__col a:hover { color: var(--lime); }
+  .am-footer__col a:hover { color: var(--neon); }
   .am-footer__base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.4); gap: 12px; flex-wrap: wrap; }
 
   /* ===== RESPONSIVE ===== */
