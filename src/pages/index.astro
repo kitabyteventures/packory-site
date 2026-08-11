@@ -29,12 +29,12 @@ const STATIONS = [
 ];
 
 const METRICS = [
-  { label: 'Orders today', value: '1,842', mint: true },
-  { label: 'Videos captured', value: '1,840', mint: true },
-  { label: 'Evidence links delivered', value: '1,832', mint: true },
-  { label: 'Dispute win-rate', value: '98.4%', mint: true },
-  { label: 'Sync failures', value: '3', mint: false },
-  { label: 'On-time WhatsApp delivery', value: '99.1%', mint: true },
+  { label: 'Orders today', value: '1,842', amber: true },
+  { label: 'Videos captured', value: '1,840', amber: true },
+  { label: 'Evidence links delivered', value: '1,832', amber: true },
+  { label: 'Dispute win-rate', value: '98.4%', amber: true },
+  { label: 'Sync failures', value: '3', amber: false },
+  { label: 'On-time WhatsApp delivery', value: '99.1%', amber: true },
 ];
 
 const KPI = [
@@ -86,9 +86,6 @@ const TESTIMONIALS = [
   title="Packory — Every order. On video. Dispute-proof."
   description="Packory turns any cheap warehouse Android phone into a hands-free packing verification camera. Every order is recorded with a burned-in timestamp, stored in your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp."
 >
-  <!-- Hazard tape top strip -->
-  <div class="hazard-strip" aria-hidden="true"></div>
-
   <header class="nav">
     <div class="container nav-inner">
       <a href="/" class="brand">
@@ -276,7 +273,7 @@ const TESTIMONIALS = [
       <div class="metric-grid">
         {METRICS.map((m) => (
           <div class="metric">
-            <div class="metric-value">{m.value}{m.mint && <span class="dot-amber"></span>}</div>
+            <div class="metric-value">{m.value}{m.amber && <span class="dot-amber"></span>}</div>
             <div class="metric-label">{m.label}</div>
           </div>
         ))}
@@ -361,43 +358,28 @@ const TESTIMONIALS = [
       <span>Built for Malaysian e-commerce merchants 🇲🇾</span>
     </div>
   </footer>
-
-  <!-- Hazard tape bottom strip -->
-  <div class="hazard-strip" aria-hidden="true"></div>
 </Base>
 
 <style>
-  /* ===== DESIGN TOKENS — Kraft & Plastic (Packory) ===== */
+  /* ===== DESIGN TOKENS — Black + Amber (tech trust × shipping) ===== */
   :root {
-    --ink: #0f1417;          /* plastic hitam — foundation */
+    --ink: #0f1417;          /* carbon black — foundation */
     --ink-deep: #0a0d0f;
     --ink-soft: #1a2025;
-    --kraft: #b08968;        /* kotak kadbod */
-    --kraft-light: #e8d9c3;  /* kadbod cerah */
-    --paper: #f3ede3;        /* light section — hangat macam kadbod */
-    --paper-bright: #faf7f0;
-    --amber: #e8a33d;        /* tape fragile — accent */
+    --paper: #ebebed;        /* soft gray — light sections */
+    --paper-bright: #f5f5f4;
+    --amber: #e8a33d;        /* shipping accent — CTA, live, checks */
     --amber-bright: #f2b44d;
     --steel: #9aa3ad;        /* muted on dark */
-    --slate: #6b6257;        /* muted on light (warm) */
+    --slate: #5b6470;        /* muted on light */
     --hairline: rgba(235, 235, 237, 0.1);
     --hairline-dark: rgba(15, 20, 23, 0.12);
-  }
-
-  /* ---------- HAZARD TAPE ---------- */
-  .hazard-strip {
-    height: 10px;
-    background: repeating-linear-gradient(
-      -45deg,
-      var(--amber) 0 14px,
-      var(--ink) 14px 28px
-    );
   }
 
   /* ---------- NAV ---------- */
   .nav {
     position: fixed;
-    top: 10px;
+    top: 0;
     left: 0;
     right: 0;
     z-index: 50;
@@ -548,7 +530,7 @@ const TESTIMONIALS = [
     min-height: 100svh;
     display: flex;
     align-items: center;
-    padding-top: 7.5rem;
+    padding-top: 7rem;
     padding-bottom: 4rem;
   }
 
@@ -809,20 +791,6 @@ const TESTIMONIALS = [
     border-radius: 10px;
     background: var(--paper-bright);
     padding: 1.125rem 1.25rem;
-    position: relative;
-  }
-
-  /* tape corner pada card */
-  .channel::before {
-    content: '';
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    width: 0;
-    height: 0;
-    border-top: 18px solid var(--amber);
-    border-right: 18px solid transparent;
-    border-top-left-radius: 10px;
   }
 
   .channel-name {
@@ -913,7 +881,7 @@ const TESTIMONIALS = [
   }
 
   .pillar {
-    border-top: 2px solid var(--kraft);
+    border-top: 2px solid var(--ink);
     padding: 1.25rem 0.25rem 0.5rem;
   }
 
@@ -991,21 +959,6 @@ const TESTIMONIALS = [
     border-radius: 12px;
     padding: 1.375rem;
     background: rgba(255, 255, 255, 0.015);
-    position: relative;
-  }
-
-  /* tape corner pada station */
-  .station::after {
-    content: '';
-    position: absolute;
-    bottom: -1px;
-    right: -1px;
-    width: 0;
-    height: 0;
-    border-bottom: 14px solid var(--kraft);
-    border-left: 14px solid transparent;
-    border-bottom-right-radius: 12px;
-    opacity: 0.8;
   }
 
   .station-head {
@@ -1077,7 +1030,6 @@ const TESTIMONIALS = [
     border-radius: 12px;
     padding: 1.5rem;
     background: rgba(255, 255, 255, 0.015);
-    border-top: 3px solid var(--amber);
   }
 
   .rule-title {
@@ -1164,7 +1116,6 @@ const TESTIMONIALS = [
     border-radius: 10px;
     background: var(--ink);
     padding: 1.25rem;
-    border-top: 3px solid var(--amber);
   }
 
   .kpi-value {
@@ -1195,7 +1146,6 @@ const TESTIMONIALS = [
     border-radius: 10px;
     background: var(--paper-bright);
     padding: 1.5rem;
-    border-left: 3px solid var(--kraft);
   }
 
   .feature h3 {
@@ -1226,20 +1176,6 @@ const TESTIMONIALS = [
     border-radius: 12px;
     background: var(--paper-bright);
     padding: 1.5rem;
-    position: relative;
-  }
-
-  /* tape corner pada pricing */
-  .price-card::before {
-    content: '';
-    position: absolute;
-    top: -1px;
-    right: -1px;
-    width: 0;
-    height: 0;
-    border-top: 16px solid var(--amber);
-    border-left: 16px solid transparent;
-    border-top-right-radius: 12px;
   }
 
   .price-name {
@@ -1268,7 +1204,7 @@ const TESTIMONIALS = [
   }
 
   .li-check {
-    color: var(--kraft);
+    color: var(--amber);
     font-weight: 700;
     margin-right: 0.25rem;
   }
