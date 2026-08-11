@@ -4,55 +4,64 @@ import Base from '../layouts/Base.astro';
 const APP_NAME = 'Packory';
 const CONSOLE = 'https://console.packory.app';
 
+const STATS = [
+  ['0', 'video bytes on our servers'],
+  ['<100ms', 'UI reset after each order'],
+  ['24/7', 'background sync & retry'],
+  ['1.5s', 'throttled AWB scan rate'],
+];
+
 const CHANNELS = ['Shopee', 'TikTok Shop', 'Lazada', 'Shopify', 'eBay', 'Amazon', 'WhatsApp', 'Google Drive'];
 
+const FIT = [
+  { title: 'Shopee sellers', text: 'Win parcel-swap and empty-box disputes with timestamped packing video, delivered to the buyer on WhatsApp.' },
+  { title: 'TikTok Shop sellers', text: 'Keep up with fast order flow without QC staff. The camera watches. The evidence files itself.' },
+  { title: 'Multi-channel brands', text: 'One system across Shopee, TikTok, Lazada and more — one evidence link per order, every channel.' },
+  { title: 'Packing operations', text: 'Run every station from one dashboard. Live status, sync health, dispute win-rate.' },
+];
+
 const PILLARS = [
-  { n: '01', kicker: 'PROOF', copy: 'Every order leaves with video evidence. No he-said-she-said.' },
-  { n: '02', kicker: 'SPEED', copy: 'Hands-free by design. Scan, record, thumbs-up — zero screen touches.' },
-  { n: '03', kicker: 'TRUST', copy: 'Buyers see their order being packed before it ships. Disputes lose their fuel.' },
-  { n: '04', kicker: 'SCALE', copy: 'One camera or fifty. More orders without more chaos or more disputes.' },
+  { n: '01', kicker: 'Proof', copy: 'Every order leaves with video evidence. No he-said-she-said.' },
+  { n: '02', kicker: 'Speed', copy: 'Hands-free by design. Scan, record, thumbs-up — zero screen touches.' },
+  { n: '03', kicker: 'Trust', copy: 'Buyers see their order being packed before it ships. Disputes lose their fuel.' },
+  { n: '04', kicker: 'Scale', copy: 'One camera or fifty. More orders without more chaos or more disputes.' },
 ];
 
 const WORKFLOW = [
-  { label: 'AWB SCAN', copy: 'Barcode detected automatically.' },
-  { label: 'RECORD', copy: 'UTC burned into every frame.' },
-  { label: 'THUMBS-UP', copy: 'Gesture stops the clip.' },
-  { label: 'SYNC', copy: 'Background upload to Drive.' },
-  { label: 'WHATSAPP', copy: 'Evidence link sent to buyer.' },
-];
-
-const STATIONS = [
-  { name: 'STATION A', detail: 'PACKING LINE 1', orders: '1,248', rate: '100% COVERAGE', status: 'LIVE' },
-  { name: 'STATION B', detail: 'SMALL PARCELS', orders: '864', rate: '99.2% SYNC', status: 'READY' },
-  { name: 'STATION C', detail: 'BULK / COD', orders: 'PAIRING…', rate: 'ACTION NEEDED', status: 'PAIR' },
-];
-
-const METRICS = [
-  { label: 'Orders today', value: '1,842' },
-  { label: 'Videos captured', value: '1,840' },
-  { label: 'Evidence delivered', value: '1,832' },
-  { label: 'Dispute win-rate', value: '98.4%' },
-  { label: 'Sync failures', value: '3' },
-  { label: 'On-time WhatsApp', value: '99.1%' },
+  { label: 'AWB SCAN', copy: 'Barcode detected automatically at 1 frame per 1.5s.' },
+  { label: 'RECORD', copy: 'Camera records hands-free. UTC timestamp burned into every frame.' },
+  { label: 'THUMBS-UP', copy: 'Gesture stops the clip. Saved instantly to the device.' },
+  { label: 'SYNC TO DRIVE', copy: 'Background upload to your own Google Drive. Resumes on reconnect.' },
+  { label: 'WHATSAPP LINK', copy: 'Masked evidence link sent to the buyer automatically.' },
+  { label: 'BUYER SEES PROOF', copy: 'Their order, packed correctly, on video — before it ships.' },
 ];
 
 const FEATURES = [
-  { title: 'HANDS-FREE VIDEO PROOF', text: 'AWB detected automatically. Recording starts by itself and stops on a thumbs-up — packers never touch the screen.' },
-  { title: 'TERRIBLE WI-FI? NO PROBLEM', text: 'Clips save to the device instantly and sync to the Admin’s private Google Drive in the background, resuming on reconnect.' },
-  { title: 'ZERO SERVER VIDEO OVERHEAD', text: 'Your videos never pass through our servers. Bring-your-own Google Drive storage with a scope-limited token.' },
-  { title: 'DISPUTE-PROOF ORDERS', text: 'Beat parcel-swap and empty-box claims with timestamped, burned-in packing footage delivered to buyers on WhatsApp.' },
+  { title: 'Hands-free video proof', text: 'AWB detected automatically. Recording starts by itself and stops on a thumbs-up — packers never touch the screen.' },
+  { title: 'Terrible Wi-Fi? No problem', text: 'Clips save to the device instantly and sync to the Admin’s private Google Drive in the background, resuming on reconnect.' },
+  { title: 'Zero server video overhead', text: 'Your videos never pass through our servers. Bring-your-own Google Drive storage with a scope-limited token.' },
+  { title: 'Dispute-proof orders', text: 'Beat parcel-swap and empty-box claims with timestamped, burned-in packing footage delivered to buyers on WhatsApp.' },
+];
+
+const FAQS = [
+  { q: 'What is Packory?', a: 'Packory turns any cheap warehouse Android phone into a hands-free packing verification camera. Every order is recorded with a burned-in timestamp, stored in your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp.' },
+  { q: 'Where are the videos stored?', a: 'On your own Google Drive. Videos never pass through our servers — bring-your-own storage with a scope-limited token. Zero server video overhead.' },
+  { q: 'Does it need good Wi-Fi?', a: 'No. Clips save instantly on the device, then sync to Drive in the background, resuming automatically on reconnect. Works in hot, noisy warehouses with terrible Wi-Fi.' },
+  { q: 'How does the packing stop?', a: 'Hands-free. The packer shows a thumbs-up and the clip stops automatically — no screen touching, no buttons, no workflow interruption.' },
+  { q: 'What does it cost?', a: 'Pay per camera. Free tier includes 1 licensed camera. Starter RM49/mo, Pro RM99/mo, Scale RM199/mo. Paid securely via MYR FPX, cards, or local e-wallets.' },
+  { q: 'Which platforms does it work with?', a: 'Any marketplace. Evidence links are delivered on WhatsApp, so it works with Shopee, TikTok Shop, Lazada, Shopify, eBay and more.' },
 ];
 
 const PRICING = [
-  { name: 'FREE', price: 'RM 0', features: ['1 licensed camera', 'Manual WhatsApp links', 'Unlimited packing records'] },
-  { name: 'STARTER', price: 'RM 49/MO', features: ['2 licensed cameras', 'WhatsApp credits available', 'Weekly sheet automation'] },
-  { name: 'PRO', price: 'RM 99/MO', features: ['5 licensed cameras', 'Direct seller channel', 'Priority support'] },
-  { name: 'SCALE', price: 'RM 199/MO', features: ['15 licensed cameras', 'All channels unlocked', 'Onboarding assistance'] },
+  { name: 'Free', price: 'RM 0', features: ['1 licensed camera', 'Manual WhatsApp links', 'Unlimited packing records'] },
+  { name: 'Starter', price: 'RM 49/mo', features: ['2 licensed cameras', 'WhatsApp credits available', 'Weekly sheet automation'] },
+  { name: 'Pro', price: 'RM 99/mo', features: ['5 licensed cameras', 'Direct seller channel', 'Priority support'] },
+  { name: 'Scale', price: 'RM 199/mo', features: ['15 licensed cameras', 'All channels unlocked', 'Onboarding assistance'] },
 ];
 
 const TESTIMONIALS = [
-  { quote: 'We won every parcel-swap dispute last month — every single one had video proof.', who: 'SHOPEE SELLER · 400+ ORDERS/WEEK' },
-  { quote: 'A buyer claimed the box arrived empty. We sent the packing video. Claim closed in a day.', who: 'TIKTOK SHOP SELLER · MALAYSIA' },
+  { quote: 'We won every parcel-swap dispute last month — every single one had video proof.', who: 'Shopee seller · 400+ orders/week' },
+  { quote: 'A buyer claimed the box arrived empty. We sent the packing video. Claim closed in a day.', who: 'TikTok Shop seller · Malaysia' },
 ];
 ---
 
@@ -60,420 +69,448 @@ const TESTIMONIALS = [
   title="Packory — Every order. On video. Dispute-proof."
   description="Packory turns any cheap warehouse Android phone into a hands-free packing verification camera. Every order is recorded with a burned-in timestamp, stored in your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp."
 >
-  <main class="collage">
-    <!-- SLIDE 1 — HERO: teal stage + big photo-circle -->
-    <section class="slide one">
-      <aside class="meta-rail"><div class="n">01</div><div class="year">2026<br />Selected</div><div class="menu-mark"></div></aside>
-      <div class="stage">
-        <div class="content">
-          <div class="wordmark">PACKORY</div>
-          <p class="kicker" style="margin-top:36px">Packing verification for ecommerce</p>
-          <h1 class="slide-title">EVERY ORDER.<br />ON VIDEO.<br /><span class="t-orange">DISPUTE-PROOF.</span></h1>
-          <p class="copy" style="margin-top:18px">Hands-free packing verification. Timestamped video evidence, synced to your own Google Drive, delivered to the buyer on WhatsApp.</p>
-          <div class="hero-actions" style="margin-top:26px">
-            <a href={`${CONSOLE}/signup`} class="btn-solid">Start Free</a>
-            <a href="#slide4" class="btn-ghost">How It Works</a>
+  <!-- NAV -->
+  <header class="am-nav">
+    <div class="am-nav__inner">
+      <a href="/" class="am-nav__brand">{APP_NAME}</a>
+      <nav class="am-nav__links">
+        <a href="#workflow" class="am-nav__link">Workflow</a>
+        <a href="#features" class="am-nav__link">Features</a>
+        <a href="#pricing" class="am-nav__link">Pricing</a>
+        <a href="#faq" class="am-nav__link">FAQ</a>
+        <a href={`${CONSOLE}/login`} class="am-nav__link am-nav__mlink">Log In</a>
+        <a href={`${CONSOLE}/signup`} class="am-btn am-btn--primary am-nav__cta">Start Free</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="fo-hero">
+    <div class="am-wrap">
+      <p class="am-eyebrow am-eyebrow--ondark">Packing verification for ecommerce</p>
+      <h1 class="fo-hero__title">EVERY ORDER.<br />ON VIDEO.<br />DISPUTE-PROOF.</h1>
+      <p class="fo-hero__lead">
+        Packory turns any cheap warehouse Android phone into a hands-free packing
+        verification camera. Every order is recorded with a burned-in timestamp, stored in
+        your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp.
+      </p>
+      <div class="fo-hero__actions">
+        <a href={`${CONSOLE}/signup`} class="am-btn am-btn--primary am-btn--lime">Start Free</a>
+        <a href="#workflow" class="am-btn am-btn--outline am-btn--ondark">See how it works</a>
+      </div>
+      <div class="fo-hero__visual">
+        <div class="fo-code">
+          <div class="fo-code__bar">
+            <span></span><span></span><span></span>
+            <em>packing-terminal · station a</em>
+            <b class="fo-code__live"><i></i>LIVE</b>
+          </div>
+          <div class="fo-code__body">
+            <div class="fo-code__row"><span>AWB</span><strong>123456789012 <b class="ok">✓</b></strong></div>
+            <div class="fo-code__row"><span>STATUS</span><strong><b class="rec"></b> RECORDING — UTC 12:04:31</strong></div>
+            <div class="fo-code__row"><span>SYNC</span><strong>SYNCED TO DRIVE <b class="ok">✓</b></strong></div>
+            <div class="fo-code__row"><span>WHATSAPP</span><strong>EVIDENCE LINK SENT <b class="ok">✓</b></strong></div>
           </div>
         </div>
-        <div class="photo-circle">
-          <div class="term">
-            <div class="term-bar"><span class="term-title">TERMINAL · A</span><span class="live"><span class="pulse"></span>LIVE</span></div>
-            <div class="term-body">
-              <div class="term-row"><span class="tl">AWB</span><span class="tv">123456789012 <span class="ok">✓</span></span></div>
-              <div class="term-row"><span class="tl">STATUS</span><span class="tv"><span class="rec"></span> RECORDING</span></div>
-              <div class="term-row"><span class="tl">SYNC</span><span class="tv">SYNCED <span class="ok">✓</span></span></div>
-              <div class="term-row"><span class="tl">WA</span><span class="tv">LINK SENT <span class="ok">✓</span></span></div>
-            </div>
-            <div class="term-bc"><span class="bc-bars"></span><span class="bc-text">PKR-0A3F-9C2E-7741</span></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 2 — CHANNELS: orange pane + thumb row -->
-    <section id="slide2" class="slide two">
-      <aside class="meta-rail" style="background:var(--orange)"><div class="n">02</div><div class="year">2026<br />Work</div><div class="menu-mark"></div></aside>
-      <div class="orange-pane">
-        <div class="wordmark">CONNECTED.</div>
-        <div class="chan-list">
-          {CHANNELS.map((c) => (
-            <div class="chan-line"><span class="dot-sm"></span><span>{c}</span><span class="chk">✓</span></div>
-          ))}
-        </div>
-      </div>
-      <div class="content">
-        <div class="thumb-row">
-          <div class="thumb t1"><span>SHOPEE</span></div>
-          <div class="thumb t2"><span>TIKTOK</span></div>
-          <div class="thumb t3"><span>LAZADA</span></div>
-        </div>
-        <div class="wordmark">EVERY CHANNEL</div>
-        <div class="grid-2" style="gap:18px;margin-top:30px">
-          <div><p class="kicker">One link</p><p class="copy">Evidence link sent to the buyer on WhatsApp — regardless of marketplace.</p></div>
-          <div><p class="kicker">Zero servers</p><p class="copy">Your videos never pass through our servers. Bring-your-own Google Drive.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 3 — PROBLEM: gallery + captions + teal block -->
-    <section id="slide3" class="slide three">
-      <aside class="meta-rail"><div class="n">03</div><div class="year">2026<br />Problem</div><div class="menu-mark"></div></aside>
-      <div class="content" style="display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:start">
-        <div class="gallery">
-          <div class="gal-big"><span class="x">×</span><p>DISPUTE</p></div>
-          <div class="gal-sm"><span class="x">×</span><p>EMPTY BOX</p></div>
-          <div class="gal-sm"><span class="x">×</span><p>REFUND FORCED</p></div>
-        </div>
-        <div>
-          <div class="wordmark">THE PROBLEM</div>
-          <p class="kicker" style="margin-top:34px">Parcel-swap &amp; empty-box</p>
-          <p class="copy">Marketplace dispute. Buyer claim: “empty box”. Refund forced. No proof of packing. Manual WhatsApp threads.</p>
-          <p class="kicker" style="margin-top:30px">With Packory</p>
-          <p class="copy strong-copy">Automated, timestamped, tamper-evident video. Evidence on WhatsApp. Dispute fuel removed.</p>
-        </div>
-      </div>
-      <div style="background:var(--teal);display:flex;align-items:center;justify-content:center;padding:20px"><div class="big-arrow">→</div></div>
-    </section>
-
-    <!-- SLIDE 4 — PILLARS: wordmark + hatch + hero block -->
-    <section id="slide4" class="slide four">
-      <aside class="meta-rail"><div class="n">04</div><div class="year">2026<br />System</div><div class="menu-mark"></div></aside>
-      <div class="content">
-        <div class="wordmark teal-dot">WHY PACKORY</div>
-        <h2 class="slide-title" style="margin-top:36px">FOUR PILLARS.<br />ONE OUTCOME:<br />TRUST.</h2>
-        <div class="hatch" style="margin-top:26px"></div>
-      </div>
-      <div class="hero-car">
-        <div class="pillar-list">
-          {PILLARS.map((p) => (
-            <div class="pillar-line"><b>{p.n}</b><span class="kicker">{p.kicker}</span><span class="copy">{p.copy}</span></div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 5 — WORKFLOW: strips -->
-    <section id="slide5" class="slide five">
-      <aside class="meta-rail"><div class="n">05</div><div class="year">2026<br />Flow</div><div class="menu-mark"></div></aside>
-      <div class="strips">
-        {WORKFLOW.slice(0, 3).map((w, i) => (
-          <div class={`strip strip-${i}`}><div class="strip-num">{['A','B','C'][i]}</div><div class="strip-label">{w.label}</div><div class="strip-copy">{w.copy}</div></div>
-        ))}
-        <div class="wordmark" style="position:absolute;left:38%;top:30px">FROM AWB TO EVIDENCE</div>
-      </div>
-    </section>
-
-    <!-- SLIDE 6 — WORKFLOW CONT: device + content -->
-    <section class="slide six">
-      <aside class="meta-rail teal-side"><div class="n">06</div><div class="year">2026<br />Flow</div><div class="menu-mark"></div></aside>
-      <div><div class="device"><div class="dev-screen"><div class="dev-row"><span>AWB</span><b>✓ 1234…</b></div><div class="dev-row"><span>REC</span><b class="dev-rec">● RECORDING</b></div><div class="dev-row"><span>SYNC</span><b>✓ DRIVE</b></div><div class="dev-row"><span>WA</span><b>✓ SENT</b></div></div></div></div>
-      <div class="content">
-        <div class="wordmark teal-dot">HANDS-FREE</div>
-        <p class="kicker" style="margin-top:38px">Thumbs-up</p>
-        <p class="copy">Gesture stops the clip automatically. Saved instantly, synced in the background.</p>
-        <p class="kicker" style="margin-top:24px">Thumbs-up</p>
-        <p class="copy">Resumes on reconnect. 24/7 background sync &amp; retry.</p>
-      </div>
-    </section>
-
-    <!-- SLIDE 7 — STATIONS: mosaic -->
-    <section id="slide7" class="slide seven">
-      <aside class="meta-rail" style="background:var(--teal);color:white"><div class="n">07</div><div class="year">2026<br />Ops</div><div class="menu-mark"></div></aside>
-      <div class="mosaic">
-        {STATIONS.map((s, i) => (
-          <div class={`mos mos-${i}`}>
-            <div class="mos-head"><span>{s.name}</span>{s.status === 'LIVE' && <span class="sc-live"><span class="pulse"></span>LIVE</span>}{s.status === 'READY' && <span class="sc-ready">READY</span>}{s.status === 'PAIR' && <span class="sc-pair">PAIR</span>}</div>
-            <div class="mos-detail">{s.detail}</div>
-            <div class="mos-orders">{s.orders} <span class="mos-unit">verified</span></div>
-            <div class="mos-rate">{s.rate}</div>
-          </div>
-        ))}
-        <div class="wordmark" style="position:absolute;left:24%;top:26px">RUN EVERY STATION</div>
-      </div>
-    </section>
-
-    <!-- SLIDE 8 — ANALYTICS: visual grid + teal content -->
-    <section id="slide8" class="slide eight">
-      <aside class="meta-rail"><div class="n">08</div><div class="year">2026<br />Data</div><div class="menu-mark"></div></aside>
-      <div class="visual-grid">
-        {METRICS.map((m) => (
-          <div class="vg-cell"><b>{m.value}</b><span class="kicker">{m.label}</span></div>
-        ))}
-      </div>
-      <div class="content" style="background:var(--teal)">
-        <div class="wordmark">ANALYTICS</div>
-        <p class="kicker" style="margin-top:34px">Before it becomes a claim</p>
-        <p class="copy">Orders today. Videos captured. Evidence delivered. Dispute win-rate.</p>
-        <div class="kpi-strip" style="margin-top:26px">
-          <div class="kpi-mini"><b>100%</b><span>ORDERS ON VIDEO</span></div>
-          <div class="kpi-mini"><b>0</b><span>SERVER BYTES</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 9 — FEATURES: monitor + gradient -->
-    <section id="slide9" class="slide nine">
-      <aside class="meta-rail" style="background:var(--teal);color:white"><div class="n">09</div><div class="year">2026<br />Build</div><div class="menu-mark"></div></aside>
-      <div>
-        <div class="wordmark" style="margin:28px 0 0 38px">FEATURES</div>
-        <div class="monitor">
-          <div class="mon-feature"><span class="mf-key">AWB</span><span>Detected automatically, hands-free</span></div>
-          <div class="mon-feature"><span class="mf-key">REC</span><span>UTC timestamp burned in</span></div>
-          <div class="mon-feature"><span class="mf-key">WA</span><span>Evidence link sent to buyer</span></div>
-          <div class="mon-feature"><span class="mf-key">0</span><span>Video bytes on our servers</span></div>
-        </div>
-      </div>
-      <div class="grad-side">
-        <div class="feature-card"><div class="kicker">TERRIBLE WI-FI?</div><p class="copy">Clips save instantly, sync in the background, resume on reconnect.</p></div>
-        <div class="feature-card"><div class="kicker">DISPUTE-PROOF</div><p class="copy">Beat parcel-swap and empty-box claims with burned-in footage.</p></div>
-      </div>
-    </section>
-
-    <!-- SLIDE 10 — PRICING + CTA: device + content -->
-    <section id="slide10" class="slide ten">
-      <aside class="meta-rail" style="background:var(--orange);color:white"><div class="n">10</div><div class="year">2026<br />Plan</div><div class="menu-mark"></div></aside>
-      <div><div class="device"><div class="dev-screen"><div class="dev-row"><span>PLAN</span><b>PRO</b></div><div class="dev-row"><span>PRICE</span><b>RM 99</b></div><div class="dev-row"><span>CAMS</span><b>5</b></div><div class="dev-row"><span>WA</span><b>✓ UNLOCKED</b></div></div></div></div>
-      <div class="content">
-        <div class="wordmark teal-dot">PAY PER CAMERA</div>
-        <p class="kicker" style="margin-top:34px">Free · Starter · Pro · Scale</p>
-        <p class="copy">One license per device. Paid securely via MYR FPX, cards, or local e-wallets.</p>
-        <div class="pricing-mini" style="margin-top:24px">
-          {PRICING.map((p) => (<div class="pm"><span class="pm-name">{p.name}</span><span class="pm-price">{p.price}</span></div>))}
-        </div>
-        <div class="hero-actions" style="margin-top:30px">
-          <a href={`${CONSOLE}/signup`} class="btn-solid">Start Free</a>
-          <a href={`${CONSOLE}/login`} class="btn-ghost">Book a Demo</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- TESTIMONIALS + FINAL CTA -->
-  <section id="contact" class="contact">
-    <aside class="meta-rail"><div class="n">11</div><div class="year">2026<br />Proof</div><div class="menu-mark"></div></aside>
-    <div class="section-body">
-      <div class="wordmark">CUSTOMERS</div>
-      <div class="testi-grid" style="margin-top:26px">
-        {TESTIMONIALS.map((t) => (
-          <div class="testi"><p class="t-quote">“{t.quote}”</p><span class="kicker">{t.who}</span></div>
-        ))}
-      </div>
-      <h2 class="title big" style="margin-top:46px">READY TO PUT YOUR ORDERS<br />ON THE RECORD?</h2>
-      <div class="hero-actions" style="margin-top:30px">
-        <a href={`${CONSOLE}/signup`} class="btn-solid">Start Free</a>
-        <a href={`${CONSOLE}/login`} class="btn-ghost">Book a Demo</a>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
-    <span>© {new Date().getFullYear()} PACKORY</span>
-    <span>BUILT FOR MALAYSIAN E-COMMERCE MERCHANTS 🇲🇾</span>
+  <!-- PROOFBAR -->
+  <section class="fo-proofbar">
+    <div class="am-wrap fo-proofbar__inner">
+      {STATS.map(([k, v]) => (
+        <div><strong>{k}</strong><span>{v}</span></div>
+      ))}
+    </div>
+  </section>
+
+  <!-- INTRO / CHANNELS -->
+  <section class="fo-intro">
+    <div class="am-wrap fo-intro__grid">
+      <div>
+        <p class="am-eyebrow">Integrations</p>
+        <h2 class="am-section__title">Prove every order,<br />on every channel.</h2>
+      </div>
+      <div>
+        <p class="fo-intro__text">One evidence link, sent to the buyer on WhatsApp — regardless of marketplace. Connect your stores, pack once, and every order leaves with video proof.</p>
+        <div class="fo-intro__tags">
+          {CHANNELS.map((c) => (<span class="fo-intro__tag">{c}</span>))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FIT -->
+  <section class="fo-fit">
+    <div class="am-wrap fo-fit__grid">
+      <div>
+        <p class="am-eyebrow">Who it’s for</p>
+        <h2 class="am-section__title">Built for sellers who can’t afford another empty-box claim.</h2>
+      </div>
+      <div class="fo-fit__cards">
+        {FIT.map((f, i) => (
+          <article class="fo-fit-card">
+            <span class={`fo-fit-card__accent fo-fit-card__accent--left`}></span>
+            <h3>{f.title}</h3>
+            <p>{f.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY / PILLARS -->
+  <section class="fo-why">
+    <div class="am-wrap fo-why__grid">
+      <div>
+        <p class="am-eyebrow">Why Packory</p>
+        <h2 class="am-section__title">Four pillars.<br />One outcome: trust.</h2>
+      </div>
+      <div class="fo-why__points">
+        {PILLARS.map((p) => (
+          <div class="fo-why__point">
+            <b>{p.n}</b>
+            <div><strong>{p.kicker}</strong><span>{p.copy}</span></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CODE / WORKFLOW -->
+  <section id="workflow" class="fo-workflow">
+    <div class="am-wrap">
+      <p class="am-eyebrow am-eyebrow--ondark">How it works</p>
+      <h2 class="am-section__title am-section__title--ondark">From AWB scan to evidence sent.<br />Automatically.</h2>
+      <div class="fo-workflow__grid">
+        {WORKFLOW.map((w, i) => (
+          <div class="fo-workflow__step">
+            <span class="fo-workflow__num">{String(i + 1).padStart(2, '0')}</span>
+            <strong>{w.label}</strong>
+            <p>{w.copy}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCS / FEATURES -->
+  <section id="features" class="fo-docs">
+    <div class="am-wrap">
+      <div class="fo-docs__head">
+        <p class="am-eyebrow">Features</p>
+        <h2 class="am-section__title">Engineered for hot, noisy warehouses.</h2>
+      </div>
+      <div class="fo-docs__cards">
+        {FEATURES.map((f, i) => (
+          <a class="fo-docs__card">
+            <span class="fo-docs__number">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{f.title}</h3>
+            <p>{f.text}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="fo-pricing">
+    <div class="am-wrap">
+      <p class="am-eyebrow">Pricing</p>
+      <h2 class="am-section__title">Pay per camera.</h2>
+      <p class="fo-pricing__sub">One license per device. Paid securely via MYR FPX, cards, or local e-wallets.</p>
+      <div class="fo-pricing__grid">
+        {PRICING.map((p) => (
+          <div class="fo-pricing__card">
+            <div class="fo-pricing__name">{p.name}</div>
+            <div class="fo-pricing__price">{p.price}</div>
+            <ul>
+              {p.features.map((f) => (<li><b>✓</b>{f}</li>))}
+            </ul>
+            <a href={`${CONSOLE}/signup`} class="am-btn am-btn--primary am-btn--lime fo-pricing__btn">Get started</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="fo-testi">
+    <div class="am-wrap fo-testi__grid">
+      {TESTIMONIALS.map((t) => (
+        <blockquote class="fo-testi__card">
+          <p>“{t.quote}”</p>
+          <footer>{t.who}</footer>
+        </blockquote>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="fo-faq">
+    <div class="am-wrap fo-faq__grid">
+      <div>
+        <p class="am-eyebrow">FAQ</p>
+        <h2 class="am-section__title">The things every seller asks.</h2>
+      </div>
+      <div class="am-faq">
+        {FAQS.map((f) => (
+          <details class="am-faq__item">
+            <summary class="am-faq__q">{f.q}<span class="am-faq__plus"></span></summary>
+            <div class="am-faq__a">{f.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="fo-cta">
+    <div class="am-wrap fo-cta__inner">
+      <p class="am-eyebrow am-eyebrow--ondark">Get started</p>
+      <h2 class="am-section__title am-section__title--ondark">Ready to put your orders<br />on the record?</h2>
+      <p class="fo-cta__lead">Turn any Android phone into a hands-free packing verification camera. Free to start. Your videos stay in your own Google Drive.</p>
+      <div class="fo-cta__actions">
+        <a href={`${CONSOLE}/signup`} class="am-btn am-btn--primary am-btn--lime">Start Free</a>
+        <a href={`${CONSOLE}/login`} class="am-btn am-btn--outline am-btn--ondark">Book a demo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="am-footer">
+    <div class="am-wrap am-footer__inner">
+      <div>
+        <div class="am-footer__tag">{APP_NAME}</div>
+        <p class="am-footer__location">Built for Malaysian e-commerce merchants 🇲🇾</p>
+      </div>
+      <div class="am-footer__cols">
+        <div class="am-footer__col">
+          <a href="#workflow">Workflow</a>
+          <a href="#features">Features</a>
+          <a href="#pricing">Pricing</a>
+        </div>
+        <div class="am-footer__col">
+          <a href={`${CONSOLE}/login`}>Log In</a>
+          <a href={`${CONSOLE}/signup`}>Sign Up</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </div>
+    <div class="am-wrap am-footer__base">
+      <span>© {new Date().getFullYear()} {APP_NAME}</span>
+      <span class="am-footer__base-links">Every order. On video. Dispute-proof.</span>
+    </div>
   </footer>
 </Base>
 
 <style>
+  /* ===== FOUNDRY-STYLE SYSTEM — Packory colors: navy #0f0e54 + lime #d9f20c + white + black ===== */
   :root {
-    --orange: #fd8405; --teal: #13b9b6; --white: #fefefd; --charcoal: #341c19;
-    --burnt: #e45507; --tangerine: #f89437; --mist: #bfd1ce; --peach: #f2b279;
-    --shadow: 0 16px 22px rgba(117,35,0,.34);
+    --navy: #0f0e54;
+    --navy-deep: #0a092e;
+    --lime: #d9f20c;
+    --ink: #111111;
+    --ink-soft: #222222;
+    --slate: #6b6b75;
+    --slate-200: #e5e5ea;
+    --paper: #fafaf8;
+    --off-white: #f4f4f1;
+    --white: #ffffff;
+    --dur: 0.3s;
+    --dur-fast: 0.15s;
+    --font-display: 'Montserrat', system-ui, sans-serif;
+    --font-body: 'Montserrat', system-ui, sans-serif;
+    --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
   }
-  * { box-sizing: border-box; }
 
-  .kicker { font-size: 10px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
-  .copy { font-size: 11px; line-height: 1.65; max-width: 36ch; }
-  .strong-copy { font-weight: 700; }
-  .slide-title { margin: 0; font-size: clamp(28px, 4vw, 56px); line-height: .92; font-weight: 900; letter-spacing: -.04em; text-transform: uppercase; }
-  .wordmark { position: relative; z-index: 1; display: inline-block; font-size: clamp(22px, 3vw, 40px); font-weight: 900; letter-spacing: -.04em; text-transform: uppercase; }
-  .wordmark::before { content: ""; position: absolute; z-index: -1; width: .92em; height: .92em; border-radius: 50%; left: -.28em; top: 50%; transform: translateY(-50%); background: var(--orange); }
-  .wordmark.teal-dot::before { background: var(--teal); }
-  .t-orange { color: var(--orange); }
-  .dot { width: 32px; height: 32px; border-radius: 50%; background: var(--teal); }
-  .dot-sm { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); display: inline-block; }
-  .hatch { width: 44px; height: 44px; border-radius: 50%; background: repeating-linear-gradient(45deg, transparent 0 2px, rgba(255,255,255,.65) 2px 3px); }
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-body); color: var(--ink); background: var(--white); -webkit-font-smoothing: antialiased; overflow-wrap: anywhere; }
 
-  .meta-rail { position: relative; padding: 22px 18px; border-right: 1px solid currentColor; min-width: 76px; background: var(--white); }
-  .meta-rail .n { font-size: 17px; font-weight: 800; margin-bottom: 72px; }
-  .meta-rail .year { position: absolute; left: 18px; bottom: 70px; font-size: 8px; line-height: 1.4; }
-  .menu-mark { position: absolute; left: 18px; bottom: 18px; width: 22px; height: 14px; }
-  .menu-mark::before, .menu-mark::after { content: ""; position: absolute; left: 0; height: 4px; border-radius: 4px; background: currentColor; }
-  .menu-mark::before { width: 18px; top: 1px; } .menu-mark::after { width: 22px; bottom: 1px; }
+  .am-wrap { width: min(1180px, 100% - 64px); margin: 0 auto; }
+  a { color: inherit; text-decoration: none; }
 
-  /* ===== COLLAGE ===== */
-  .collage-page, body { background: var(--white); }
-  .collage { max-width: 100%; margin: auto; display: grid; gap: 0; }
-  .slide { min-height: 88vh; background: var(--white); box-shadow: var(--shadow); display: grid; overflow: hidden; position: relative; }
-  .slide.teal { background: var(--teal); color: white; }
-  .slide.orange { background: var(--orange); color: white; }
-  .slide .content { padding: 40px; }
+  /* ===== BUTTONS (foundry am-btn) ===== */
+  .am-btn { cursor: pointer; min-height: 48px; transition: transform var(--dur-fast), background var(--dur), border-color var(--dur); border: 1px solid transparent; border-radius: 0; justify-content: center; align-items: center; gap: 9px; padding: 0 24px; font-weight: 700; font-size: 14px; display: inline-flex; }
+  .am-btn:hover { transform: translateY(-2px); }
+  .am-btn--primary { background: var(--lime); color: var(--navy); }
+  .am-btn--lime { background: var(--lime); color: var(--navy); }
+  .am-btn--outline { background: transparent; border-color: #d0d0d6; color: var(--ink); }
+  .am-btn--ondark { border-color: rgba(255,255,255,0.35); color: var(--white); }
+  .am-btn--ghostdark { background: transparent; color: var(--white); }
 
-  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
-  .btn-solid { background: var(--orange); color: var(--charcoal); padding: 14px 26px; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-  .btn-ghost { border: 1px solid rgba(255,255,255,.5); color: white; padding: 13px 24px; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  /* ===== EYEBROW (foundry am-eyebrow) ===== */
+  .am-eyebrow { color: var(--lime); font-family: var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; align-items: center; gap: 10px; margin-bottom: 22px; font-size: 15px; font-weight: 600; display: flex; }
+  .am-eyebrow--ondark { color: var(--lime); }
+  .am-eyebrow:before { content: ""; width: 18px; height: 2px; background: var(--lime); display: block; }
 
-  /* terminal shared */
-  .term { width: 100%; text-align: left; color: white; }
-  .term-bar { display: flex; justify-content: space-between; align-items: center; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.2); font-size: 8px; letter-spacing: .14em; }
-  .term-title { color: rgba(255,255,255,.6); font-weight: 700; }
-  .live { display: inline-flex; align-items: center; gap: 5px; color: var(--teal); font-weight: 800; }
-  .pulse { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); animation: pulse 1.6s ease-in-out infinite; }
-  @keyframes pulse { 0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(19,185,182,.5);} 50% { opacity:.55; box-shadow:0 0 0 6px rgba(19,185,182,0);} }
-  .term-body { padding-top: 10px; display: flex; flex-direction: column; gap: 7px; font-size: 9px; }
-  .term-row { display: flex; gap: 8px; align-items: baseline; }
-  .tl { width: 44px; color: rgba(255,255,255,.5); font-weight: 700; font-size: 7px; letter-spacing: .1em; }
-  .tv { font-weight: 500; }
-  .ok { color: var(--teal); font-weight: 800; }
-  .rec { display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: pulse 1.6s infinite; }
-  .term-bc { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,.2); }
-  .bc-bars { height: 14px; width: 70px; background-image: repeating-linear-gradient(90deg, white 0 2px, transparent 2px 4px, white 4px 5px, transparent 5px 9px); opacity: .6; }
-  .bc-text { font-size: 6px; letter-spacing: .14em; color: rgba(255,255,255,.5); }
+  /* ===== SECTION TITLE (foundry am-section__title) ===== */
+  .am-section__title { max-width: 720px; font-family: var(--font-display); letter-spacing: -0.055em; margin: 0; font-size: clamp(38px, 5.1vw, 68px); font-weight: 700; line-height: 0.98; }
+  .am-section__title--ondark { color: var(--white); }
 
-  /* SLIDE 1 — hero */
-  .slide.one { grid-template-columns: 110px 1fr; background: var(--teal); color: white; }
-  .slide.one .stage { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 30px; padding: 60px 6vw; }
-  .slide.one .stage .content { padding: 0; }
-  .slide.one .copy { color: rgba(255,255,255,.85); }
-  .slide.one .btn-ghost { border-color: rgba(255,255,255,.5); }
-  .photo-circle { width: min(26vw, 380px); height: min(26vw, 380px); border-radius: 50%; overflow: hidden; background: var(--charcoal); justify-self: center; display: flex; align-items: center; justify-content: center; padding: 52px; }
+  /* ===== NAV (foundry am-nav) ===== */
+  .am-nav { position: sticky; top: 0; z-index: 100; background: rgba(15,14,84,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); }
+  .am-nav__inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .am-nav__brand { font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--white); letter-spacing: -0.02em; }
+  .am-nav__links { display: flex; align-items: center; gap: 26px; }
+  .am-nav__link { color: rgba(255,255,255,0.78); font-size: 14px; font-weight: 500; transition: color var(--dur-fast); }
+  .am-nav__link:hover { color: var(--white); }
+  .am-nav__mlink { }
+  .am-nav__cta { min-height: 40px; padding: 0 18px; font-size: 13px; }
 
-  /* SLIDE 2 — channels */
-  .slide.two { grid-template-columns: 96px 1fr 1.25fr; background: var(--teal); color: white; }
-  .slide.two .orange-pane { background: var(--orange); position: relative; padding: 30px; display: flex; flex-direction: column; }
-  .slide.two .orange-pane .wordmark { color: var(--charcoal); }
-  .chan-list { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
-  .chan-line { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--charcoal); }
-  .chan-line .dot-sm { background: var(--charcoal); }
-  .chan-line .chk { margin-left: auto; font-weight: 900; color: var(--charcoal); }
-  .slide.two .content { background: var(--white); color: var(--charcoal); }
-  .thumb-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
-  .thumb { height: 90px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900; letter-spacing: .14em; border: 2px solid var(--charcoal); }
-  .t1 { background: var(--orange); color: var(--charcoal); }
-  .t2 { background: var(--charcoal); color: white; }
-  .t3 { background: var(--teal); color: white; }
-  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-  .grid-2 .kicker { color: var(--teal); }
+  /* ===== HERO (foundry fo-hero) ===== */
+  .fo-hero { background: var(--navy); color: var(--white); min-height: 780px; padding: 140px 0 100px; position: relative; overflow: hidden; }
+  .fo-hero:before { content: ""; border: 150px solid rgba(217,242,12,0.06); width: 720px; height: 720px; position: absolute; inset: auto -6% -40% 48%; transform: rotate(20deg); }
+  .fo-hero__title { font-family: var(--font-display); letter-spacing: -0.05em; font-size: clamp(48px, 7.2vw, 96px); font-weight: 700; line-height: 0.95; color: var(--white); }
+  .fo-hero__lead { max-width: 620px; margin-top: 28px; font-size: 17px; line-height: 1.7; color: rgba(255,255,255,0.72); }
+  .fo-hero__actions { display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap; }
+  .fo-hero__visual { margin-top: 60px; max-width: 620px; }
 
-  /* SLIDE 3 — problem */
-  .slide.three { grid-template-columns: 110px 1fr 92px; }
-  .gallery { display: grid; gap: 10px; }
-  .gal-big { height: 150px; background: var(--charcoal); color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
-  .gal-sm { height: 110px; background: var(--peach); color: var(--charcoal); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border: 2px solid var(--charcoal); }
-  .gal-big .x, .gal-sm .x { font-size: 20px; font-weight: 900; color: var(--burnt); }
-  .gal-big p, .gal-sm p { margin: 0; font-size: 9px; font-weight: 900; letter-spacing: .14em; }
-  .slide.three .content .kicker { color: var(--teal); }
-  .big-arrow { font-size: 44px; font-weight: 900; color: var(--charcoal); }
+  /* code window (foundry fo-code) */
+  .fo-code { border: 1px solid rgba(255,255,255,0.14); background: var(--navy-deep); border-radius: 10px; overflow: hidden; }
+  .fo-code__bar { border-bottom: 1px solid rgba(255,255,255,0.1); align-items: center; gap: 7px; padding: 14px 16px; display: flex; }
+  .fo-code__bar > span { background: #4b5159; border-radius: 50%; width: 8px; height: 8px; }
+  .fo-code__bar em { margin-left: 8px; font-style: normal; font-family: var(--font-mono); font-size: 12px; color: rgba(255,255,255,0.5); flex: 1; }
+  .fo-code__live { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: var(--lime); font-style: normal; }
+  .fo-code__live i { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(217,242,12,0.5);} 50% { opacity:.55; box-shadow:0 0 0 6px rgba(217,242,12,0);} }
+  .fo-code__body { padding: 20px 24px; display: flex; flex-direction: column; gap: 14px; }
+  .fo-code__row { display: flex; gap: 20px; align-items: baseline; font-family: var(--font-mono); font-size: 13px; }
+  .fo-code__row span { width: 84px; color: rgba(255,255,255,0.4); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
+  .fo-code__row strong { color: rgba(255,255,255,0.92); font-weight: 500; }
+  .ok { color: var(--lime); font-weight: 700; }
+  .rec { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--lime); animation: pulse 1.6s infinite; }
 
-  /* SLIDE 4 — pillars */
-  .slide.four { grid-template-columns: 110px 1fr 1.7fr; background: var(--teal); color: white; }
-  .slide.four .content { display: flex; flex-direction: column; justify-content: center; }
-  .slide.four .hero-car { background: var(--tangerine); padding: 40px; display: flex; align-items: center; }
-  .pillar-list { width: 100%; display: flex; flex-direction: column; }
-  .pillar-line { display: grid; grid-template-columns: 44px 1fr; gap: 8px 18px; padding: 18px 0; border-bottom: 1px solid rgba(52,28,25,.25); align-items: baseline; }
-  .pillar-line b { font-size: 16px; font-weight: 900; color: var(--charcoal); }
-  .pillar-line .kicker { color: var(--charcoal); }
-  .pillar-line .copy { grid-column: 2; color: var(--charcoal); opacity: .85; }
+  /* ===== PROOFBAR (foundry fo-proofbar) ===== */
+  .fo-proofbar { border-bottom: 1px solid var(--slate-200); background: var(--white); }
+  .fo-proofbar__inner { grid-template-columns: repeat(4, 1fr); display: grid; }
+  .fo-proofbar__inner div { border-right: 1px solid var(--slate-200); padding: 28px 24px; }
+  .fo-proofbar__inner div:last-child { border-right: none; }
+  .fo-proofbar__inner strong { display: block; font-family: var(--font-display); font-size: 30px; font-weight: 700; letter-spacing: -0.03em; color: var(--navy); }
+  .fo-proofbar__inner span { display: block; margin-top: 6px; font-size: 13px; color: var(--slate); line-height: 1.4; }
 
-  /* SLIDE 5 — workflow strips */
-  .slide.five { grid-template-columns: 110px 1fr; background: var(--teal); color: white; }
-  .slide.five .strips { padding: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; position: relative; }
-  .strip { background: var(--white); color: var(--charcoal); border: 2px solid var(--charcoal); padding: 26px; display: flex; flex-direction: column; gap: 14px; min-height: 260px; }
-  .strip-1 { background: var(--peach); }
-  .strip-2 { background: var(--charcoal); color: white; }
-  .strip-num { font-size: 28px; font-weight: 900; color: var(--orange); }
-  .strip-2 .strip-num { color: var(--orange); }
-  .strip-label { font-size: 16px; font-weight: 900; letter-spacing: .1em; }
-  .strip-copy { font-size: 10px; line-height: 1.6; opacity: .8; }
-  .slide.five .wordmark { color: var(--charcoal); }
+  /* ===== INTRO (foundry fo-intro) ===== */
+  .fo-intro { background: var(--paper); padding: 120px 0; }
+  .fo-intro__grid { grid-template-columns: 1.05fr 0.75fr; align-items: start; gap: clamp(48px, 9vw, 120px); display: grid; }
+  .fo-intro__text { font-size: 16px; line-height: 1.7; color: var(--slate); margin-top: 8px; }
+  .fo-intro__tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .fo-intro__tag { border: 1px solid var(--slate-200); background: var(--white); border-radius: 0; padding: 10px 16px; font-size: 13px; font-weight: 600; color: var(--ink); }
 
-  /* SLIDE 6 — device */
-  .slide.six { grid-template-columns: 100px 1fr 1fr; background: var(--white); }
-  .device { margin: 40px auto; width: 150px; height: 240px; border: 8px solid var(--charcoal); border-radius: 22px; padding: 6px; background: var(--white); }
-  .dev-screen { height: 100%; background: var(--charcoal); border-radius: 12px; padding: 18px 14px; display: flex; flex-direction: column; gap: 12px; color: white; font-size: 9px; }
-  .dev-row { display: flex; justify-content: space-between; align-items: center; }
-  .dev-row span { color: rgba(255,255,255,.5); font-weight: 700; font-size: 7px; letter-spacing: .12em; }
-  .dev-row b { font-size: 8px; }
-  .dev-rec { color: var(--orange); }
-  .slide.six .teal-side { background: var(--teal); }
-  .slide.six .content .kicker { color: var(--teal); }
+  /* ===== FIT (foundry fo-fit) ===== */
+  .fo-fit { background: var(--off-white); padding: 120px 0; }
+  .fo-fit__grid { grid-template-columns: 0.65fr 1.35fr; gap: 70px; display: grid; }
+  .fo-fit__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .fo-fit-card { background: var(--white); border: 1px solid var(--slate-200); padding: 34px; position: relative; overflow: hidden; transition: transform var(--dur); }
+  .fo-fit-card:hover { transform: translateY(-3px); }
+  .fo-fit-card__accent { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--lime); transform: scaleY(0); transform-origin: top; transition: transform var(--dur); }
+  .fo-fit-card:hover .fo-fit-card__accent { transform: scaleY(1); }
+  .fo-fit-card h3 { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .fo-fit-card p { font-size: 14px; line-height: 1.65; color: var(--slate); }
 
-  /* SLIDE 7 — stations mosaic */
-  .slide.seven { grid-template-columns: 110px 1fr; background: var(--white); }
-  .mosaic { display: grid; grid-template-columns: 1.1fr .7fr .7fr; gap: 14px; padding: 44px; position: relative; }
-  .mos { border: 2px solid var(--charcoal); padding: 22px; display: flex; flex-direction: column; gap: 8px; min-height: 170px; }
-  .mos-0 { background: var(--teal); color: white; grid-row: span 2; }
-  .mos-1 { background: var(--orange); color: var(--charcoal); }
-  .mos-2 { background: var(--peach); color: var(--charcoal); }
-  .mos-head { display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 900; letter-spacing: .1em; }
-  .mos-detail { font-size: 8px; font-weight: 700; letter-spacing: .1em; opacity: .7; }
-  .mos-orders { font-size: 22px; font-weight: 900; margin-top: 8px; }
-  .mos-unit { font-size: 9px; font-weight: 700; opacity: .7; }
-  .mos-rate { font-size: 9px; font-weight: 800; letter-spacing: .08em; }
-  .sc-live { display: inline-flex; align-items: center; gap: 5px; color: var(--teal); font-size: 9px; font-weight: 800; letter-spacing: .12em; }
-  .sc-ready { background: var(--charcoal); color: white; font-size: 9px; font-weight: 800; letter-spacing: .12em; padding: 3px 8px; }
-  .sc-pair { border: 1px solid var(--charcoal); font-size: 9px; font-weight: 800; letter-spacing: .12em; padding: 3px 8px; color: var(--charcoal); }
-  .slide.seven .wordmark { color: var(--charcoal); }
+  /* ===== WHY (foundry fo-why) ===== */
+  .fo-why { border-block: 1px solid var(--slate-200); background: var(--white); padding: 120px 0; }
+  .fo-why__grid { grid-template-columns: 0.8fr 1.15fr; gap: clamp(54px, 9vw, 120px); display: grid; }
+  .fo-why__points { display: flex; flex-direction: column; }
+  .fo-why__point { display: flex; gap: 26px; padding: 26px 0; border-bottom: 1px solid var(--slate-200); align-items: baseline; }
+  .fo-why__point:first-child { border-top: 1px solid var(--slate-200); }
+  .fo-why__point b { font-family: var(--font-mono); font-size: 15px; color: var(--lime); font-weight: 700; }
+  .fo-why__point div { display: flex; flex-direction: column; gap: 6px; }
+  .fo-why__point strong { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+  .fo-why__point span { font-size: 14px; line-height: 1.6; color: var(--slate); }
 
-  /* SLIDE 8 — analytics */
-  .slide.eight { grid-template-columns: 110px 1.25fr 1fr; background: var(--orange); color: var(--charcoal); }
-  .visual-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 36px; }
-  .vg-cell { background: var(--white); border: 2px solid var(--charcoal); padding: 22px; display: flex; flex-direction: column; gap: 8px; }
-  .vg-cell b { font-size: 24px; font-weight: 900; letter-spacing: -.02em; }
-  .vg-cell .kicker { color: var(--charcoal); opacity: .7; }
-  .slide.eight .content { color: white; display: flex; flex-direction: column; justify-content: center; }
-  .slide.eight .content .copy { color: rgba(255,255,255,.85); }
-  .kpi-strip { display: flex; gap: 12px; }
-  .kpi-mini { background: var(--charcoal); color: white; padding: 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
-  .kpi-mini b { font-size: 18px; font-weight: 900; color: var(--teal); }
-  .kpi-mini span { font-size: 7px; font-weight: 800; letter-spacing: .12em; opacity: .7; }
+  /* ===== WORKFLOW (dark) ===== */
+  .fo-workflow { background: var(--navy); color: var(--white); padding: 120px 0; position: relative; overflow: hidden; }
+  .fo-workflow:after { content: ""; border-right: 160px solid var(--lime); border-top: 160px solid transparent; position: absolute; bottom: 0; right: 0; opacity: 0.9; }
+  .fo-workflow__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 60px; }
+  .fo-workflow__step { border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); padding: 28px; }
+  .fo-workflow__num { font-family: var(--font-mono); font-size: 14px; color: var(--lime); font-weight: 700; display: block; margin-bottom: 16px; }
+  .fo-workflow__step strong { font-family: var(--font-display); font-size: 17px; font-weight: 700; letter-spacing: 0.02em; display: block; margin-bottom: 8px; }
+  .fo-workflow__step p { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.6); }
 
-  /* SLIDE 9 — features monitor */
-  .slide.nine { grid-template-columns: 110px 1fr 110px; background: var(--white); }
-  .monitor { width: 340px; height: 230px; margin: 40px auto 24px; border: 12px solid #c9c9c9; border-bottom: 28px solid #c9c9c9; background: var(--charcoal); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
-  .mon-feature { display: flex; gap: 12px; align-items: baseline; font-size: 10px; color: white; }
-  .mf-key { background: var(--orange); color: var(--charcoal); font-weight: 900; font-size: 8px; padding: 2px 6px; letter-spacing: .1em; }
-  .grad-side { background: linear-gradient(var(--teal) 0 45%, var(--orange) 45%); display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 24px; }
-  .feature-card { background: var(--white); border: 2px solid var(--charcoal); padding: 20px; }
-  .feature-card .kicker { color: var(--charcoal); }
+  /* ===== DOCS / FEATURES (foundry fo-docs) ===== */
+  .fo-docs { border-top: 1px solid var(--slate-200); background: var(--white); padding: 120px 0; overflow: hidden; }
+  .fo-docs__head { display: grid; grid-template-columns: 1.15fr 0.72fr; align-items: end; gap: clamp(54px, 9vw, 120px); margin-bottom: 60px; }
+  .fo-docs__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .fo-docs__card { border: 1px solid var(--slate-200); background: var(--paper); padding: 34px; display: block; transition: transform var(--dur), border-color var(--dur); }
+  .fo-docs__card:hover { transform: translateY(-3px); border-color: var(--navy); }
+  .fo-docs__number { font-family: var(--font-mono); font-size: 14px; color: var(--lime); font-weight: 700; display: block; margin-bottom: 18px; }
+  .fo-docs__card h3 { font-family: var(--font-display); font-size: 21px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+  .fo-docs__card p { font-size: 14px; line-height: 1.65; color: var(--slate); }
 
-  /* SLIDE 10 — pricing */
-  .slide.ten { grid-template-columns: 110px 1fr 1.7fr; background: var(--white); }
-  .pricing-mini { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-  .pm { border: 2px solid var(--charcoal); padding: 14px; display: flex; flex-direction: column; gap: 6px; }
-  .pm-name { font-size: 10px; font-weight: 900; letter-spacing: .12em; color: var(--teal); }
-  .pm-price { font-size: 18px; font-weight: 900; letter-spacing: -.02em; }
+  /* ===== PRICING ===== */
+  .fo-pricing { background: var(--off-white); padding: 120px 0; }
+  .fo-pricing__sub { font-size: 16px; color: var(--slate); margin-top: 18px; max-width: 520px; line-height: 1.6; }
+  .fo-pricing__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 52px; }
+  .fo-pricing__card { background: var(--white); border: 1px solid var(--slate-200); padding: 30px; display: flex; flex-direction: column; gap: 14px; }
+  .fo-pricing__name { font-family: var(--font-mono); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: var(--slate); text-transform: uppercase; }
+  .fo-pricing__price { font-family: var(--font-display); font-size: 30px; font-weight: 700; letter-spacing: -0.03em; color: var(--navy); }
+  .fo-pricing__card ul { list-style: none; padding: 0; margin: 0; flex: 1; display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: var(--ink-soft); }
+  .fo-pricing__card li { display: flex; gap: 8px; align-items: baseline; }
+  .fo-pricing__card li b { color: var(--lime); font-weight: 700; }
+  .fo-pricing__btn { margin-top: 16px; }
 
-  /* contact */
-  .contact { min-height: 600px; background: var(--teal); color: white; display: grid; grid-template-columns: 110px 1fr; }
-  .contact .section-body { padding: 6vw; display: flex; flex-direction: column; justify-content: center; }
-  .contact .title { margin: 0; font-size: clamp(40px, 6vw, 100px); line-height: .92; font-weight: 900; letter-spacing: -.04em; text-transform: uppercase; }
-  .testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .testi { border: 1px solid rgba(255,255,255,.3); padding: 22px; display: flex; flex-direction: column; gap: 14px; }
-  .t-quote { margin: 0; font-size: 13px; line-height: 1.6; font-weight: 600; }
-  .testi .kicker { color: var(--orange); }
-  .contact .btn-ghost { border-color: rgba(255,255,255,.5); }
+  /* ===== TESTIMONIALS ===== */
+  .fo-testi { background: var(--white); padding: 100px 0; }
+  .fo-testi__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .fo-testi__card { background: var(--paper); border-left: 4px solid var(--lime); padding: 32px; margin: 0; }
+  .fo-testi__card p { font-size: 16px; line-height: 1.65; font-weight: 500; margin-bottom: 16px; }
+  .fo-testi__card footer { font-family: var(--font-mono); font-size: 12px; color: var(--slate); letter-spacing: 0.06em; text-transform: uppercase; }
 
-  /* footer */
-  .footer { background: var(--charcoal); color: white; padding: 26px 5vw; display: flex; justify-content: space-between; font-size: 10px; letter-spacing: .1em; gap: 12px; flex-wrap: wrap; }
+  /* ===== FAQ (foundry fo-faq) ===== */
+  .fo-faq { background: var(--off-white); padding: 120px 0; }
+  .fo-faq__grid { grid-template-columns: 0.72fr 1.1fr; gap: clamp(56px, 9vw, 120px); display: grid; }
+  .am-faq { display: flex; flex-direction: column; }
+  .am-faq__item { border-bottom: 1px solid var(--slate-200); }
+  .am-faq__item:first-child { border-top: 1px solid var(--slate-200); }
+  .am-faq__q { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 0; font-family: var(--font-display); font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
+  .am-faq__q::-webkit-details-marker { display: none; }
+  .am-faq__plus { position: relative; width: 16px; height: 16px; flex-shrink: 0; }
+  .am-faq__plus:before, .am-faq__plus:after { content: ""; position: absolute; background: var(--navy); transition: transform var(--dur); }
+  .am-faq__plus:before { left: 0; top: 7px; width: 16px; height: 2px; }
+  .am-faq__plus:after { left: 7px; top: 0; width: 2px; height: 16px; }
+  .am-faq__item[open] .am-faq__plus:after { transform: scaleY(0); }
+  .am-faq__a { padding: 0 0 24px; font-size: 14px; line-height: 1.7; color: var(--slate); max-width: 560px; }
 
+  /* ===== CTA (foundry fo-cta) ===== */
+  .fo-cta { background: var(--navy); color: var(--white); padding: clamp(88px, 10vw, 140px) 0; position: relative; overflow: hidden; }
+  .fo-cta:after { content: ""; border-right: 180px solid var(--lime); border-top: 180px solid transparent; position: absolute; bottom: 0; right: 0; }
+  .fo-cta__inner { z-index: 2; text-align: center; position: relative; }
+  .fo-cta .am-section__title { margin-inline: auto; }
+  .fo-cta__lead { max-width: 560px; margin: 24px auto 0; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.72); }
+  .fo-cta__actions { display: flex; justify-content: center; gap: 14px; margin-top: 38px; flex-wrap: wrap; }
+
+  /* ===== FOOTER (foundry am-footer) ===== */
+  .am-footer { color: var(--white); background: var(--navy-deep); padding: 76px 0 28px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .am-footer__inner { grid-template-columns: 1.05fr 1.35fr; gap: 80px; display: grid; }
+  .am-footer__tag { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+  .am-footer__location { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+  .am-footer__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .am-footer__col { display: flex; flex-direction: column; gap: 12px; }
+  .am-footer__col a { font-size: 14px; color: rgba(255,255,255,0.7); transition: color var(--dur-fast); }
+  .am-footer__col a:hover { color: var(--lime); }
+  .am-footer__base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.4); gap: 12px; flex-wrap: wrap; }
+
+  /* ===== RESPONSIVE ===== */
   @media (max-width: 900px) {
-    .slide, .contact { grid-template-columns: 1fr !important; }
-    .meta-rail { display: none; }
-    .slide.one .stage { grid-template-columns: 1fr; padding: 50px 24px; }
-    .photo-circle { width: min(50vw, 300px); height: min(50vw, 300px); }
-    .slide.five .strips, .slide.seven .mosaic, .visual-grid, .pricing-mini { grid-template-columns: 1fr 1fr; }
-    .grid-2, .testi-grid, .thumb-row { grid-template-columns: 1fr; }
-    .slide.two { grid-template-columns: 1fr !important; }
-    .slide.two .orange-pane { display: none; }
-    .monitor { width: 90%; }
-    .slide.nine { grid-template-columns: 1fr !important; }
-    .grad-side { flex-direction: row; }
+    .am-nav__link:not(.am-nav__cta):not(.am-nav__mlink) { display: none; }
+    .fo-hero { padding: 100px 0 70px; }
+    .fo-intro__grid, .fo-why__grid, .fo-faq__grid, .fo-docs__head { grid-template-columns: 1fr; gap: 40px; }
+    .fo-fit__grid { grid-template-columns: 1fr; gap: 40px; }
+    .fo-workflow__grid { grid-template-columns: 1fr 1fr; }
+    .fo-docs__cards, .fo-fit__cards, .fo-testi__grid { grid-template-columns: 1fr; }
+    .fo-pricing__grid { grid-template-columns: 1fr 1fr; }
+    .am-footer__inner { grid-template-columns: 1fr; gap: 40px; }
   }
 
   @media (max-width: 620px) {
-    .slide.five .strips, .slide.seven .mosaic, .visual-grid, .pricing-mini { grid-template-columns: 1fr; }
-    .slide-title { font-size: 30px; }
-    .slide .content { padding: 26px; }
-    .mosaic, .strips { padding: 26px; }
-    .contact .title { font-size: 44px; }
+    .fo-workflow__grid, .fo-pricing__grid { grid-template-columns: 1fr; }
+    .fo-proofbar__inner { grid-template-columns: 1fr 1fr; }
+    .fo-proofbar__inner div:nth-child(2) { border-right: none; }
+    .fo-proofbar__inner div:nth-child(n+3) { border-top: 1px solid var(--slate-200); }
+    .fo-hero__title { font-size: 40px; }
+    .am-section__title { font-size: 34px; }
+    .am-footer__base { flex-direction: column; }
   }
 </style>
