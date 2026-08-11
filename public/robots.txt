@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://packory.app/sitemap-index.xml

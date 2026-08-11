@@ -1,0 +1,137 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0F1417" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Packory" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:locale" content="en_MY" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={Astro.url.href} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: 'Packory',
+      applicationCategory: 'BusinessApplication',
+      operatingSystem: 'Web',
+      description,
+      offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'MYR',
+      },
+    })} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* Firefox custom scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: #6045f4 #0f1417;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    background: #0f1417;
+    color: #0f1417;
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: anywhere;
+  }
+
+  h1, h2, h3, .brand {
+    font-family: 'Manrope', 'Inter', system-ui, sans-serif;
+  }
+
+  /* Custom scrollbar — WebKit (Chrome/Edge/Safari) */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0f1417;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #6045f4, #4a34d6);
+    border-radius: 8px;
+    border: 2px solid #0f1417;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #53e6d4;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: #0f1417;
+  }
+
+  /* Slide-per-page (skrim.my style): snap pada mobile, desktop free scroll,
+     hormat prefers-reduced-motion. min-height (bukan height) supaya content
+     panjang tetap muat dan tidak terpotong. */
+  @media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-snap-type: y mandatory;
+    }
+
+    .snap-screen {
+      min-height: 100svh;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+    }
+  }
+
+  .container {
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+  }
+</style>
