@@ -14,53 +14,33 @@ const PILLARS = [
 ];
 
 const WORKFLOW = [
-  { n: '01', label: 'AWB SCAN', copy: 'Barcode detected automatically, hands-free.' },
-  { n: '02', label: 'RECORD', copy: 'UTC timestamp burned into every frame.' },
-  { n: '03', label: 'THUMBS-UP', copy: 'Gesture stops the clip. Saved instantly.' },
-  { n: '04', label: 'SYNC TO DRIVE', copy: 'Background upload, resumes on reconnect.' },
-  { n: '05', label: 'WHATSAPP LINK', copy: 'Evidence link sent to buyer automatically.' },
-  { n: '06', label: 'BUYER SEES PROOF', copy: 'Their order, packed correctly, on video.' },
+  { label: 'AWB SCAN', copy: 'Barcode detected automatically.' },
+  { label: 'RECORD', copy: 'UTC burned into every frame.' },
+  { label: 'THUMBS-UP', copy: 'Gesture stops the clip.' },
+  { label: 'SYNC', copy: 'Background upload to Drive.' },
+  { label: 'WHATSAPP', copy: 'Evidence link sent to buyer.' },
 ];
 
 const STATIONS = [
-  { name: 'STATION A', detail: 'PACKING LINE 1', orders: '1,248 VERIFIED', rate: '100% COVERAGE', status: 'LIVE' },
-  { name: 'STATION B', detail: 'SMALL PARCELS', orders: '864 VERIFIED', rate: '99.2% SYNC', status: 'READY' },
+  { name: 'STATION A', detail: 'PACKING LINE 1', orders: '1,248', rate: '100% COVERAGE', status: 'LIVE' },
+  { name: 'STATION B', detail: 'SMALL PARCELS', orders: '864', rate: '99.2% SYNC', status: 'READY' },
   { name: 'STATION C', detail: 'BULK / COD', orders: 'PAIRING…', rate: 'ACTION NEEDED', status: 'PAIR' },
 ];
 
 const METRICS = [
   { label: 'Orders today', value: '1,842' },
   { label: 'Videos captured', value: '1,840' },
-  { label: 'Evidence links delivered', value: '1,832' },
+  { label: 'Evidence delivered', value: '1,832' },
   { label: 'Dispute win-rate', value: '98.4%' },
   { label: 'Sync failures', value: '3' },
-  { label: 'On-time WhatsApp delivery', value: '99.1%' },
-];
-
-const KPI = [
-  { value: '100%', label: 'ORDERS ON VIDEO' },
-  { value: '0', label: 'VIDEO BYTES ON OUR SERVERS' },
-  { value: '<24H', label: 'EVIDENCE ON BUYER’S WHATSAPP' },
-  { value: '98.4%', label: 'DISPUTES WON WITH VIDEO' },
+  { label: 'On-time WhatsApp', value: '99.1%' },
 ];
 
 const FEATURES = [
-  {
-    title: 'HANDS-FREE VIDEO PROOF',
-    text: 'AWB detected automatically. Recording starts by itself and stops on a thumbs-up — packers never touch the screen.',
-  },
-  {
-    title: 'TERRIBLE WI-FI? NO PROBLEM',
-    text: 'Clips save to the device instantly and sync to the Admin’s private Google Drive in the background, resuming on reconnect.',
-  },
-  {
-    title: 'ZERO SERVER VIDEO OVERHEAD',
-    text: 'Your videos never pass through our servers. Bring-your-own Google Drive storage with a scope-limited token.',
-  },
-  {
-    title: 'DISPUTE-PROOF ORDERS',
-    text: 'Beat parcel-swap and empty-box claims with timestamped, burned-in packing footage delivered to buyers on WhatsApp.',
-  },
+  { title: 'HANDS-FREE VIDEO PROOF', text: 'AWB detected automatically. Recording starts by itself and stops on a thumbs-up — packers never touch the screen.' },
+  { title: 'TERRIBLE WI-FI? NO PROBLEM', text: 'Clips save to the device instantly and sync to the Admin’s private Google Drive in the background, resuming on reconnect.' },
+  { title: 'ZERO SERVER VIDEO OVERHEAD', text: 'Your videos never pass through our servers. Bring-your-own Google Drive storage with a scope-limited token.' },
+  { title: 'DISPUTE-PROOF ORDERS', text: 'Beat parcel-swap and empty-box claims with timestamped, burned-in packing footage delivered to buyers on WhatsApp.' },
 ];
 
 const PRICING = [
@@ -71,14 +51,8 @@ const PRICING = [
 ];
 
 const TESTIMONIALS = [
-  {
-    quote: 'We won every parcel-swap dispute last month — every single one had video proof.',
-    who: 'SHOPEE SELLER · 400+ ORDERS/WEEK',
-  },
-  {
-    quote: 'A buyer claimed the box arrived empty. We sent the packing video. Claim closed in a day.',
-    who: 'TIKTOK SHOP SELLER · MALAYSIA',
-  },
+  { quote: 'We won every parcel-swap dispute last month — every single one had video proof.', who: 'SHOPEE SELLER · 400+ ORDERS/WEEK' },
+  { quote: 'A buyer claimed the box arrived empty. We sent the packing video. Claim closed in a day.', who: 'TIKTOK SHOP SELLER · MALAYSIA' },
 ];
 ---
 
@@ -86,208 +60,206 @@ const TESTIMONIALS = [
   title="Packory — Every order. On video. Dispute-proof."
   description="Packory turns any cheap warehouse Android phone into a hands-free packing verification camera. Every order is recorded with a burned-in timestamp, stored in your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp."
 >
-  <header class="topbar">
-    <div class="brand">{APP_NAME}.</div>
-    <nav class="nav">
-      <a href="#work">Product</a>
-      <a href="#pricing">Pricing</a>
-      <a href={`${CONSOLE}/login`}>Log In</a>
-      <a href={`${CONSOLE}/signup`} class="nav-cta">Start Free</a>
-    </nav>
-  </header>
-
-  <!-- 1. HERO -->
-  <section class="hero">
-    <aside class="meta-rail"><div class="n">01</div><div class="year">2026<br />Selected</div><div class="menu-mark"></div></aside>
-    <div class="left">
-      <div class="wordmark">PACKORY</div>
-      <h1 class="title" style="margin-top:9vh">EVERY<br />ORDER.<br />ON VIDEO.<br /><span class="t-orange">DISPUTE-PROOF.</span></h1>
-      <p class="copy" style="margin-top:26px">Hands-free packing verification. Timestamped video evidence, synced to your own Google Drive, delivered to the buyer on WhatsApp.</p>
-      <div class="hero-actions" style="margin-top:32px">
-        <a href={`${CONSOLE}/signup`} class="btn-solid">Start Free</a>
-        <a href="#work" class="btn-ghost">See How It Works</a>
-      </div>
-    </div>
-    <div class="right">
-      <div class="big-circle">
-        <div class="term">
-          <div class="term-bar"><span class="term-title">PACKING-TERMINAL · A</span><span class="live"><span class="pulse"></span>LIVE</span></div>
-          <div class="term-body">
-            <div class="term-row"><span class="tl">AWB</span><span class="tv">123456789012 <span class="ok">✓</span></span></div>
-            <div class="term-row"><span class="tl">STATUS</span><span class="tv"><span class="rec"></span> RECORDING</span></div>
-            <div class="term-row"><span class="tl">SYNC</span><span class="tv">SYNCED <span class="ok">✓</span></span></div>
-            <div class="term-row"><span class="tl">WA</span><span class="tv">LINK SENT <span class="ok">✓</span></span></div>
+  <main class="collage">
+    <!-- SLIDE 1 — HERO: teal stage + big photo-circle -->
+    <section class="slide one">
+      <aside class="meta-rail"><div class="n">01</div><div class="year">2026<br />Selected</div><div class="menu-mark"></div></aside>
+      <div class="stage">
+        <div class="content">
+          <div class="wordmark">PACKORY</div>
+          <p class="kicker" style="margin-top:36px">Packing verification for ecommerce</p>
+          <h1 class="slide-title">EVERY ORDER.<br />ON VIDEO.<br /><span class="t-orange">DISPUTE-PROOF.</span></h1>
+          <p class="copy" style="margin-top:18px">Hands-free packing verification. Timestamped video evidence, synced to your own Google Drive, delivered to the buyer on WhatsApp.</p>
+          <div class="hero-actions" style="margin-top:26px">
+            <a href={`${CONSOLE}/signup`} class="btn-solid">Start Free</a>
+            <a href="#slide4" class="btn-ghost">How It Works</a>
           </div>
-          <div class="term-bc"><span class="bc-bars"></span><span class="bc-text">PKR-0A3F-9C2E-7741</span></div>
+        </div>
+        <div class="photo-circle">
+          <div class="term">
+            <div class="term-bar"><span class="term-title">TERMINAL · A</span><span class="live"><span class="pulse"></span>LIVE</span></div>
+            <div class="term-body">
+              <div class="term-row"><span class="tl">AWB</span><span class="tv">123456789012 <span class="ok">✓</span></span></div>
+              <div class="term-row"><span class="tl">STATUS</span><span class="tv"><span class="rec"></span> RECORDING</span></div>
+              <div class="term-row"><span class="tl">SYNC</span><span class="tv">SYNCED <span class="ok">✓</span></span></div>
+              <div class="term-row"><span class="tl">WA</span><span class="tv">LINK SENT <span class="ok">✓</span></span></div>
+            </div>
+            <div class="term-bc"><span class="bc-bars"></span><span class="bc-text">PKR-0A3F-9C2E-7741</span></div>
+          </div>
         </div>
       </div>
-      <div class="hatch"></div>
-      <div class="dot"></div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 2. CHANNELS -->
-  <section id="work" class="section white">
-    <aside class="meta-rail"><div class="n">02</div><div class="year">2026<br />Work</div><div class="menu-mark"></div></aside>
-    <div class="section-body">
-      <div class="wordmark">CONNECTED.</div>
-      <h2 class="title" style="margin-top:34px">PROVE EVERY ORDER.<br />ON EVERY CHANNEL.</h2>
-      <p class="copy" style="margin-top:18px">One evidence link, sent to the buyer on WhatsApp — regardless of marketplace.</p>
-      <div class="editorial-grid" style="margin-top:40px">
-        {CHANNELS.map((c, i) => (
-          <div class={`chan chan-${i % 3}`}>
-            <span class="chan-name">{c}</span>
-            <span class="chan-status"><span class="dot-sm"></span>CONNECTED</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. PROBLEM — split color -->
-  <section class="split-color">
-    <div class="teal-panel">
-      <div class="wordmark">THE PROBLEM</div>
-      <h2 class="title" style="margin-top:52px">MORE ORDERS<br />SHOULDN’T MEAN<br />MORE DISPUTES.</h2>
-      <p class="copy" style="margin-top:28px">Parcel-swap and empty-box claims force refunds with no proof. The marketplace has no video — so someone always loses.</p>
-    </div>
-    <div class="orange-panel">
-      <div class="chaos-list">
-        <div class="chaos-item"><span class="x">×</span><span>Marketplace dispute</span></div>
-        <div class="chaos-item"><span class="x">×</span><span>Buyer claim: “empty box”</span></div>
-        <div class="chaos-item"><span class="x">×</span><span>Refund forced</span></div>
-        <div class="chaos-item"><span class="x">×</span><span>No proof of packing</span></div>
-        <div class="chaos-item ok-item"><span class="ok-mark">✓</span><span>With Packory: evidence on WhatsApp</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. PILLARS -->
-  <section id="about" class="section white">
-    <aside class="meta-rail"><div class="n">03</div><div class="year">2026<br />System</div><div class="menu-mark"></div></aside>
-    <div class="section-body">
-      <div class="grid-2">
-        <div>
-          <div class="wordmark teal-dot">WHY PACKORY</div>
-          <h2 class="title" style="margin-top:38px">FOUR PILLARS.<br />ONE OUTCOME:<br />TRUST.</h2>
-        </div>
-        <div class="lines">
-          {PILLARS.map((p) => (
-            <div class="line-item"><b>{p.n}</b><span class="kicker">{p.kicker}</span><span class="copy">{p.copy}</span></div>
+    <!-- SLIDE 2 — CHANNELS: orange pane + thumb row -->
+    <section id="slide2" class="slide two">
+      <aside class="meta-rail" style="background:var(--orange)"><div class="n">02</div><div class="year">2026<br />Work</div><div class="menu-mark"></div></aside>
+      <div class="orange-pane">
+        <div class="wordmark">CONNECTED.</div>
+        <div class="chan-list">
+          {CHANNELS.map((c) => (
+            <div class="chan-line"><span class="dot-sm"></span><span>{c}</span><span class="chk">✓</span></div>
           ))}
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- 5. WORKFLOW -->
-  <section class="section teal">
-    <aside class="meta-rail"><div class="n">04</div><div class="year">2026<br />Flow</div><div class="menu-mark"></div></aside>
-    <div class="section-body">
-      <div class="wordmark">HOW IT WORKS</div>
-      <h2 class="title" style="margin-top:34px">AWB SCAN TO EVIDENCE SENT.<br />AUTOMATICALLY.</h2>
-      <div class="lines" style="margin-top:44px">
-        {WORKFLOW.map((w) => (
-          <div class="line-item"><b>{w.n}</b><span class="kicker">{w.label}</span><span class="copy">{w.copy}</span></div>
-        ))}
+      <div class="content">
+        <div class="thumb-row">
+          <div class="thumb t1"><span>SHOPEE</span></div>
+          <div class="thumb t2"><span>TIKTOK</span></div>
+          <div class="thumb t3"><span>LAZADA</span></div>
+        </div>
+        <div class="wordmark">EVERY CHANNEL</div>
+        <div class="grid-2" style="gap:18px;margin-top:30px">
+          <div><p class="kicker">One link</p><p class="copy">Evidence link sent to the buyer on WhatsApp — regardless of marketplace.</p></div>
+          <div><p class="kicker">Zero servers</p><p class="copy">Your videos never pass through our servers. Bring-your-own Google Drive.</p></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 6. STATIONS -->
-  <section id="studio" class="section orange">
-    <aside class="meta-rail"><div class="n">05</div><div class="year">2026<br />Ops</div><div class="menu-mark"></div></aside>
-    <div class="section-body">
-      <div class="wordmark teal-dot">OPERATIONS</div>
-      <h2 class="title" style="margin-top:34px">RUN EVERY STATION<br />FROM ONE PLACE.</h2>
-      <div class="gallery-wall" style="margin-top:44px">
-        {STATIONS.map((s) => (
-          <div class="station-card">
-            <div class="sc-head">
-              <span class="sc-name">{s.name}</span>
-              {s.status === 'LIVE' && <span class="sc-live"><span class="pulse"></span>LIVE</span>}
-              {s.status === 'READY' && <span class="sc-ready">READY</span>}
-              {s.status === 'PAIR' && <span class="sc-pair">PAIRING…</span>}
-            </div>
-            <div class="sc-detail">{s.detail}</div>
-            <div class="sc-orders">{s.orders}</div>
-            <div class="sc-rate">{s.rate}</div>
+    <!-- SLIDE 3 — PROBLEM: gallery + captions + teal block -->
+    <section id="slide3" class="slide three">
+      <aside class="meta-rail"><div class="n">03</div><div class="year">2026<br />Problem</div><div class="menu-mark"></div></aside>
+      <div class="content" style="display:grid;grid-template-columns:190px 1fr;gap:28px;align-items:start">
+        <div class="gallery">
+          <div class="gal-big"><span class="x">×</span><p>DISPUTE</p></div>
+          <div class="gal-sm"><span class="x">×</span><p>EMPTY BOX</p></div>
+          <div class="gal-sm"><span class="x">×</span><p>REFUND FORCED</p></div>
+        </div>
+        <div>
+          <div class="wordmark">THE PROBLEM</div>
+          <p class="kicker" style="margin-top:34px">Parcel-swap &amp; empty-box</p>
+          <p class="copy">Marketplace dispute. Buyer claim: “empty box”. Refund forced. No proof of packing. Manual WhatsApp threads.</p>
+          <p class="kicker" style="margin-top:30px">With Packory</p>
+          <p class="copy strong-copy">Automated, timestamped, tamper-evident video. Evidence on WhatsApp. Dispute fuel removed.</p>
+        </div>
+      </div>
+      <div style="background:var(--teal);display:flex;align-items:center;justify-content:center;padding:20px"><div class="big-arrow">→</div></div>
+    </section>
+
+    <!-- SLIDE 4 — PILLARS: wordmark + hatch + hero block -->
+    <section id="slide4" class="slide four">
+      <aside class="meta-rail"><div class="n">04</div><div class="year">2026<br />System</div><div class="menu-mark"></div></aside>
+      <div class="content">
+        <div class="wordmark teal-dot">WHY PACKORY</div>
+        <h2 class="slide-title" style="margin-top:36px">FOUR PILLARS.<br />ONE OUTCOME:<br />TRUST.</h2>
+        <div class="hatch" style="margin-top:26px"></div>
+      </div>
+      <div class="hero-car">
+        <div class="pillar-list">
+          {PILLARS.map((p) => (
+            <div class="pillar-line"><b>{p.n}</b><span class="kicker">{p.kicker}</span><span class="copy">{p.copy}</span></div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 5 — WORKFLOW: strips -->
+    <section id="slide5" class="slide five">
+      <aside class="meta-rail"><div class="n">05</div><div class="year">2026<br />Flow</div><div class="menu-mark"></div></aside>
+      <div class="strips">
+        {WORKFLOW.slice(0, 3).map((w, i) => (
+          <div class={`strip strip-${i}`}><div class="strip-num">{['A','B','C'][i]}</div><div class="strip-label">{w.label}</div><div class="strip-copy">{w.copy}</div></div>
+        ))}
+        <div class="wordmark" style="position:absolute;left:38%;top:30px">FROM AWB TO EVIDENCE</div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6 — WORKFLOW CONT: device + content -->
+    <section class="slide six">
+      <aside class="meta-rail teal-side"><div class="n">06</div><div class="year">2026<br />Flow</div><div class="menu-mark"></div></aside>
+      <div><div class="device"><div class="dev-screen"><div class="dev-row"><span>AWB</span><b>✓ 1234…</b></div><div class="dev-row"><span>REC</span><b class="dev-rec">● RECORDING</b></div><div class="dev-row"><span>SYNC</span><b>✓ DRIVE</b></div><div class="dev-row"><span>WA</span><b>✓ SENT</b></div></div></div></div>
+      <div class="content">
+        <div class="wordmark teal-dot">HANDS-FREE</div>
+        <p class="kicker" style="margin-top:38px">Thumbs-up</p>
+        <p class="copy">Gesture stops the clip automatically. Saved instantly, synced in the background.</p>
+        <p class="kicker" style="margin-top:24px">Thumbs-up</p>
+        <p class="copy">Resumes on reconnect. 24/7 background sync &amp; retry.</p>
+      </div>
+    </section>
+
+    <!-- SLIDE 7 — STATIONS: mosaic -->
+    <section id="slide7" class="slide seven">
+      <aside class="meta-rail" style="background:var(--teal);color:white"><div class="n">07</div><div class="year">2026<br />Ops</div><div class="menu-mark"></div></aside>
+      <div class="mosaic">
+        {STATIONS.map((s, i) => (
+          <div class={`mos mos-${i}`}>
+            <div class="mos-head"><span>{s.name}</span>{s.status === 'LIVE' && <span class="sc-live"><span class="pulse"></span>LIVE</span>}{s.status === 'READY' && <span class="sc-ready">READY</span>}{s.status === 'PAIR' && <span class="sc-pair">PAIR</span>}</div>
+            <div class="mos-detail">{s.detail}</div>
+            <div class="mos-orders">{s.orders} <span class="mos-unit">verified</span></div>
+            <div class="mos-rate">{s.rate}</div>
           </div>
         ))}
+        <div class="wordmark" style="position:absolute;left:24%;top:26px">RUN EVERY STATION</div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 7. ANALYTICS -->
-  <section class="section white">
-    <aside class="meta-rail"><div class="n">06</div><div class="year">2026<br />Data</div><div class="menu-mark"></div></aside>
-    <div class="section-body">
-      <div class="wordmark">ANALYTICS</div>
-      <h2 class="title" style="margin-top:34px">SEE WHAT’S HAPPENING<br />BEFORE IT BECOMES A CLAIM.</h2>
-      <div class="metric-row" style="margin-top:40px">
+    <!-- SLIDE 8 — ANALYTICS: visual grid + teal content -->
+    <section id="slide8" class="slide eight">
+      <aside class="meta-rail"><div class="n">08</div><div class="year">2026<br />Data</div><div class="menu-mark"></div></aside>
+      <div class="visual-grid">
         {METRICS.map((m) => (
-          <div class="metric"><b>{m.value}</b><span class="kicker">{m.label}</span></div>
+          <div class="vg-cell"><b>{m.value}</b><span class="kicker">{m.label}</span></div>
         ))}
       </div>
-      <div class="kpi-row" style="margin-top:26px">
-        {KPI.map((k) => (
-          <div class="kpi"><b>{k.value}</b><span class="kicker">{k.label}</span></div>
-        ))}
+      <div class="content" style="background:var(--teal)">
+        <div class="wordmark">ANALYTICS</div>
+        <p class="kicker" style="margin-top:34px">Before it becomes a claim</p>
+        <p class="copy">Orders today. Videos captured. Evidence delivered. Dispute win-rate.</p>
+        <div class="kpi-strip" style="margin-top:26px">
+          <div class="kpi-mini"><b>100%</b><span>ORDERS ON VIDEO</span></div>
+          <div class="kpi-mini"><b>0</b><span>SERVER BYTES</span></div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 8. FEATURES -->
-  <section id="features" class="section white">
-    <aside class="meta-rail"><div class="n">07</div><div class="year">2026<br />Build</div><div class="menu-mark"></div></aside>
-    <div class="section-body">
-      <div class="wordmark teal-dot">FEATURES</div>
-      <h2 class="title" style="margin-top:34px">ENGINEERED FOR HOT,<br />NOISY WAREHOUSES.</h2>
-      <div class="feature-grid" style="margin-top:40px">
-        {FEATURES.map((f, i) => (
-          <div class={`feature f-${i % 2}`}>
-            <div class="kicker">{f.title}</div>
-            <p class="copy" style="margin-top:12px">{f.text}</p>
-          </div>
-        ))}
+    <!-- SLIDE 9 — FEATURES: monitor + gradient -->
+    <section id="slide9" class="slide nine">
+      <aside class="meta-rail" style="background:var(--teal);color:white"><div class="n">09</div><div class="year">2026<br />Build</div><div class="menu-mark"></div></aside>
+      <div>
+        <div class="wordmark" style="margin:28px 0 0 38px">FEATURES</div>
+        <div class="monitor">
+          <div class="mon-feature"><span class="mf-key">AWB</span><span>Detected automatically, hands-free</span></div>
+          <div class="mon-feature"><span class="mf-key">REC</span><span>UTC timestamp burned in</span></div>
+          <div class="mon-feature"><span class="mf-key">WA</span><span>Evidence link sent to buyer</span></div>
+          <div class="mon-feature"><span class="mf-key">0</span><span>Video bytes on our servers</span></div>
+        </div>
       </div>
-    </div>
-  </section>
-
-  <!-- 9. PRICING -->
-  <section id="pricing" class="section peach">
-    <aside class="meta-rail"><div class="n">08</div><div class="year">2026<br />Plan</div><div class="menu-mark"></div></aside>
-    <div class="section-body">
-      <div class="wordmark">PRICING</div>
-      <h2 class="title" style="margin-top:34px">PAY PER CAMERA.</h2>
-      <p class="copy" style="margin-top:16px">One license per device. Paid securely via MYR FPX, cards, or local e-wallets.</p>
-      <div class="pricing-grid" style="margin-top:38px">
-        {PRICING.map((p, i) => (
-          <div class={`price p-${i % 2}`}>
-            <div class="kicker">{p.name}</div>
-            <div class="price-val">{p.price}</div>
-            <ul>
-              {p.features.map((f) => (<li><span class="li-check">✓</span>{f}</li>))}
-            </ul>
-            <a href={`${CONSOLE}/signup`} class="btn-price">GET STARTED</a>
-          </div>
-        ))}
+      <div class="grad-side">
+        <div class="feature-card"><div class="kicker">TERRIBLE WI-FI?</div><p class="copy">Clips save instantly, sync in the background, resume on reconnect.</p></div>
+        <div class="feature-card"><div class="kicker">DISPUTE-PROOF</div><p class="copy">Beat parcel-swap and empty-box claims with burned-in footage.</p></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- 10. TESTIMONIALS + CTA -->
+    <!-- SLIDE 10 — PRICING + CTA: device + content -->
+    <section id="slide10" class="slide ten">
+      <aside class="meta-rail" style="background:var(--orange);color:white"><div class="n">10</div><div class="year">2026<br />Plan</div><div class="menu-mark"></div></aside>
+      <div><div class="device"><div class="dev-screen"><div class="dev-row"><span>PLAN</span><b>PRO</b></div><div class="dev-row"><span>PRICE</span><b>RM 99</b></div><div class="dev-row"><span>CAMS</span><b>5</b></div><div class="dev-row"><span>WA</span><b>✓ UNLOCKED</b></div></div></div></div>
+      <div class="content">
+        <div class="wordmark teal-dot">PAY PER CAMERA</div>
+        <p class="kicker" style="margin-top:34px">Free · Starter · Pro · Scale</p>
+        <p class="copy">One license per device. Paid securely via MYR FPX, cards, or local e-wallets.</p>
+        <div class="pricing-mini" style="margin-top:24px">
+          {PRICING.map((p) => (<div class="pm"><span class="pm-name">{p.name}</span><span class="pm-price">{p.price}</span></div>))}
+        </div>
+        <div class="hero-actions" style="margin-top:30px">
+          <a href={`${CONSOLE}/signup`} class="btn-solid">Start Free</a>
+          <a href={`${CONSOLE}/login`} class="btn-ghost">Book a Demo</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TESTIMONIALS + FINAL CTA -->
   <section id="contact" class="contact">
-    <aside class="meta-rail"><div class="n">09</div><div class="year">2026<br />Proof</div><div class="menu-mark"></div></aside>
+    <aside class="meta-rail"><div class="n">11</div><div class="year">2026<br />Proof</div><div class="menu-mark"></div></aside>
     <div class="section-body">
       <div class="wordmark">CUSTOMERS</div>
-      <div class="testi-grid" style="margin-top:30px">
+      <div class="testi-grid" style="margin-top:26px">
         {TESTIMONIALS.map((t) => (
           <div class="testi"><p class="t-quote">“{t.quote}”</p><span class="kicker">{t.who}</span></div>
         ))}
       </div>
-      <h2 class="title big" style="margin-top:52px">READY TO PUT<br />YOUR ORDERS<br />ON THE RECORD?</h2>
-      <div class="hero-actions" style="margin-top:34px">
+      <h2 class="title big" style="margin-top:46px">READY TO PUT YOUR ORDERS<br />ON THE RECORD?</h2>
+      <div class="hero-actions" style="margin-top:30px">
         <a href={`${CONSOLE}/signup`} class="btn-solid">Start Free</a>
         <a href={`${CONSOLE}/login`} class="btn-ghost">Book a Demo</a>
       </div>
@@ -304,56 +276,43 @@ const TESTIMONIALS = [
   :root {
     --orange: #fd8405; --teal: #13b9b6; --white: #fefefd; --charcoal: #341c19;
     --burnt: #e45507; --tangerine: #f89437; --mist: #bfd1ce; --peach: #f2b279;
+    --shadow: 0 16px 22px rgba(117,35,0,.34);
   }
   * { box-sizing: border-box; }
 
-  /* ===== BASE (ikut reference) ===== */
-  .topbar {
-    position: sticky; top: 0; z-index: 20; height: 72px;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 5vw; background: rgba(254,254,253,.96);
-    border-bottom: 1px solid rgba(52,28,25,.12);
-  }
-  .brand { font-weight: 900; letter-spacing: -.04em; font-size: 21px; text-transform: uppercase; }
-  .nav { display: flex; gap: 28px; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; align-items: center; }
-  .nav a { color: var(--charcoal); opacity: .75; transition: opacity .15s; }
-  .nav a:hover { opacity: 1; }
-  .nav .nav-cta { background: var(--orange); color: var(--charcoal); padding: 10px 20px; opacity: 1; }
-
   .kicker { font-size: 10px; font-weight: 800; letter-spacing: .22em; text-transform: uppercase; }
   .copy { font-size: 11px; line-height: 1.65; max-width: 36ch; }
-  .title { margin: 0; font-size: clamp(30px, 4.4vw, 62px); line-height: .92; font-weight: 900; letter-spacing: -.04em; text-transform: uppercase; }
+  .strong-copy { font-weight: 700; }
+  .slide-title { margin: 0; font-size: clamp(28px, 4vw, 56px); line-height: .92; font-weight: 900; letter-spacing: -.04em; text-transform: uppercase; }
   .wordmark { position: relative; z-index: 1; display: inline-block; font-size: clamp(22px, 3vw, 40px); font-weight: 900; letter-spacing: -.04em; text-transform: uppercase; }
   .wordmark::before { content: ""; position: absolute; z-index: -1; width: .92em; height: .92em; border-radius: 50%; left: -.28em; top: 50%; transform: translateY(-50%); background: var(--orange); }
   .wordmark.teal-dot::before { background: var(--teal); }
+  .t-orange { color: var(--orange); }
   .dot { width: 32px; height: 32px; border-radius: 50%; background: var(--teal); }
   .dot-sm { width: 7px; height: 7px; border-radius: 50%; background: var(--teal); display: inline-block; }
   .hatch { width: 44px; height: 44px; border-radius: 50%; background: repeating-linear-gradient(45deg, transparent 0 2px, rgba(255,255,255,.65) 2px 3px); }
 
-  .meta-rail { position: relative; padding: 22px 18px; border-right: 1px solid currentColor; min-width: 76px; }
+  .meta-rail { position: relative; padding: 22px 18px; border-right: 1px solid currentColor; min-width: 76px; background: var(--white); }
   .meta-rail .n { font-size: 17px; font-weight: 800; margin-bottom: 72px; }
   .meta-rail .year { position: absolute; left: 18px; bottom: 70px; font-size: 8px; line-height: 1.4; }
   .menu-mark { position: absolute; left: 18px; bottom: 18px; width: 22px; height: 14px; }
   .menu-mark::before, .menu-mark::after { content: ""; position: absolute; left: 0; height: 4px; border-radius: 4px; background: currentColor; }
   .menu-mark::before { width: 18px; top: 1px; } .menu-mark::after { width: 22px; bottom: 1px; }
 
-  /* ===== HERO (reference: 110px 1.05fr .95fr) ===== */
-  .hero { min-height: calc(100vh - 72px); display: grid; grid-template-columns: 110px 1.05fr .95fr; background: var(--white); }
-  .hero .left { background: var(--teal); color: white; padding: 6vw; display: flex; flex-direction: column; justify-content: center; }
-  .hero .left .title { color: white; }
-  .hero .left .t-orange { color: var(--orange); }
-  .hero .left .copy { color: rgba(255,255,255,.85); }
-  .hero .right { background: var(--orange); padding: 4vw; display: flex; align-items: center; justify-content: center; position: relative; }
-  .hero .right .big-circle { width: min(30vw, 440px); height: min(30vw, 440px); border-radius: 50%; overflow: hidden; background: var(--charcoal); display: flex; align-items: center; justify-content: center; }
-  .hero .right .hatch { position: absolute; right: 8%; top: 10%; }
-  .hero .right .dot { position: absolute; right: 8%; bottom: 8%; }
+  /* ===== COLLAGE ===== */
+  .collage-page, body { background: var(--white); }
+  .collage { max-width: 100%; margin: auto; display: grid; gap: 0; }
+  .slide { min-height: 88vh; background: var(--white); box-shadow: var(--shadow); display: grid; overflow: hidden; position: relative; }
+  .slide.teal { background: var(--teal); color: white; }
+  .slide.orange { background: var(--orange); color: white; }
+  .slide .content { padding: 40px; }
 
-  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
   .btn-solid { background: var(--orange); color: var(--charcoal); padding: 14px 26px; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
   .btn-ghost { border: 1px solid rgba(255,255,255,.5); color: white; padding: 13px 24px; font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 
-  /* terminal dalam big circle */
-  .term { width: 72%; text-align: left; color: white; }
+  /* terminal shared */
+  .term { width: 100%; text-align: left; color: white; }
   .term-bar { display: flex; justify-content: space-between; align-items: center; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.2); font-size: 8px; letter-spacing: .14em; }
   .term-title { color: rgba(255,255,255,.6); font-weight: 700; }
   .live { display: inline-flex; align-items: center; gap: 5px; color: var(--teal); font-weight: 800; }
@@ -369,114 +328,152 @@ const TESTIMONIALS = [
   .bc-bars { height: 14px; width: 70px; background-image: repeating-linear-gradient(90deg, white 0 2px, transparent 2px 4px, white 4px 5px, transparent 5px 9px); opacity: .6; }
   .bc-text { font-size: 6px; letter-spacing: .14em; color: rgba(255,255,255,.5); }
 
-  /* ===== SECTION ===== */
-  .section { display: grid; grid-template-columns: 110px 1fr; min-height: 640px; }
-  .section.white { background: var(--white); color: var(--charcoal); }
-  .section.teal { background: var(--teal); color: white; }
-  .section.orange { background: var(--orange); color: white; }
-  .section.peach { background: var(--peach); color: var(--charcoal); }
-  .section-body { padding: 6vw; }
+  /* SLIDE 1 — hero */
+  .slide.one { grid-template-columns: 110px 1fr; background: var(--teal); color: white; }
+  .slide.one .stage { display: grid; grid-template-columns: 1.1fr 1fr; align-items: center; gap: 30px; padding: 60px 6vw; }
+  .slide.one .stage .content { padding: 0; }
+  .slide.one .copy { color: rgba(255,255,255,.85); }
+  .slide.one .btn-ghost { border-color: rgba(255,255,255,.5); }
+  .photo-circle { width: min(26vw, 380px); height: min(26vw, 380px); border-radius: 50%; overflow: hidden; background: var(--charcoal); justify-self: center; display: flex; align-items: center; justify-content: center; padding: 52px; }
 
-  /* editorial grid → channels */
-  .editorial-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .chan { border: 2px solid var(--charcoal); padding: 18px 16px; display: flex; flex-direction: column; gap: 14px; }
-  .chan-0 { background: var(--white); }
-  .chan-1 { background: var(--peach); }
-  .chan-2 { background: var(--teal); color: white; }
-  .chan-name { font-size: 13px; font-weight: 900; letter-spacing: .04em; text-transform: uppercase; }
-  .chan-status { font-size: 8px; font-weight: 800; letter-spacing: .14em; display: inline-flex; align-items: center; gap: 6px; }
+  /* SLIDE 2 — channels */
+  .slide.two { grid-template-columns: 96px 1fr 1.25fr; background: var(--teal); color: white; }
+  .slide.two .orange-pane { background: var(--orange); position: relative; padding: 30px; display: flex; flex-direction: column; }
+  .slide.two .orange-pane .wordmark { color: var(--charcoal); }
+  .chan-list { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+  .chan-line { display: flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--charcoal); }
+  .chan-line .dot-sm { background: var(--charcoal); }
+  .chan-line .chk { margin-left: auto; font-weight: 900; color: var(--charcoal); }
+  .slide.two .content { background: var(--white); color: var(--charcoal); }
+  .thumb-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+  .thumb { height: 90px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 900; letter-spacing: .14em; border: 2px solid var(--charcoal); }
+  .t1 { background: var(--orange); color: var(--charcoal); }
+  .t2 { background: var(--charcoal); color: white; }
+  .t3 { background: var(--teal); color: white; }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .grid-2 .kicker { color: var(--teal); }
 
-  /* split-color */
-  .split-color { display: grid; grid-template-columns: .85fr 1.5fr; min-height: 620px; }
-  .split-color .teal-panel { background: var(--teal); color: white; padding: 6vw; display: flex; flex-direction: column; justify-content: center; }
-  .split-color .teal-panel .copy { color: rgba(255,255,255,.85); }
-  .split-color .orange-panel { background: var(--tangerine); padding: 5vw; display: flex; align-items: center; justify-content: center; }
-  .chaos-list { width: 100%; max-width: 420px; border: 2px solid var(--charcoal); background: var(--white); color: var(--charcoal); }
-  .chaos-item { display: flex; gap: 12px; align-items: center; padding: 16px 20px; border-bottom: 1px solid rgba(52,28,25,.15); font-size: 11px; font-weight: 600; }
-  .chaos-item:last-child { border-bottom: none; }
-  .x { color: var(--burnt); font-weight: 900; }
-  .ok-mark { color: var(--teal); font-weight: 900; }
-  .ok-item { background: var(--charcoal); color: white; }
+  /* SLIDE 3 — problem */
+  .slide.three { grid-template-columns: 110px 1fr 92px; }
+  .gallery { display: grid; gap: 10px; }
+  .gal-big { height: 150px; background: var(--charcoal); color: white; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+  .gal-sm { height: 110px; background: var(--peach); color: var(--charcoal); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; border: 2px solid var(--charcoal); }
+  .gal-big .x, .gal-sm .x { font-size: 20px; font-weight: 900; color: var(--burnt); }
+  .gal-big p, .gal-sm p { margin: 0; font-size: 9px; font-weight: 900; letter-spacing: .14em; }
+  .slide.three .content .kicker { color: var(--teal); }
+  .big-arrow { font-size: 44px; font-weight: 900; color: var(--charcoal); }
 
-  /* lines */
-  .lines { margin-top: 42px; border-top: 1px solid currentColor; }
-  .line-item { display: grid; grid-template-columns: 60px 1fr 1fr; gap: 30px; padding: 24px 0; border-bottom: 1px solid currentColor; align-items: baseline; }
-  .line-item b { font-size: 17px; font-weight: 800; }
+  /* SLIDE 4 — pillars */
+  .slide.four { grid-template-columns: 110px 1fr 1.7fr; background: var(--teal); color: white; }
+  .slide.four .content { display: flex; flex-direction: column; justify-content: center; }
+  .slide.four .hero-car { background: var(--tangerine); padding: 40px; display: flex; align-items: center; }
+  .pillar-list { width: 100%; display: flex; flex-direction: column; }
+  .pillar-line { display: grid; grid-template-columns: 44px 1fr; gap: 8px 18px; padding: 18px 0; border-bottom: 1px solid rgba(52,28,25,.25); align-items: baseline; }
+  .pillar-line b { font-size: 16px; font-weight: 900; color: var(--charcoal); }
+  .pillar-line .kicker { color: var(--charcoal); }
+  .pillar-line .copy { grid-column: 2; color: var(--charcoal); opacity: .85; }
 
-  /* gallery wall → stations */
-  .gallery-wall { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
-  .station-card { background: var(--charcoal); color: white; padding: 22px; display: flex; flex-direction: column; gap: 6px; border: 2px solid var(--charcoal); }
-  .sc-head { display: flex; justify-content: space-between; align-items: center; }
-  .sc-name { font-size: 13px; font-weight: 900; letter-spacing: .1em; }
+  /* SLIDE 5 — workflow strips */
+  .slide.five { grid-template-columns: 110px 1fr; background: var(--teal); color: white; }
+  .slide.five .strips { padding: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; position: relative; }
+  .strip { background: var(--white); color: var(--charcoal); border: 2px solid var(--charcoal); padding: 26px; display: flex; flex-direction: column; gap: 14px; min-height: 260px; }
+  .strip-1 { background: var(--peach); }
+  .strip-2 { background: var(--charcoal); color: white; }
+  .strip-num { font-size: 28px; font-weight: 900; color: var(--orange); }
+  .strip-2 .strip-num { color: var(--orange); }
+  .strip-label { font-size: 16px; font-weight: 900; letter-spacing: .1em; }
+  .strip-copy { font-size: 10px; line-height: 1.6; opacity: .8; }
+  .slide.five .wordmark { color: var(--charcoal); }
+
+  /* SLIDE 6 — device */
+  .slide.six { grid-template-columns: 100px 1fr 1fr; background: var(--white); }
+  .device { margin: 40px auto; width: 150px; height: 240px; border: 8px solid var(--charcoal); border-radius: 22px; padding: 6px; background: var(--white); }
+  .dev-screen { height: 100%; background: var(--charcoal); border-radius: 12px; padding: 18px 14px; display: flex; flex-direction: column; gap: 12px; color: white; font-size: 9px; }
+  .dev-row { display: flex; justify-content: space-between; align-items: center; }
+  .dev-row span { color: rgba(255,255,255,.5); font-weight: 700; font-size: 7px; letter-spacing: .12em; }
+  .dev-row b { font-size: 8px; }
+  .dev-rec { color: var(--orange); }
+  .slide.six .teal-side { background: var(--teal); }
+  .slide.six .content .kicker { color: var(--teal); }
+
+  /* SLIDE 7 — stations mosaic */
+  .slide.seven { grid-template-columns: 110px 1fr; background: var(--white); }
+  .mosaic { display: grid; grid-template-columns: 1.1fr .7fr .7fr; gap: 14px; padding: 44px; position: relative; }
+  .mos { border: 2px solid var(--charcoal); padding: 22px; display: flex; flex-direction: column; gap: 8px; min-height: 170px; }
+  .mos-0 { background: var(--teal); color: white; grid-row: span 2; }
+  .mos-1 { background: var(--orange); color: var(--charcoal); }
+  .mos-2 { background: var(--peach); color: var(--charcoal); }
+  .mos-head { display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 900; letter-spacing: .1em; }
+  .mos-detail { font-size: 8px; font-weight: 700; letter-spacing: .1em; opacity: .7; }
+  .mos-orders { font-size: 22px; font-weight: 900; margin-top: 8px; }
+  .mos-unit { font-size: 9px; font-weight: 700; opacity: .7; }
+  .mos-rate { font-size: 9px; font-weight: 800; letter-spacing: .08em; }
   .sc-live { display: inline-flex; align-items: center; gap: 5px; color: var(--teal); font-size: 9px; font-weight: 800; letter-spacing: .12em; }
-  .sc-ready { background: var(--teal); color: var(--charcoal); font-size: 9px; font-weight: 800; letter-spacing: .12em; padding: 3px 8px; }
-  .sc-pair { border: 1px solid rgba(255,255,255,.4); font-size: 9px; font-weight: 800; letter-spacing: .12em; padding: 3px 8px; }
-  .sc-detail { font-size: 8px; letter-spacing: .1em; opacity: .6; font-weight: 700; margin-top: 8px; }
-  .sc-orders { font-size: 16px; font-weight: 900; margin-top: 10px; }
-  .sc-rate { font-size: 9px; font-weight: 700; color: var(--teal); }
+  .sc-ready { background: var(--charcoal); color: white; font-size: 9px; font-weight: 800; letter-spacing: .12em; padding: 3px 8px; }
+  .sc-pair { border: 1px solid var(--charcoal); font-size: 9px; font-weight: 800; letter-spacing: .12em; padding: 3px 8px; color: var(--charcoal); }
+  .slide.seven .wordmark { color: var(--charcoal); }
 
-  /* metrics + kpi */
-  .metric-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
-  .metric { border: 2px solid var(--charcoal); padding: 20px; display: flex; flex-direction: column; gap: 8px; background: var(--white); }
-  .metric b { font-size: 26px; font-weight: 900; letter-spacing: -.02em; }
-  .metric .kicker { color: var(--charcoal); opacity: .7; }
-  .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .kpi { background: var(--charcoal); color: white; padding: 20px; display: flex; flex-direction: column; gap: 8px; }
-  .kpi b { font-size: 24px; font-weight: 900; color: var(--teal); }
-  .kpi .kicker { color: rgba(255,255,255,.6); }
+  /* SLIDE 8 — analytics */
+  .slide.eight { grid-template-columns: 110px 1.25fr 1fr; background: var(--orange); color: var(--charcoal); }
+  .visual-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 36px; }
+  .vg-cell { background: var(--white); border: 2px solid var(--charcoal); padding: 22px; display: flex; flex-direction: column; gap: 8px; }
+  .vg-cell b { font-size: 24px; font-weight: 900; letter-spacing: -.02em; }
+  .vg-cell .kicker { color: var(--charcoal); opacity: .7; }
+  .slide.eight .content { color: white; display: flex; flex-direction: column; justify-content: center; }
+  .slide.eight .content .copy { color: rgba(255,255,255,.85); }
+  .kpi-strip { display: flex; gap: 12px; }
+  .kpi-mini { background: var(--charcoal); color: white; padding: 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+  .kpi-mini b { font-size: 18px; font-weight: 900; color: var(--teal); }
+  .kpi-mini span { font-size: 7px; font-weight: 800; letter-spacing: .12em; opacity: .7; }
 
-  /* features */
-  .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-  .feature { border: 2px solid var(--charcoal); padding: 26px; }
-  .f-0 { background: var(--white); }
-  .f-1 { background: var(--peach); }
+  /* SLIDE 9 — features monitor */
+  .slide.nine { grid-template-columns: 110px 1fr 110px; background: var(--white); }
+  .monitor { width: 340px; height: 230px; margin: 40px auto 24px; border: 12px solid #c9c9c9; border-bottom: 28px solid #c9c9c9; background: var(--charcoal); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .mon-feature { display: flex; gap: 12px; align-items: baseline; font-size: 10px; color: white; }
+  .mf-key { background: var(--orange); color: var(--charcoal); font-weight: 900; font-size: 8px; padding: 2px 6px; letter-spacing: .1em; }
+  .grad-side { background: linear-gradient(var(--teal) 0 45%, var(--orange) 45%); display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 24px; }
+  .feature-card { background: var(--white); border: 2px solid var(--charcoal); padding: 20px; }
+  .feature-card .kicker { color: var(--charcoal); }
 
-  /* pricing */
-  .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  .price { border: 2px solid var(--charcoal); background: var(--white); padding: 24px 20px; display: flex; flex-direction: column; gap: 14px; }
-  .p-1 { background: var(--teal); color: white; }
-  .price-val { font-size: 26px; font-weight: 900; letter-spacing: -.02em; }
-  .price ul { list-style: none; margin: 0; padding: 0; flex: 1; display: flex; flex-direction: column; gap: 8px; font-size: 10px; }
-  .li-check { color: var(--teal); font-weight: 900; margin-right: 6px; }
-  .p-1 .li-check { color: var(--charcoal); }
-  .btn-price { border: 2px solid var(--charcoal); text-align: center; padding: 11px; font-size: 10px; font-weight: 900; letter-spacing: .1em; color: var(--charcoal); transition: background .15s, color .15s; }
-  .btn-price:hover { background: var(--charcoal); color: white; }
+  /* SLIDE 10 — pricing */
+  .slide.ten { grid-template-columns: 110px 1fr 1.7fr; background: var(--white); }
+  .pricing-mini { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .pm { border: 2px solid var(--charcoal); padding: 14px; display: flex; flex-direction: column; gap: 6px; }
+  .pm-name { font-size: 10px; font-weight: 900; letter-spacing: .12em; color: var(--teal); }
+  .pm-price { font-size: 18px; font-weight: 900; letter-spacing: -.02em; }
 
   /* contact */
-  .contact { min-height: 620px; background: var(--teal); color: white; display: grid; grid-template-columns: 110px 1fr; }
-  .contact .section-body { display: flex; flex-direction: column; justify-content: center; }
-  .contact .title { font-size: clamp(44px, 6.5vw, 110px); }
+  .contact { min-height: 600px; background: var(--teal); color: white; display: grid; grid-template-columns: 110px 1fr; }
+  .contact .section-body { padding: 6vw; display: flex; flex-direction: column; justify-content: center; }
+  .contact .title { margin: 0; font-size: clamp(40px, 6vw, 100px); line-height: .92; font-weight: 900; letter-spacing: -.04em; text-transform: uppercase; }
   .testi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .testi { border: 1px solid rgba(255,255,255,.3); padding: 22px; display: flex; flex-direction: column; gap: 14px; }
   .t-quote { margin: 0; font-size: 13px; line-height: 1.6; font-weight: 600; }
   .testi .kicker { color: var(--orange); }
+  .contact .btn-ghost { border-color: rgba(255,255,255,.5); }
 
   /* footer */
   .footer { background: var(--charcoal); color: white; padding: 26px 5vw; display: flex; justify-content: space-between; font-size: 10px; letter-spacing: .1em; gap: 12px; flex-wrap: wrap; }
 
-  /* ===== RESPONSIVE (ikut reference) ===== */
   @media (max-width: 900px) {
-    .hero, .section, .contact { grid-template-columns: 1fr; }
+    .slide, .contact { grid-template-columns: 1fr !important; }
     .meta-rail { display: none; }
-    .hero .left, .hero .right { min-height: 56vh; }
-    .hero .right .big-circle { width: min(60vw, 380px); height: min(60vw, 380px); }
-    .grid-2, .split-color, .feature-grid, .testi-grid { grid-template-columns: 1fr; }
-    .editorial-grid { grid-template-columns: repeat(2, 1fr); }
-    .metric-row { grid-template-columns: repeat(2, 1fr); }
-    .kpi-row, .pricing-grid, .gallery-wall { grid-template-columns: repeat(2, 1fr); }
-    .nav { gap: 16px; }
-    .nav a:not(.nav-cta) { display: none; }
+    .slide.one .stage { grid-template-columns: 1fr; padding: 50px 24px; }
+    .photo-circle { width: min(50vw, 300px); height: min(50vw, 300px); }
+    .slide.five .strips, .slide.seven .mosaic, .visual-grid, .pricing-mini { grid-template-columns: 1fr 1fr; }
+    .grid-2, .testi-grid, .thumb-row { grid-template-columns: 1fr; }
+    .slide.two { grid-template-columns: 1fr !important; }
+    .slide.two .orange-pane { display: none; }
+    .monitor { width: 90%; }
+    .slide.nine { grid-template-columns: 1fr !important; }
+    .grad-side { flex-direction: row; }
   }
 
   @media (max-width: 620px) {
-    .editorial-grid, .metric-row, .kpi-row, .pricing-grid, .gallery-wall { grid-template-columns: 1fr; }
-    .hero .left, .hero .right { min-height: auto; padding: 44px 24px; }
-    .hero { min-height: auto; }
-    .section { min-height: auto; }
-    .line-item { grid-template-columns: 40px 1fr; gap: 12px; }
-    .line-item .copy { grid-column: 2; }
-    .title { font-size: 30px; }
-    .split-color { min-height: auto; }
+    .slide.five .strips, .slide.seven .mosaic, .visual-grid, .pricing-mini { grid-template-columns: 1fr; }
+    .slide-title { font-size: 30px; }
+    .slide .content { padding: 26px; }
+    .mosaic, .strips { padding: 26px; }
     .contact .title { font-size: 44px; }
   }
 </style>
