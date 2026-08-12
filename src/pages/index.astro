@@ -43,6 +43,13 @@ const FEATURES = [
   { title: 'Dispute-proof orders', text: 'Beat parcel-swap and empty-box claims with timestamped, burned-in packing footage delivered to buyers on WhatsApp.' },
 ];
 
+const PRICING = [
+  { name: 'Free', price: 'RM 0', features: ['1 licensed camera', 'Manual WhatsApp links', 'Unlimited packing records'] },
+  { name: 'Starter', price: 'RM 49/mo', features: ['2 licensed cameras', 'WhatsApp credits available', 'Weekly sheet automation'] },
+  { name: 'Pro', price: 'RM 99/mo', features: ['5 licensed cameras', 'Direct seller channel', 'Priority support'] },
+  { name: 'Scale', price: 'RM 199/mo', features: ['15 licensed cameras', 'All channels unlocked', 'Onboarding assistance'] },
+];
+
 const FAQS = [
   { q: 'What is Packory?', a: 'Packory turns any cheap warehouse Android phone into a hands-free packing verification camera. Every order is recorded with a burned-in timestamp, stored in your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp.' },
   { q: 'Where are the videos stored?', a: 'On your own Google Drive. Videos never pass through our servers — bring-your-own storage with a scope-limited token. Zero server video overhead.' },
@@ -50,13 +57,6 @@ const FAQS = [
   { q: 'How does the packing stop?', a: 'Hands-free. The packer shows a thumbs-up and the clip stops automatically — no screen touching, no buttons, no workflow interruption.' },
   { q: 'What does it cost?', a: 'Pay per camera. Free tier includes 1 licensed camera. Starter RM49/mo, Pro RM99/mo, Scale RM199/mo. Paid securely via MYR FPX, cards, or local e-wallets.' },
   { q: 'Which platforms does it work with?', a: 'Any marketplace. Evidence links are delivered on WhatsApp, so it works with Shopee, TikTok Shop, Lazada, Shopify, eBay and more.' },
-];
-
-const PRICING = [
-  { name: 'Free', price: 'RM 0', features: ['1 licensed camera', 'Manual WhatsApp links', 'Unlimited packing records'] },
-  { name: 'Starter', price: 'RM 49/mo', features: ['2 licensed cameras', 'WhatsApp credits available', 'Weekly sheet automation'] },
-  { name: 'Pro', price: 'RM 99/mo', features: ['5 licensed cameras', 'Direct seller channel', 'Priority support'] },
-  { name: 'Scale', price: 'RM 199/mo', features: ['15 licensed cameras', 'All channels unlocked', 'Onboarding assistance'] },
 ];
 
 const TESTIMONIALS = [
@@ -70,124 +70,83 @@ const TESTIMONIALS = [
   description="Packory turns any cheap warehouse Android phone into a hands-free packing verification camera. Every order is recorded with a burned-in timestamp, stored in your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp."
 >
   <!-- NAV -->
-  <header class="am-nav">
-    <div class="am-nav__inner">
-      <a href="/" class="am-nav__brand">{APP_NAME}</a>
-      <nav class="am-nav__links">
-        <a href="#workflow" class="am-nav__link">Workflow</a>
-        <a href="#features" class="am-nav__link">Features</a>
-        <a href="#pricing" class="am-nav__link">Pricing</a>
-        <a href="#faq" class="am-nav__link">FAQ</a>
-        <a href={`${CONSOLE}/login`} class="am-nav__link am-nav__mlink">Log In</a>
-        <a href={`${CONSOLE}/signup`} class="am-btn am-btn--primary am-nav__cta">Start Free</a>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="/" class="brand">
+        <span class="brand-dot"></span>
+        {APP_NAME}
+      </a>
+      <nav class="links">
+        <a href="#workflow">Workflow</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href={`${CONSOLE}/login`}>Log In</a>
+        <a href={`${CONSOLE}/signup`} class="btn btn-primary btn-sm">Start Free</a>
       </nav>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="fo-hero">
-    <div class="am-wrap">
-      <p class="am-eyebrow am-eyebrow--ondark">Packing verification for ecommerce</p>
-      <h1 class="fo-hero__title">EVERY ORDER.<br />ON VIDEO.<br />DISPUTE-PROOF.</h1>
-      <p class="fo-hero__lead">
-        Packory turns any cheap warehouse Android phone into a hands-free packing
-        verification camera. Every order is recorded with a burned-in timestamp, stored in
-        your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp.
-      </p>
-      <div class="fo-hero__actions">
-        <a href={`${CONSOLE}/signup`} class="am-btn am-btn--navy">Start Free</a>
-        <a href="#workflow" class="am-btn am-btn--outline am-btn--navyline">See how it works</a>
+  <section class="snap-screen hero">
+    <div class="hero-grid container">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="rec-dot"></span>PACKING VERIFICATION FOR ECOMMERCE</p>
+        <h1>Every order.<br />On video.<br /><span class="hl-blue">Dispute-proof.</span></h1>
+        <p class="hero-sub">
+          Packory turns any cheap warehouse Android phone into a hands-free packing
+          verification camera. Every order is recorded with a burned-in timestamp, stored in
+          your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp.
+        </p>
+        <div class="hero-actions">
+          <a href={`${CONSOLE}/signup`} class="btn btn-primary">Start Free</a>
+          <a href="#workflow" class="btn btn-ghost">See how it works</a>
+        </div>
       </div>
-      <div class="fo-hero__visual">
-        <div class="fo-code">
-          <div class="fo-code__bar">
-            <span></span><span></span><span></span>
-            <em>packing-terminal · station a</em>
-            <b class="fo-code__live"><i></i>LIVE</b>
+      <div class="hero-visual">
+        <div class="terminal-frame">
+          <div class="term-bar">
+            <span class="term-title">packing-terminal · station A</span>
+            <span class="live"><span class="rec-dot"></span>LIVE</span>
           </div>
-          <div class="fo-code__body">
-            <div class="fo-code__row"><span>AWB</span><strong>123456789012 <b class="ok">✓</b></strong></div>
-            <div class="fo-code__row"><span>STATUS</span><strong><b class="rec"></b> RECORDING — UTC 12:04:31</strong></div>
-            <div class="fo-code__row"><span>SYNC</span><strong>SYNCED TO DRIVE <b class="ok">✓</b></strong></div>
-            <div class="fo-code__row"><span>WHATSAPP</span><strong>EVIDENCE LINK SENT <b class="ok">✓</b></strong></div>
+          <div class="term-body">
+            <div class="term-row"><span class="tl">AWB</span><span class="tv">123456789012 <span class="ok">✓</span></span></div>
+            <div class="term-row"><span class="tl">STATUS</span><span class="tv"><span class="rec-dot"></span> RECORDING — UTC 12:04:31</span></div>
+            <div class="term-row"><span class="tl">SYNC</span><span class="tv">Synced to Drive <span class="ok">✓</span></span></div>
+            <div class="term-row"><span class="tl">WHATSAPP</span><span class="tv">Evidence link sent <span class="ok">✓</span></span></div>
+          </div>
+          <div class="term-barcode">
+            <span class="bc-bars"></span>
+            <span class="bc-text">PKR-0A3F-9C2E-7741 · VERIFIED</span>
+          </div>
+        </div>
+        <div class="hero-badge">
+          <span class="badge-check">✓</span>
+          <div>
+            <strong>VERIFIED</strong>
+            <small>evidence on buyer’s WhatsApp</small>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- PROOFBAR -->
-  <section class="fo-proofbar">
-    <div class="am-wrap fo-proofbar__inner">
-      {STATS.map(([k, v]) => (
-        <div><strong>{k}</strong><span>{v}</span></div>
-      ))}
+    <div class="stats">
+      <div class="stat"><strong>0</strong><span>video bytes on our servers</span></div>
+      <div class="stat"><strong>&lt;100ms</strong><span>UI reset after each order</span></div>
+      <div class="stat"><strong>24/7</strong><span>background sync &amp; retry</span></div>
+      <div class="stat"><strong>1.5s</strong><span>throttled AWB scan rate</span></div>
     </div>
   </section>
 
-  <!-- INTRO / CHANNELS -->
-  <section class="fo-intro">
-    <div class="am-wrap fo-intro__grid">
-      <div>
-        <p class="am-eyebrow">Integrations</p>
-        <h2 class="am-section__title">Prove every order,<br />on every channel.</h2>
-      </div>
-      <div>
-        <p class="fo-intro__text">One evidence link, sent to the buyer on WhatsApp — regardless of marketplace. Connect your stores, pack once, and every order leaves with video proof.</p>
-        <div class="fo-intro__tags">
-          {CHANNELS.map((c) => (<span class="fo-intro__tag">{c}</span>))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FIT -->
-  <section class="fo-fit">
-    <div class="am-wrap fo-fit__grid">
-      <div>
-        <p class="am-eyebrow">Who it’s for</p>
-        <h2 class="am-section__title">Built for sellers who can’t afford another empty-box claim.</h2>
-      </div>
-      <div class="fo-fit__cards">
-        {FIT.map((f, i) => (
-          <article class="fo-fit-card">
-            <span class={`fo-fit-card__accent fo-fit-card__accent--left`}></span>
-            <h3>{f.title}</h3>
-            <p>{f.text}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY / PILLARS -->
-  <section class="fo-why">
-    <div class="am-wrap fo-why__grid">
-      <div>
-        <p class="am-eyebrow">Why Packory</p>
-        <h2 class="am-section__title">Four pillars.<br />One outcome: trust.</h2>
-      </div>
-      <div class="fo-why__points">
-        {PILLARS.map((p) => (
-          <div class="fo-why__point">
-            <b>{p.n}</b>
-            <div><strong>{p.kicker}</strong><span>{p.copy}</span></div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- CODE / WORKFLOW -->
-  <section id="workflow" class="fo-workflow">
-    <div class="am-wrap">
-      <p class="am-eyebrow am-eyebrow--ondark">How it works</p>
-      <h2 class="am-section__title am-section__title--ondark">From AWB scan to evidence sent.<br />Automatically.</h2>
-      <div class="fo-workflow__grid">
+  <!-- HOW IT WORKS -->
+  <section id="workflow" class="snap-screen section light">
+    <div class="container">
+      <p class="eyebrow-dark">HOW IT WORKS</p>
+      <h2>From AWB scan to evidence sent.<br />Automatically.</h2>
+      <div class="steps">
         {WORKFLOW.map((w, i) => (
-          <div class="fo-workflow__step">
-            <span class="fo-workflow__num">{String(i + 1).padStart(2, '0')}</span>
-            <strong>{w.label}</strong>
+          <div class="step">
+            <span class="step-num">0{i + 1}</span>
+            <h3>{w.label}</h3>
             <p>{w.copy}</p>
           </div>
         ))}
@@ -195,40 +154,87 @@ const TESTIMONIALS = [
     </div>
   </section>
 
-  <!-- DOCS / FEATURES -->
-  <section id="features" class="fo-docs">
-    <div class="am-wrap">
-      <div class="fo-docs__head">
-        <p class="am-eyebrow">Features</p>
-        <h2 class="am-section__title">Engineered for hot, noisy warehouses.</h2>
-      </div>
-      <div class="fo-docs__cards">
-        {FEATURES.map((f, i) => (
-          <a class="fo-docs__card">
-            <span class="fo-docs__number">{String(i + 1).padStart(2, '0')}</span>
-            <h3>{f.title}</h3>
-            <p>{f.text}</p>
-          </a>
+  <!-- CHANNELS -->
+  <section class="snap-screen section paper">
+    <div class="container">
+      <p class="eyebrow-dark">INTEGRATIONS</p>
+      <h2>Prove every order,<br />on every channel.</h2>
+      <p class="section-sub">One evidence link, sent to the buyer on WhatsApp — regardless of marketplace.</p>
+      <div class="channel-grid">
+        {CHANNELS.map((c, i) => (
+          <div class="channel">
+            <span class="channel-name">{c}</span>
+            <span class="connected"><span class="dot-blue"></span>CONNECTED</span>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- PRICING -->
-  <section id="pricing" class="fo-pricing">
-    <div class="am-wrap">
-      <p class="am-eyebrow">Pricing</p>
-      <h2 class="am-section__title">Pay per camera.</h2>
-      <p class="fo-pricing__sub">One license per device. Paid securely via MYR FPX, cards, or local e-wallets.</p>
-      <div class="fo-pricing__grid">
-        {PRICING.map((p) => (
-          <div class="fo-pricing__card">
-            <div class="fo-pricing__name">{p.name}</div>
-            <div class="fo-pricing__price">{p.price}</div>
-            <ul>
-              {p.features.map((f) => (<li><b>✓</b>{f}</li>))}
-            </ul>
-            <a href={`${CONSOLE}/signup`} class="am-btn am-btn--primary am-btn--lime fo-pricing__btn">Get started</a>
+  <!-- PILLARS -->
+  <section class="snap-screen section light">
+    <div class="container">
+      <p class="eyebrow-dark">WHY PACKORY</p>
+      <h2>Four pillars.<br />One outcome: trust.</h2>
+      <div class="pillar-grid">
+        {PILLARS.map((p) => (
+          <div class="pillar">
+            <span class="pillar-num">{p.n}</span>
+            <h3>{p.kicker}</h3>
+            <p>{p.copy}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- OPERATIONS (dark) -->
+  <section class="snap-screen section dark ops">
+    <div class="container">
+      <p class="eyebrow">OPERATIONS</p>
+      <h2 class="on-dark">Run every packing station<br />from one place.</h2>
+      <div class="station-grid">
+        {[
+          { name: 'STATION A', detail: 'Packing Line 1', orders: '1,248 orders verified', rate: '100% video coverage', status: 'LIVE' },
+          { name: 'STATION B', detail: 'Small Parcels', orders: '864 orders verified', rate: '99.2% sync success', status: 'READY' },
+          { name: 'STATION C', detail: 'Bulk / COD', orders: 'Pairing…', rate: 'Action needed', status: 'PAIR' },
+        ].map((s) => (
+          <div class="station">
+            <div class="station-head">
+              <span class="on-dark station-name">{s.name}</span>
+              {s.status === 'LIVE' && <span class="status-live"><span class="rec-dot"></span>LIVE</span>}
+              {s.status === 'READY' && <span class="status-ready">READY</span>}
+              {s.status === 'PAIR' && <span class="status-pair">PAIRING…</span>}
+            </div>
+            <div class="station-detail on-dark-muted">{s.detail}</div>
+            <div class="station-orders on-dark">{s.orders}</div>
+            <div class="station-rate mint">{s.rate}</div>
+          </div>
+        ))}
+      </div>
+      <div class="rule">
+        <p class="label-dark">AUTOMATE THE REPETITIVE WORK</p>
+        <div class="rule-title on-dark">Let the camera do the work.</div>
+        <div class="rule-box">
+          <div class="rule-line on-dark"><span class="rule-if">IF</span> AWB barcode detected <span class="rule-then">THEN</span> start recording</div>
+          <div class="rule-line on-dark"><span class="rule-if">IF</span> thumbs-up detected <span class="rule-then">THEN</span> stop clip, save to device</div>
+          <div class="rule-line on-dark"><span class="rule-if">IF</span> upload complete <span class="rule-then">THEN</span> send WhatsApp link to buyer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="snap-screen section light">
+    <div class="container">
+      <p class="eyebrow-dark">FEATURES</p>
+      <h2>Engineered for hot,<br />noisy warehouses.</h2>
+      <div class="feature-grid">
+        {FEATURES.map((f, i) => (
+          <div class="feature">
+            <span class="feature-num">0{i + 1}</span>
+            <h3>{f.title}</h3>
+            <p>{f.text}</p>
           </div>
         ))}
       </div>
@@ -236,287 +242,298 @@ const TESTIMONIALS = [
   </section>
 
   <!-- TESTIMONIALS -->
-  <section class="fo-testi">
-    <div class="am-wrap fo-testi__grid">
-      {TESTIMONIALS.map((t) => (
-        <blockquote class="fo-testi__card">
-          <p>“{t.quote}”</p>
-          <footer>{t.who}</footer>
-        </blockquote>
-      ))}
+  <section class="snap-screen section paper">
+    <div class="container">
+      <p class="eyebrow-dark">CUSTOMERS</p>
+      <h2>Built for sellers who can’t afford<br />another empty-box claim.</h2>
+      <div class="testi-grid">
+        {TESTIMONIALS.map((t) => (
+          <div class="testi">
+            <p>“{t.quote}”</p>
+            <footer>{t.who}</footer>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing" class="snap-screen section light">
+    <div class="container">
+      <p class="eyebrow-dark">PRICING</p>
+      <h2>Pay per camera.</h2>
+      <p class="section-sub">One license per device. Paid securely via MYR FPX, cards, or local e-wallets.</p>
+      <div class="pricing-grid">
+        {PRICING.map((p) => (
+          <div class="price-card">
+            <div class="price-name">{p.name}</div>
+            <div class="price-value">{p.price}</div>
+            <ul>
+              {p.features.map((f) => (
+                <li><span class="li-check">✓</span> {f}</li>
+              ))}
+            </ul>
+            <a href={`${CONSOLE}/signup`} class="btn btn-primary btn-block">Get started</a>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="fo-faq">
-    <div class="am-wrap fo-faq__grid">
+  <section id="faq" class="snap-screen section paper">
+    <div class="container faq-grid">
       <div>
-        <p class="am-eyebrow">FAQ</p>
-        <h2 class="am-section__title">The things every seller asks.</h2>
+        <p class="eyebrow-dark">FAQ</p>
+        <h2>The things every<br />seller asks.</h2>
       </div>
-      <div class="am-faq">
+      <div class="faq-list">
         {FAQS.map((f) => (
-          <details class="am-faq__item">
-            <summary class="am-faq__q">{f.q}<span class="am-faq__plus"></span></summary>
-            <div class="am-faq__a">{f.a}</div>
+          <details class="faq-item">
+            <summary>{f.q}<span class="faq-plus"></span></summary>
+            <p>{f.a}</p>
           </details>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="fo-cta">
-    <div class="am-wrap fo-cta__inner">
-      <p class="am-eyebrow am-eyebrow--ondark">Get started</p>
-      <h2 class="am-section__title am-section__title--ondark">Ready to put your orders<br />on the record?</h2>
-      <p class="fo-cta__lead">Turn any Android phone into a hands-free packing verification camera. Free to start. Your videos stay in your own Google Drive.</p>
-      <div class="fo-cta__actions">
-        <a href={`${CONSOLE}/signup`} class="am-btn am-btn--primary am-btn--lime">Start Free</a>
-        <a href={`${CONSOLE}/login`} class="am-btn am-btn--outline am-btn--ondark">Book a demo</a>
+  <!-- FINAL CTA -->
+  <section class="snap-screen section dark cta">
+    <div class="container cta-inner">
+      <p class="eyebrow">GET STARTED</p>
+      <h2 class="on-dark">Ready to put your orders<br />on the record?</h2>
+      <p class="cta-sub">Turn any Android phone into a hands-free packing verification camera. Free to start. Your videos stay in your own Google Drive.</p>
+      <div class="hero-actions">
+        <a href={`${CONSOLE}/signup`} class="btn btn-primary">Start Free</a>
+        <a href={`${CONSOLE}/login`} class="btn btn-ghost">Book a demo</a>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="am-footer">
-    <div class="am-wrap am-footer__inner">
-      <div>
-        <div class="am-footer__tag">{APP_NAME}</div>
-        <p class="am-footer__location">Built for Malaysian e-commerce merchants 🇲🇾</p>
-      </div>
-      <div class="am-footer__cols">
-        <div class="am-footer__col">
-          <a href="#workflow">Workflow</a>
-          <a href="#features">Features</a>
-          <a href="#pricing">Pricing</a>
-        </div>
-        <div class="am-footer__col">
-          <a href={`${CONSOLE}/login`}>Log In</a>
-          <a href={`${CONSOLE}/signup`}>Sign Up</a>
-          <a href="#faq">FAQ</a>
-        </div>
-      </div>
-    </div>
-    <div class="am-wrap am-footer__base">
+  <footer class="footer">
+    <div class="container footer-inner">
       <span>© {new Date().getFullYear()} {APP_NAME}</span>
-      <span class="am-footer__base-links">Every order. On video. Dispute-proof.</span>
+      <span>Built for Malaysian e-commerce merchants 🇲🇾</span>
+      <span class="footer-tag">EVERY ORDER. ON VIDEO. DISPUTE-PROOF.</span>
     </div>
   </footer>
 </Base>
 
 <style>
-  /* ===== FOUNDRY-STYLE SYSTEM — Packory colors: navy #0f0e54 + lime #d9f20c + white + black ===== */
+  /* ===== THE VERIFICATION LAYER — ink + electric blue + REC red ===== */
   :root {
-    --navy: #0f0e54;
-    --navy-deep: #0a092e;
-    --neon: #39ff14;
-    --neon-soft: #7dff66;
-    --ink: #111111;
-    --ink-soft: #222222;
-    --slate: #6b6b75;
-    --slate-200: #e5e5ea;
-    --paper: #fafaf8;
-    --off-white: #f4f4f1;
+    --ink: #0a0d1e;          /* authority — the record */
+    --ink-2: #10142b;        /* raised dark surface */
+    --ink-3: #171c36;
+    --blue: #2f4bff;         /* trust & action */
+    --blue-soft: #e8ecff;
+    --red: #ff3b30;          /* REC — evidence capture only */
+    --paper: #f7f7f4;        /* warm clarity */
     --white: #ffffff;
-    --dur: 0.3s;
-    --dur-fast: 0.15s;
-    --font-display: 'Montserrat', system-ui, sans-serif;
-    --font-body: 'Montserrat', system-ui, sans-serif;
-    --font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
+    --slate: #6b7280;        /* muted on light */
+    --steel: #9aa3b2;        /* muted on dark */
+    --hairline: rgba(10, 13, 30, 0.1);
+    --hairline-dark: rgba(255, 255, 255, 0.1);
   }
 
-  * { box-sizing: border-box; margin: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: var(--font-body); color: var(--ink); background: var(--white); -webkit-font-smoothing: antialiased; overflow-wrap: anywhere; }
+  /* ---------- NAV ---------- */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(10, 13, 30, 0.9);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--hairline-dark);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 4.25rem; }
+  .brand { display: flex; align-items: center; gap: 0.625rem; font-weight: 700; font-size: 1.15rem; color: var(--white); letter-spacing: -0.01em; }
+  .brand-dot { width: 12px; height: 12px; border-radius: 3px; background: var(--blue); display: inline-block; }
+  .links { display: flex; align-items: center; gap: 1.75rem; font-size: 0.875rem; font-weight: 500; }
+  .links a { color: var(--steel); transition: color 0.15s; }
+  .links a:hover { color: var(--white); }
 
-  .am-wrap { width: min(1180px, 100% - 64px); margin: 0 auto; }
-  a { color: inherit; text-decoration: none; }
+  /* ---------- BUTTONS ---------- */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 8px; font-weight: 600; font-size: 0.9375rem; padding: 0.75rem 1.5rem; transition: transform 0.15s, box-shadow 0.2s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--blue); color: #fff; box-shadow: 0 6px 20px rgba(47, 75, 255, 0.35); }
+  .btn-ghost { border: 1px solid var(--hairline-dark); color: var(--white); }
+  .btn-sm { min-height: 2.5rem; padding: 0.4rem 1.25rem; font-size: 0.8125rem; }
+  .btn-block { width: 100%; }
 
-  /* ===== BUTTONS (foundry am-btn) ===== */
-  .am-btn { cursor: pointer; min-height: 48px; transition: transform var(--dur-fast), background var(--dur), border-color var(--dur); border: 1px solid transparent; border-radius: 0; justify-content: center; align-items: center; gap: 9px; padding: 0 24px; font-weight: 700; font-size: 14px; display: inline-flex; }
-  .am-btn:hover { transform: translateY(-2px); }
-  .am-btn--primary { background: var(--neon); color: var(--navy); }
-  .am-btn--lime { background: var(--neon); color: var(--navy); }
-  .am-btn--navy { background: var(--navy); color: var(--white); }
-  .am-btn--outline { background: transparent; border-color: #d0d0d6; color: var(--ink); }
-  .am-btn--navyline { border-color: rgba(15,14,84,0.45); color: var(--navy); }
-  .am-btn--ondark { border-color: rgba(255,255,255,0.35); color: var(--white); }
-  .am-btn--ghostdark { background: transparent; color: var(--white); }
+  /* ---------- EYEBROWS ---------- */
+  .eyebrow, .eyebrow-dark { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+  .eyebrow { color: var(--blue); }
+  .eyebrow-dark { color: var(--slate); }
+  .rec-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--red); display: inline-block; flex-shrink: 0; animation: recPulse 1.6s ease-in-out infinite; }
+  @keyframes recPulse { 0%,100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255,59,48,0.5);} 50% { opacity: 0.55; box-shadow: 0 0 0 6px rgba(255,59,48,0);} }
+  .dot-blue { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); display: inline-block; }
 
-  /* ===== EYEBROW (foundry am-eyebrow) ===== */
-  .am-eyebrow { color: var(--neon); font-family: var(--font-mono); letter-spacing: 0.12em; text-transform: uppercase; align-items: center; gap: 10px; margin-bottom: 22px; font-size: 15px; font-weight: 600; display: flex; }
-  .am-eyebrow--ondark { color: var(--neon); }
-  .am-eyebrow:before { content: ""; width: 18px; height: 2px; background: var(--neon); display: block; }
+  /* ---------- SECTIONS ---------- */
+  .section { min-height: 100svh; display: flex; align-items: center; padding-block: 6rem; }
+  .section.light { background: var(--white); }
+  .section.paper { background: var(--paper); }
+  .section.dark { background: var(--ink); }
+  .snap-screen { position: relative; }
+  h2 { font-size: clamp(2rem, 4.8vw, 3.25rem); font-weight: 700; letter-spacing: -0.03em; line-height: 1.05; color: var(--ink); margin-bottom: 1.25rem; text-wrap: balance; }
+  h2.on-dark { color: var(--white); }
+  .section-sub { font-size: 1.0625rem; line-height: 1.65; color: var(--slate); margin-bottom: 2.5rem; max-width: 40rem; }
+  .on-dark { color: var(--white); }
+  .on-dark-muted { color: var(--steel); }
+  .label-dark { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.16em; color: var(--blue); margin-bottom: 0.875rem; }
 
-  /* ===== SECTION TITLE (foundry am-section__title) ===== */
-  .am-section__title { max-width: 720px; font-family: var(--font-display); letter-spacing: -0.055em; margin: 0; font-size: clamp(38px, 5.1vw, 68px); font-weight: 700; line-height: 0.98; }
-  .am-section__title--ondark { color: var(--white); }
+  /* ---------- HERO ---------- */
+  .hero { background: var(--ink); min-height: 100svh; display: flex; flex-direction: column; justify-content: center; padding-top: 8rem; padding-bottom: 3rem; position: relative; overflow: hidden; }
+  .hero:before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 56px 56px; pointer-events: none; }
+  .hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 4rem; align-items: center; position: relative; }
+  .hero h1 { font-size: clamp(2.75rem, 6.8vw, 4.75rem); font-weight: 700; line-height: 1.02; letter-spacing: -0.035em; color: var(--white); text-wrap: balance; }
+  .hero h1 .hl-blue { color: var(--blue); }
+  .hero-sub { max-width: 34rem; margin-top: 1.5rem; font-size: 1.0625rem; line-height: 1.7; color: var(--steel); }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
 
-  /* ===== NAV (foundry am-nav) ===== */
-  .am-nav { position: sticky; top: 0; z-index: 100; background: rgba(15,14,84,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08); }
-  .am-nav__inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
-  .am-nav__brand { font-family: var(--font-display); font-weight: 700; font-size: 20px; color: var(--white); letter-spacing: -0.02em; }
-  .am-nav__links { display: flex; align-items: center; gap: 26px; }
-  .am-nav__link { color: rgba(255,255,255,0.78); font-size: 14px; font-weight: 500; transition: color var(--dur-fast); }
-  .am-nav__link:hover { color: var(--white); }
-  .am-nav__mlink { }
-  .am-nav__cta { min-height: 40px; padding: 0 18px; font-size: 13px; }
+  /* terminal frame */
+  .hero-visual { position: relative; }
+  .terminal-frame { border: 1px solid var(--hairline-dark); border-radius: 14px; background: var(--ink-2); overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+  .term-bar { display: flex; align-items: center; justify-content: space-between; padding: 0.75rem 1rem; border-bottom: 1px solid var(--hairline-dark); }
+  .term-title { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; color: var(--steel); }
+  .live { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; color: var(--red); }
+  .term-body { padding: 1.25rem 1.25rem 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+  .term-row { display: flex; align-items: baseline; gap: 0.75rem; font-size: 0.8125rem; }
+  .tl { width: 6rem; color: var(--steel); font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; text-transform: uppercase; letter-spacing: 0.08em; }
+  .tv { color: var(--white); font-weight: 500; }
+  .ok { color: var(--blue); font-weight: 700; }
+  .term-barcode { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.75rem 1.25rem; border-top: 1px solid var(--hairline-dark); background: rgba(255,255,255,0.02); }
+  .bc-bars { display: inline-block; height: 22px; flex: 1; max-width: 110px; background-image: repeating-linear-gradient(90deg, var(--white) 0 2px, transparent 2px 4px, var(--white) 4px 5px, transparent 5px 9px, var(--white) 9px 12px, transparent 12px 14px); opacity: 0.7; }
+  .bc-text { font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; letter-spacing: 0.14em; color: var(--steel); }
+  .hero-badge { position: absolute; bottom: -1.25rem; left: -1.25rem; background: var(--white); border-radius: 12px; padding: 0.875rem 1.125rem; display: flex; align-items: center; gap: 0.75rem; box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
+  .badge-check { width: 34px; height: 34px; border-radius: 50%; background: var(--blue); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; }
+  .hero-badge strong { display: block; font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.06em; }
+  .hero-badge small { font-size: 0.6875rem; color: var(--slate); }
 
-  /* ===== HERO (foundry fo-hero) — NEON PRIMARY ===== */
-  .fo-hero { background: var(--neon); color: var(--navy); min-height: 780px; padding: 140px 0 100px; position: relative; overflow: hidden; }
-  .fo-hero:before { content: ""; border: 150px solid rgba(15,14,84,0.06); width: 720px; height: 720px; position: absolute; inset: auto -6% -40% 48%; transform: rotate(20deg); }
-  .fo-hero__title { font-family: var(--font-display); letter-spacing: -0.05em; font-size: clamp(48px, 7.2vw, 96px); font-weight: 700; line-height: 0.95; color: var(--navy); }
-  .fo-hero__lead { max-width: 620px; margin-top: 28px; font-size: 17px; line-height: 1.7; color: rgba(15,14,84,0.78); font-weight: 500; }
-  .fo-hero__actions { display: flex; gap: 14px; margin-top: 36px; flex-wrap: wrap; }
-  .fo-hero__visual { margin-top: 60px; max-width: 620px; }
-  .fo-hero .am-eyebrow { color: var(--navy); }
-  .fo-hero .am-eyebrow:before { background: var(--navy); }
-  .fo-hero .am-btn--outline { border-color: rgba(15,14,84,0.4); color: var(--navy); }
+  /* stats */
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; width: 100%; max-width: 72rem; margin: 3.5rem auto 0; padding-inline: 1.5rem; border-top: 1px solid var(--hairline-dark); }
+  .stat { padding: 1.25rem 1.5rem 0; border-left: 1px solid var(--hairline-dark); }
+  .stat:first-child { border-left: none; padding-left: 0; }
+  .stat strong { display: block; font-family: 'Space Grotesk', sans-serif; font-size: 1.75rem; font-weight: 700; color: var(--blue); letter-spacing: -0.02em; }
+  .stat span { font-size: 0.75rem; color: var(--steel); line-height: 1.45; display: block; margin-top: 0.25rem; }
 
-  /* code window (foundry fo-code) */
-  .fo-code { border: 1px solid rgba(255,255,255,0.14); background: var(--navy-deep); border-radius: 10px; overflow: hidden; }
-  .fo-code__bar { border-bottom: 1px solid rgba(255,255,255,0.1); align-items: center; gap: 7px; padding: 14px 16px; display: flex; }
-  .fo-code__bar > span { background: #4b5159; border-radius: 50%; width: 8px; height: 8px; }
-  .fo-code__bar em { margin-left: 8px; font-style: normal; font-family: var(--font-mono); font-size: 12px; color: rgba(255,255,255,0.5); flex: 1; }
-  .fo-code__live { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-mono); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; color: var(--neon); font-style: normal; }
-  .fo-code__live i { width: 7px; height: 7px; border-radius: 50%; background: var(--neon); animation: pulse 1.6s ease-in-out infinite; }
-  @keyframes pulse { 0%,100% { opacity:1; box-shadow:0 0 0 0 rgba(57,255,20,0.5);} 50% { opacity:.55; box-shadow:0 0 0 6px rgba(57,255,20,0);} }
-  .fo-code__body { padding: 20px 24px; display: flex; flex-direction: column; gap: 14px; }
-  .fo-code__row { display: flex; gap: 20px; align-items: baseline; font-family: var(--font-mono); font-size: 13px; }
-  .fo-code__row span { width: 84px; color: rgba(255,255,255,0.4); font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; }
-  .fo-code__row strong { color: rgba(255,255,255,0.92); font-weight: 500; }
-  .ok { color: var(--neon); font-weight: 700; }
-  .rec { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--neon); animation: pulse 1.6s infinite; }
+  /* ---------- WORKFLOW STEPS ---------- */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; }
+  .step { border: 1px solid var(--hairline); border-radius: 12px; background: var(--white); padding: 1.75rem; position: relative; transition: transform 0.2s, box-shadow 0.2s; }
+  .step:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(10,13,30,0.06); }
+  .step-num { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 600; color: var(--blue); display: block; margin-bottom: 1rem; }
+  .step h3 { font-size: 1.125rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+  .step p { font-size: 0.875rem; line-height: 1.6; color: var(--slate); }
 
-  /* ===== PROOFBAR (foundry fo-proofbar) ===== */
-  .fo-proofbar { border-bottom: 1px solid var(--slate-200); background: var(--white); }
-  .fo-proofbar__inner { grid-template-columns: repeat(4, 1fr); display: grid; }
-  .fo-proofbar__inner div { border-right: 1px solid var(--slate-200); padding: 28px 24px; }
-  .fo-proofbar__inner div:last-child { border-right: none; }
-  .fo-proofbar__inner strong { display: block; font-family: var(--font-display); font-size: 30px; font-weight: 700; letter-spacing: -0.03em; color: var(--navy); }
-  .fo-proofbar__inner span { display: block; margin-top: 6px; font-size: 13px; color: var(--slate); line-height: 1.4; }
+  /* ---------- CHANNELS ---------- */
+  .channel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; }
+  .channel { display: flex; flex-direction: column; gap: 0.75rem; border: 1px solid var(--hairline); border-radius: 12px; background: var(--white); padding: 1.25rem; transition: transform 0.15s, border-color 0.15s; }
+  .channel:hover { transform: translateY(-2px); border-color: var(--blue); }
+  .channel-name { font-weight: 600; font-size: 0.9375rem; }
+  .connected { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; color: var(--blue); display: inline-flex; align-items: center; gap: 0.375rem; width: fit-content; }
 
-  /* ===== INTRO (foundry fo-intro) ===== */
-  .fo-intro { background: var(--paper); padding: 120px 0; }
-  .fo-intro__grid { grid-template-columns: 1.05fr 0.75fr; align-items: start; gap: clamp(48px, 9vw, 120px); display: grid; }
-  .fo-intro__text { font-size: 16px; line-height: 1.7; color: var(--slate); margin-top: 8px; }
-  .fo-intro__tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-  .fo-intro__tag { border: 1px solid var(--slate-200); background: var(--white); border-radius: 0; padding: 10px 16px; font-size: 13px; font-weight: 600; color: var(--ink); }
+  /* ---------- PILLARS ---------- */
+  .pillar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 3rem; }
+  .pillar { border-top: 3px solid var(--blue); padding: 1.5rem 0.25rem 0.5rem; }
+  .pillar-num { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 600; color: var(--blue); display: block; margin-bottom: 0.75rem; }
+  .pillar h3 { font-size: 1.375rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.625rem; }
+  .pillar p { font-size: 0.875rem; line-height: 1.6; color: var(--slate); }
 
-  /* ===== FIT (foundry fo-fit) ===== */
-  .fo-fit { background: var(--off-white); padding: 120px 0; }
-  .fo-fit__grid { grid-template-columns: 0.65fr 1.35fr; gap: 70px; display: grid; }
-  .fo-fit__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .fo-fit-card { background: var(--white); border: 1px solid var(--slate-200); padding: 34px; position: relative; overflow: hidden; transition: transform var(--dur); }
-  .fo-fit-card:hover { transform: translateY(-3px); }
-  .fo-fit-card__accent { position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--neon); transform: scaleY(0); transform-origin: top; transition: transform var(--dur); }
-  .fo-fit-card:hover .fo-fit-card__accent { transform: scaleY(1); }
-  .fo-fit-card h3 { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
-  .fo-fit-card p { font-size: 14px; line-height: 1.65; color: var(--slate); }
+  /* ---------- OPERATIONS (dark) ---------- */
+  .ops { position: relative; }
+  .ops:after { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 56px 56px; pointer-events: none; }
+  .ops .container { position: relative; }
+  .station-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.875rem; margin-bottom: 2.5rem; }
+  .station { border: 1px solid var(--hairline-dark); border-radius: 12px; padding: 1.5rem; background: var(--ink-2); }
+  .station-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.5rem; }
+  .station-name { font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; font-weight: 600; letter-spacing: 0.12em; }
+  .status-live { display: inline-flex; align-items: center; gap: 0.375rem; font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; color: var(--red); }
+  .status-ready { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; color: #fff; background: var(--blue); border-radius: 9999px; padding: 0.1875rem 0.625rem; }
+  .status-pair { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; color: var(--steel); border: 1px solid var(--hairline-dark); border-radius: 9999px; padding: 0.1875rem 0.625rem; }
+  .station-detail { font-size: 0.8125rem; margin-bottom: 0.75rem; }
+  .station-orders { font-size: 1.0625rem; font-weight: 700; }
+  .station-rate { font-size: 0.8125rem; margin-top: 0.25rem; color: var(--blue); }
 
-  /* ===== WHY (foundry fo-why) ===== */
-  .fo-why { border-block: 1px solid var(--slate-200); background: var(--white); padding: 120px 0; }
-  .fo-why__grid { grid-template-columns: 0.8fr 1.15fr; gap: clamp(54px, 9vw, 120px); display: grid; }
-  .fo-why__points { display: flex; flex-direction: column; }
-  .fo-why__point { display: flex; gap: 26px; padding: 26px 0; border-bottom: 1px solid var(--slate-200); align-items: baseline; }
-  .fo-why__point:first-child { border-top: 1px solid var(--slate-200); }
-  .fo-why__point b { font-family: var(--font-mono); font-size: 15px; color: var(--neon); font-weight: 700; }
-  .fo-why__point div { display: flex; flex-direction: column; gap: 6px; }
-  .fo-why__point strong { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
-  .fo-why__point span { font-size: 14px; line-height: 1.6; color: var(--slate); }
+  .rule { border: 1px solid var(--hairline-dark); border-radius: 12px; padding: 1.5rem; background: var(--ink-2); }
+  .rule-title { font-size: 1.125rem; font-weight: 700; margin-bottom: 1rem; }
+  .rule-box { display: flex; flex-direction: column; gap: 0.625rem; }
+  .rule-line { font-size: 0.875rem; line-height: 1.5; }
+  .rule-if { display: inline-block; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.08em; color: var(--white); border: 1px solid var(--hairline-dark); border-radius: 6px; padding: 0.125rem 0.5rem; margin-right: 0.5rem; }
+  .rule-then { display: inline-block; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.6875rem; letter-spacing: 0.08em; color: #fff; background: var(--blue); border-radius: 6px; padding: 0.125rem 0.5rem; margin-inline: 0.5rem; }
 
-  /* ===== WORKFLOW (dark) ===== */
-  .fo-workflow { background: var(--navy); color: var(--white); padding: 120px 0; position: relative; overflow: hidden; }
-  .fo-workflow:after { content: ""; border-right: 160px solid var(--neon); border-top: 160px solid transparent; position: absolute; bottom: 0; right: 0; opacity: 0.9; }
-  .fo-workflow__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 60px; }
-  .fo-workflow__step { border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); padding: 28px; }
-  .fo-workflow__num { font-family: var(--font-mono); font-size: 14px; color: var(--neon); font-weight: 700; display: block; margin-bottom: 16px; }
-  .fo-workflow__step strong { font-family: var(--font-display); font-size: 17px; font-weight: 700; letter-spacing: 0.02em; display: block; margin-bottom: 8px; }
-  .fo-workflow__step p { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.6); }
+  /* ---------- FEATURES ---------- */
+  .feature-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 3rem; }
+  .feature { border: 1px solid var(--hairline); border-radius: 12px; background: var(--white); padding: 1.75rem; position: relative; transition: transform 0.2s, box-shadow 0.2s; }
+  .feature:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(10,13,30,0.06); }
+  .feature-num { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 600; color: var(--blue); display: block; margin-bottom: 1rem; }
+  .feature h3 { font-size: 1.125rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.5rem; }
+  .feature p { font-size: 0.9375rem; line-height: 1.65; color: var(--slate); }
 
-  /* ===== DOCS / FEATURES (foundry fo-docs) ===== */
-  .fo-docs { border-top: 1px solid var(--slate-200); background: var(--white); padding: 120px 0; overflow: hidden; }
-  .fo-docs__head { display: grid; grid-template-columns: 1.15fr 0.72fr; align-items: end; gap: clamp(54px, 9vw, 120px); margin-bottom: 60px; }
-  .fo-docs__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .fo-docs__card { border: 1px solid var(--slate-200); background: var(--paper); padding: 34px; display: block; transition: transform var(--dur), border-color var(--dur); }
-  .fo-docs__card:hover { transform: translateY(-3px); border-color: var(--navy); }
-  .fo-docs__number { font-family: var(--font-mono); font-size: 14px; color: var(--neon); font-weight: 700; display: block; margin-bottom: 18px; }
-  .fo-docs__card h3 { font-family: var(--font-display); font-size: 21px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
-  .fo-docs__card p { font-size: 14px; line-height: 1.65; color: var(--slate); }
+  /* ---------- TESTIMONIALS ---------- */
+  .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 3rem; }
+  .testi { border-left: 4px solid var(--blue); background: var(--white); border-radius: 0 12px 12px 0; padding: 1.75rem; }
+  .testi p { font-size: 1rem; line-height: 1.65; font-weight: 500; margin-bottom: 1rem; }
+  .testi footer { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--slate); letter-spacing: 0.06em; text-transform: uppercase; }
 
-  /* ===== PRICING ===== */
-  .fo-pricing { background: var(--off-white); padding: 120px 0; }
-  .fo-pricing__sub { font-size: 16px; color: var(--slate); margin-top: 18px; max-width: 520px; line-height: 1.6; }
-  .fo-pricing__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 52px; }
-  .fo-pricing__card { background: var(--white); border: 1px solid var(--slate-200); padding: 30px; display: flex; flex-direction: column; gap: 14px; }
-  .fo-pricing__name { font-family: var(--font-mono); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; color: var(--slate); text-transform: uppercase; }
-  .fo-pricing__price { font-family: var(--font-display); font-size: 30px; font-weight: 700; letter-spacing: -0.03em; color: var(--navy); }
-  .fo-pricing__card ul { list-style: none; padding: 0; margin: 0; flex: 1; display: flex; flex-direction: column; gap: 10px; font-size: 13px; color: var(--ink-soft); }
-  .fo-pricing__card li { display: flex; gap: 8px; align-items: baseline; }
-  .fo-pricing__card li b { color: var(--neon); font-weight: 700; }
-  .fo-pricing__btn { margin-top: 16px; }
+  /* ---------- PRICING ---------- */
+  .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 3rem; }
+  .price-card { display: flex; flex-direction: column; gap: 0.875rem; border: 1px solid var(--hairline); border-radius: 12px; background: var(--white); padding: 1.75rem; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+  .price-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(10,13,30,0.08); }
+  .price-name { font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; font-weight: 600; letter-spacing: 0.1em; color: var(--blue); text-transform: uppercase; }
+  .price-value { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.02em; }
+  .price-card ul { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; flex: 1; font-size: 0.875rem; color: var(--slate); }
+  .li-check { color: var(--blue); font-weight: 700; margin-right: 0.25rem; }
 
-  /* ===== TESTIMONIALS ===== */
-  .fo-testi { background: var(--white); padding: 100px 0; }
-  .fo-testi__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-  .fo-testi__card { background: var(--paper); border-left: 4px solid var(--neon); padding: 32px; margin: 0; }
-  .fo-testi__card p { font-size: 16px; line-height: 1.65; font-weight: 500; margin-bottom: 16px; }
-  .fo-testi__card footer { font-family: var(--font-mono); font-size: 12px; color: var(--slate); letter-spacing: 0.06em; text-transform: uppercase; }
+  /* ---------- FAQ ---------- */
+  .faq-grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 4rem; align-items: start; }
+  .faq-list { display: flex; flex-direction: column; }
+  .faq-item { border-bottom: 1px solid var(--hairline); }
+  .faq-item:first-child { border-top: 1px solid var(--hairline); }
+  .faq-item summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1.5rem 0; font-size: 1.0625rem; font-weight: 600; letter-spacing: -0.01em; }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-plus { position: relative; width: 16px; height: 16px; flex-shrink: 0; }
+  .faq-plus:before, .faq-plus:after { content: ""; position: absolute; background: var(--blue); transition: transform 0.25s; }
+  .faq-plus:before { left: 0; top: 7px; width: 16px; height: 2px; }
+  .faq-plus:after { left: 7px; top: 0; width: 2px; height: 16px; }
+  .faq-item[open] .faq-plus:after { transform: scaleY(0); }
+  .faq-item p { padding: 0 0 1.5rem; font-size: 0.9375rem; line-height: 1.7; color: var(--slate); max-width: 56ch; }
 
-  /* ===== FAQ (foundry fo-faq) ===== */
-  .fo-faq { background: var(--off-white); padding: 120px 0; }
-  .fo-faq__grid { grid-template-columns: 0.72fr 1.1fr; gap: clamp(56px, 9vw, 120px); display: grid; }
-  .am-faq { display: flex; flex-direction: column; }
-  .am-faq__item { border-bottom: 1px solid var(--slate-200); }
-  .am-faq__item:first-child { border-top: 1px solid var(--slate-200); }
-  .am-faq__q { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 24px 0; font-family: var(--font-display); font-size: 17px; font-weight: 700; letter-spacing: -0.01em; }
-  .am-faq__q::-webkit-details-marker { display: none; }
-  .am-faq__plus { position: relative; width: 16px; height: 16px; flex-shrink: 0; }
-  .am-faq__plus:before, .am-faq__plus:after { content: ""; position: absolute; background: var(--navy); transition: transform var(--dur); }
-  .am-faq__plus:before { left: 0; top: 7px; width: 16px; height: 2px; }
-  .am-faq__plus:after { left: 7px; top: 0; width: 2px; height: 16px; }
-  .am-faq__item[open] .am-faq__plus:after { transform: scaleY(0); }
-  .am-faq__a { padding: 0 0 24px; font-size: 14px; line-height: 1.7; color: var(--slate); max-width: 560px; }
+  /* ---------- FINAL CTA ---------- */
+  .cta { text-align: center; position: relative; overflow: hidden; }
+  .cta:before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 56px 56px; pointer-events: none; }
+  .cta-inner { position: relative; }
+  .cta .eyebrow { justify-content: center; }
+  .cta h2 { margin-inline: auto; }
+  .cta-sub { max-width: 40rem; margin: 1rem auto 0; font-size: 1.0625rem; line-height: 1.7; color: var(--steel); }
+  .cta .hero-actions { justify-content: center; }
 
-  /* ===== CTA (foundry fo-cta) ===== */
-  .fo-cta { background: var(--navy); color: var(--white); padding: clamp(88px, 10vw, 140px) 0; position: relative; overflow: hidden; }
-  .fo-cta:after { content: ""; border-right: 180px solid var(--neon); border-top: 180px solid transparent; position: absolute; bottom: 0; right: 0; }
-  .fo-cta__inner { z-index: 2; text-align: center; position: relative; }
-  .fo-cta .am-section__title { margin-inline: auto; }
-  .fo-cta__lead { max-width: 560px; margin: 24px auto 0; font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.72); }
-  .fo-cta__actions { display: flex; justify-content: center; gap: 14px; margin-top: 38px; flex-wrap: wrap; }
+  /* ---------- FOOTER ---------- */
+  .footer { background: var(--ink); border-top: 1px solid var(--hairline-dark); padding-block: 1.75rem; }
+  .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 0.375rem; font-size: 0.8125rem; color: var(--steel); text-align: center; }
+  .footer-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; letter-spacing: 0.14em; color: var(--blue); margin-top: 0.5rem; }
 
-  /* ===== FOOTER (foundry am-footer) ===== */
-  .am-footer { color: var(--white); background: var(--navy-deep); padding: 76px 0 28px; border-top: 1px solid rgba(255,255,255,0.08); }
-  .am-footer__inner { grid-template-columns: 1.05fr 1.35fr; gap: 80px; display: grid; }
-  .am-footer__tag { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
-  .am-footer__location { margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
-  .am-footer__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-  .am-footer__col { display: flex; flex-direction: column; gap: 12px; }
-  .am-footer__col a { font-size: 14px; color: rgba(255,255,255,0.7); transition: color var(--dur-fast); }
-  .am-footer__col a:hover { color: var(--neon); }
-  .am-footer__base { margin-top: 60px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; font-size: 12px; color: rgba(255,255,255,0.4); gap: 12px; flex-wrap: wrap; }
-
-  /* ===== RESPONSIVE ===== */
+  /* ---------- MOBILE ---------- */
   @media (max-width: 900px) {
-    .am-nav__link:not(.am-nav__cta):not(.am-nav__mlink) { display: none; }
-    .fo-hero { padding: 100px 0 70px; }
-    .fo-intro__grid, .fo-why__grid, .fo-faq__grid, .fo-docs__head { grid-template-columns: 1fr; gap: 40px; }
-    .fo-fit__grid { grid-template-columns: 1fr; gap: 40px; }
-    .fo-workflow__grid { grid-template-columns: 1fr 1fr; }
-    .fo-docs__cards, .fo-fit__cards, .fo-testi__grid { grid-template-columns: 1fr; }
-    .fo-pricing__grid { grid-template-columns: 1fr 1fr; }
-    .am-footer__inner { grid-template-columns: 1fr; gap: 40px; }
+    .links a:not(.btn) { display: none; }
+    .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .hero { padding-top: 7rem; }
+    .steps { grid-template-columns: 1fr; }
+    .pillar-grid { grid-template-columns: repeat(2, 1fr); }
+    .station-grid { grid-template-columns: 1fr; }
+    .feature-grid, .testi-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
+    .faq-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .stat { border-left: none; padding: 1rem; background: rgba(255,255,255,0.02); border-radius: 10px; }
+    .stat:first-child { padding-left: 1rem; }
   }
 
   @media (max-width: 620px) {
-    .fo-workflow__grid, .fo-pricing__grid { grid-template-columns: 1fr; }
-    .fo-proofbar__inner { grid-template-columns: 1fr 1fr; }
-    .fo-proofbar__inner div:nth-child(2) { border-right: none; }
-    .fo-proofbar__inner div:nth-child(n+3) { border-top: 1px solid var(--slate-200); }
-    .fo-hero__title { font-size: 40px; }
-    .am-section__title { font-size: 34px; }
-    .am-footer__base { flex-direction: column; }
+    .section { padding-block: 4.5rem; }
+    .hero h1 { font-size: 2.4rem; }
+    .pillar-grid, .pricing-grid { grid-template-columns: 1fr; }
+    .hero-badge { left: 0; bottom: -1.5rem; }
+    h2 { font-size: 1.75rem; }
   }
 </style>
