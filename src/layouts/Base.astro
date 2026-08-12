@@ -102,7 +102,9 @@ const { title, description } = Astro.props;
     background: #0a0d1e;
   }
 
-  @media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  /* Scroll-snap: semua device (desktop + phone), setiap slide = 1 skrin penuh.
+     Hormat prefers-reduced-motion supaya user yang nak free scroll tak terganggu. */
+  @media (prefers-reduced-motion: no-preference) {
     html {
       scroll-snap-type: y mandatory;
     }
