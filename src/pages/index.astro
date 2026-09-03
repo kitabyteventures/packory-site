@@ -464,11 +464,11 @@ const faqSchema = {
       const slide = slides[active];
       const isAlt = !!slide.querySelector('.how-grid.alt');
       const specs = [
-        { sel: '.how-ghost', dir: 'zoom', at: 0.00, dur: 0.85 },
-        { sel: '.step-num', dir: 'top', at: 0.00, dur: 0.40 },
-        { sel: 'h3', dir: 'left', at: 0.12, dur: 0.60 },
-        { sel: 'p', dir: 'left', at: 0.26, dur: 0.60 },
-        { sel: '.how-visual', dir: isAlt ? 'left' : 'right', at: 0.06, dur: 0.75 },
+        { sel: '.how-ghost', dir: 'zoom', at: 0.00, dur: 0.42 },
+        { sel: '.step-num', dir: 'top', at: 0.00, dur: 0.22 },
+        { sel: 'h3', dir: 'left', at: 0.05, dur: 0.32 },
+        { sel: 'p', dir: 'left', at: 0.14, dur: 0.34 },
+        { sel: '.how-visual', dir: isAlt ? 'left' : 'right', at: 0.02, dur: 0.40 },
       ];
       for (const spec of specs) {
         const els = slide.querySelectorAll(spec.sel);
@@ -496,7 +496,7 @@ const faqSchema = {
       ticking = false;
       const total = Math.max(1, howPin.offsetHeight - window.innerHeight);
       const p = clamp(-howPin.getBoundingClientRect().top / total, 0, 1);
-      const x = p * (slides.length - 1);
+      const x = p * slides.length;
       const next = Math.min(slides.length - 1, Math.floor(x + 0.0001));
       const frac = clamp(x - next, 0, 1);
       if (next !== active) {
@@ -510,6 +510,16 @@ const faqSchema = {
     window.addEventListener('resize', onScroll);
     setInterval(onScroll, 200);
     update();
+  }
+
+  // Mobile: layered reveal on scroll (same assemble feel, safe stacked layout)
+  if (howStage && window.innerWidth <= 760 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+    document.documentElement.classList.add('anim-ready');
+    const mobSlides = Array.from(howStage.children);
+    const ioM = new IntersectionObserver((entries) => {
+      for (const en of entries) { if (en.isIntersecting) { en.target.classList.add('seen'); ioM.unobserve(en.target); } }
+    }, { threshold: 0.22 });
+    mobSlides.forEach((sl) => ioM.observe(sl));
   }
 </script>
 
@@ -698,7 +708,7 @@ const faqSchema = {
   .how-pin{}
   .how-sticky{position:static;height:auto;overflow:visible}
   .how-stage{display:grid;gap:0;padding-bottom:8px}
-  html.js-ok .how-pin{height:400vh}
+  html.js-ok .how-pin{height:480vh}
   html.js-ok .how-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
   html.js-ok .how-stage{display:flex;flex-direction:column;height:100%;padding-bottom:0}
   .how-slide{position:relative;overflow:hidden;display:flex;align-items:center;min-height:70vh;padding:34px 0}
@@ -778,7 +788,7 @@ const faqSchema = {
 
   /* scrollytelling: desktop pinned step swap */
   @media (min-width:761px) and (prefers-reduced-motion: no-preference){
-    html.js-ok .how-pin{height:400vh}
+    html.js-ok .how-pin{height:480vh}
     html.js-ok .how-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:block}
     html.js-ok .how-stage{display:block;position:relative;height:100%;width:100%;padding:0}
     html.js-ok .how-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .45s ease;min-height:0;height:100%;padding:0}
@@ -791,5 +801,29 @@ const faqSchema = {
     html.js-ok .how-stage{display:grid;height:auto;padding-bottom:8px;position:static}
     html.js-ok .how-slide{position:static;inset:auto;opacity:1 !important;visibility:visible !important;height:auto;min-height:100svh;padding:60px 0 46px;transition:none}
     .how-rail,.how-hint{display:none}
+  }
+
+  /* mobile: layered scroll reveal (assemble feel, safe stacked) */
+  @media (max-width:760px){
+    html.anim-ready .how-slide .step-num,
+    html.anim-ready .how-slide h3,
+    html.anim-ready .how-slide p,
+    html.anim-ready .how-slide .how-visual,
+    html.anim-ready .how-slide .how-ghost{opacity:0}
+    html.anim-ready .how-slide .step-num{transform:translateY(-18px)}
+    html.anim-ready .how-slide h3{transform:translateX(-26px)}
+    html.anim-ready .how-slide p{transform:translateX(-26px)}
+    html.anim-ready .how-slide .how-visual{transform:translateX(30px)}
+    html.anim-ready .how-slide .how-ghost{transform:scale(.86)}
+    html.anim-ready .how-slide.seen .step-num,
+    html.anim-ready .how-slide.seen h3,
+    html.anim-ready .how-slide.seen p,
+    html.anim-ready .how-slide.seen .how-visual,
+    html.anim-ready .how-slide.seen .how-ghost{opacity:1;transform:none;transition:opacity .5s var(--ease-out),transform .5s var(--ease-out)}
+    html.anim-ready .how-slide.seen .step-num{transition-delay:.05s}
+    html.anim-ready .how-slide.seen h3{transition-delay:.15s}
+    html.anim-ready .how-slide.seen p{transition-delay:.25s}
+    html.anim-ready .how-slide.seen .how-visual{transition-delay:.1s}
+    html.anim-ready .how-slide.seen .how-ghost{transition-delay:.3s}
   }
 </style>
