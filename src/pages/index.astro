@@ -475,10 +475,10 @@ const faqSchema = {
   .center .sub{margin-inline:auto}
   .pains{background:var(--color-amber-soft)}
   .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
-  .pain{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);border:1px solid #f5e8cd}
-  .pain .ic{width:48px;height:48px;border-radius:14px;background:var(--color-amber-soft);color:var(--color-amber-deep);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
-  .pain h3{font-size:18px;margin-bottom:8px}
-  .pain p{color:var(--color-slate);font-size:14.5px}
+  .pain{background:#fff;border-radius:var(--radius);padding:26px 24px;box-shadow:var(--shadow-sm);border:1px solid #f5e8cd;position:relative;overflow:hidden}
+  .pain .ic{position:absolute;top:16px;right:16px;width:60px;height:60px;border-radius:18px;background:var(--color-amber-soft);color:var(--color-amber-deep);display:flex;align-items:center;justify-content:center}
+  .pain h3{font-size:18px;margin-bottom:8px;padding-right:70px}
+  .pain p{color:var(--color-slate);font-size:14.5px;padding-right:6px}
   .flip{text-align:center;margin-top:30px;font-size:18px;font-weight:700}
   .flip span{background:var(--color-amber);color:var(--color-ink);border-radius:999px;padding:9px 20px;display:inline-block;box-shadow:0 8px 20px rgba(255,158,26,.35)}
   .steps-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:34px}
@@ -493,12 +493,12 @@ const faqSchema = {
   .step-note p{margin:0;text-align:left}
   .benefits{background:linear-gradient(180deg,var(--color-cream),#eef2fd 130%)}
   .ben{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:34px}
-  .ben-card{background:#fff;border:1px solid #dbe4fb;border-radius:var(--radius);padding:26px;display:grid;grid-template-columns:56px 1fr;gap:4px 18px;box-shadow:var(--shadow-sm)}
-  .ben-card .ic{width:56px;height:56px;grid-row:1/3;border-radius:16px;display:flex;align-items:center;justify-content:center}
+  .ben-card{background:#fff;border:1px solid #dbe4fb;border-radius:var(--radius);padding:28px 24px 24px;position:relative;overflow:hidden;box-shadow:var(--shadow-sm)}
+  .ben-card .ic{position:absolute;top:18px;right:18px;width:64px;height:64px;border-radius:18px;display:flex;align-items:center;justify-content:center}
   .ic.b{background:var(--color-blue-soft);color:var(--color-blue-deep)}
   .ic.c{background:var(--color-amber-soft);color:var(--color-amber-deep)}
-  .ben-card h3{font-size:18px;margin-bottom:6px;align-self:end}
-  .ben-card p{color:var(--color-slate);font-size:14.5px;align-self:start}
+  .ben-card h3{font-size:18px;margin-bottom:8px;padding-right:80px}
+  .ben-card p{color:var(--color-slate);font-size:14.5px;padding-right:4px}
   .price-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:38px}
   .price{background:#fff;border:1px solid var(--color-line);border-radius:var(--radius);padding:26px 24px;display:flex;flex-direction:column;gap:10px;position:relative;box-shadow:var(--shadow-sm)}
   .price.pop{border:2px solid var(--color-blue);box-shadow:0 20px 50px rgba(24,86,237,.16)}
@@ -557,11 +557,9 @@ const faqSchema = {
     .pain-grid,.steps-grid,.price-grid{grid-template-columns:1fr}
     .hero h1{font-size:2.1rem}
     .cta-band{padding:48px 24px}
-    /* icon/title balance on mobile: stack icon above text, equal chip size */
-    .ben-card{display:block}
-    .ben-card .ic{width:48px;height:48px;border-radius:14px;margin-bottom:12px}
-    .ben-card h3,.ben-card p{align-self:auto}
-    .pain .ic{width:48px;height:48px}
+    /* icon/title balance on mobile: overlay icon top-right kekal, no extra shrink */
+    .ben-card h3{padding-right:76px}
+    .pain h3{padding-right:64px}
     .step-card h3{flex-wrap:wrap}
   }
 </style>
