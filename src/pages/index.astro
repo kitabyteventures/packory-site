@@ -68,7 +68,7 @@ const faqSchema = {
 
   <div class="logos">
     <div class="wrap">
-      <p class="cap">Sell on any platform — the proof stays the same</p>
+      <p class="cap">Sell on any marketplace or store — ship with any courier. One proof link, everywhere.</p>
       <div class="marquee">
         <div class="marquee-track" id="mt1"></div>
       </div>
@@ -274,13 +274,27 @@ const faqSchema = {
     ['Shopee', '/brands/shopee.svg', 'Marketplace'],
     ['TikTok Shop', '/brands/tiktok.svg', 'Marketplace'],
     ['Lazada', '/brands/lazada.svg', 'Marketplace'],
-    ['Shopify', '/brands/shopify.svg', 'Marketplace'],
-    ['eBay', '/brands/ebay.svg', 'Marketplace'],
     ['Amazon', '/brands/amazon.svg', 'Marketplace'],
+    ['eBay', '/brands/ebay.svg', 'Marketplace'],
+    ['Walmart', '/brands/walmart.svg', 'Marketplace'],
+    ['Etsy', '/brands/etsy.svg', 'Marketplace'],
+    ['Shopify', '/brands/shopify.svg', 'Store'],
+    ['WordPress + WooCommerce', '/brands/woocommerce.svg', 'Store'],
+    ['BigCommerce', '/brands/bigcommerce.svg', 'Store'],
+    ['Wix', '/brands/wix.svg', 'Store'],
+    ['DHL', '/brands/dhl.svg', 'Courier'],
+    ['FedEx', '/brands/fedex.svg', 'Courier'],
+    ['UPS', '/brands/ups.svg', 'Courier'],
+    ['USPS', '/brands/usps.svg', 'Courier'],
+    ['J&T Express', null, 'Courier'],
+    ['Pos Laju', null, 'Courier'],
     ['WhatsApp', '/brands/whatsapp.svg', 'Proof delivery'],
     ['Google Drive', '/brands/googledrive.svg', 'Storage'],
   ];
-  const chipHTML = (c) => '<span class="logo-chip"><img src="' + c[1] + '" alt="' + c[0] + '" width="20" height="20"/> ' + c[0] + ' <span class="tag-mini">' + c[2] + '</span></span>';
+  const chipHTML = (c) => {
+    const img = c[1] ? '<img src="' + c[1] + '" alt="' + c[0] + '" width="20" height="20"/> ' : '';
+    return '<span class="logo-chip">' + img + c[0] + ' <span class="tag-mini">' + c[2] + '</span></span>';
+  };
   const mt = document.getElementById('mt1');
   if (mt) mt.innerHTML = chips.map(chipHTML).join('') + chips.map(chipHTML).join('');
 
