@@ -4,6 +4,7 @@ import Base from '../layouts/Base.astro';
 const CONSOLE = 'https://console.packory.app';
 
 const FAQS = [
+  { q: 'I already record packing with my phone. Why Packory?', a: 'A raw clip in your phone gallery has no link to the order — weeks later you cannot find it, and you cannot prove when it was shot. Packory files every clip under its AWB in your own Drive with a UTC timestamp, and sends the buyer a clean proof link automatically. Evidence you can actually find and send when a claim lands.' },
   { q: "Where are the videos stored? I don't want my footage on someone's server.", a: "In your own Google Drive. Packory sets up the upload — we never keep your videos on our servers." },
   { q: 'My shop Wi-Fi is really bad. Will this still work?', a: "Yes. Clips save to the phone first and sync in the background whenever there's a connection. Drop out? It picks up where it left off." },
   { q: 'Does the packer have to press anything for every order?', a: 'No. The AWB scan starts recording and the thumbs-up stops it — no screen touches, no workflow interruption.' },
@@ -120,7 +121,7 @@ const faqSchema = {
         <div class="step-card" data-i="2">
           <span class="num">03</span>
           <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 .3-.7L6 8"/><path d="M14 4h1.5A2.5 2.5 0 0 1 18 6.5V9"/><path d="M14 20h2a2 2 0 0 0 2-2V9"/><path d="M18 9a4 4 0 0 0-8 0"/><path d="M12 9v11"/></svg>Thumbs-up</h3>
-          <p>Done? Give a thumbs-up to the camera — the clip stops and saves to your Drive.</p>
+          <p>Done? Give a thumbs-up to the camera — the clip stops and files itself under the order in your Drive.</p>
         </div>
         <div class="step-card" data-i="3">
           <span class="num">04</span>
@@ -128,7 +129,7 @@ const faqSchema = {
           <p>The evidence link lands on the buyer's WhatsApp — before the parcel even ships.</p>
         </div>
       </div>
-      <p class="step-note"><b>Tip:</b> don't record only the expensive orders. The claims that hurt most come from the orders you least expected — so record them all.</p>
+      <p class="step-note"><b>Tip:</b> don't record only the expensive orders — the claims that hurt most come from the ones you least expected. And don't rely on your phone gallery either: a raw video with no order link is almost impossible to find when a dispute lands. Packory files every clip under its AWB, so proof is seconds away.</p>
     </div>
   </section>
 
@@ -211,7 +212,7 @@ const faqSchema = {
         </div>
       </div>
       <p class="price-more">Shipping more than 1,500 orders a month? <a href="#">WhatsApp us</a> — we'll sort a volume plan.</p>
-      <p class="price-note">All plans: footage stays on your own Google Drive, timestamped at capture.</p>
+      <p class="price-note">All plans: footage stays on your own Google Drive, timestamped at capture. International pricing coming soon.</p>
     </div>
   </section>
 
@@ -255,7 +256,7 @@ const faqSchema = {
       </div>
       <div class="foot-note">
         <span>© {new Date().getFullYear()} Packory · Every order. On video. Dispute-proof.</span>
-        <span>Built for Malaysian e-commerce sellers</span>
+        <span>Built in Malaysia — for sellers everywhere</span>
       </div>
     </div>
   </footer>
