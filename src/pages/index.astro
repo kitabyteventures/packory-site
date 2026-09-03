@@ -451,7 +451,31 @@ const faqSchema = {
     }
   }
 
-  // How-it-works = normal full-height step sections (no pin/translate — robust all devices).
+  // ===== How-it-works scrollytelling (pinned step swap, icomat-style) =====
+  const howPin = document.getElementById('howPin');
+  const howStage = document.getElementById('howStage');
+  if (howPin && howStage && window.innerWidth > 760 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const slides = Array.from(howStage.children);
+    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+    let active = 0;
+    let ticking = false;
+    slides.forEach((s, i) => s.classList.toggle('active', i === 0));
+    const update = () => {
+      ticking = false;
+      const total = Math.max(1, howPin.offsetHeight - window.innerHeight);
+      const p = clamp(-howPin.getBoundingClientRect().top / total, 0, 1);
+      const next = Math.min(slides.length - 1, Math.floor(p * (slides.length - 1) + 0.0001));
+      if (next !== active) {
+        active = next;
+        slides.forEach((s, i) => s.classList.toggle('active', i === active));
+      }
+    };
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    setInterval(onScroll, 250); // safety net: cheap rAF-throttled check, guarantees step switch even if scroll events are suppressed
+    onScroll();
+  }
 </script>
 
 <style is:global>
@@ -716,12 +740,21 @@ const faqSchema = {
     .how-hint{display:none}
   }
 
-  /* Static full-height step screens (replaces pin) */
-  html.js-ok .how-pin{height:auto !important}
-  html.js-ok .how-sticky{position:static !important;height:auto !important;overflow:visible !important;display:block !important}
-  html.js-ok .how-stage{display:grid !important;height:auto !important;padding-bottom:8px}
-  html.js-ok .how-slide{height:auto !important;min-height:0 !important;padding:60px 0 46px !important}
-  .how-slide{min-height:100svh;padding:60px 0 46px}
-  .how-stage{display:grid}
-  .how-rail,.how-hint{display:none}
+
+  /* scrollytelling: desktop pinned step swap */
+  @media (min-width:761px) and (prefers-reduced-motion: no-preference){
+    html.js-ok .how-pin{height:400vh}
+    html.js-ok .how-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:block}
+    html.js-ok .how-stage{display:block;position:relative;height:100%;width:100%;padding:0}
+    html.js-ok .how-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .45s ease;min-height:0;height:100%;padding:0}
+    html.js-ok .how-slide.active{opacity:1;visibility:visible}
+    .how-rail,.how-hint{display:none}
+  }
+  @media (max-width:760px),(prefers-reduced-motion: reduce){
+    html.js-ok .how-pin{height:auto}
+    html.js-ok .how-sticky{position:static;height:auto;overflow:visible;display:block}
+    html.js-ok .how-stage{display:grid;height:auto;padding-bottom:8px;position:static}
+    html.js-ok .how-slide{position:static;inset:auto;opacity:1 !important;visibility:visible !important;height:auto;min-height:100svh;padding:60px 0 46px;transition:none}
+    .how-rail,.how-hint{display:none}
+  }
 </style>
