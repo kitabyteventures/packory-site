@@ -451,41 +451,7 @@ const faqSchema = {
     }
   }
 
-  // ===== How-it-works full-screen step walk (pin + translate per step) =====
-  const howPin = document.getElementById('howPin');
-  const howStage = document.getElementById('howStage');
-  const howRail = document.getElementById('howRail');
-  if (howPin && howStage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && window.innerWidth > 760) {
-    const SLIDES = howStage.children.length;
-    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-    let current = 0;
-    const apply = () => {
-      howStage.style.transform = 'translateY(-' + (current * 100) + 'vh)';
-      if (howRail) {
-        [...howRail.children].forEach((b, i) => b.classList.toggle('active', i === current));
-      }
-    };
-    const onScroll = () => {
-      const vh = window.innerHeight;
-      const total = Math.max(1, howPin.offsetHeight - vh);
-      const p = clamp(-howPin.getBoundingClientRect().top / total, 0, 1);
-      current = Math.min(SLIDES - 1, Math.floor(p * (SLIDES - 1) + 0.0001));
-      apply();
-    };
-    if (howRail) {
-      [...howRail.children].forEach((b) => {
-        b.addEventListener('click', () => {
-          const go = parseInt(b.dataset.go, 10);
-          const total = Math.max(1, howPin.offsetHeight - window.innerHeight);
-          const y = (howPin.getBoundingClientRect().top + window.scrollY) + (total * (go / (SLIDES - 1)));
-          window.scrollTo({ top: y, behavior: 'smooth' });
-        });
-      });
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    onScroll();
-  }
+  // How-it-works = normal full-height step sections (no pin/translate — robust all devices).
 </script>
 
 <style is:global>
@@ -749,4 +715,13 @@ const faqSchema = {
     .how-rail{position:static;transform:none;flex-direction:row;justify-content:center;gap:8px;padding:6px 0 0}
     .how-hint{display:none}
   }
+
+  /* Static full-height step screens (replaces pin) */
+  html.js-ok .how-pin{height:auto !important}
+  html.js-ok .how-sticky{position:static !important;height:auto !important;overflow:visible !important;display:block !important}
+  html.js-ok .how-stage{display:grid !important;height:auto !important;padding-bottom:8px}
+  html.js-ok .how-slide{height:auto !important;min-height:0 !important;padding:60px 0 46px !important}
+  .how-slide{min-height:100svh;padding:60px 0 46px}
+  .how-stage{display:grid}
+  .how-rail,.how-hint{display:none}
 </style>
