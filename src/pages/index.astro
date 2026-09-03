@@ -60,7 +60,7 @@ const faqSchema = {
       </div>
       <div class="hero-visual">
         <div class="white-card">
-          <img src="/hero-illustration-blue.png" alt="Seller packing an order while a phone on a tripod records — proof captured automatically" />
+          <img src="/hero-illustration-blue.webp" srcset="/hero-illustration-blue-640.webp 640w, /hero-illustration-blue.webp 1100w" sizes="(max-width: 640px) 92vw, 540px" width="1100" height="1100" alt="Seller packing an order while a phone on a tripod records — proof captured automatically" fetchpriority="high" />
         </div>
       </div>
     </div>
@@ -512,5 +512,11 @@ const faqSchema = {
     .pain-grid,.steps-grid,.price-grid{grid-template-columns:1fr}
     .hero h1{font-size:2.1rem}
     .cta-band{padding:48px 24px}
+    /* icon/title balance on mobile: stack icon above text, equal chip size */
+    .ben-card{display:block}
+    .ben-card .ic{width:48px;height:48px;border-radius:14px;margin-bottom:12px}
+    .ben-card h3,.ben-card p{align-self:auto}
+    .pain .ic{width:48px;height:48px}
+    .step-card h3{flex-wrap:wrap}
   }
 </style>
