@@ -259,6 +259,14 @@ const faqSchema = {
       </div>
     </div>
   </footer>
+
+  <aside class="consent-banner" id="consent-banner" role="region" aria-label="Privacy consent" hidden>
+    <p>We use basic analytics to improve the site, and we may contact you on WhatsApp about your Packory setup if you share your number. <a href="#">Privacy Policy</a></p>
+    <div class="consent-actions">
+      <button class="btn btn-blue btn-sm" type="button" data-consent="accept">Accept</button>
+      <button class="btn btn-ghost-sm" type="button" data-consent="decline">Decline</button>
+    </div>
+  </aside>
 </Base>
 
 <script>
@@ -323,6 +331,22 @@ const faqSchema = {
       } catch (err) {}
       window.location.href = 'https://console.packory.app/signup?phone=' + encodeURIComponent(phone) + '&source=hero%3Awa';
     });
+  }
+
+  // Consent banner (PDPA / analytics). Show on first visit until a choice is made.
+  const banner = document.getElementById('consent-banner');
+  if (banner) {
+    let consent = null;
+    try { consent = localStorage.getItem('packory_consent'); } catch (err) {}
+    if (!consent) {
+      banner.hidden = false;
+      banner.querySelectorAll('[data-consent]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          try { localStorage.setItem('packory_consent', btn.dataset.consent); } catch (err) {}
+          banner.hidden = true;
+        });
+      });
+    }
   }
 </script>
 
@@ -465,6 +489,12 @@ const faqSchema = {
   .foot-links a:hover{color:#fff}
   .foot-note{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;font-size:12.5px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   .concept-tag{color:#ffc46b;font-weight:600}
+  .consent-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:90;max-width:640px;margin-inline:auto;background:#fff;border:1px solid var(--color-line);border-radius:18px;padding:16px 18px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;box-shadow:0 24px 70px rgba(16,22,58,.25)}
+  .consent-banner p{font-size:13px;color:var(--color-slate);flex:1 1 320px;min-width:0}
+  .consent-banner a{color:var(--color-blue);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+  .consent-actions{display:flex;gap:8px}
+  .btn-ghost-sm{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;font-weight:700;font-size:14px;padding:9px 18px;min-height:42px;background:#fff;color:var(--color-ink);border:1.5px solid var(--color-line);cursor:pointer;transition:border-color var(--dur-short) var(--ease-out)}
+  @media(hover:hover){.btn-ghost-sm:hover{border-color:var(--color-blue)}}
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
     .marquee-track{animation:none !important}
