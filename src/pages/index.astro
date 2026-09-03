@@ -451,7 +451,7 @@ const faqSchema = {
     }
   }
 
-  // ===== How-it-works scrollytelling (pinned step swap, icomat-style) =====
+  // ===== How-it-works scrollytelling: pinned + layered entrance (elements assemble from different directions) =====
   const howPin = document.getElementById('howPin');
   const howStage = document.getElementById('howStage');
   if (howPin && howStage && window.innerWidth > 760 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -460,21 +460,56 @@ const faqSchema = {
     let active = 0;
     let ticking = false;
     slides.forEach((s, i) => s.classList.toggle('active', i === 0));
+    const applyEntrance = (frac) => {
+      const slide = slides[active];
+      const isAlt = !!slide.querySelector('.how-grid.alt');
+      const specs = [
+        { sel: '.how-ghost', dir: 'zoom', at: 0.00, dur: 0.85 },
+        { sel: '.step-num', dir: 'top', at: 0.00, dur: 0.40 },
+        { sel: 'h3', dir: 'left', at: 0.12, dur: 0.60 },
+        { sel: 'p', dir: 'left', at: 0.26, dur: 0.60 },
+        { sel: '.how-visual', dir: isAlt ? 'left' : 'right', at: 0.06, dur: 0.75 },
+      ];
+      for (const spec of specs) {
+        const els = slide.querySelectorAll(spec.sel);
+        const t = clamp((frac - spec.at) / spec.dur, 0, 1);
+        const e = 1 - Math.pow(1 - t, 3);
+        const o = clamp(e * 1.6, 0, 1);
+        let dx = 0, dy = 0, sc = 1;
+        if (spec.dir === 'left') dx = (1 - e) * -54;
+        else if (spec.dir === 'right') dx = (1 - e) * 54;
+        else if (spec.dir === 'top') dy = (1 - e) * -36;
+        else if (spec.dir === 'bottom') dy = (1 - e) * 36;
+        else if (spec.dir === 'zoom') sc = 0.86 + 0.14 * e;
+        for (const el of els) {
+          if (t >= 1) {
+            el.style.opacity = '';
+            el.style.transform = '';
+          } else {
+            el.style.opacity = String(o);
+            el.style.transform = 'translate3d(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px,0) scale(' + sc.toFixed(3) + ')';
+          }
+        }
+      }
+    };
     const update = () => {
       ticking = false;
       const total = Math.max(1, howPin.offsetHeight - window.innerHeight);
       const p = clamp(-howPin.getBoundingClientRect().top / total, 0, 1);
-      const next = Math.min(slides.length - 1, Math.floor(p * (slides.length - 1) + 0.0001));
+      const x = p * (slides.length - 1);
+      const next = Math.min(slides.length - 1, Math.floor(x + 0.0001));
+      const frac = clamp(x - next, 0, 1);
       if (next !== active) {
         active = next;
         slides.forEach((s, i) => s.classList.toggle('active', i === active));
       }
+      applyEntrance(frac);
     };
     const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
-    setInterval(onScroll, 250); // safety net: cheap rAF-throttled check, guarantees step switch even if scroll events are suppressed
-    onScroll();
+    setInterval(onScroll, 200);
+    update();
   }
 </script>
 
