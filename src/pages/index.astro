@@ -314,17 +314,27 @@ const faqSchema = {
     ['Pos Laju', null, 'Courier', 'PL'],
   ]);
 
+  // Scroll-triggered reveal: each step appears as IT enters the viewport (one-by-one on scroll).
+  // Progressive enhancement: if the browser supports CSS scroll-driven animations, CSS handles it
+  // smoothly; otherwise fall back to IntersectionObserver per-card; reduced-motion = static.
   const steps = document.querySelectorAll('.step-card');
-  if (steps.length && 'IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const scrollDriven = typeof CSS !== 'undefined' && CSS.supports && CSS.supports('animation-timeline', 'view()');
+  if (!steps.length) {
+    // nothing to do
+  } else if (reduceMotion) {
+    steps.forEach((s) => s.classList.add('in'));
+  } else if (scrollDriven) {
+    // CSS animation-timeline handles reveal; don't add .in (it would cancel the animation).
+  } else if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       for (const en of entries) {
         if (en.isIntersecting) {
-          en.target.style.transitionDelay = (en.target.dataset.i * 100) + 'ms';
           en.target.classList.add('in');
           io.unobserve(en.target);
         }
       }
-    }, { threshold: 0.25 });
+    }, { threshold: 0.3, rootMargin: '0px 0px -12% 0px' });
     steps.forEach((s) => io.observe(s));
   } else {
     steps.forEach((s) => s.classList.add('in'));
@@ -477,8 +487,16 @@ const faqSchema = {
   .c-head .ic{flex:0 0 54px;width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center}
   .c-head h3{margin:0;font-size:18px;line-height:1.25;padding-top:4px}
   .steps-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:34px}
-  .step-card{background:#fff;border:1px solid var(--color-line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);opacity:0;transform:translateY(10px);transition:opacity .45s var(--ease-out),transform .45s var(--ease-out)}
+  .step-card{background:#fff;border:1px solid var(--color-line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);opacity:0;transform:translateY(22px);transition:opacity .55s var(--ease-out),transform .55s var(--ease-out)}
   .step-card.in{opacity:1;transform:none}
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      /* progressive: CSS scroll-driven (each card animates as it scrolls through viewport) */
+      .step-card{opacity:1;transform:none;animation:stepDrive both linear;animation-timeline:view();animation-range:entry 0% entry 60%}
+      @keyframes stepDrive{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+      .step-card.in{animation:none}
+    }
+  }
   .step-card .num{font-family:var(--font-display);font-weight:700;font-size:40px;color:#e4def7;line-height:1;display:block;margin-bottom:12px}
   .step-card h3{font-size:17px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
   .step-card h3 svg{color:var(--color-blue)}
