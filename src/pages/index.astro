@@ -44,10 +44,10 @@ const FEATURES = [
 ];
 
 const PRICING = [
-  { name: 'Free', price: 'RM 0', features: ['1 licensed camera', 'Manual WhatsApp links', 'Unlimited packing records'] },
-  { name: 'Starter', price: 'RM 49/mo', features: ['2 licensed cameras', 'WhatsApp credits available', 'Weekly sheet automation'] },
-  { name: 'Pro', price: 'RM 99/mo', features: ['5 licensed cameras', 'Direct seller channel', 'Priority support'] },
-  { name: 'Scale', price: 'RM 199/mo', features: ['15 licensed cameras', 'All channels unlocked', 'Onboarding assistance'] },
+  { name: 'Proof', price: 'RM 0', allowance: 'Up to 50 verified orders / month', tagline: 'Every order, on video.', cta: 'Start Free', featured: false },
+  { name: 'Verified', price: 'RM 49/mo', allowance: 'Up to 300 verified orders / month', tagline: 'Coverage that holds up.', cta: 'Get started', featured: false },
+  { name: 'Verified Seller', price: 'RM 99/mo', allowance: 'Up to 600 verified orders / month', tagline: 'The badge buyers trust.', cta: 'Get started', featured: true },
+  { name: 'Dispute-Proof', price: 'RM 199/mo', allowance: '1,500+ verified orders / month', tagline: 'Proof at scale. Zero doubt.', cta: 'Get started', featured: false },
 ];
 
 const FAQS = [
@@ -55,7 +55,7 @@ const FAQS = [
   { q: 'Where are the videos stored?', a: 'On your own Google Drive. Videos never pass through our servers — bring-your-own storage with a scope-limited token. Zero server video overhead.' },
   { q: 'Does it need good Wi-Fi?', a: 'No. Clips save instantly on the device, then sync to Drive in the background, resuming automatically on reconnect. Works in hot, noisy warehouses with terrible Wi-Fi.' },
   { q: 'How does the packing stop?', a: 'Hands-free. The packer shows a thumbs-up and the clip stops automatically — no screen touching, no buttons, no workflow interruption.' },
-  { q: 'What does it cost?', a: 'Pay per camera. Free tier includes 1 licensed camera. Starter RM49/mo, Pro RM99/mo, Scale RM199/mo. Paid securely via MYR FPX, cards, or local e-wallets.' },
+  { q: 'What does it cost?', a: 'Plans scale by verified orders per month, not cameras. Proof is free for up to 50 orders. Verified is RM49/mo for 300 orders, Verified Seller RM99/mo for 600, Dispute-Proof RM199/mo for 1,500+. Every plan includes hands-free video proof, storage on your own Google Drive, and evidence links sent to buyers on WhatsApp. Paid securely via MYR FPX, cards, or local e-wallets.' },
   { q: 'Which platforms does it work with?', a: 'Any marketplace. Evidence links are delivered on WhatsApp, so it works with Shopee, TikTok Shop, Lazada, Shopify, eBay and more.' },
 ];
 
@@ -261,22 +261,26 @@ const TESTIMONIALS = [
   <section id="pricing" class="snap-screen section light">
     <div class="container">
       <p class="eyebrow-dark">PRICING</p>
-      <h2>Pay per camera.</h2>
-      <p class="section-sub">One license per device. Paid securely via MYR FPX, cards, or local e-wallets.</p>
+      <h2>Proof scales with<br />your order flow.</h2>
+      <p class="section-sub">One price band per verified order volume. Every plan includes hands-free video proof, your own Google Drive storage, and an evidence link sent straight to the buyer on WhatsApp.</p>
       <div class="pricing-grid">
         {PRICING.map((p) => (
-          <div class="price-card">
+          <div class:list={['price-card', { featured: p.featured }]}>
+            {p.featured && <span class="price-badge">MOST POPULAR</span>}
             <div class="price-name">{p.name}</div>
             <div class="price-value">{p.price}</div>
+            <div class="price-allowance">{p.allowance}</div>
+            <p class="price-tagline">{p.tagline}</p>
             <ul>
-              {p.features.map((f) => (
-                <li><span class="li-check">✓</span> {f}</li>
-              ))}
+              <li><span class="li-check">✓</span> Hands-free packing video proof</li>
+              <li><span class="li-check">✓</span> Timestamped, dispute-ready footage</li>
+              <li><span class="li-check">✓</span> Evidence link to buyer on WhatsApp</li>
             </ul>
-            <a href={`${CONSOLE}/signup`} class="btn btn-primary btn-block">Get started</a>
+            <a href={`${CONSOLE}/signup`} class="btn btn-primary btn-block">{p.cta}</a>
           </div>
         ))}
       </div>
+      <p class="pricing-note">Need more than 1,500 verified orders a month? <a href={`${CONSOLE}/signup`}>Talk to us</a> — volume plans available.</p>
     </div>
   </section>
 
@@ -478,7 +482,13 @@ const TESTIMONIALS = [
 
   /* ---------- PRICING ---------- */
   .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.875rem; margin-top: 2rem; }
-  .price-card { display: flex; flex-direction: column; gap: 0.75rem; border: 1px solid var(--hairline); border-radius: 12px; background: var(--white); padding: 1.375rem; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
+  .price-card { display: flex; flex-direction: column; gap: 0.75rem; border: 1px solid var(--hairline); border-radius: 12px; background: var(--white); padding: 1.375rem; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; position: relative; }
+  .price-card.featured { border: 2px solid var(--blue); box-shadow: 0 16px 40px rgba(47, 75, 255, 0.12); }
+  .price-badge { position: absolute; top: -0.625rem; right: 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; font-weight: 600; letter-spacing: 0.1em; color: #fff; background: var(--blue); border-radius: 9999px; padding: 0.1875rem 0.625rem; }
+  .price-allowance { font-size: 0.8125rem; font-weight: 600; color: var(--ink); }
+  .price-tagline { font-size: 0.8125rem; font-style: italic; color: var(--slate); margin: 0; }
+  .pricing-note { margin-top: 1.25rem; font-size: 0.8125rem; color: var(--slate); text-align: center; }
+  .pricing-note a { color: var(--blue); font-weight: 600; }
   .price-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(10,13,30,0.08); }
   .price-name { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; color: var(--blue); text-transform: uppercase; }
   .price-value { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; }
