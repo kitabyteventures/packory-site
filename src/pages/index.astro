@@ -40,7 +40,7 @@ const FEATURES = [
   { title: 'Hands-free video proof', text: 'AWB detected automatically. Recording starts by itself and stops on a thumbs-up — packers never touch the screen.' },
   { title: 'Terrible Wi-Fi? No problem', text: 'Clips save to the device instantly and sync to the Admin’s private Google Drive in the background, resuming on reconnect.' },
   { title: 'Zero server video overhead', text: 'Your videos never pass through our servers. Bring-your-own Google Drive storage with a scope-limited token.' },
-  { title: 'Dispute-proof orders', text: 'Beat parcel-swap and empty-box claims with timestamped, burned-in packing footage delivered to buyers on WhatsApp.' },
+  { title: 'Dispute-proof by default', text: 'Every order leaves with proof. Timestamped, burned-in packing footage delivered to buyers on WhatsApp — empty-box and parcel-swap claims lose their footing before they start.' },
 ];
 
 const PRICING = [
@@ -59,9 +59,11 @@ const FAQS = [
   { q: 'Which platforms does it work with?', a: 'Any marketplace. Evidence links are delivered on WhatsApp, so it works with Shopee, TikTok Shop, Lazada, Shopify, eBay and more.' },
 ];
 
-const TESTIMONIALS = [
-  { quote: 'We won every parcel-swap dispute last month — every single one had video proof.', who: 'Shopee seller · 400+ orders/week' },
-  { quote: 'A buyer claimed the box arrived empty. We sent the packing video. Claim closed in a day.', who: 'TikTok Shop seller · Malaysia' },
+const SCENARIOS = [
+  { claim: 'The empty-box claim', quote: '“The box arrived empty.”', without: 'Your word against theirs — and the platform refunds.', with: 'Your video shows the item packed, sealed and handed over.' },
+  { claim: 'The parcel-swap claim', quote: '“That’s not what I ordered.”', without: 'A returned item that isn’t yours becomes your loss.', with: 'Timestamped footage shows exactly what left your station.' },
+  { claim: 'The item-not-received claim', quote: '“I never received it.”', without: 'Courier status alone rarely closes the case fast.', with: 'The evidence link is already on the buyer’s WhatsApp.' },
+  { claim: 'The wrong-item claim', quote: '“You sent the wrong item.”', without: 'Condition at dispatch becomes arguable, returns pile up.', with: 'Hands-free recording on every order removes the doubt.' },
 ];
 ---
 
@@ -104,9 +106,10 @@ const TESTIMONIALS = [
         <p class="eyebrow"><span class="rec-dot"></span>PACKING VERIFICATION FOR ECOMMERCE</p>
         <h1>Every order.<br />On video.<br /><span class="hl-blue">Dispute-proof.</span></h1>
         <p class="hero-sub">
-          Packory turns any cheap warehouse Android phone into a hands-free packing
-          verification camera. Every order is recorded with a burned-in timestamp, stored in
-          your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp.
+          The evidence layer for e-commerce. Packory turns any Android phone into a
+          hands-free packing verification camera — every order recorded with a burned-in
+          timestamp, stored in your own Google Drive, proof link on the buyer's WhatsApp
+          before the parcel ships.
         </p>
         <div class="hero-actions">
           <a href={`${CONSOLE}/signup`} class="btn btn-primary">Start Free</a>
@@ -251,16 +254,46 @@ const TESTIMONIALS = [
     </div>
   </section>
 
-  <!-- TESTIMONIALS -->
+  <!-- EVIDENCE INTEGRITY (dark) -->
+  <section class="snap-screen section dark integrity">
+    <div class="container">
+      <p class="eyebrow">EVIDENCE INTEGRITY</p>
+      <h2 class="on-dark">Proof you can<br />stand behind.</h2>
+      <p class="section-sub on-dark-muted">Packing verification only matters if the record survives scrutiny. Packory is built integrity-first — what the camera sees is what gets logged: timestamped, stored, shareable.</p>
+      <div class="integrity-grid">
+        <div class="integrity-item">
+          <span class="integrity-label">UTC TIMESTAMP</span>
+          <p>Burned into every frame at capture. No metadata tricks, no editing room.</p>
+        </div>
+        <div class="integrity-item">
+          <span class="integrity-label">YOUR OWN STORAGE</span>
+          <p>Footage lives in your Google Drive — never on our servers. You control the record.</p>
+        </div>
+        <div class="integrity-item">
+          <span class="integrity-label">MASKED EVIDENCE LINK</span>
+          <p>Buyers open a clean, verifiable link on WhatsApp — proof without exposing your ops.</p>
+        </div>
+        <div class="integrity-item">
+          <span class="integrity-label">ORDER-LINKED AUDIT</span>
+          <p>Every clip is logged against its order, so the history stays clean end to end.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLAIM SCENARIOS -->
   <section class="snap-screen section paper">
     <div class="container">
-      <p class="eyebrow-dark">CUSTOMERS</p>
-      <h2>Built for sellers who can’t afford<br />another empty-box claim.</h2>
-      <div class="testi-grid">
-        {TESTIMONIALS.map((t) => (
-          <div class="testi">
-            <p>“{t.quote}”</p>
-            <footer>{t.who}</footer>
+      <p class="eyebrow-dark">WHERE PROOF PAYS OFF</p>
+      <h2>When a claim happens,<br />you already have the footage.</h2>
+      <p class="section-sub">No he-said-she-said. Every order leaves with a video record — here's what that answers.</p>
+      <div class="scenario-grid">
+        {SCENARIOS.map((s) => (
+          <div class="scenario">
+            <span class="scenario-claim">{s.claim}</span>
+            <p class="scenario-quote">{s.quote}</p>
+            <p class="scenario-without"><span class="li-x">✕</span> {s.without}</p>
+            <p class="scenario-with"><span class="li-check">✓</span> {s.with}</p>
           </div>
         ))}
       </div>
@@ -317,7 +350,7 @@ const TESTIMONIALS = [
     <div class="container cta-inner">
       <p class="eyebrow">GET STARTED</p>
       <h2 class="on-dark">Ready to put your orders<br />on the record?</h2>
-      <p class="cta-sub">Turn any Android phone into a hands-free packing verification camera. Free to start. Your videos stay in your own Google Drive.</p>
+      <p class="cta-sub">Free to start. Every order gets its own video record — timestamped, stored on your own Google Drive, proof link on the buyer's WhatsApp before the parcel ships.</p>
       <div class="hero-actions">
         <a href={`${CONSOLE}/signup`} class="btn btn-primary">Start Free</a>
         <a href={`${CONSOLE}/login`} class="btn btn-ghost">Log in</a>
@@ -485,11 +518,23 @@ const TESTIMONIALS = [
   .feature h3 { font-size: 1.0625rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.375rem; }
   .feature p { font-size: 0.875rem; line-height: 1.6; color: var(--slate); }
 
-  /* ---------- TESTIMONIALS ---------- */
-  .testi-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.875rem; margin-top: 2rem; }
-  .testi { border-left: 4px solid var(--blue); background: var(--white); border-radius: 0 12px 12px 0; padding: 1.375rem; }
-  .testi p { font-size: 0.9375rem; line-height: 1.6; font-weight: 500; margin-bottom: 0.75rem; }
-  .testi footer { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--slate); letter-spacing: 0.06em; text-transform: uppercase; }
+  /* ---------- EVIDENCE INTEGRITY (dark) ---------- */
+  .integrity { position: relative; }
+  .integrity:after { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 56px 56px; pointer-events: none; }
+  .integrity .container { position: relative; }
+  .integrity-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.875rem; margin-top: 2rem; }
+  .integrity-item { border: 1px solid var(--hairline-dark); border-radius: 12px; background: var(--ink-2); padding: 1.25rem; }
+  .integrity-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.12em; color: var(--blue); display: block; margin-bottom: 0.625rem; }
+  .integrity-item p { font-size: 0.8125rem; line-height: 1.55; color: var(--steel); }
+
+  /* ---------- CLAIM SCENARIOS ---------- */
+  .scenario-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.875rem; margin-top: 2rem; }
+  .scenario { background: var(--white); border: 1px solid var(--hairline); border-radius: 12px; padding: 1.25rem; display: flex; flex-direction: column; gap: 0.625rem; }
+  .scenario-claim { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); background: var(--blue-soft); border-radius: 6px; padding: 0.25rem 0.5rem; width: fit-content; }
+  .scenario-quote { font-size: 1rem; font-weight: 600; color: var(--ink); font-style: italic; margin: 0; }
+  .scenario-without { font-size: 0.8125rem; line-height: 1.5; color: var(--slate); margin: 0; }
+  .scenario-with { font-size: 0.8125rem; line-height: 1.5; color: var(--ink); margin: 0; font-weight: 500; }
+  .li-x { color: var(--red); font-weight: 700; margin-right: 0.25rem; }
 
   /* ---------- PRICING ---------- */
   .pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.875rem; margin-top: 2rem; }
@@ -542,7 +587,7 @@ const TESTIMONIALS = [
     .steps { grid-template-columns: 1fr 1fr; }
     .pillar-grid { grid-template-columns: repeat(2, 1fr); }
     .station-grid { grid-template-columns: 1fr; }
-    .feature-grid, .testi-grid { grid-template-columns: 1fr; }
+    .feature-grid, .integrity-grid, .scenario-grid { grid-template-columns: repeat(2, 1fr); }
     .pricing-grid { grid-template-columns: repeat(2, 1fr); }
     .faq-grid { grid-template-columns: 1fr; gap: 2rem; }
     .stats { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
@@ -555,7 +600,7 @@ const TESTIMONIALS = [
     .hero { padding-top: 5.5rem; padding-bottom: 2rem; }
     .hero h1 { font-size: 2.25rem; }
     .steps { grid-template-columns: 1fr; }
-    .pillar-grid, .pricing-grid { grid-template-columns: 1fr; }
+    .pillar-grid, .pricing-grid, .integrity-grid, .scenario-grid { grid-template-columns: 1fr; }
     .hero-badge { left: 0; bottom: -1.25rem; }
     h2 { font-size: 1.6rem; }
     .stats { margin-top: 2rem; }
