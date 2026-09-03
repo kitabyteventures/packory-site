@@ -11,7 +11,16 @@ const STATS = [
   ['1.5s', 'throttled AWB scan rate'],
 ];
 
-const CHANNELS = ['Shopee', 'TikTok Shop', 'Lazada', 'Shopify', 'eBay', 'Amazon', 'WhatsApp', 'Google Drive'];
+const CHANNELS = [
+  { name: 'Shopee', icon: '/brands/shopee.svg', kind: 'market' },
+  { name: 'TikTok Shop', icon: '/brands/tiktok.svg', kind: 'market' },
+  { name: 'Lazada', icon: '/brands/lazada.svg', kind: 'market' },
+  { name: 'Shopify', icon: '/brands/shopify.svg', kind: 'market' },
+  { name: 'eBay', icon: '/brands/ebay.svg', kind: 'market' },
+  { name: 'Amazon', icon: '/brands/amazon.svg', kind: 'market' },
+  { name: 'WhatsApp', icon: '/brands/whatsapp.svg', kind: 'evidence' },
+  { name: 'Google Drive', icon: '/brands/googledrive.svg', kind: 'evidence' },
+];
 
 const FIT = [
   { title: 'Shopee sellers', text: 'Win parcel-swap and empty-box disputes with timestamped packing video, delivered to the buyer on WhatsApp.' },
@@ -157,7 +166,7 @@ const SCENARIOS = [
       <h2>From AWB scan to evidence sent.<br />Automatically.</h2>
       <div class="steps">
         {WORKFLOW.map((w, i) => (
-          <div class="step">
+          <div class="step" data-reveal style={`--d:${i * 120}ms`}>
             <span class="step-num">0{i + 1}</span>
             <h3>{w.label}</h3>
             <p>{w.copy}</p>
@@ -175,9 +184,10 @@ const SCENARIOS = [
       <p class="section-sub">One evidence link, sent to the buyer on WhatsApp — regardless of marketplace.</p>
       <div class="channel-grid">
         {CHANNELS.map((c, i) => (
-          <div class="channel">
-            <span class="channel-name">{c}</span>
-            <span class="connected"><span class="dot-blue"></span>CONNECTED</span>
+          <div class="channel" data-reveal style={`--d:${(i % 8) * 60}ms`}>
+            <img class="channel-logo" src={c.icon} alt={c.name} loading="lazy" width="24" height="24" />
+            <span class="channel-name">{c.name}</span>
+            <span class="connected"><span class="dot-blue"></span>{c.kind === 'evidence' ? 'EVIDENCE LAYER' : 'MARKETPLACE'}</span>
           </div>
         ))}
       </div>
@@ -261,19 +271,19 @@ const SCENARIOS = [
       <h2 class="on-dark">Proof you can<br />stand behind.</h2>
       <p class="section-sub on-dark-muted">Packing verification only matters if the record survives scrutiny. Packory is built integrity-first — what the camera sees is what gets logged: timestamped, stored, shareable.</p>
       <div class="integrity-grid">
-        <div class="integrity-item">
+        <div class="integrity-item" data-reveal>
           <span class="integrity-label">UTC TIMESTAMP</span>
           <p>Burned into every frame at capture. No metadata tricks, no editing room.</p>
         </div>
-        <div class="integrity-item">
+        <div class="integrity-item" data-reveal>
           <span class="integrity-label">YOUR OWN STORAGE</span>
           <p>Footage lives in your Google Drive — never on our servers. You control the record.</p>
         </div>
-        <div class="integrity-item">
+        <div class="integrity-item" data-reveal>
           <span class="integrity-label">MASKED EVIDENCE LINK</span>
           <p>Buyers open a clean, verifiable link on WhatsApp — proof without exposing your ops.</p>
         </div>
-        <div class="integrity-item">
+        <div class="integrity-item" data-reveal>
           <span class="integrity-label">ORDER-LINKED AUDIT</span>
           <p>Every clip is logged against its order, so the history stays clean end to end.</p>
         </div>
@@ -288,8 +298,8 @@ const SCENARIOS = [
       <h2>When a claim happens,<br />you already have the footage.</h2>
       <p class="section-sub">No he-said-she-said. Every order leaves with a video record — here's what that answers.</p>
       <div class="scenario-grid">
-        {SCENARIOS.map((s) => (
-          <div class="scenario">
+        {SCENARIOS.map((s, i) => (
+          <div class="scenario" data-reveal style={`--d:${i * 90}ms`}>
             <span class="scenario-claim">{s.claim}</span>
             <p class="scenario-quote">{s.quote}</p>
             <p class="scenario-without"><span class="li-x">✕</span> {s.without}</p>
@@ -368,6 +378,28 @@ const SCENARIOS = [
     </div>
   </footer>
 </Base>
+
+<script>
+  // Scroll reveal: fade/rise sections into view (respects prefers-reduced-motion).
+  const revealEls = Array.from(document.querySelectorAll('[data-reveal]'));
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach((el) => el.classList.add('is-in'));
+  } else {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-in');
+            io.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.08, rootMargin: '0px 0px -48px 0px' }
+    );
+    revealEls.forEach((el) => io.observe(el));
+  }
+</script>
 
 <style>
   /* ===== THE VERIFICATION LAYER — ink + electric blue + REC red ===== */
@@ -469,17 +501,20 @@ const SCENARIOS = [
   /* ---------- WORKFLOW STEPS ---------- */
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.875rem; margin-top: 2rem; }
   .step { border: 1px solid var(--hairline); border-radius: 12px; background: var(--white); padding: 1.375rem; position: relative; transition: transform 0.2s, box-shadow 0.2s; }
-  .step:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(10,13,30,0.06); }
+  .step:hover { transform: translateY(-3px) !important; box-shadow: 0 12px 30px rgba(10,13,30,0.06); }
   .step-num { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 600; color: var(--blue); display: block; margin-bottom: 0.75rem; }
   .step h3 { font-size: 1.0625rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 0.375rem; }
   .step p { font-size: 0.8125rem; line-height: 1.55; color: var(--slate); }
 
   /* ---------- CHANNELS ---------- */
-  .channel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; }
-  .channel { display: flex; flex-direction: column; gap: 0.75rem; border: 1px solid var(--hairline); border-radius: 12px; background: var(--white); padding: 1.25rem; transition: transform 0.15s, border-color 0.15s; }
-  .channel:hover { transform: translateY(-2px); border-color: var(--blue); }
-  .channel-name { font-weight: 600; font-size: 0.9375rem; }
-  .connected { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.1em; color: var(--blue); display: inline-flex; align-items: center; gap: 0.375rem; width: fit-content; }
+  .channel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 0.75rem; }
+  .channel { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 0.5rem; border: 1px solid var(--hairline); border-radius: 12px; background: var(--white); padding: 1.1rem 1rem; transition: border-color 0.15s, box-shadow 0.2s; }
+  .channel:hover { border-color: var(--blue); box-shadow: 0 10px 26px rgba(10, 13, 30, 0.07); transform: translateY(-2px) !important; }
+  .channel-logo { height: 26px; width: 26px; object-fit: contain; margin-bottom: 0.15rem; filter: grayscale(0%); transition: transform 0.2s; }
+  .channel:hover .channel-logo { transform: scale(1.08); }
+  .channel-name { font-weight: 600; font-size: 0.9375rem; color: var(--ink); }
+  .connected { font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; font-weight: 600; letter-spacing: 0.1em; color: var(--slate); display: inline-flex; align-items: center; gap: 0.35rem; width: fit-content; }
+  .connected .dot-blue { width: 6px; height: 6px; }
 
   /* ---------- PILLARS ---------- */
   .pillar-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
@@ -578,6 +613,14 @@ const SCENARIOS = [
   .footer { background: var(--ink); border-top: 1px solid var(--hairline-dark); padding-block: 1.75rem; }
   .footer-inner { display: flex; flex-direction: column; align-items: center; gap: 0.375rem; font-size: 0.8125rem; color: var(--steel); text-align: center; }
   .footer-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; letter-spacing: 0.14em; color: var(--blue); margin-top: 0.5rem; }
+
+  /* ---------- SCROLL REVEAL ---------- */
+  [data-reveal] { opacity: 0; }
+  [data-reveal].is-in { animation: riseIn 0.65s cubic-bezier(0.22, 0.61, 0.36, 1) both; animation-delay: var(--d, 0ms); }
+  @keyframes riseIn { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal] { opacity: 1 !important; transform: none !important; animation: none !important; }
+  }
 
   /* ---------- MOBILE ---------- */
   @media (max-width: 900px) {
