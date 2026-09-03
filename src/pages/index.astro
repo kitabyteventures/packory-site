@@ -66,9 +66,18 @@ const TESTIMONIALS = [
 ---
 
 <Base
-  title="Packory — Every order. On video. Dispute-proof."
-  description="Packory turns any cheap warehouse Android phone into a hands-free packing verification camera. Every order is recorded with a burned-in timestamp, stored in your own Google Drive, and the evidence link is sent straight to the buyer on WhatsApp."
+  title="Packing Verification for E-commerce Sellers (Malaysia) | Packory"
+  description="Hands-free packing verification for e-commerce sellers. Every order recorded on video with timestamps, stored on your own Google Drive, evidence link sent to buyers on WhatsApp — dispute-proof."
 >
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  })} />
   <!-- NAV -->
   <header class="nav">
     <div class="container nav-inner">
@@ -81,6 +90,7 @@ const TESTIMONIALS = [
         <a href="#features">Features</a>
         <a href="#pricing">Pricing</a>
         <a href="#faq">FAQ</a>
+        <a href="/blog">Blog</a>
         <a href={`${CONSOLE}/login`}>Log In</a>
         <a href={`${CONSOLE}/signup`} class="btn btn-primary btn-sm">Start Free</a>
       </nav>
@@ -310,7 +320,7 @@ const TESTIMONIALS = [
       <p class="cta-sub">Turn any Android phone into a hands-free packing verification camera. Free to start. Your videos stay in your own Google Drive.</p>
       <div class="hero-actions">
         <a href={`${CONSOLE}/signup`} class="btn btn-primary">Start Free</a>
-        <a href={`${CONSOLE}/login`} class="btn btn-ghost">Book a demo</a>
+        <a href={`${CONSOLE}/login`} class="btn btn-ghost">Log in</a>
       </div>
     </div>
   </section>
@@ -319,6 +329,7 @@ const TESTIMONIALS = [
   <footer class="footer">
     <div class="container footer-inner">
       <span>© {new Date().getFullYear()} {APP_NAME}</span>
+      <span><a href="/blog">Blog</a> · <a href={`${CONSOLE}/login`}>Log in</a> · <a href={`${CONSOLE}/signup`}>Start Free</a></span>
       <span>Built for Malaysian e-commerce merchants 🇲🇾</span>
       <span class="footer-tag">EVERY ORDER. ON VIDEO. DISPUTE-PROOF.</span>
     </div>
