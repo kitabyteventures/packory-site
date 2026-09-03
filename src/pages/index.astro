@@ -27,6 +27,7 @@ const faqSchema = {
   title="Packing Verification for E-commerce Sellers (Malaysia) | Packory"
   description="Every order gets its own video proof. Packory records hands-free packing video with timestamps, saves it to your own Google Drive and sends buyers the proof link on WhatsApp — dispute-proof, automatically."
 >
+  <script is:inline>document.documentElement.classList.add('js-ok');</script>
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <div class="banner">Beta is open — Malaysian sellers get <a href="#">founding pricing</a></div>
@@ -113,24 +114,28 @@ const faqSchema = {
       <h2>You just pack. We capture the proof.</h2>
       <p class="sub">A video record of every order — automatic, hands-free, timestamped at capture. No new workflow.</p>
       <div class="steps-grid">
-        <div class="step-card" data-i="0">
-          <span class="num">01</span>
-          <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>Scan the AWB</h3>
+        <div class="step-card">
+          <span class="step-num">01</span>
+          <span class="step-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg></span>
+          <h3>Scan the AWB</h3>
           <p>The barcode is detected and recording starts by itself — one scan every 1.5 seconds.</p>
         </div>
-        <div class="step-card" data-i="1">
-          <span class="num">02</span>
-          <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>Pack on camera</h3>
+        <div class="step-card">
+          <span class="step-num">02</span>
+          <span class="step-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></span>
+          <h3>Pack on camera</h3>
           <p>Every item goes into the box on video, with a UTC timestamp burned into the frame.</p>
         </div>
-        <div class="step-card" data-i="2">
-          <span class="num">03</span>
-          <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 .3-.7L6 8"/><path d="M14 4h1.5A2.5 2.5 0 0 1 18 6.5V9"/><path d="M14 20h2a2 2 0 0 0 2-2V9"/><path d="M18 9a4 4 0 0 0-8 0"/><path d="M12 9v11"/></svg>Thumbs-up</h3>
+        <div class="step-card">
+          <span class="step-num">03</span>
+          <span class="step-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-7a1 1 0 0 1 .3-.7L6 8"/><path d="M14 4h1.5A2.5 2.5 0 0 1 18 6.5V9"/><path d="M14 20h2a2 2 0 0 0 2-2V9"/><path d="M18 9a4 4 0 0 0-8 0"/><path d="M12 9v11"/></svg></span>
+          <h3>Thumbs-up</h3>
           <p>Done? Give a thumbs-up to the camera — the clip stops and files itself under the order in your Drive.</p>
         </div>
-        <div class="step-card" data-i="3">
-          <span class="num">04</span>
-          <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5c-1.5 0-3-.4-4.2-1L3 20l1-5.3a8.4 8.4 0 1 1 17-3.2Z"/><path d="m9 11 2 2 4-4"/></svg>Buyer sees proof</h3>
+        <div class="step-card">
+          <span class="step-num">04</span>
+          <span class="step-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5c-1.5 0-3-.4-4.2-1L3 20l1-5.3a8.4 8.4 0 1 1 17-3.2Z"/><path d="m9 11 2 2 4-4"/></svg></span>
+          <h3>Buyer sees proof</h3>
           <p>The evidence link lands on the buyer's WhatsApp — before the parcel even ships.</p>
         </div>
       </div>
@@ -315,17 +320,12 @@ const faqSchema = {
   ]);
 
   // Scroll-triggered reveal: each step appears as IT enters the viewport (one-by-one on scroll).
-  // Progressive enhancement: if the browser supports CSS scroll-driven animations, CSS handles it
-  // smoothly; otherwise fall back to IntersectionObserver per-card; reduced-motion = static.
   const steps = document.querySelectorAll('.step-card');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const scrollDriven = typeof CSS !== 'undefined' && CSS.supports && CSS.supports('animation-timeline', 'view()');
   if (!steps.length) {
     // nothing to do
   } else if (reduceMotion) {
     steps.forEach((s) => s.classList.add('in'));
-  } else if (scrollDriven) {
-    // CSS animation-timeline handles reveal; don't add .in (it would cancel the animation).
   } else if ('IntersectionObserver' in window) {
     const io = new IntersectionObserver((entries) => {
       for (const en of entries) {
@@ -334,7 +334,7 @@ const faqSchema = {
           io.unobserve(en.target);
         }
       }
-    }, { threshold: 0.3, rootMargin: '0px 0px -12% 0px' });
+    }, { threshold: 0, rootMargin: '0px 0px -6% 0px' });
     steps.forEach((s) => io.observe(s));
   } else {
     steps.forEach((s) => s.classList.add('in'));
@@ -486,24 +486,18 @@ const faqSchema = {
   .c-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:12px;text-align:left}
   .c-head .ic{flex:0 0 54px;width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center}
   .c-head h3{margin:0;font-size:18px;line-height:1.25;padding-top:4px}
-  .steps-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:34px}
-  .step-card{background:#fff;border:1px solid var(--color-line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);opacity:0;transform:translateY(22px);transition:opacity .55s var(--ease-out),transform .55s var(--ease-out)}
-  .step-card.in{opacity:1;transform:none}
-  @supports (animation-timeline: view()) {
-    @media (prefers-reduced-motion: no-preference) {
-      /* progressive: CSS scroll-driven (each card animates as it scrolls through viewport) */
-      .step-card{opacity:1;transform:none;animation:stepDrive both linear;animation-timeline:view();animation-range:entry 0% entry 60%}
-      .step-card:nth-child(2){animation-range:entry 10% entry 70%}
-      .step-card:nth-child(3){animation-range:entry 20% entry 80%}
-      .step-card:nth-child(4){animation-range:entry 30% entry 90%}
-      @keyframes stepDrive{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
-      .step-card.in{animation:none}
-    }
-  }
-  .step-card .num{font-family:var(--font-display);font-weight:700;font-size:40px;color:#e4def7;line-height:1;display:block;margin-bottom:12px}
-  .step-card h3{font-size:17px;margin-bottom:6px;display:flex;align-items:center;gap:8px}
-  .step-card h3 svg{color:var(--color-blue)}
-  .step-card p{color:var(--color-slate);font-size:14px}
+  .steps-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 20px;margin-top:48px;position:relative}
+  .steps-grid::before{content:'';position:absolute;top:31px;left:4%;right:4%;height:2px;background:rgba(24,86,237,.13);border-radius:2px}
+  .step-card{position:relative;text-align:left}
+  html.js-ok .step-card{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease-out),transform .55s var(--ease-out)}
+  html.js-ok .step-card:nth-child(2){transition-delay:.12s}
+  html.js-ok .step-card:nth-child(3){transition-delay:.24s}
+  html.js-ok .step-card:nth-child(4){transition-delay:.36s}
+  html.js-ok .step-card.in{opacity:1;transform:none}
+  .step-num{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.16em;color:var(--color-blue);font-weight:600;margin-bottom:12px;display:block}
+  .step-icon{width:56px;height:56px;border-radius:18px;background:var(--color-blue-soft);color:var(--color-blue-deep);display:flex;align-items:center;justify-content:center;margin-bottom:16px;position:relative;z-index:1;box-shadow:0 0 0 6px var(--color-cream)}
+  .step-card h3{font-size:17px;margin-bottom:8px}
+  .step-card p{color:var(--color-slate);font-size:14.5px;line-height:1.55}
   .step-note{display:flex;gap:12px;align-items:flex-start;background:linear-gradient(120deg,#fff6e8,#ffefd9);border:1px solid #f3d9ac;border-radius:16px;padding:14px 18px;margin-top:24px;font-size:14.5px;line-height:1.6;color:#7a5217;text-align:left}
   .step-note .tip-ic{flex:0 0 34px;width:34px;height:34px;border-radius:10px;background:var(--color-amber);color:var(--color-ink);display:flex;align-items:center;justify-content:center;margin-top:1px}
   .step-note p{margin:0;text-align:left}
@@ -563,6 +557,7 @@ const faqSchema = {
     .hero-grid{grid-template-columns:1fr;gap:40px}
     .pain-grid{grid-template-columns:repeat(2,1fr)}
     .steps-grid{grid-template-columns:repeat(2,1fr)}
+    .steps-grid::before{display:none}
     .price-grid{grid-template-columns:repeat(2,1fr)}
     .ben{grid-template-columns:1fr}
     .nav-links a:not(.cta){display:none}
