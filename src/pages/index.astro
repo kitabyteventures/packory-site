@@ -512,14 +512,35 @@ const faqSchema = {
     update();
   }
 
-  // Mobile: layered reveal on scroll (same assemble feel, safe stacked layout)
-  if (howStage && window.innerWidth <= 760 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
-    document.documentElement.classList.add('anim-ready');
-    const mobSlides = Array.from(howStage.children);
-    const ioM = new IntersectionObserver((entries) => {
-      for (const en of entries) { if (en.isIntersecting) { en.target.classList.add('seen'); ioM.unobserve(en.target); } }
-    }, { threshold: 0.22 });
-    mobSlides.forEach((sl) => ioM.observe(sl));
+  // Mobile: scroll-linked sideways entrance — content slides IN from the sides while you scroll up/down
+  if (howStage && window.innerWidth <= 760 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const mSlides = Array.from(howStage.children);
+    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+    const ease = (t) => 1 - Math.pow(1 - t, 3);
+    const setEl = (el, x, op) => {
+      if (!el) return;
+      if (Math.abs(x) < 0.5 && op >= 1) { el.style.transform = ''; el.style.opacity = ''; }
+      else { el.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,0)'; el.style.opacity = String(op); }
+    };
+    const mUpd = () => {
+      const vh = window.innerHeight;
+      for (const slide of mSlides) {
+        const r = slide.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > vh) continue;
+        const prog = clamp((vh * 0.92 - r.top) / (vh * 0.6), 0, 1);
+        if (prog <= 0) continue;
+        const e = ease(prog);
+        const op = clamp(prog * 1.6, 0, 1);
+        setEl(slide.querySelector('.step-num'), -24 * (1 - e), op);
+        setEl(slide.querySelector('h3'), -38 * (1 - e), op);
+        setEl(slide.querySelector('p'), -38 * (1 - e), op);
+        setEl(slide.querySelector('.how-visual'), 42 * (1 - e), op);
+        setEl(slide.querySelector('.how-ghost'), 0, op);
+      }
+    };
+    window.addEventListener('scroll', mUpd, { passive: true });
+    setInterval(mUpd, 150);
+    mUpd();
   }
 </script>
 
