@@ -41,6 +41,14 @@ const { title, description } = Astro.props;
       rel="stylesheet"
     />
 
+    <script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-SKKEJED4D3" async></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-SKKEJED4D3');
+    </script>
+
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'SoftwareApplication',
