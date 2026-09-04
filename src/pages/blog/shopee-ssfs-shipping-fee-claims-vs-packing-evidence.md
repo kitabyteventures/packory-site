@@ -1,22 +1,22 @@
 ---
 layout: ../../layouts/BlogPost.astro
-title: "Shopee Shipping Fee Claim Automation (SSFS): What RM0.20 Per Order Covers — and What It Doesn't"
-description: "Shopee's SSFS automates shipping fee claims for RM0.20 per order — but packing disputes still need video evidence. See how to protect your margin."
+title: "Shopee Shipping Fee Claim Automation (SSFS): What RM0.28 Per Order Covers — and What It Doesn't"
+description: "Shopee's SSFS automates shipping fee claims for RM0.28 per order — but packing disputes still need video evidence. See how to protect your margin."
 pubDate: 2026-09-04
 author: Packory
 ---
 
 Every order. On video. Dispute-proof.
 
-Sellers across Malaysia started September with a new notice in their Seller Centre: a Shopee shipping fee claim service that automates refunds of courier costs for RM0.20 per order. It sounds like a small number, and for many shops the reaction is to sign up quickly and move on. The more useful question is what the service actually covers — because fee claims and packing disputes are not the same game, and the one that threatens your margin is the one automation does not touch.
+Sellers across Malaysia started September with a new notice in their Seller Centre: a Shopee shipping fee claim service that automates refunds of courier costs for RM0.28 per order (Preferred Sellers pay RM0.18). It sounds like a small number, and for many shops the reaction is to sign up quickly and move on. The more useful question is what the service actually covers — because fee claims and packing disputes are not the same game, and the one that threatens your margin is the one automation does not touch.
 
 ## What the Shopee shipping fee claim service covers
 
-The service — often shortened to SSFS — handles a specific job: when a parcel is lost or delayed and you are entitled to recover the shipping fee you paid, the claim is submitted and followed up for you. Instead of tracking web forms and deadlines yourself, you pay RM0.20 per order and the recovery is automated. For sellers who ship enough volume that courier fee claims happen regularly, the arithmetic can genuinely work in their favour.
+The service — often shortened to SSFS — handles a specific job: when a parcel is lost or delayed and you are entitled to recover the shipping fee you paid, the claim is submitted and followed up for you. Instead of tracking web forms and deadlines yourself, you pay RM0.28 per order and the recovery is automated. For sellers who ship enough volume that courier fee claims happen regularly, the arithmetic can genuinely work in their favour.
 
 Two things are worth noting before relying on it. First, terms, coverage windows, and claim conditions are set by Shopee Malaysia and do change — check the current policy in your Seller Centre rather than acting on a summary. Second, notice what the service is recovering: a fee. Money you paid to move the parcel, returned when the movement fails. It is not deciding who was at fault, and it is not covering the value of the goods.
 
-## The disputes RM0.20 per order does not cover
+## The disputes RM0.28 per order does not cover
 
 This is where the gap shows up. Across Malaysian marketplace communities, sellers report seeing the same patterns again and again:
 
@@ -39,10 +39,10 @@ The practical challenge has always been consistency. Recording every order by ha
 
 ## Running SSFS and packing evidence together
 
-The two are not competitors; they cover different layers. The RM0.20 per order service looks after your fee claims, and your own packing video looks after the disputes that fee automation cannot see. Sellers who run both have the full picture: fees recovered automatically, and factual disputes answered with proof they already hold.
+The two are not competitors; they cover different layers. The RM0.28 per order service looks after your fee claims, and your own packing video looks after the disputes that fee automation cannot see. Sellers who run both have the full picture: fees recovered automatically, and factual disputes answered with proof they already hold.
 
 Packory is the evidence layer for that second layer — from RM49 a month for 300 verified orders, which works out to about RM0.16 per order for evidence across every parcel, not just the expensive ones. It works with Shopee or any other channel you sell on, and it turns packing from a trust exercise into a routine that protects your margin either way.
 
 ---
 
-*Every order. On video. Dispute-proof. Shopee's RM0.20 fee claim service recovers your courier costs; your packing video protects you from the disputes automation cannot decide. Packory is the evidence layer for Malaysian e-commerce — [start free](https://console.packory.app/signup) and make every order provable from the moment it leaves your hands.*
+*Every order. On video. Dispute-proof. Shopee's RM0.28 fee claim service recovers your courier costs; your packing video protects you from the disputes automation cannot decide. Packory is the evidence layer for Malaysian e-commerce — [start free](https://console.packory.app/signup) and make every order provable from the moment it leaves your hands.*
