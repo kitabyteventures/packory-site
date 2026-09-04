@@ -66,7 +66,7 @@ const faqSchema = {
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <span class="pill"><span class="dot red"></span> For sellers on Shopee · TikTok Shop · Lazada · Amazon &amp; more</span>
-        <h1>Every order gets its own <span class="accent">video proof</span>. <span class="u">Easy as that.</span></h1>
+        <h1>Every order gets its <span class="h1line2">own <span class="accent">video proof</span>.</span> <span class="h1line3"><span class="u">Easy as that.</span></span></h1>
         <p class="hero-sub">When you pack, Packory records automatically — timestamped, saved to <b>your own cloud storage</b>, proof link reaches the buyer before the parcel does. A dispute shows up? Send the video.</p>
       </div>
       <div class="hero-visual">
@@ -895,6 +895,8 @@ const faqSchema = {
     .step-card{opacity:1;transform:none}
   }
   @media(max-width:960px){
+    .h1line2,.h1line3{display:block}
+    .hero h1{font-size:clamp(2.3rem,9.5vw,3.4rem)}
     .hero .micro{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:center;gap:12px;font-size:11.5px;color:#c7d6ff}
     .hero-grid{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:'copy' 'visual' 'cta';gap:24px 0}
     .hero-visual{width:min(460px,94vw)}
