@@ -264,7 +264,11 @@ const faqSchema = {
       <span class="kicker">Pricing</span>
       <h2>Pay by how many orders you verify</h2>
       <p class="sub">Every plan includes hands-free video proof and WhatsApp evidence links. Start free — upgrade when your orders grow.</p>
-      <div class="price-grid">
+      <div class="bill-toggle" id="billToggle">
+        <button type="button" class="bill-btn on" data-bill="m" aria-pressed="true">Monthly</button>
+        <button type="button" class="bill-btn" data-bill="y" aria-pressed="false">Yearly <span class="bill-save">2 months free</span></button>
+      </div>
+      <div class="price-grid" id="priceGrid">
         <div class="price">
           <div class="pname">Proof <em>· Free</em></div>
           <div class="val">RM0 <small>/month</small></div>
@@ -276,39 +280,42 @@ const faqSchema = {
           <a class="btn btn-ghost" href={`${CONSOLE}/signup`}>Start Free</a>
         </div>
         <div class="price">
-          <div class="pname">Verified <em>· RM49</em></div>
-          <div class="val">RM49 <small>/month</small></div>
+          <div class="pname">Verified</div>
+          <div class="val"><span class="pr-m">RM49</span><span class="pr-y" hidden>RM490</span> <small class="sfx-m">/month</small><small class="sfx-y" hidden>/year</small></div>
+          <span class="y-badge" hidden>2 months free</span>
           <ul>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>300 verified orders a month</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="am-m">300</span><span class="am-y" hidden>600</span> verified orders a month<span class="bonus-y" hidden> · +300 yearly bonus</span></li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything in Proof</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>For growing sellers</li>
           </ul>
-          <a class="btn btn-ghost" href={`${CONSOLE}/signup`}>Choose Verified</a>
+          <a class="btn btn-ghost" href={`${CONSOLE}/signup?plan=verified&billing=m`}>Choose Verified</a>
         </div>
         <div class="price pop" id="pop-tier">
           <span class="pop-badge">Most popular</span>
-          <div class="pname">Verified Seller <em>· RM99</em></div>
-          <div class="val">RM99 <small>/month</small></div>
+          <div class="pname">Verified Seller</div>
+          <div class="val"><span class="pr-m">RM99</span><span class="pr-y" hidden>RM990</span> <small class="sfx-m">/month</small><small class="sfx-y" hidden>/year</small></div>
+          <span class="y-badge" hidden>2 months free</span>
           <ul>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>600 verified orders a month</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="am-m">600</span><span class="am-y" hidden>900</span> verified orders a month<span class="bonus-y" hidden> · +300 yearly bonus</span></li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything in Verified</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>For busy daily sellers</li>
           </ul>
-          <a class="btn btn-blue" href={`${CONSOLE}/signup`}>Choose Verified Seller</a>
+          <a class="btn btn-blue" href={`${CONSOLE}/signup?plan=verified-seller&billing=m`}>Choose Verified Seller</a>
         </div>
         <div class="price">
-          <div class="pname">Dispute-Proof <em>· RM199</em></div>
-          <div class="val">RM199 <small>/month</small></div>
+          <div class="pname">Dispute-Proof</div>
+          <div class="val"><span class="pr-m">RM199</span><span class="pr-y" hidden>RM1,990</span> <small class="sfx-m">/month</small><small class="sfx-y" hidden>/year</small></div>
+          <span class="y-badge" hidden>2 months free</span>
           <ul>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>1,500+ verified orders a month</li>
+            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="am-m">1,500+</span><span class="am-y" hidden>1,800+</span> verified orders a month<span class="bonus-y" hidden> · +300 yearly bonus</span></li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything in Verified Seller</li>
             <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>For bigger operations</li>
           </ul>
-          <a class="btn btn-ghost" href={`${CONSOLE}/signup`}>Choose Dispute-Proof</a>
+          <a class="btn btn-ghost" href={`${CONSOLE}/signup?plan=dispute-proof&billing=m`}>Choose Dispute-Proof</a>
         </div>
       </div>
       <p class="price-more">Shipping more than 1,500 orders a month? <a href="#">WhatsApp us</a> — we'll sort a volume plan.</p>
-      <p class="price-note">All plans: footage stays on your own Google Drive, timestamped at capture. International pricing coming soon.</p>
+      <p class="price-note">All plans: footage stays on your own Google Drive, timestamped at capture. Yearly = pay 10 months, get 12, plus 300 extra verified orders every month. International pricing coming soon.</p>
     </div>
   </section>
 
@@ -484,6 +491,26 @@ const faqSchema = {
     menu.addEventListener('click', (e) => { if (e.target === menu) setOpen(false); });
     menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) setOpen(false); });
+  }
+
+
+  // Billing toggle (monthly / yearly)
+  const billToggle = document.getElementById('billToggle');
+  const priceGrid = document.getElementById('priceGrid');
+  if (billToggle && priceGrid) {
+    billToggle.addEventListener('click', (e) => {
+      const b = e.target.closest('button');
+      if (!b) return;
+      const yearly = b.dataset.bill === 'y';
+      billToggle.querySelectorAll('.bill-btn').forEach((x) => {
+        const on = x === b;
+        x.classList.toggle('on', on);
+        x.setAttribute('aria-pressed', String(on));
+      });
+      priceGrid.querySelectorAll('.pr-m,.sfx-m,.am-m').forEach((el) => { el.hidden = yearly; });
+      priceGrid.querySelectorAll('.pr-y,.sfx-y,.am-y,.bonus-y,.y-badge').forEach((el) => { el.hidden = !yearly; });
+      priceGrid.querySelectorAll('a[href*="billing="]').forEach((a) => { a.href = a.href.replace(/billing=[my]/, 'billing=' + (yearly ? 'y' : 'm')); });
+    });
   }
 
   // Consent banner (PDPA / analytics). Show on first visit until a choice is made.
@@ -951,4 +978,11 @@ const faqSchema = {
   @media (max-width:960px){
     html.no-motion .m-panel{animation:none}
   }
+
+  .bill-toggle{display:inline-flex;gap:4px;background:var(--color-paper);border:1px solid var(--color-line);padding:4px;border-radius:999px;margin:10px 0 30px}
+  .bill-btn{border:0;background:transparent;font:inherit;font-weight:600;font-size:14px;color:var(--color-slate);padding:9px 18px;border-radius:999px;cursor:pointer}
+  .bill-btn.on{background:#fff;color:var(--color-ink);box-shadow:0 4px 12px rgba(16,22,58,.14)}
+  .bill-save{color:#0f9d6a;font-size:12px;font-weight:700}
+  .y-badge{display:inline-block;margin:6px 0 4px;background:#e5f6ee;color:#0f7a52;font-size:12px;font-weight:700;border-radius:999px;padding:5px 12px}
+  .price .val .pr-y,.price .val .sfx-y,.bonus-y{color:var(--color-blue);font-weight:600}
 </style>
