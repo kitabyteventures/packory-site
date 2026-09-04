@@ -493,62 +493,29 @@ const faqSchema = {
     }
   }
 
-  // ===== How-it-works scrollytelling: pinned + layered entrance (elements assemble from different directions) =====
+  // ===== How-it-works: horizontal scrollytelling — vertical scroll drives a sideways slide =====
   const howPin = document.getElementById('howPin');
   const howStage = document.getElementById('howStage');
   if (howPin && howStage && window.innerWidth > 760 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const slides = Array.from(howStage.children);
     const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-    let active = 0;
-    let ticking = false;
-    slides.forEach((s, i) => s.classList.toggle('active', i === 0));
-    const applyEntrance = (frac) => {
-      const slide = slides[active];
-      const isAlt = !!slide.querySelector('.how-grid.alt');
-      const specs = [
-        { sel: '.how-ghost', dir: 'zoom', at: 0.00, dur: 0.80 },
-        { sel: '.step-num', dir: 'top', at: 0.00, dur: 0.14 },
-        { sel: 'h3', dir: 'left', at: 0.02, dur: 0.30 },
-        { sel: 'p', dir: 'left', at: 0.09, dur: 0.34 },
-        { sel: '.how-visual', dir: isAlt ? 'left' : 'right', at: 0.00, dur: 0.45 },
-      ];
-      for (const spec of specs) {
-        const els = slide.querySelectorAll(spec.sel);
-        const t = clamp((frac - spec.at) / spec.dur, 0, 1);
-        const e = 1 - Math.pow(1 - t, 3);
-        const o = clamp(0.22 + e * 1.1, 0, 1);
-        let dx = 0, dy = 0, sc = 1;
-        if (spec.dir === 'left') dx = (1 - e) * -54;
-        else if (spec.dir === 'right') dx = (1 - e) * 54;
-        else if (spec.dir === 'top') dy = (1 - e) * -36;
-        else if (spec.dir === 'bottom') dy = (1 - e) * 36;
-        else if (spec.dir === 'zoom') sc = 0.86 + 0.14 * e;
-        for (const el of els) {
-          if (t >= 1) {
-            el.style.opacity = '';
-            el.style.transform = '';
-          } else {
-            el.style.opacity = String(o);
-            el.style.transform = 'translate3d(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px,0) scale(' + sc.toFixed(3) + ')';
-          }
-        }
-      }
-    };
+    // Each subsequent step starts one viewport to the LEFT; scrolling down moves the whole deck RIGHT.
+    slides.forEach((s, i) => {
+      s.style.transform = 'translate3d(-' + (i * 100) + '%,0,0)';
+    });
     const update = () => {
-      ticking = false;
       const total = Math.max(1, howPin.offsetHeight - window.innerHeight);
       const p = clamp(-howPin.getBoundingClientRect().top / total, 0, 1);
-      const x = p * slides.length;
-      const next = Math.min(slides.length - 1, Math.floor(x + 0.0001));
-      const frac = clamp(x - next, 0, 1);
-      if (next !== active) {
-        active = next;
-        slides.forEach((s, i) => s.classList.toggle('active', i === active));
-      }
-      // Step 1 is always fully composed on entry — entrance animation is for steps 2-4.
-      applyEntrance(active === 0 ? 1 : frac);
+      const x = p * (slides.length - 1);
+      howStage.style.transform = 'translate3d(' + (x * 100) + '%,0,0)';
     };
-    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => { update(); ticking = false; });
+      }
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     setInterval(onScroll, 200);
@@ -864,8 +831,8 @@ const faqSchema = {
   @media (min-width:761px) and (prefers-reduced-motion: no-preference){
     html.js-ok .how-pin{height:480vh}
     html.js-ok .how-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:block}
-    html.js-ok .how-stage{display:block;position:relative;height:100%;width:100%;padding:0}
-    html.js-ok .how-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .45s ease;min-height:0;height:100%;padding:0}
+    html.js-ok .how-stage{display:block;position:relative;height:100%;width:100%;padding:0;will-change:transform}
+    html.js-ok .how-slide{position:absolute;inset:0;opacity:1;visibility:visible;min-height:0;height:100%;padding:0;will-change:transform}
     html.js-ok .how-slide.active{opacity:1;visibility:visible}
     .how-rail,.how-hint{display:none}
   }
