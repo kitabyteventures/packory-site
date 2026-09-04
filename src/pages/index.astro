@@ -822,9 +822,9 @@ const faqSchema = {
   .wa-card .chip{margin:0 18px 18px}
   .how-rail{position:absolute;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:4}
   .how-meta{position:absolute;inset:0 0 auto 0;z-index:6;pointer-events:none;display:none}
-  .how-line{position:absolute;top:0;left:0;right:0;height:3px;background:rgba(127,145,200,.16)}
+  .how-line{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(127,145,200,.16)}
   .how-fill{display:block;height:100%;width:25%;background:linear-gradient(90deg,#2f4bff,#1856ED);box-shadow:0 0 10px rgba(47,75,255,.55);transition:width .55s var(--ease-out)}
-  .how-count{position:absolute;top:16px;right:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--color-ink);background:rgba(255,255,255,.72);border:1px solid rgba(16,22,58,.08);backdrop-filter:blur(8px);padding:6px 11px;border-radius:999px;box-shadow:0 6px 18px rgba(16,22,58,.12)}
+  .how-count{position:absolute;bottom:24px;right:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--color-ink);background:rgba(255,255,255,.72);border:1px solid rgba(16,22,58,.08);backdrop-filter:blur(8px);padding:6px 11px;border-radius:999px;box-shadow:0 6px 18px rgba(16,22,58,.12)}
   .how-visual{filter:drop-shadow(0 26px 44px rgba(24,86,237,.16))}
   .how-rail button{width:42px;height:42px;border-radius:13px;border:1px solid rgba(16,22,58,.12);background:rgba(255,255,255,.7);backdrop-filter:blur(6px);color:var(--color-ink);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;transition:transform .2s var(--ease-out),background-color .2s,color .2s}
   .how-rail button.active{background:var(--color-blue);color:#fff;border-color:var(--color-blue)}
@@ -857,7 +857,7 @@ const faqSchema = {
 
   /* scrollytelling: desktop pinned step swap */
   @media (min-width:761px) and (prefers-reduced-motion: no-preference){
-    html.js-ok .how-pin{height:480vh}
+    html.js-ok .how-pin{height:400vh}
     html.js-ok .how-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:block}
     html.js-ok .how-stage{display:block;position:relative;height:100%;width:100%;padding:0;will-change:transform;transition:transform .55s var(--ease-out)}
     html.js-ok .how-slide{position:absolute;inset:0;opacity:1;visibility:visible;min-height:0;height:100%;padding:0;will-change:transform}
@@ -867,8 +867,9 @@ const faqSchema = {
   }
   /* mobile slideshow — pinned + compact (non-reduce) */
   @media (max-width:760px) and (prefers-reduced-motion: no-preference){
-    html.js-ok .how-pin{height:400svh}
+    html.js-ok .how-pin{height:300svh}
     html.js-ok .how-sticky{position:sticky;top:0;height:100svh;overflow:hidden;display:block}
+    html.js-ok .how-slide .wrap{height:100%;display:flex;flex-direction:column;justify-content:center;padding:72px 16px 34px}
     html.js-ok .how-stage{display:block;position:relative;height:100%;width:100%;padding:0;will-change:transform;transition:transform .55s var(--ease-out)}
     html.js-ok .how-slide{position:absolute;inset:0;opacity:1;visibility:visible;min-height:0;height:100%;padding:0;will-change:transform}
     .how-meta{display:block}
