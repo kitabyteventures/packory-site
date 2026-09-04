@@ -680,15 +680,17 @@ const faqSchema = {
   .center .sub{margin-inline:auto}
   .pains{background:var(--color-amber-soft)}
   .pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px}
-  .pain{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);border:1px solid #f5e8cd}
+  .pain{background:#fff;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);border:1px solid #f5e8cd;position:relative;overflow:hidden}
+  .ben-card{background:#fff;border:1px solid #dbe4fb;border-radius:var(--radius);padding:24px;box-shadow:var(--shadow-sm);position:relative;overflow:hidden}
   .pain .ic{background:var(--color-amber-soft);color:var(--color-amber-deep)}
   .pain p{color:var(--color-slate);font-size:14.5px;margin:0}
   .flip{text-align:center;margin-top:30px;font-size:18px;font-weight:700}
   .flip span{background:transparent;color:var(--color-ink);border-radius:0;padding:0 0 4px;display:inline;border-bottom:3px solid var(--color-amber);box-shadow:none}
-  .c-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:8px;text-align:left}
-  .c-head .ic{flex:0 0 48px;width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center}
-  .c-head h3{margin:0;font-size:18px;line-height:1.35;padding-top:3px}
-  .pain>p,.ben-card>p{margin-left:62px}
+  .c-head{display:block;margin-bottom:10px;text-align:left}
+  .c-head h3{margin:0;font-size:18px;line-height:1.35;position:relative;z-index:1;padding-right:2px}
+  .c-head .ic{position:absolute;right:-10px;bottom:-16px;width:156px;height:156px;border-radius:40px;background:transparent;display:flex;align-items:center;justify-content:center;opacity:.16;z-index:0}
+  .c-head .ic svg{width:96px;height:96px}
+  .pain p,.ben-card p{position:relative;z-index:1;margin:0;padding-right:4px}
   .steps-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 20px;margin-top:48px;position:relative}
   .steps-grid::before{content:'';position:absolute;top:31px;left:4%;right:4%;height:2px;background:rgba(24,86,237,.13);border-radius:2px}
   .step-card{position:relative;text-align:left}
