@@ -49,7 +49,7 @@ const faqSchema = {
   <header class="hero" id="top">
     <div class="wrap hero-grid">
       <div class="hero-copy">
-        <span class="pill"><span class="dot red"></span> For Shopee · TikTok Shop · Lazada sellers</span>
+        <span class="pill"><span class="dot red"></span> For sellers on Shopee · TikTok Shop · Lazada · Amazon &amp; more</span>
         <h1>Every order gets its own <span class="accent">video proof</span>. <span class="u">Easy as that.</span></h1>
         <p class="hero-sub">When you pack, Packory records automatically — timestamped, saved to <b>your own Google Drive</b>, proof link on the buyer's WhatsApp. A dispute shows up? Send the video.</p>
         <form class="lead-form" id="lead-form" novalidate>
@@ -112,7 +112,7 @@ const faqSchema = {
     <div class="wrap center how-head">
       <span class="kicker">How it works</span>
       <h2>You just pack. We capture the proof.</h2>
-      <p class="sub">A video record of every order — automatic, hands-free, timestamped at capture. Scroll to walk through each step.</p>
+      <p class="sub">Packing verification that runs itself — automatic, hands-free, timestamped at capture. Scroll to walk through each step.</p>
     </div>
     <div class="how-pin" id="howPin">
       <div class="how-sticky">
@@ -210,9 +210,9 @@ const faqSchema = {
 
   <section class="benefits">
     <div class="wrap center">
-      <span class="kicker">Built for the real shop floor</span>
+      <span class="kicker">The evidence layer for e-commerce</span>
       <h2>Proof you can stand behind</h2>
-      <p class="sub">Evidence only helps if it survives scrutiny. Every Packory clip is timestamped at capture, stored on your own Drive, and linked to its order.</p>
+      <p class="sub">Packing verification only helps if it survives scrutiny — so every clip is timestamped at capture, filed under its order in your own Drive, and linked to the buyer before the parcel ships.</p>
       <div class="ben">
         <div class="ben-card">
           <div class="c-head"><span class="ic b"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M12 20h.01"/></svg></span><h3>Terrible Wi-Fi? Fine.</h3></div>
@@ -299,15 +299,20 @@ const faqSchema = {
           </details>
         ))}
       </div>
+      <p class="read-more">Go deeper: <a href="/blog/what-is-packing-verification">What is packing verification?</a> · <a href="/blog/shopee-dispute-process-malaysia">Shopee dispute guide</a> · <a href="/blog">All guides →</a></p>
     </div>
   </section>
 
   <section>
     <div class="wrap">
       <div class="cta-band">
-        <h2>Ready to pack with proof?</h2>
-        <p>Your next order can be the first one with video evidence. Free for 50 orders a month — nothing to lose.</p>
-        <a class="btn btn-white" href={`${CONSOLE}/signup`}>Start Free →</a>
+        <span class="cta-eyebrow">Every order. On video. Dispute-proof.</span>
+        <h2>Protect every parcel before it ships.</h2>
+        <p>Your next order can be the first one with video evidence — timestamped, filed under its AWB, proof link on the buyer's WhatsApp. Free for 50 orders a month, no credit card.</p>
+        <div class="cta-actions">
+          <a class="btn btn-white" href={`${CONSOLE}/signup`}>Start Free →</a>
+          <a class="btn btn-ghost-soft" href="#how">See how it works</a>
+        </div>
       </div>
     </div>
   </section>
@@ -687,7 +692,12 @@ const faqSchema = {
   .cta-band{background:var(--grad-band);border-radius:32px;padding:64px 40px;text-align:center;color:#fff;position:relative;overflow:hidden}
   .cta-band h2{color:#fff;font-size:clamp(1.9rem,3.4vw,2.7rem)}
   .cta-band p{color:#dbe6ff;max-width:560px;margin:0 auto 26px;font-size:17px}
-  .cta-band .btn-white{min-height:52px;padding:16px 30px;font-size:17px}
+  .read-more{max-width:760px;margin:18px auto 0;color:var(--color-slate);font-size:14px}
+  .read-more a{color:var(--color-blue);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+  .cta-eyebrow{display:block;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#ffc46b;margin-bottom:14px}
+  .cta-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+  .btn-ghost-soft{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;font-family:var(--font-body);font-weight:700;font-size:16px;padding:14px 26px;min-height:52px;border:1.5px solid rgba(255,255,255,.55);color:#fff;cursor:pointer;transition:background-color var(--dur-short) var(--ease-out),border-color var(--dur-short)}
+  @media(hover:hover){.btn-ghost-soft:hover{background:rgba(255,255,255,.12);border-color:#fff}}
   .cta-band:before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:rgba(255,158,26,.2);top:-130px;right:-70px}
   footer{background:var(--color-ink);color:#a5adc7;padding:46px 0 30px;font-size:14px}
   .foot-grid{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;margin-bottom:24px}
