@@ -508,7 +508,8 @@ const faqSchema = {
         active = next;
         slides.forEach((s, i) => s.classList.toggle('active', i === active));
       }
-      applyEntrance(frac);
+      // Step 1 is always fully composed on entry — entrance animation is for steps 2-4.
+      applyEntrance(active === 0 ? 1 : frac);
     };
     const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(update); } };
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -745,7 +746,7 @@ const faqSchema = {
   html.js-ok .how-stage{display:flex;flex-direction:column;height:100%;padding-bottom:0}
   .how-slide{position:relative;overflow:hidden;display:flex;align-items:center;min-height:70vh;padding:34px 0}
   html.js-ok .how-slide{min-height:0;height:100%;padding:0}
-  .slide-1{background:radial-gradient(900px 480px at 82% 12%,rgba(24,86,237,.12),transparent 62%),var(--color-cream)}
+  .slide-1{background:radial-gradient(900px 480px at 82% 12%,rgba(24,86,237,.16),transparent 62%),linear-gradient(180deg,#edf2fe,#f7f9fd)}
   .slide-2{background:var(--grad-band);color:#fff}
   .slide-3{background:linear-gradient(180deg,#fff,#eef2fd)}
   .slide-4{background:var(--color-ink);color:#fff}
