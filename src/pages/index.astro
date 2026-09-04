@@ -716,7 +716,10 @@ const faqSchema = {
   nav.nav-dark .nav-links a:not(.btn):hover{color:#fff}
   nav.nav-dark .btn-blue{background:#fff;color:#0a0d1e}
   nav.nav-dark .hamburger{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.22)}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px;transition:height .25s ease}
+  nav.nav-dark .nav-inner{height:56px}
+  nav.nav-dark .brand{font-size:17.5px}
+  nav.nav-dark .hamburger{width:40px;height:40px}
   .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:20px;color:var(--color-ink)}
   .dot{width:14px;height:14px;border-radius:4px;background:var(--color-blue);display:inline-block}
   .dot.red{background:#ff3b30;width:10px;height:10px;border-radius:50%}
@@ -892,6 +895,7 @@ const faqSchema = {
     .step-card{opacity:1;transform:none}
   }
   @media(max-width:960px){
+    .hero .micro{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:12px;color:#c7d6ff;text-align:center}
     .hero-grid{grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:'copy' 'visual' 'cta';gap:24px 0}
     .hero-visual{width:min(460px,94vw)}
     .white-card{transform:rotate(-1.4deg);box-shadow:0 26px 60px rgba(8,12,40,.4)}
