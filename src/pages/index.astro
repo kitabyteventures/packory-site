@@ -30,7 +30,7 @@ const faqSchema = {
   <script is:inline>document.documentElement.classList.add('js-ok');</script>
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
-  <div class="banner">Beta is open — Malaysian sellers get <a href="#">founding pricing</a></div>
+  <div class="banner">Beta is open — Malaysian sellers get <a href="#pricing">founding pricing</a></div>
 
   <nav>
     <div class="wrap nav-inner">
@@ -57,7 +57,7 @@ const faqSchema = {
           <button class="btn btn-white" type="submit">Start Free</button>
           <span class="lead-err" id="lead-err" hidden>Enter a valid Malaysian WhatsApp number, e.g. 012-3456789</span>
         </form>
-        <p class="consent-line">By continuing, you agree to be contacted on WhatsApp about your Packory setup. <a href="#">Privacy Policy</a></p>
+        <p class="consent-line">By continuing, you agree to be contacted on WhatsApp about your Packory setup. Read our <a href="/privacy">Privacy Policy</a>.</p>
         <p class="micro"><span>✓ Free for 50 orders a month</span><span>✓ No credit card</span><span>✓ Set up in minutes</span></p>
       </div>
       <div class="hero-visual">
@@ -332,13 +332,17 @@ const faqSchema = {
       </div>
       <div class="foot-note">
         <span>© {new Date().getFullYear()} Packory · Every order. On video. Dispute-proof.</span>
+        <span class="foot-legal">
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Service</a>
+        </span>
         <span>Built in Malaysia — for sellers everywhere</span>
       </div>
     </div>
   </footer>
 
   <aside class="consent-banner" id="consent-banner" role="region" aria-label="Privacy consent" hidden>
-    <p>We use basic analytics to improve the site, and we may contact you on WhatsApp about your Packory setup if you share your number. <a href="#">Privacy Policy</a></p>
+    <p>We use basic analytics to improve the site. We'll only contact you on WhatsApp if you share your number. Read our <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms of Service</a>.</p>
     <div class="consent-actions">
       <button class="btn btn-blue btn-sm" type="button" data-consent="accept">Accept</button>
       <button class="btn btn-ghost-sm" type="button" data-consent="decline">Decline</button>
@@ -706,6 +710,9 @@ const faqSchema = {
   .foot-links{display:flex;gap:22px;flex-wrap:wrap}
   .foot-links a:hover{color:#fff}
   .foot-note{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;font-size:12.5px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
+  .foot-legal{display:inline-flex;gap:14px}
+  .foot-note a{color:#a5adc7;text-decoration:underline;text-underline-offset:3px}
+  .foot-note a:hover{color:#fff}
   .concept-tag{color:#ffc46b;font-weight:600}
   .consent-banner[hidden]{display:none}
   .consent-banner{position:fixed;left:16px;right:16px;bottom:16px;z-index:200;max-width:640px;margin-inline:auto;background:#fff;border:1px solid var(--color-line);border-radius:18px;padding:16px 18px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;box-shadow:0 24px 70px rgba(16,22,58,.25)}

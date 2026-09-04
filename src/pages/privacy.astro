@@ -1,0 +1,109 @@
+---
+import Legal from '../layouts/Legal.astro';
+
+const title = "Privacy Policy";
+const description = "How Packory collects, uses and protects your personal data under the Personal Data Protection Act 2010 (Malaysia).";
+---
+
+<Legal title={title} description={description} effectiveDate={new Date('2026-09-03T00:00:00')}>
+<h2>1. Introduction</h2>
+<p>This Privacy Policy explains how <strong>Packory</strong> (a Malaysian business registered under the Registration of Businesses Act 1956; full SSM/company details to be updated as the business grows — "<strong>Packory</strong>", "<strong>we</strong>", "<strong>us</strong>", "<strong>our</strong>") collects, uses, stores and protects your personal data when you visit <code>packory.app</code>, use the Packory console (<code>console.packory.app</code>), the Packory mobile/terminal app, or otherwise interact with our services (together, the "<strong>Services</strong>").</p>
+<p>We process personal data in accordance with the <strong>Personal Data Protection Act 2010 (Malaysia)</strong> ("<strong>PDPA</strong>") and applicable data protection law. We are committed to protecting your privacy.</p>
+<h2>2. Who this policy applies to</h2>
+<ul>
+<li><strong>Sellers / Merchants</strong> who use Packory to record and verify their packing process;</li>
+<li><strong>Buyers / Recipients</strong> who receive a verification link (e.g. via WhatsApp) from a seller;</li>
+<li><strong>Visitors</strong> to our website.</li>
+</ul>
+<h2>3. What data we collect</h2>
+<h3>3.1 Data you give us</h3>
+<ul>
+<li><strong>Account data:</strong> name, business name, email, phone number, password (hashed), marketplace/platform details.</li>
+<li><strong>Lead data:</strong> phone number + source (e.g. <code>fb:&lt;group&gt;</code>, <code>blog:&lt;slug&gt;</code>, <code>social:&lt;ig&gt;</code>, <code>direct</code>) when you submit our WhatsApp lead form.</li>
+<li><strong>Billing data:</strong> plan/order allowance, payment records. Card details are processed by our payment gateway () — we do not store full card numbers.</li>
+<li><strong>Support data:</strong> messages and files you send when contacting support.</li>
+</ul>
+<h3>3.2 Data we collect when you use the Services</h3>
+<ul>
+<li><strong>Order & session metadata:</strong> AWB/tracking numbers, timestamps, station/device identifiers, order references, session status (e.g. COMPLETE, VERIFIED).</li>
+<li><strong>Evidence records:</strong> video recordings of packing, capture metadata (timestamp, device/geo fingerprint where enabled, SHA-256 hash, audit trail) — <strong>see Section 5</strong> for how this is stored.</li>
+<li><strong>Device & usage data:</strong> browser type, app version, approximate location where legally permitted, diagnostic logs.</li>
+</ul>
+<h3>3.3 Analytics data (website)</h3>
+<p>We use Google Analytics 4 (GA4) to understand how visitors use our site. This uses cookies to collect aggregated usage data (pages visited, referrer, approximate geography, device type). See Section 7.</p>
+<h2>4. How we use your data</h2>
+<p>We use personal data to:</p>
+<ol>
+<li>Create and manage your account, and provide the Services;</li>
+<li>Record, hash, store and make available your packing evidence so you can share proof with buyers/marketplaces;</li>
+<li>Process payments and enforce plan limits/overage;</li>
+<li>Contact you about your setup on WhatsApp only when you provide your number (lead form or signup);</li>
+<li>Improve the product — including measuring signup → checkout funnel;</li>
+<li>Detect, prevent and investigate fraud, abuse or security incidents;</li>
+<li>Comply with legal obligations.</li>
+</ol>
+<p>We do <strong>not</strong> sell your personal data.</p>
+<h2>5. How your packing evidence is stored (your own Google Drive)</h2>
+<p>Packory's design puts <strong>you in control of your video evidence</strong>:</p>
+<ul>
+<li>Packing videos are recorded on your device/station and uploaded to <strong>your own Google Drive</strong> account, which you connect via OAuth.</li>
+<li>We only request the permission needed to upload evidence into a Packory-managed folder on <strong>your</strong> Drive. We do not scan, read or delete other files in your Drive.</li>
+<li>Your evidence stays in your Drive. If you disconnect or revoke Google access, we can no longer upload or manage evidence for you.</li>
+<li>A temporary buffer (Cloudflare R2) may hold evidence briefly during upload processing; it is purged after successful transfer.</li>
+<li>If you stop using Packory, your videos remain in your Google Drive — you keep full ownership and control.</li>
+</ul>
+<p>Because evidence lives in <strong>your</strong> Google account, you are responsible for your own Drive storage capacity, backup and Google account security.</p>
+<h2>6. Who we share data with</h2>
+<p>We only share data where necessary to run the Services, with:</p>
+<ul>
+<li><strong>Google (Google Drive)</strong> — to upload your evidence to your own Drive (you authorise this).</li>
+<li><strong>Supabase</strong> — database/backend for accounts, sessions and metadata.</li>
+<li><strong>Cloudflare (Pages/R2)</strong> and <strong>Vercel</strong> — hosting of our website, console and temporary evidence buffer.</li>
+<li><strong>Payment gateway ()</strong> — to process payments.</li>
+<li><strong>Google Analytics</strong> — website analytics (aggregated, cookie-based).</li>
+<li><strong>Buyers / marketplaces</strong> — only when <strong>you</strong> (the merchant) choose to share a verification link or evidence file (e.g. to resolve a dispute).</li>
+</ul>
+<p>Where we share data with third-party processors, we rely on their data protection and security commitments and, where required, appropriate transfer safeguards.</p>
+<h2>7. Cookies & analytics consent</h2>
+<ul>
+<li>Our website uses a <strong>consent banner</strong> on first visit. You can choose <strong>Accept</strong> or <strong>Decline</strong>.</li>
+<li>Accepting enables GA4 analytics cookies. Declining disables them (core site functionality still works).</li>
+<li>Your choice is remembered on your device (<code>packory_consent</code> in local storage) and can be changed by clearing site data/cookies.</li>
+<li>We do not use cookies for advertising on our site at this time.</li>
+</ul>
+<h2>8. Legal bases (PDPA)</h2>
+<p>We process personal data on the following bases:</p>
+<ul>
+<li><strong>Consent</strong> — where you opt in (e.g. WhatsApp contact, analytics);</li>
+<li><strong>Contract</strong> — processing needed to provide the Services you signed up for;</li>
+<li><strong>Legal obligation / legitimate interest</strong> — security, fraud prevention, compliance.</li>
+</ul>
+<p>You may withdraw consent at any time (see Section 12), subject to legal or contractual restrictions.</p>
+<h2>9. Data retention</h2>
+<ul>
+<li><strong>Account & metadata:</strong> kept while your account is active, and for a reasonable period afterwards to comply with legal/tax obligations (e.g. billing records).</li>
+<li><strong>Evidence videos:</strong> retained on <strong>your Google Drive</strong> per your own settings — not on our servers (see Section 5).</li>
+<li><strong>Analytics:</strong> aggregated per GA4 retention settings.</li>
+<li>We delete or anonymise personal data when it is no longer needed for the purposes above.</li>
+</ul>
+<h2>10. Your rights (PDPA)</h2>
+<p>You have the right to:</p>
+<ol>
+<li><strong>Access</strong> — request a copy of your personal data we hold;</li>
+<li><strong>Correct</strong> — request correction of inaccurate data;</li>
+<li><strong>Withdraw consent</strong> — stop specific processing (e.g. WhatsApp contact, analytics);</li>
+<li><strong>Complain</strong> — lodge a complaint with the Personal Data Protection Commissioner (Malaysia) if you believe we have breached the PDPA.</li>
+</ol>
+<p>To exercise any right, contact us at <a href="mailto:support@packory.app">support@packory.app</a>. We will respond within the timeframe required by law. We may need to verify your identity first.</p>
+<h2>11. Security</h2>
+<p>We apply appropriate technical and organisational measures, including: encryption in transit, hashing (SHA-256) for evidence integrity, access controls, rate limiting and audit logging. No method of transmission or storage is 100% secure — we aim for industry-standard protection but cannot guarantee absolute security.</p>
+<h2>12. Children</h2>
+<p>Our Services are intended for businesses and individuals aged 18 and above. We do not knowingly collect personal data from children.</p>
+<h2>13. International transfers</h2>
+<p>Your data may be processed by our cloud providers in Malaysia and/or other countries (e.g. Google, Supabase, Cloudflare, Vercel). Where data is transferred outside Malaysia, we rely on appropriate safeguards and contractual protections.</p>
+<h2>14. Changes to this policy</h2>
+<p>We may update this policy from time to time. Material changes will be notified on this page with an updated effective date. Continued use of the Services after changes means you accept the updated policy.</p>
+<h2>15. Contact & complaints</h2>
+<p><strong>Packory</strong> — a Malaysian business. Questions, access requests or complaints: <a href="mailto:support@packory.app">support@packory.app</a>.</p>
+<p>If you are unhappy with how we handle your data, contact us first and we will do our best to resolve it. You may also complain to the Personal Data Protection Commissioner (Jabatan Perlindungan Data Peribadi, Malaysia).</p>
+</Legal>
