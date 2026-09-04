@@ -76,7 +76,7 @@ The problem with checklists is consistency — filming by hand works for a week,
 - Scanning the AWB barcode auto-starts the recording
 - A UTC timestamp is burned into every frame
 - A thumbs-up stops the clip — packers never touch the screen
-- The video syncs to **your own Google Drive**
+- The video syncs to **your own cloud storage**
 - The evidence link is sent to the buyer on WhatsApp automatically
 
 It works with any marketplace — Shopee, TikTok Shop, Lazada, Shopify — so protection is the same across channels. The free tier covers 50 verified orders a month, and paid plans start at RM49 for 300 orders.

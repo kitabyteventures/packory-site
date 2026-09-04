@@ -74,7 +74,7 @@ The reason sellers skip video isn't that they don't see the value — it's that 
 - The AWB barcode scan auto-starts the recording
 - A UTC timestamp is burned into every frame
 - A thumbs-up stops the clip — packers never touch the screen
-- The video syncs to **your own Google Drive** in the background
+- The video syncs to **your own cloud storage** in the background
 - An evidence link is sent to the buyer on WhatsApp before the parcel ships
 
 It works with any marketplace — Shopee, TikTok Shop, Lazada, Shopify — so the workflow stays the same no matter where you sell. The free tier covers 50 verified orders a month, with paid plans starting at RM49 for 300 orders.

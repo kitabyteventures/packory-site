@@ -61,7 +61,7 @@ The uncomfortable truth about packing video is that recording only when you feel
 - The AWB barcode scan starts the recording by itself — no button, no forgotten clip
 - A UTC timestamp is burned into every frame, so the time cannot be argued
 - A thumbs-up stops the clip; packers never touch the screen
-- The video syncs to your own Google Drive in the background
+- The video syncs to your own cloud storage in the background
 - An evidence link goes to the buyer on WhatsApp before the parcel ships
 
 Packory works with Shopee and any other marketplace you sell on, and every recorded order becomes a ready evidence file for the day a dispute appears. When the case arrives, you do not argue about what happened — you send the link.

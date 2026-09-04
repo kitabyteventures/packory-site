@@ -53,7 +53,7 @@ The practical objection is always the same: "I can't film every order, I have a 
 - The AWB barcode scan auto-starts recording — no buttons, no forgotten clips
 - A UTC timestamp is burned into every frame
 - A thumbs-up stops the clip — packers never touch the screen
-- Video syncs to your own Google Drive in the background
+- Video syncs to your own cloud storage in the background
 - An evidence link is sent to the buyer on WhatsApp before the parcel ships
 
 Because recording starts from the scan, every order gets a clip without a single extra step. And because the link reaches the buyer before delivery, many disputes never open in the first place — the buyer sees the proof before they file. If a TikTok Shop dispute does open, the same clip is ready to submit.

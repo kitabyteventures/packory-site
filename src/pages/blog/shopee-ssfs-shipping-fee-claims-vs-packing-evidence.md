@@ -35,7 +35,7 @@ Fee automation saves you small amounts across many orders. A packing dispute you
 
 Marketplace reviewers decide factual disputes on evidence. They want plain answers: what was in the parcel, what condition it was in, and when it was packed and handed over. A continuous video of the packing moment answers all three in one record — showing the item go in, the box seal, and the AWB on screen with a trustworthy time reference. Evidence like that does not argue with the buyer's story; it simply makes the story unnecessary to rely on.
 
-The practical challenge has always been consistency. Recording every order by hand is easy to skip on a busy day. That is why sellers who treat evidence as an operating habit use a hands-free workflow: scan the AWB barcode and the recording starts automatically, a UTC timestamp is burned into every frame, and a thumbs-up stops the clip. The video syncs to your own Google Drive, so the record stays in your control, and an evidence link is sent to the buyer on WhatsApp before the parcel ships — dated, and sitting in the chat from day one if a claim ever comes later.
+The practical challenge has always been consistency. Recording every order by hand is easy to skip on a busy day. That is why sellers who treat evidence as an operating habit use a hands-free workflow: scan the AWB barcode and the recording starts automatically, a UTC timestamp is burned into every frame, and a thumbs-up stops the clip. The video syncs to your own cloud storage, so the record stays in your control, and an evidence link is sent to the buyer on WhatsApp before the parcel ships — dated, and sitting in the chat from day one if a claim ever comes later.
 
 ## Running SSFS and packing evidence together
 

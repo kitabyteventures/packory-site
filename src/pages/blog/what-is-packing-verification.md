@@ -40,7 +40,7 @@ An automated system turns recording from a conscious act into a byproduct of pac
 1. **The AWB barcode scan starts the recording.** No one remembers to press record, because scanning the airway bill is already part of the routine. The clip is tied to that order from the first frame.
 2. **The timestamp is burned into every frame.** A UTC clock in the video makes it verifiable — the clip can't be backdated or reordered.
 3. **A thumbs-up stops the clip.** Packing done, one gesture, done. The packer never touches a screen, so hands stay on the work.
-4. **The video syncs to the seller's own Google Drive.** Storage is organized, searchable by order, and owned by the seller — not held hostage inside an app.
+4. **The video syncs to the seller's own cloud storage.** Storage is organized, searchable by order, and owned by the seller — not held hostage inside an app.
 5. **An evidence link goes to the buyer on WhatsApp.** The buyer sees the proof before the parcel even ships, which prevents a large share of disputes from ever being filed.
 
 Each step exists for a reason. The scan start guarantees coverage; the burned-in timestamp guarantees integrity; the seller-owned Drive guarantees control; the WhatsApp link guarantees the proof actually reaches the person who might dispute.
@@ -52,13 +52,13 @@ If you are evaluating one, check for these properties rather than flashy feature
 - **Channel-neutral.** Your orders come from several marketplaces — Shopee, TikTok Shop, Lazada, Shopify. The system should not care which one an order came from.
 - **Zero added packing steps.** If recording adds time to the line, it will be skipped under pressure.
 - **Tamper-evident timing.** The timestamp must be part of the video itself, not a sidecar file.
-- **Storage you own.** Clips in your Google Drive beat clips locked in a vendor's archive.
+- **Storage you own.** Clips in your cloud storage beat clips locked in a vendor's archive.
 - **A shareable evidence link.** One link that works for a WhatsApp message and a marketplace dispute form.
 - **Pricing that scales with volume.** You should not pay per-order rates that punish growth.
 
 ## Packory, as the example
 
-Packory is built around those properties. It records hands-free packing video proof for sellers across any marketplace: the AWB scan auto-starts recording, a UTC timestamp is burned into every frame, a thumbs-up stops the clip, the video syncs to your own Google Drive, and the evidence link is sent to the buyer on WhatsApp.
+Packory is built around those properties. It records hands-free packing video proof for sellers across any marketplace: the AWB scan auto-starts recording, a UTC timestamp is burned into every frame, a thumbs-up stops the clip, the video syncs to your own cloud storage, and the evidence link is sent to the buyer on WhatsApp.
 
 The pricing is built for real order volumes: a free tier covers 50 verified orders a month, then RM49 for 300 orders, RM99 for 600, and RM199 for 1,500 or more per month. The positioning is honest — jual proof, bukan fear. Sell proof, not fear. Every order. On video. Dispute-proof.
 
