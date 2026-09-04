@@ -686,11 +686,14 @@ const faqSchema = {
   .pain p{color:var(--color-slate);font-size:14.5px;margin:0}
   .flip{text-align:center;margin-top:30px;font-size:18px;font-weight:700}
   .flip span{background:transparent;color:var(--color-ink);border-radius:0;padding:0 0 4px;display:inline;border-bottom:3px solid var(--color-amber);box-shadow:none}
-  .c-head{display:block;margin-bottom:10px;text-align:left}
-  .c-head h3{margin:0;font-size:18px;line-height:1.35;position:relative;z-index:1;padding-right:2px}
-  .c-head .ic{position:absolute;right:-10px;bottom:-16px;width:156px;height:156px;border-radius:40px;background:transparent;display:flex;align-items:center;justify-content:center;opacity:.16;z-index:0}
-  .c-head .ic svg{width:96px;height:96px}
-  .pain p,.ben-card p{position:relative;z-index:1;margin:0;padding-right:4px}
+  .c-head{display:block;margin-bottom:8px;text-align:left}
+  .c-head h3{margin:0;font-size:18px;line-height:1.4;padding-right:86px;position:relative}
+  .c-head .ic{position:absolute;top:18px;right:18px;bottom:auto;width:76px;height:76px;border-radius:20px;background:transparent;display:flex;align-items:center;justify-content:center;transform:rotate(-8deg);box-shadow:0 10px 22px rgba(16,22,58,.18)}
+  .c-head .ic svg{width:36px;height:36px}
+  .pain .c-head .ic{background:linear-gradient(135deg,#ffb64a,#ff8c1a);color:#fff}
+  .ben-card .c-head .ic.b{background:linear-gradient(135deg,#4f76ff,#1856ED);color:#fff}
+  .ben-card .c-head .ic.c{background:linear-gradient(135deg,#ffb64a,#ff8c1a);color:#fff}
+  .pain p,.ben-card p{position:relative;margin:0;padding-right:86px}
   .steps-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 20px;margin-top:48px;position:relative}
   .steps-grid::before{content:'';position:absolute;top:31px;left:4%;right:4%;height:2px;background:rgba(24,86,237,.13);border-radius:2px}
   .step-card{position:relative;text-align:left}
