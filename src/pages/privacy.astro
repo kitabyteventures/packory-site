@@ -26,7 +26,7 @@ const description = "How Packory collects, uses and protects your personal data 
 <h3>3.2 Data we collect when you use the Services</h3>
 <ul>
 <li><strong>Order & session metadata:</strong> AWB/tracking numbers, timestamps, station/device identifiers, order references, session status (e.g. COMPLETE, VERIFIED).</li>
-<li><strong>Evidence records:</strong> video recordings of packing, capture metadata (timestamp, device/geo fingerprint where enabled, SHA-256 hash, audit trail) — <strong>see Section 5</strong> for how this is stored.</li>
+<li><strong>Evidence records:</strong> video recordings of packing, capture metadata (timestamp, integrity hash, device/geo fingerprint where enabled, audit trail) — <strong>see Section 5</strong> for how this is stored.</li>
 <li><strong>Device & usage data:</strong> browser type, app version, approximate location where legally permitted, diagnostic logs.</li>
 </ul>
 <h3>3.3 Analytics data (website)</h3>
@@ -49,7 +49,7 @@ const description = "How Packory collects, uses and protects your personal data 
 <li>Packing videos are recorded on your device/station and uploaded to <strong>your own Google Drive</strong> account, which you connect via OAuth.</li>
 <li>We only request the permission needed to upload evidence into a Packory-managed folder on <strong>your</strong> Drive. We do not scan, read or delete other files in your Drive.</li>
 <li>Your evidence stays in your Drive. If you disconnect or revoke Google access, we can no longer upload or manage evidence for you.</li>
-<li>A temporary buffer (Cloudflare R2) may hold evidence briefly during upload processing; it is purged after successful transfer.</li>
+<li>A temporary processing buffer may hold evidence briefly during upload; it is purged after successful transfer.</li>
 <li>If you stop using Packory, your videos remain in your Google Drive — you keep full ownership and control.</li>
 </ul>
 <p>Because evidence lives in <strong>your</strong> Google account, you are responsible for your own Drive storage capacity, backup and Google account security.</p>
@@ -57,9 +57,9 @@ const description = "How Packory collects, uses and protects your personal data 
 <p>We only share data where necessary to run the Services, with:</p>
 <ul>
 <li><strong>Google (Google Drive)</strong> — to upload your evidence to your own Drive (you authorise this).</li>
-<li><strong>Supabase</strong> — database/backend for accounts, sessions and metadata.</li>
-<li><strong>Cloudflare (Pages/R2)</strong> and <strong>Vercel</strong> — hosting of our website, console and temporary evidence buffer.</li>
-<li><strong>Payment gateway ()</strong> — to process payments.</li>
+<li><strong>Cloud infrastructure &amp; hosting providers</strong> — databases, website/app hosting and temporary evidence processing.</li>
+<li><strong>Email delivery provider</strong> — to send transactional emails about your account.</li>
+<li><strong>Payment gateway</strong> — to process payments.</li>
 <li><strong>Google Analytics</strong> — website analytics (aggregated, cookie-based).</li>
 <li><strong>Buyers / marketplaces</strong> — only when <strong>you</strong> (the merchant) choose to share a verification link or evidence file (e.g. to resolve a dispute).</li>
 </ul>
@@ -96,7 +96,7 @@ const description = "How Packory collects, uses and protects your personal data 
 </ol>
 <p>To exercise any right, contact us at <a href="mailto:support@packory.app">support@packory.app</a>. We will respond within the timeframe required by law. We may need to verify your identity first.</p>
 <h2>11. Security</h2>
-<p>We apply appropriate technical and organisational measures, including: encryption in transit, hashing (SHA-256) for evidence integrity, access controls, rate limiting and audit logging. No method of transmission or storage is 100% secure — we aim for industry-standard protection but cannot guarantee absolute security.</p>
+<p>We apply appropriate technical and organisational measures, including: encryption in transit, integrity hashing for evidence, access controls, rate limiting and audit logging. No method of transmission or storage is 100% secure — we aim for industry-standard protection but cannot guarantee absolute security.</p>
 <h2>12. Children</h2>
 <p>Our Services are intended for businesses and individuals aged 18 and above. We do not knowingly collect personal data from children.</p>
 <h2>13. International transfers</h2>
