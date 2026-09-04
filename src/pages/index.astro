@@ -469,17 +469,17 @@ const faqSchema = {
       const slide = slides[active];
       const isAlt = !!slide.querySelector('.how-grid.alt');
       const specs = [
-        { sel: '.how-ghost', dir: 'zoom', at: 0.00, dur: 0.75 },
-        { sel: '.step-num', dir: 'top', at: 0.00, dur: 0.18 },
-        { sel: 'h3', dir: 'left', at: 0.05, dur: 0.45 },
-        { sel: 'p', dir: 'left', at: 0.14, dur: 0.48 },
-        { sel: '.how-visual', dir: isAlt ? 'left' : 'right', at: 0.03, dur: 0.68 },
+        { sel: '.how-ghost', dir: 'zoom', at: 0.00, dur: 0.80 },
+        { sel: '.step-num', dir: 'top', at: 0.00, dur: 0.14 },
+        { sel: 'h3', dir: 'left', at: 0.02, dur: 0.30 },
+        { sel: 'p', dir: 'left', at: 0.09, dur: 0.34 },
+        { sel: '.how-visual', dir: isAlt ? 'left' : 'right', at: 0.00, dur: 0.45 },
       ];
       for (const spec of specs) {
         const els = slide.querySelectorAll(spec.sel);
         const t = clamp((frac - spec.at) / spec.dur, 0, 1);
         const e = 1 - Math.pow(1 - t, 3);
-        const o = clamp(e * 1.6, 0, 1);
+        const o = clamp(0.22 + e * 1.1, 0, 1);
         let dx = 0, dy = 0, sc = 1;
         if (spec.dir === 'left') dx = (1 - e) * -54;
         else if (spec.dir === 'right') dx = (1 - e) * 54;
