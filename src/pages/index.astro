@@ -513,21 +513,36 @@ const faqSchema = {
       s.style.transform = 'translate3d(-' + (i * 100) + '%,0,0)';
     });
     let active = 0;
+    let desired = 0;
+    let runner = false;
     const countEl = document.getElementById('howCount');
     const fillEl = document.getElementById('howFill');
     const setMeta = (i) => {
       if (countEl) countEl.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
       if (fillEl) fillEl.style.width = (((i + 1) / slides.length) * 100) + '%';
     };
+    const applyIdx = () => {
+      howStage.style.transform = 'translate3d(' + (active * 100) + '%,0,0)';
+      setMeta(active);
+    };
+    const pump = () => {
+      if (active < desired) active++;
+      else if (active > desired) active--;
+      applyIdx();
+      if (active !== desired) {
+        setTimeout(pump, 560); // one snap at a time — no 1→3→2→4 skipping
+      } else {
+        runner = false;
+      }
+    };
     setMeta(0);
     const update = () => {
       const total = Math.max(1, howPin.offsetHeight - window.innerHeight);
       const p = clamp(-howPin.getBoundingClientRect().top / total, 0, 1);
-      const next = Math.min(slides.length - 1, Math.floor(p * slides.length + 0.001));
-      if (next !== active) {
-        active = next;
-        howStage.style.transform = 'translate3d(' + (active * 100) + '%,0,0)';
-        setMeta(active);
+      desired = Math.min(slides.length - 1, Math.floor(p * slides.length + 0.001));
+      if (desired !== active && !runner) {
+        runner = true;
+        pump();
       }
     };
     let ticking = false;
