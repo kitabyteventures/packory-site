@@ -43,6 +43,22 @@ const faqSchema = {
         <a href="/blog">Blog</a>
         <a class="btn btn-blue btn-sm cta" href={`${CONSOLE}/signup`}>Start Free</a>
       </div>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobile-menu" hidden>
+      <div class="m-panel">
+        <button class="m-close" id="m-close" type="button" aria-label="Close menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+        <a class="m-link" href="#why">Why Packory</a>
+        <a class="m-link" href="#how">How it works</a>
+        <a class="m-link" href="#pricing">Pricing</a>
+        <a class="m-link" href="#faq">FAQ</a>
+        <a class="m-link" href="/blog">Blog</a>
+        <a class="btn btn-blue btn-sm m-cta" href={`${CONSOLE}/signup`}>Start Free</a>
+      </div>
     </div>
   </nav>
 
@@ -442,6 +458,23 @@ const faqSchema = {
       } catch (err) {}
       window.location.href = 'https://console.packory.app/signup?phone=' + encodeURIComponent(phone) + '&source=hero%3Awa';
     });
+  }
+
+  // Mobile menu (hamburger drawer)
+  const burger = document.getElementById('hamburger');
+  const menu = document.getElementById('mobile-menu');
+  const closeBtn = document.getElementById('m-close');
+  if (burger && menu) {
+    const setOpen = (open) => {
+      menu.hidden = !open;
+      burger.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+    burger.addEventListener('click', () => setOpen(menu.hidden));
+    if (closeBtn) closeBtn.addEventListener('click', () => setOpen(false));
+    menu.addEventListener('click', (e) => { if (e.target === menu) setOpen(false); });
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) setOpen(false); });
   }
 
   // Consent banner (PDPA / analytics). Show on first visit until a choice is made.
@@ -866,5 +899,20 @@ const faqSchema = {
     html.anim-ready .how-slide.seen p{transition-delay:.25s}
     html.anim-ready .how-slide.seen .how-visual{transition-delay:.1s}
     html.anim-ready .how-slide.seen .how-ghost{transition-delay:.3s}
+  }
+  .hamburger{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1px solid var(--color-line);background:#fff;color:var(--color-ink);cursor:pointer}
+  .mobile-menu[hidden]{display:none}
+  .m-panel a.m-link{display:flex;align-items:center;padding:14px 4px;font-size:16px;font-weight:600;color:var(--color-ink);border-bottom:1px solid var(--color-line-soft,#eef0f6)}
+  @media (max-width:960px){
+    .hamburger{display:inline-flex}
+    .mobile-menu{position:fixed;inset:0;z-index:160;background:rgba(10,13,30,.45);display:flex;justify-content:flex-end}
+    .m-panel{position:relative;width:min(330px,86vw);height:100%;background:#fff;padding:22px;display:flex;flex-direction:column;overflow-y:auto;animation:menuIn .25s var(--ease-out)}
+    @keyframes menuIn{from{transform:translateX(24px);opacity:0}to{transform:none;opacity:1}}
+    .m-close{position:absolute;top:16px;right:16px;display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:0;background:var(--color-paper);color:var(--color-ink);cursor:pointer}
+    .m-cta{margin-top:auto}
+    .m-link:first-of-type{margin-top:56px}
+  }
+  @media (max-width:960px){
+    html.no-motion .m-panel{animation:none}
   }
 </style>
