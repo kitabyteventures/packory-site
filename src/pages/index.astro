@@ -508,11 +508,15 @@ const faqSchema = {
     slides.forEach((s, i) => {
       s.style.transform = 'translate3d(-' + (i * 100) + '%,0,0)';
     });
+    let active = 0;
     const update = () => {
       const total = Math.max(1, howPin.offsetHeight - window.innerHeight);
       const p = clamp(-howPin.getBoundingClientRect().top / total, 0, 1);
-      const x = p * (slides.length - 1);
-      howStage.style.transform = 'translate3d(' + (x * 100) + '%,0,0)';
+      const next = Math.min(slides.length - 1, Math.floor(p * slides.length + 0.001));
+      if (next !== active) {
+        active = next;
+        howStage.style.transform = 'translate3d(' + (active * 100) + '%,0,0)';
+      }
     };
     let ticking = false;
     const onScroll = () => {
@@ -838,7 +842,7 @@ const faqSchema = {
   @media (min-width:761px) and (prefers-reduced-motion: no-preference){
     html.js-ok .how-pin{height:480vh}
     html.js-ok .how-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:block}
-    html.js-ok .how-stage{display:block;position:relative;height:100%;width:100%;padding:0;will-change:transform}
+    html.js-ok .how-stage{display:block;position:relative;height:100%;width:100%;padding:0;will-change:transform;transition:transform .55s var(--ease-out)}
     html.js-ok .how-slide{position:absolute;inset:0;opacity:1;visibility:visible;min-height:0;height:100%;padding:0;will-change:transform}
     html.js-ok .how-slide.active{opacity:1;visibility:visible}
     .how-rail,.how-hint{display:none}
