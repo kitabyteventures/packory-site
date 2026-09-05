@@ -1,0 +1,96 @@
+---
+import Base from '../layouts/Base.astro';
+const CONSOLE = 'https://console.packory.app';
+---
+<Base
+  title="Check a Buyer Before You Ship — Packory"
+  description="A buyer check shows you who you're shipping to before the parcel leaves — risk signals from order behaviour and platform signals. Coming soon. Join the waitlist."
+>
+  <header class="bc-nav">
+    <div class="bc-container bc-nav-inner">
+      <a href="/" class="bc-brand"><span class="bc-dot"></span>Packory</a>
+      <nav class="bc-links">
+        <a href="/">Home</a>
+        <a href="/blog">Blog</a>
+        <a href={`${CONSOLE}/signup`} class="bc-btn bc-btn-primary">Start Free</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="bc-main">
+    <section class="bc-hero">
+      <div class="bc-container">
+        <span class="bc-eyebrow">COMING SOON · CHECK A BUYER</span>
+        <h1>Know who you're shipping to — <span class="bc-accent">before it leaves.</span></h1>
+        <p class="bc-sub">A quick, evidence-first buyer check that flags risky order behaviour — not names, not judgments. A score you can act on, backed by the same proof-first standards as Packory.</p>
+        <div class="bc-actions">
+          <a class="bc-btn bc-btn-white" href={`${CONSOLE}/signup?source=buyer-check`}>Join the waitlist →</a>
+          <a class="bc-btn bc-btn-ghost" href="/#how">See Packory first</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bc-section">
+      <div class="bc-container">
+        <h2>Why a buyer check?</h2>
+        <div class="bc-cards">
+          <div class="bc-card">
+            <h3>Before it leaves your hands</h3>
+            <p>The costliest disputes are the ones you could see coming. A risk signal before packing is worth more than evidence after the refund.</p>
+          </div>
+          <div class="bc-card">
+            <h3>A score, not a label</h3>
+            <p>No names, no accusations. The output is a risk score you can use — backed by signals you shared, verified the same way we verify every claim.</p>
+          </div>
+          <div class="bc-card">
+            <h3>Built for sellers, with proof</h3>
+            <p>We never claim a buyer is a scammer on a hunch. Checks only run when there's evidence to stand behind — that's the Packory standard.</p>
+          </div>
+        </div>
+        <p class="bc-note">Phase 2 of the Packory console — join the waitlist and we'll tell you the moment it's live.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bc-foot">
+    <div class="bc-container">
+      <span>© {new Date().getFullYear()} Packory</span>
+      <a href="/">Back to packory.app</a>
+    </div>
+  </footer>
+</Base>
+
+<style is:global>
+  :root { --blue:#1856ed; --ink:#10163a; --cream:#f7f7f4; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: Inter, system-ui, sans-serif; color: var(--ink); }
+  .bc-container { max-width: 1060px; margin-inline:auto; padding-inline: 22px; }
+  .bc-nav { position: sticky; top:0; z-index:100; background: rgba(255,253,249,.94); backdrop-filter: blur(12px); border-bottom:1px solid rgba(16,22,58,.1); }
+  .bc-nav-inner { display:flex; align-items:center; justify-content:space-between; height:64px; }
+  .bc-brand { display:inline-flex; align-items:center; gap:9px; font-weight:800; font-size:1.15rem; color:var(--ink); text-decoration:none; }
+  .bc-dot { width:13px; height:13px; border-radius:4px; background:var(--blue); }
+  .bc-links { display:flex; align-items:center; gap:20px; font-size:.88rem; font-weight:600; }
+  .bc-links a { color:var(--ink); text-decoration:none; }
+  .bc-btn { display:inline-flex; align-items:center; gap:8px; border-radius:10px; font-weight:700; padding:.7rem 1.25rem; text-decoration:none; transition:transform .15s; }
+  .bc-btn:hover { transform: translateY(-2px); }
+  .bc-btn-primary { background:var(--blue); color:#fff; }
+  .bc-hero { background: linear-gradient(160deg, #0a0d1e 0%, #10163a 55%, #1856ed 160%); color:#fff; padding: 96px 0 84px; }
+  .bc-eyebrow { font-family:'JetBrains Mono', monospace; font-size:.72rem; letter-spacing:.2em; color:#8f9ad6; text-transform:uppercase; }
+  .bc-hero h1 { font-size: clamp(2rem, 5vw, 3.2rem); line-height:1.12; letter-spacing:-.02em; margin:18px 0 18px; text-wrap:balance; }
+  .bc-accent { color:#ffc46b; }
+  .bc-sub { max-width: 640px; color:#c9d6f2; font-size:1.05rem; line-height:1.7; margin-bottom:30px; }
+  .bc-actions { display:flex; flex-wrap:wrap; gap:12px; }
+  .bc-btn-white { background:#fff; color:var(--ink); }
+  .bc-btn-ghost { border:1px solid rgba(255,255,255,.35); color:#fff; }
+  .bc-section { background:#fff; padding:84px 0; }
+  .bc-section h2 { font-size:1.9rem; letter-spacing:-.02em; margin:0 0 34px; text-align:center; }
+  .bc-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; }
+  .bc-card { background:var(--cream); border:1px solid rgba(16,22,58,.07); border-radius:16px; padding:26px; }
+  .bc-card h3 { font-size:1.05rem; margin:0 0 10px; }
+  .bc-card p { font-size:.95rem; line-height:1.65; color:#565f7a; margin:0; }
+  .bc-note { text-align:center; margin-top:34px; color:#565f7a; font-size:.9rem; }
+  .bc-foot { background:#0a0d1e; color:#8f9ad6; padding:26px 0; font-size:.82rem; }
+  .bc-foot .bc-container { display:flex; justify-content:space-between; gap:12px; }
+  .bc-foot a { color:#1856ed; font-weight:600; text-decoration:none; }
+  @media (max-width:760px){ .bc-hero { padding:70px 0 64px; } .bc-section { padding:60px 0; } }
+</style>
