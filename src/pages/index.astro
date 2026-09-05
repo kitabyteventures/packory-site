@@ -849,8 +849,8 @@ const faqSchema = {
   @keyframes pulse-border{0%,100%{box-shadow:0 0 0 0 rgba(24,86,237,0)}40%{box-shadow:0 0 0 6px rgba(24,86,237,.18)}}
   .price .pname{font-weight:800;font-size:15px}
   .price .pname em{font-style:normal;color:var(--color-slate);font-weight:500}
-  .price .val{font-family:var(--font-display);font-size:30px;font-weight:700}
-  .price .val small{font-size:14px;color:var(--color-slate);font-weight:500}
+  .price .val{display:flex;align-items:baseline;gap:6px;flex-wrap:nowrap;font-family:var(--font-display);font-size:clamp(26px,2.6vw,34px);font-weight:700;line-height:1.1;min-height:1.15em}
+  .price .val small{font-size:13px;color:var(--color-slate);font-weight:500;white-space:nowrap}
   .price ul{list-style:none;padding:0;display:grid;gap:7px;font-size:14px;color:#4d5570;flex:1}
   .price li{display:flex;gap:8px;align-items:baseline}
   .price li svg{flex-shrink:0;color:var(--color-blue)}
