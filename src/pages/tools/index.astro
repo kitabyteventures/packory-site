@@ -1,0 +1,63 @@
+---
+import Tools from '../../layouts/Tools.astro';
+
+const CONSOLE = 'https://console.packory.app';
+const title = 'Free Tools for Malaysian E-commerce Sellers';
+const description = 'Free, honest calculators for Malaysian marketplace sellers — see what you actually keep per order after Shopee, TikTok Shop and Lazada fees. No login needed.';
+---
+
+<Tools title={title} description={description} active="tools">
+  <div class="container">
+    <div class="hub-hero">
+      <p class="eyebrow">FREE SELLER TOOLS · MALAYSIA</p>
+      <h1 class="hub-title">Know your margin before the marketplace takes its cut.</h1>
+      <p class="hub-sub">
+        Marketplace fees change often and settlement numbers are hard to read.
+        These tools do the honest per-order maths for Malaysian sellers — free, no login, no account needed.
+      </p>
+    </div>
+
+    <div class="hub-grid">
+      <a class="tool-card" href="/tools/fee-profit-calculator/">
+        <div class="tool-card-top">
+          <span class="tool-icon">∑</span>
+          <span class="tool-tag">CALCULATOR</span>
+        </div>
+        <h2>Fee &amp; Profit Calculator</h2>
+        <p>
+          What do you actually keep per order? Enter price, cost, shipping and platform commission —
+          see the fee breakdown (including Shopee SSFS and TikTok Shop's 6% shipping SST) and your real margin.
+        </p>
+        <span class="tool-cta">Open calculator →</span>
+      </a>
+    </div>
+
+    <aside class="hub-note">
+      <p>
+        <strong>Why we built this:</strong> packing disputes are decided on facts, but margin is decided before you pack.
+        Fee maths is the first layer; video proof is the second. When a dispute would wipe out your profit,
+        <a href={`${CONSOLE}/signup`} data-pk-source>packing evidence keeps the facts on your side</a> — free to start.
+      </p>
+    </aside>
+  </div>
+</Tools>
+
+<style is:global>
+  .hub-hero { max-width: 48rem; margin-bottom: 3rem; }
+  .hub-title { font-size: clamp(1.9rem, 4.6vw, 2.9rem); line-height: 1.08; letter-spacing: -0.03em; color: #0a0d1e; margin-bottom: 1rem; text-wrap: balance; }
+  .hub-sub { font-size: 1.125rem; line-height: 1.65; color: #4b5563; max-width: 40rem; }
+
+  .hub-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+  .tool-card { display: block; background: #fff; border: 1px solid rgba(10, 13, 30, 0.1); border-radius: 18px; padding: 1.75rem 1.75rem 1.5rem; box-shadow: 0 10px 30px -18px rgba(10, 13, 30, 0.25); transition: transform 0.15s, border-color 0.2s, box-shadow 0.2s; }
+  .tool-card:hover { transform: translateY(-3px); border-color: #2f4bff; box-shadow: 0 22px 44px -22px rgba(47, 75, 255, 0.4); }
+  .tool-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.1rem; }
+  .tool-icon { width: 44px; height: 44px; border-radius: 12px; background: linear-gradient(135deg, #2f4bff, #1856ed); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; font-weight: 700; }
+  .tool-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.18em; color: #6b7280; }
+  .tool-card h2 { font-size: 1.35rem; color: #0a0d1e; letter-spacing: -0.02em; margin-bottom: 0.6rem; }
+  .tool-card p { color: #4b5563; line-height: 1.6; font-size: 0.9375rem; margin-bottom: 1.1rem; }
+  .tool-cta { font-weight: 600; color: #2f4bff; font-size: 0.9375rem; }
+
+  .hub-note { margin-top: 2.75rem; background: #0a0d1e; border-radius: 16px; padding: 1.75rem 2rem; color: #9aa3b2; line-height: 1.6; font-size: 0.9375rem; }
+  .hub-note strong { color: #fff; }
+  .hub-note a { color: #8fb0ff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+</style>

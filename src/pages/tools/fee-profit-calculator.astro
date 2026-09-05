@@ -1,0 +1,499 @@
+---
+import Tools from '../../layouts/Tools.astro';
+
+const CONSOLE = 'https://console.packory.app';
+const title = 'Fee & Profit Calculator for Shopee, TikTok Shop & Lazada (Malaysia) — Free';
+const description = 'Free per-order fee and profit calculator for Malaysian marketplace sellers. See what you keep after platform commission, shipping, Shopee SSFS (RM0.28) and TikTok Shop 6% shipping SST. No login needed.';
+const checked = '5 September 2026';
+---
+
+<Tools title={title} description={description} active="tools">
+  <div class="container fpc">
+    <p class="fpc-kicker"><a href="/tools/">← Free tools</a></p>
+
+    <div class="fpc-hero">
+      <p class="eyebrow">FEE &amp; PROFIT CALCULATOR · MALAYSIA</p>
+      <h1 class="fpc-title">What do you actually keep per order?</h1>
+      <p class="fpc-sub">
+        Settlement numbers bury the fees. Enter your price and costs once — see the honest per-order breakdown,
+        including the <strong>RM0.28 Shopee SSFS</strong> and <strong>6% TikTok Shop shipping SST</strong>, and your real margin.
+      </p>
+    </div>
+
+    <div class="fpc-grid" data-fpc-root>
+      <!-- ============ INPUTS ============ -->
+      <section class="fpc-card fpc-inputs" aria-label="Calculator inputs">
+        <p class="fpc-label">1 · Platform</p>
+        <div class="fpc-tabs" role="tablist" aria-label="Marketplace platform">
+          <button type="button" class="fpc-tab" data-platform="shopee" role="tab" aria-selected="true">
+            <img src="/brands/shopee.svg" alt="" width="18" height="18" /> Shopee
+          </button>
+          <button type="button" class="fpc-tab" data-platform="tiktok" role="tab" aria-selected="false">
+            <img src="/brands/tiktok.svg" alt="" width="18" height="18" /> TikTok Shop
+          </button>
+          <button type="button" class="fpc-tab" data-platform="lazada" role="tab" aria-selected="false">
+            <img src="/brands/lazada.svg" alt="" width="18" height="18" /> Lazada
+          </button>
+        </div>
+
+        <p class="fpc-label">2 · Your numbers (RM per order)</p>
+        <div class="fpc-fields">
+          <label class="fpc-field">
+            <span>Selling price <em>buyer pays</em></span>
+            <span class="fpc-money"><input id="fpcPrice" type="number" inputmode="decimal" min="0" step="0.01" placeholder="45.00" /></span>
+          </label>
+          <label class="fpc-field">
+            <span>Item cost <em>COGS incl. packaging</em></span>
+            <span class="fpc-money"><input id="fpcCost" type="number" inputmode="decimal" min="0" step="0.01" placeholder="18.00" /></span>
+          </label>
+          <label class="fpc-field">
+            <span>Shipping fee you pay <em>per parcel</em></span>
+            <span class="fpc-money"><input id="fpcShipping" type="number" inputmode="decimal" min="0" step="0.01" placeholder="8.00" /></span>
+          </label>
+          <label class="fpc-field">
+            <span>Platform commission <em>% of selling price</em></span>
+            <span class="fpc-pct"><input id="fpcCommission" type="number" inputmode="decimal" min="0" step="0.1" placeholder="8.0" /></span>
+          </label>
+        </div>
+
+        <!-- Platform-specific extras -->
+        <div class="fpc-extras" id="fpcExtras"></div>
+      </section>
+
+      <!-- ============ RESULTS ============ -->
+      <section class="fpc-card fpc-results" aria-label="Results">
+        <div class="fpc-empty" id="fpcEmpty">
+          <p class="fpc-empty-title">Fill in the numbers →</p>
+          <p class="fpc-empty-sub">Profit and margin update live. No account, no email, nothing saved.</p>
+        </div>
+
+        <div class="fpc-out" id="fpcOut" hidden>
+          <p class="fpc-results-title">Your take per order</p>
+          <p class="fpc-profit" id="fpcProfit">RM0.00</p>
+          <p class="fpc-margin" id="fpcMargin"></p>
+          <p class="fpc-verdict" id="fpcVerdict"></p>
+
+          <div class="fpc-breakdown">
+            <p class="fpc-label">Fee breakdown</p>
+            <ul class="fpc-fees" id="fpcFees"></ul>
+            <div class="fpc-total-fees">
+              <span>Total fees &amp; costs</span>
+              <span id="fpcTotalFees">RM0.00</span>
+            </div>
+          </div>
+
+          <div class="fpc-actions">
+            <button type="button" class="btn btn-ghost" id="fpcCopy">Copy summary</button>
+            <button type="button" class="btn btn-ghost" id="fpcShare">Share link</button>
+          </div>
+        </div>
+
+        <div class="fpc-cta">
+          <p class="eyebrow">PROTECT THIS MARGIN</p>
+          <h2>Every order. On video. Dispute-proof.</h2>
+          <p>One lost packing dispute can erase the profit from dozens of orders. Packory records each parcel hands-free — timestamped evidence that answers the only question a dispute reviewer asks.</p>
+          <a href={`${CONSOLE}/signup`} class="btn btn-primary" data-pk-source>Start Free — RM0</a>
+          <p class="fpc-cta-note">Free to start · your videos stay in your own cloud · no card needed</p>
+        </div>
+      </section>
+    </div>
+
+    <!-- ============ FAQ / NOTES ============ -->
+    <section class="fpc-notes" aria-label="Notes and sources">
+      <details>
+        <summary>Where do the fee numbers come from?</summary>
+        <p>
+          <strong>Shopee SSFS</strong> (shipping fee claim service): <strong>RM0.28 per order</strong>, <strong>RM0.18 for Preferred Sellers</strong> (effective 1 March 2026) — an opt-in service that files courier-fee claims for you when a parcel is lost or delayed. Source: Shopee Seller Centre notices,
+          cross-checked against our explainer: <a href="/blog/shopee-ssfs-shipping-fee-claims-vs-packing-evidence/">SSFS: what RM0.28 covers — and what it doesn't</a>.
+        </p>
+        <p>
+          <strong>TikTok Shop 6% SST</strong>: Service Tax applied to seller shipping fees. TikTok Shop covers it for orders created 1–6 September 2026; from <strong>7 September 2026</strong> the seller bears it, including on forward and return shipping for unsuccessful orders.
+          Source: TikTok Shop Malaysia Seller University, cross-checked against: <a href="/blog/tiktok-shop-shipping-fee-sst-6-percent/">TikTok Shop shipping fee SST: what changes</a>.
+        </p>
+        <p>
+          Figures last checked {checked}. Marketplace rates change — always confirm current policy in your Seller Centre before relying on the maths.
+        </p>
+      </details>
+      <details>
+        <summary>Is the SSFS RM0.28 fee charged on every order?</summary>
+        <p>
+          No — SSFS is <strong>opt-in</strong> and only sellers who enrol pay it. The service charges per order and, when a qualifying incident happens, recovers your courier fee. If you are not enrolled, set the toggle to “Not enrolled” — the calculator will not deduct it.
+        </p>
+      </details>
+      <details>
+        <summary>I don't know my platform commission. Where do I find it?</summary>
+        <p>
+          Commission varies by category, seller tier and promotions, and it changes — that is why the calculator takes your number instead of guessing. Open your Seller Centre → fee / commission page and copy the rate for your main category. Most Malaysian sellers are between roughly 2% and 10%, but confirm yours: the whole point of this tool is not guessing.
+        </p>
+      </details>
+      <details>
+        <summary>What does this calculator not include?</summary>
+        <p>
+          It is a per-order estimate, not a settlement statement. It does not include promo discounts you fund, voucher costs, advertising, return/refund losses, storage, or marketplace payment/transaction fees. Treat the result as a close planning figure — your exact settlement may differ by a few sen to a few ringgit depending on your programme.
+        </p>
+      </details>
+    </section>
+  </div>
+</Tools>
+
+<script>
+  (function () {
+    'use strict';
+
+    var PLATFORMS = {
+      shopee: {
+        name: 'Shopee',
+        extras: 'shopee',
+        helper: 'Optional services you pay for per order. Not enrolled? Nothing is deducted.'
+      },
+      tiktok: {
+        name: 'TikTok Shop',
+        extras: 'tiktok',
+        helper: 'From 7 Sep 2026, the seller bears 6% SST on shipping fees (orders created on/after that date).'
+      },
+      lazada: {
+        name: 'Lazada',
+        extras: 'lazada',
+        helper: 'Lazada commission is set by category — no fixed per-order service fee is shown here.'
+      }
+    };
+
+    var state = { platform: 'shopee', price: '', cost: '', shipping: '', commission: '', ssfs: 'none', sst: false };
+    var lastTrack = 0;
+
+    function $(id) { return document.getElementById(id); }
+    function num(v) {
+      var n = parseFloat(v);
+      return isFinite(n) && n >= 0 ? n : 0;
+    }
+    function rm(v) {
+      return new Intl.NumberFormat('en-MY', { style: 'currency', currency: 'MYR' }).format(v);
+    }
+    function track(name, params) {
+      try {
+        if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+      } catch (e) { /* analytics optional */ }
+    }
+    function pushParams() {
+      var q = new URLSearchParams();
+      q.set('pl', state.platform);
+      if (state.price !== '') q.set('p', state.price);
+      if (state.cost !== '') q.set('c', state.cost);
+      if (state.shipping !== '') q.set('s', state.shipping);
+      if (state.commission !== '') q.set('m', state.commission);
+      if (state.platform === 'shopee' && state.ssfs !== 'none') q.set('f', state.ssfs);
+      if (state.platform === 'tiktok' && state.sst) q.set('t', '1');
+      try { history.replaceState(null, '', window.location.pathname + '?' + q.toString()); } catch (e) { /* noop */ }
+    }
+
+    function readParams() {
+      try {
+        var q = new URLSearchParams(window.location.search);
+        if (q.has('pl') && PLATFORMS[q.get('pl')]) state.platform = q.get('pl');
+        if (q.has('p')) state.price = q.get('p');
+        if (q.has('c')) state.cost = q.get('c');
+        if (q.has('s')) state.shipping = q.get('s');
+        if (q.has('m')) state.commission = q.get('m');
+        if (state.platform === 'shopee' && q.has('f') && ['std', 'pref'].indexOf(q.get('f')) >= 0) state.ssfs = q.get('f');
+        if (state.platform === 'tiktok') state.sst = q.get('t') === '1';
+      } catch (e) { /* defaults */ }
+    }
+
+    function renderExtras() {
+      var box = $('fpcExtras');
+      var html = '<p class="fpc-label">3 · Platform extras</p>';
+      var helper = '<p class="fpc-helper">' + PLATFORMS[state.platform].helper + '</p>';
+
+      if (state.platform === 'shopee') {
+        html +=
+          '<div class="fpc-opt">' +
+          '<div class="fpc-opt-head"><span class="fpc-opt-title">Shopee SSFS <em>shipping fee claim service</em></span></div>' +
+          '<div class="fpc-seg" role="radiogroup" aria-label="SSFS enrolment">' +
+          '<label class="fpc-seg-opt"><input type="radio" name="ssfs" value="none" data-ssfs="none"' + (state.ssfs === 'none' ? ' checked' : '') + ' /><span>Not enrolled</span></label>' +
+          '<label class="fpc-seg-opt"><input type="radio" name="ssfs" value="std" data-ssfs="std"' + (state.ssfs === 'std' ? ' checked' : '') + ' /><span>Standard <b>RM0.28</b></span></label>' +
+          '<label class="fpc-seg-opt"><input type="radio" name="ssfs" value="pref" data-ssfs="pref"' + (state.ssfs === 'pref' ? ' checked' : '') + ' /><span>Preferred <b>RM0.18</b></span></label>' +
+          '</div></div>' + helper;
+      } else if (state.platform === 'tiktok') {
+        html +=
+          '<div class="fpc-opt">' +
+          '<label class="fpc-check"><input type="checkbox" id="fpcSst"' + (state.sst ? ' checked' : '') + ' />' +
+          '<span><b>Apply 6% SST on shipping</b><em>order created on/after 7 Sep 2026</em></span></label>' +
+          '</div>' + helper;
+      } else {
+        html += '<div class="fpc-opt fpc-opt-plain">' + helper + '</div>';
+      }
+      box.innerHTML = html;
+      bindExtras();
+    }
+
+    function bindExtras() {
+      var radios = document.querySelectorAll('[data-ssfs]');
+      radios.forEach(function (r) {
+        r.addEventListener('change', function () {
+          if (r.checked) { state.ssfs = r.value; render(); }
+        });
+      });
+      var sst = $('fpcSst');
+      if (sst) sst.addEventListener('change', function () { state.sst = sst.checked; render(); });
+    }
+
+    function feeRows() {
+      var rows = [];
+      var price = num(state.price);
+      var cost = num(state.cost);
+      var ship = num(state.shipping);
+      var commPct = num(state.commission);
+      var commission = (price * commPct) / 100;
+
+      if (commPct > 0) rows.push({ label: 'Platform commission (' + commPct.toFixed(commPct % 1 ? 1 : 0) + '%)', value: commission, kind: 'fee' });
+      if (ship > 0) rows.push({ label: 'Shipping fee', value: ship, kind: 'fee' });
+
+      if (state.platform === 'shopee') {
+        if (state.ssfs === 'std') rows.push({ label: 'SSFS service fee', value: 0.28, kind: 'fee', note: 'opt-in · recovers courier fees on qualifying incidents' });
+        else if (state.ssfs === 'pref') rows.push({ label: 'SSFS service fee (Preferred)', value: 0.18, kind: 'fee', note: 'opt-in · recovers courier fees on qualifying incidents' });
+      }
+      if (state.platform === 'tiktok' && state.sst && ship > 0) {
+        rows.push({ label: 'SST 6% on shipping', value: ship * 0.06, kind: 'fee', note: 'seller bears from 7 Sep 2026 orders' });
+      }
+      if (cost > 0) rows.push({ label: 'Item cost (COGS)', value: cost, kind: 'cost' });
+
+      var fees = rows.filter(function (r) { return r.kind === 'fee'; }).reduce(function (a, r) { return a + r.value; }, 0);
+      var total = fees + cost;
+      var profit = price - total;
+      var margin = price > 0 ? (profit / price) * 100 : 0;
+      return { rows: rows, fees: fees, total: total, profit: profit, margin: margin, price: price, ship: ship };
+    }
+
+    function render() {
+      renderExtras();
+      var hasInput = state.price !== '' || state.cost !== '' || state.shipping !== '' || state.commission !== '';
+      if (!hasInput) {
+        $('fpcEmpty').hidden = false;
+        $('fpcOut').hidden = true;
+        return;
+      }
+      var r = feeRows();
+      $('fpcEmpty').hidden = true;
+      $('fpcOut').hidden = false;
+
+      $('fpcProfit').textContent = rm(r.profit);
+      $('fpcProfit').className = 'fpc-profit' + (r.profit < 0 ? ' is-neg' : (r.profit === 0 ? ' is-zero' : ''));
+      $('fpcMargin').textContent = 'Margin: ' + (r.margin).toFixed(1) + '% of selling price';
+      var verdict = $('fpcVerdict');
+      if (r.price > 0 && r.profit < 0) {
+        verdict.textContent = 'Negative — you are losing ' + rm(Math.abs(r.profit)) + ' on every order at these numbers.';
+        verdict.className = 'fpc-verdict is-bad';
+      } else if (r.profit >= 0 && r.margin < 15 && r.price > 0) {
+        verdict.textContent = 'Thin margin — one lost dispute can wipe out many orders like this.';
+        verdict.className = 'fpc-verdict is-warn';
+      } else {
+        verdict.textContent = r.price > 0 ? 'Profit is per order before promo, ads and return losses.' : '';
+        verdict.className = 'fpc-verdict';
+      }
+
+      var feesEl = $('fpcFees');
+      feesEl.innerHTML = '';
+      var any = false;
+      r.rows.forEach(function (row) {
+        var li = document.createElement('li');
+        var l = document.createElement('span');
+        l.textContent = row.label;
+        var v = document.createElement('span');
+        v.textContent = rm(row.value);
+        li.appendChild(l); li.appendChild(v);
+        feesEl.appendChild(li);
+        any = true;
+      });
+      if (!any) {
+        var li = document.createElement('li');
+        li.className = 'is-none';
+        li.innerHTML = '<span>No fees entered</span><span>—</span>';
+        feesEl.appendChild(li);
+      }
+      $('fpcTotalFees').textContent = rm(r.total);
+
+      // GA4 — throttle sekali per 2 saat per interaksi bererti
+      var now = Date.now();
+      if (now - lastTrack > 2000 && r.price > 0) {
+        lastTrack = now;
+        track('fee_calculator_run', {
+          platform: state.platform,
+          price: r.price,
+          profit: Math.round(r.profit * 100) / 100,
+          margin: Math.round(r.margin * 10) / 10,
+          ssfs: state.platform === 'shopee' ? state.ssfs : 'n/a',
+          sst: state.platform === 'tiktok' ? state.sst : 'n/a'
+        });
+      }
+    }
+
+    function summaryText() {
+      var r = feeRows();
+      var lines = [];
+      lines.push('Packory Fee & Profit Calculator — ' + PLATFORMS[state.platform].name + ' (MY)');
+      lines.push('Selling price: ' + rm(r.price));
+      r.rows.forEach(function (row) { lines.push(row.label + ': -' + rm(row.value)); });
+      lines.push('Total fees & costs: ' + rm(r.total));
+      lines.push('Net per order: ' + rm(r.profit) + ' (' + (r.margin).toFixed(1) + '% margin)');
+      lines.push('');
+      lines.push('Made with the free Packory calculator: https://packory.app/tools/fee-profit-calculator/');
+      return lines.join('\n');
+    }
+
+    function bind() {
+      var tabs = document.querySelectorAll('.fpc-tab');
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () {
+          state.platform = t.getAttribute('data-platform');
+          tabs.forEach(function (x) { x.setAttribute('aria-selected', String(x === t)); });
+          render();
+        });
+      });
+
+      [
+        ['fpcPrice', 'price'],
+        ['fpcCost', 'cost'],
+        ['fpcShipping', 'shipping'],
+        ['fpcCommission', 'commission']
+      ].forEach(function (pair) {
+        $(pair[0]).addEventListener('input', function () {
+          state[pair[1]] = $(pair[0]).value;
+          render();
+        });
+      });
+
+      $('fpcCopy').addEventListener('click', function () {
+        var txt = summaryText();
+        function done() { track('fee_calculator_copy', { platform: state.platform }); }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(txt).then(done, done);
+        } else {
+          var ta = document.createElement('textarea');
+          ta.value = txt; ta.style.position = 'fixed'; ta.style.opacity = '0';
+          document.body.appendChild(ta); ta.select();
+          try { document.execCommand('copy'); } catch (e) { /* noop */ }
+          document.body.removeChild(ta);
+          done();
+        }
+      });
+
+      $('fpcShare').addEventListener('click', function () {
+        pushParams();
+        var url = window.location.href;
+        function done() { track('fee_calculator_share', { platform: state.platform }); }
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(done, done);
+        } else {
+          window.prompt('Copy this share link:', url);
+          done();
+        }
+      });
+
+      renderExtras();
+      // hydrate inputs
+      var map = { fpcPrice: 'price', fpcCost: 'cost', fpcShipping: 'shipping', fpcCommission: 'commission' };
+      Object.keys(map).forEach(function (id) { $(id).value = state[map[id]]; });
+      var activeTab = document.querySelector('.fpc-tab[data-platform="' + state.platform + '"]');
+      document.querySelectorAll('.fpc-tab').forEach(function (x) { x.setAttribute('aria-selected', String(x === activeTab)); });
+      render();
+    }
+
+    readParams();
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', bind);
+    } else {
+      bind();
+    }
+  })();
+</script>
+
+<style is:global>
+  .fpc { max-width: 64rem; }
+  .fpc-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.8125rem; margin-bottom: 1.5rem; }
+  .fpc-kicker a { color: #2f4bff; font-weight: 600; }
+  .fpc-hero { max-width: 52rem; margin-bottom: 2.25rem; }
+  .fpc-title { font-size: clamp(1.9rem, 4.6vw, 2.7rem); line-height: 1.08; letter-spacing: -0.03em; color: #0a0d1e; margin-bottom: 0.9rem; text-wrap: balance; }
+  .fpc-sub { font-size: 1.0625rem; line-height: 1.65; color: #4b5563; max-width: 42rem; }
+  .fpc-sub strong { color: #0a0d1e; }
+
+  .fpc-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 1.5rem; align-items: start; }
+  @media (max-width: 880px) { .fpc-grid { grid-template-columns: 1fr; } }
+
+  .fpc-card { background: #fff; border: 1px solid rgba(10, 13, 30, 0.1); border-radius: 18px; padding: 1.75rem; box-shadow: 0 10px 30px -20px rgba(10, 13, 30, 0.3); }
+  .fpc-results { position: sticky; top: 6.5rem; }
+  @media (max-width: 880px) { .fpc-results { position: static; } }
+
+  .fpc-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #6b7280; margin: 1.5rem 0 0.7rem; }
+  .fpc-inputs > .fpc-label:first-child { margin-top: 0; }
+
+  .fpc-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; background: #eef0f5; padding: 0.35rem; border-radius: 12px; }
+  .fpc-tab { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.65rem 0.5rem; border: none; border-radius: 9px; background: transparent; color: #4b5563; font-weight: 600; font-size: 0.875rem; cursor: pointer; font-family: inherit; transition: background 0.15s, color 0.15s; }
+  .fpc-tab img { width: 18px; height: 18px; object-fit: contain; filter: grayscale(1); opacity: 0.7; }
+  .fpc-tab[aria-selected="true"] { background: #fff; color: #0a0d1e; box-shadow: 0 2px 8px rgba(10, 13, 30, 0.12); }
+  .fpc-tab[aria-selected="true"] img { filter: none; opacity: 1; }
+
+  .fpc-fields { display: grid; gap: 0.9rem; }
+  .fpc-field { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.85rem 1rem; background: #f7f8fa; border: 1px solid rgba(10, 13, 30, 0.08); border-radius: 12px; }
+  .fpc-field > span:first-child { font-size: 0.875rem; font-weight: 600; color: #0a0d1e; display: flex; flex-direction: column; line-height: 1.35; }
+  .fpc-field em { font-style: normal; font-size: 0.75rem; font-weight: 500; color: #6b7280; }
+  .fpc-field input { width: 7.5rem; font-family: 'JetBrains Mono', monospace; font-size: 1rem; font-weight: 600; color: #0a0d1e; background: #fff; border: 1px solid rgba(10, 13, 30, 0.14); border-radius: 8px; padding: 0.5rem 0.6rem; text-align: right; }
+  .fpc-field input:focus { outline: 2px solid #2f4bff; outline-offset: 1px; border-color: transparent; }
+  .fpc-money::before { content: 'RM'; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #6b7280; margin-right: 0.4rem; }
+  .fpc-pct::after { content: '%'; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #6b7280; margin-left: 0.4rem; }
+  .fpc-pct input { width: 5.5rem; }
+  .fpc-money, .fpc-pct { display: inline-flex; align-items: center; }
+
+  .fpc-opt { margin-top: 0.75rem; }
+  .fpc-opt-plain { background: #f7f8fa; border: 1px dashed rgba(10, 13, 30, 0.14); border-radius: 12px; padding: 0.9rem 1rem; }
+  .fpc-helper { font-size: 0.8125rem; color: #6b7280; line-height: 1.55; margin-top: 0.6rem; }
+  .fpc-opt-head { margin-bottom: 0.55rem; }
+  .fpc-opt-title { font-size: 0.875rem; font-weight: 600; color: #0a0d1e; display: flex; flex-direction: column; line-height: 1.4; }
+  .fpc-opt-title em { font-style: normal; font-size: 0.75rem; font-weight: 500; color: #6b7280; }
+  .fpc-seg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; background: #eef0f5; padding: 0.35rem; border-radius: 12px; }
+  .fpc-seg-opt { display: flex; }
+  .fpc-seg-opt input { position: absolute; opacity: 0; pointer-events: none; }
+  .fpc-seg-opt span { flex: 1; text-align: center; padding: 0.6rem 0.3rem; border-radius: 9px; background: transparent; color: #4b5563; font-size: 0.8125rem; font-weight: 600; cursor: pointer; }
+  .fpc-seg-opt b { color: #0a0d1e; }
+  .fpc-seg-opt input:checked + span { background: #fff; color: #0a0d1e; box-shadow: 0 2px 8px rgba(10, 13, 30, 0.12); }
+  .fpc-check { display: flex; align-items: flex-start; gap: 0.7rem; background: #f7f8fa; border: 1px solid rgba(10, 13, 30, 0.08); border-radius: 12px; padding: 0.9rem 1rem; cursor: pointer; }
+  .fpc-check input { margin-top: 0.25rem; accent-color: #2f4bff; width: 1rem; height: 1rem; }
+  .fpc-check span { display: flex; flex-direction: column; font-size: 0.875rem; font-weight: 600; color: #0a0d1e; line-height: 1.4; }
+  .fpc-check em { font-style: normal; font-size: 0.75rem; font-weight: 500; color: #6b7280; }
+
+  .fpc-empty { padding: 2.25rem 0; text-align: center; }
+  .fpc-empty-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; color: #0a0d1e; font-weight: 600; margin-bottom: 0.5rem; }
+  .fpc-empty-sub { color: #6b7280; font-size: 0.9rem; line-height: 1.55; max-width: 22rem; margin: 0 auto; }
+
+  .fpc-results-title { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: #6b7280; }
+  .fpc-profit { font-family: 'Space Grotesk', 'JetBrains Mono', sans-serif; font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.03em; color: #0f9d58; margin: 0.35rem 0 0.1rem; }
+  .fpc-profit.is-neg { color: #dc2626; }
+  .fpc-profit.is-zero { color: #0a0d1e; }
+  .fpc-margin { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: #0a0d1e; font-weight: 600; }
+  .fpc-verdict { margin-top: 0.9rem; font-size: 0.875rem; color: #4b5563; line-height: 1.55; padding: 0.7rem 0.9rem; border-radius: 10px; background: #f7f8fa; }
+  .fpc-verdict.is-bad { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+  .fpc-verdict.is-warn { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+
+  .fpc-breakdown { margin-top: 1.4rem; border-top: 1px solid rgba(10, 13, 30, 0.1); padding-top: 0.4rem; }
+  .fpc-fees { list-style: none; padding: 0; display: grid; gap: 0.55rem; margin: 0 0 1rem; }
+  .fpc-fees li { display: flex; justify-content: space-between; gap: 1rem; font-size: 0.875rem; color: #4b5563; }
+  .fpc-fees li > span:last-child { font-family: 'JetBrains Mono', monospace; font-weight: 600; color: #0a0d1e; }
+  .fpc-fees li.is-none { color: #9ca3af; }
+  .fpc-total-fees { display: flex; justify-content: space-between; align-items: center; padding-top: 0.85rem; border-top: 1px solid rgba(10, 13, 30, 0.1); font-weight: 700; color: #0a0d1e; }
+  .fpc-total-fees span:last-child { font-family: 'JetBrains Mono', monospace; }
+
+  .fpc-actions { display: flex; gap: 0.6rem; margin-top: 1.25rem; }
+  .btn-ghost { border: 1px solid rgba(10, 13, 30, 0.18); background: #fff; color: #0a0d1e; font-size: 0.8125rem; padding: 0.55rem 1.1rem; }
+
+  .fpc-cta { margin-top: 1.75rem; background: #0a0d1e; border-radius: 16px; padding: 1.6rem 1.75rem; }
+  .fpc-cta .eyebrow { margin-bottom: 0.7rem; }
+  .fpc-cta h2 { color: #fff; font-size: 1.3rem; margin-bottom: 0.6rem; letter-spacing: -0.02em; }
+  .fpc-cta p:not(.eyebrow):not(.fpc-cta-note) { color: #9aa3b2; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.2rem; }
+  .fpc-cta-note { color: #6b7280 !important; font-size: 0.75rem !important; margin-top: 0.9rem; margin-bottom: 0 !important; }
+
+  .fpc-notes { margin-top: 2.5rem; max-width: 52rem; }
+  .fpc-notes details { background: #fff; border: 1px solid rgba(10, 13, 30, 0.1); border-radius: 14px; padding: 1.1rem 1.4rem; margin-bottom: 0.75rem; }
+  .fpc-notes summary { cursor: pointer; font-weight: 600; color: #0a0d1e; font-size: 0.9375rem; }
+  .fpc-notes p { margin: 0.9rem 0 0; color: #4b5563; font-size: 0.875rem; line-height: 1.65; }
+  .fpc-notes p + p { margin-top: 0.7rem; }
+  .fpc-notes a { color: #2f4bff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+</style>
