@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPost.astro
 title: "TikTok Shop Disputes: How Long They Take & How to Win With Video Evidence"
 description: "How long TikTok Shop disputes take varies — here's what to expect, and how timestamped packing video evidence helps you win your case."
 pubDate: 2026-09-03
