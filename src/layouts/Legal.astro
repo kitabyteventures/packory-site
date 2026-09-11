@@ -7,16 +7,18 @@ export interface Props {
   effectiveDate?: Date;
   /** Small label above the title. Defaults to the legal-page label. */
   kicker?: string;
+  /** Set on error pages (404) — keeps them out of search indexes. Default: false. */
+  noindex?: boolean;
 }
 
-const { title, description, effectiveDate, kicker = 'Packory · Legal' } = Astro.props;
+const { title, description, effectiveDate, kicker = 'Packory · Legal', noindex = false } = Astro.props;
 const prettyDate = effectiveDate
   ? new Date(effectiveDate).toLocaleDateString('en-MY', { day: 'numeric', month: 'long', year: 'numeric' })
   : '';
 const CONSOLE = 'https://console.packory.app';
 ---
 
-<Base title={`${title} | Packory`} description={description}>
+<Base title={`${title} | Packory`} description={description} noindex={noindex}>
   <header class="legal-nav">
     <div class="container legal-nav-inner">
       <a href="/" class="brand"><span class="brand-dot"></span>Packory</a>
