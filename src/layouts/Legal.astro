@@ -5,9 +5,11 @@ export interface Props {
   title: string;
   description: string;
   effectiveDate?: Date;
+  /** Small label above the title. Defaults to the legal-page label. */
+  kicker?: string;
 }
 
-const { title, description, effectiveDate } = Astro.props;
+const { title, description, effectiveDate, kicker = 'Packory · Legal' } = Astro.props;
 const prettyDate = effectiveDate
   ? new Date(effectiveDate).toLocaleDateString('en-MY', { day: 'numeric', month: 'long', year: 'numeric' })
   : '';
@@ -28,7 +30,7 @@ const CONSOLE = 'https://console.packory.app';
 
   <main class="legal-wrap">
     <div class="container legal-container">
-      <p class="legal-kicker">Packory · Legal</p>
+      <p class="legal-kicker">{kicker}</p>
       <h1 class="legal-title">{title}</h1>
       {prettyDate && <p class="legal-meta">Effective {prettyDate}</p>}
       <article class="legal-article">
@@ -38,8 +40,10 @@ const CONSOLE = 'https://console.packory.app';
       <footer class="legal-foot">
         <span>© {new Date().getFullYear()} Packory</span>
         <span class="legal-links">
+          <a href="/faq">Help &amp; FAQ</a>
           <a href="/privacy">Privacy Policy</a>
           <a href="/terms">Terms of Service</a>
+          <a href="mailto:support@packory.app">Contact</a>
         </span>
         <a href="/">Back to packory.app</a>
       </footer>
