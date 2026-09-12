@@ -21,7 +21,7 @@ const YEAR = new Date().getFullYear();
         <a href="/">Home</a>
         <a href="/blog">Blog</a>
         <a href="/tools" class={active === 'tools' ? 'active' : ''}>Tools</a>
-        <a href={`${CONSOLE}/signup`} class="btn btn-primary btn-sm" data-pk-source>Start Free</a>
+        <a href={`${CONSOLE}/signup?source=tools`} class="btn btn-primary btn-sm" data-pk-source>Start Free</a>
       </nav>
     </div>
   </header>
@@ -55,13 +55,21 @@ const YEAR = new Date().getFullYear();
       var stored = localStorage.getItem(key);
       if (stored) {
         var split = stored.split('|');
-        var q = new URLSearchParams({ source: split[0] });
-        if (split[1]) q.set('utm_campaign', split[1]);
-        var suffix = q.toString();
-        document.querySelectorAll('a[data-pk-source]').forEach(function (a) {
+        var compiled = document.querySelectorAll('a[data-pk-source]');
+        for (var i = 0; i < compiled.length; i++) {
+          var a = compiled[i];
           var href = a.getAttribute('href') || '';
-          a.setAttribute('href', href + (href.indexOf('?') >= 0 ? '&' : '?') + suffix);
-        });
+          try {
+            // SET (bukan append): source lawatan sebenar menang atas tag statik,
+            // dan elak dua param `source` (console baca yang pertama je).
+            var url = new URL(href, window.location.origin);
+            url.searchParams.set('source', split[0]);
+            if (split[1]) url.searchParams.set('utm_campaign', split[1]);
+            a.setAttribute('href', url.href);
+          } catch (e) {
+            /* tag statik dalam HTML kekal — attribution optional */
+          }
+        }
       }
     } catch (e) { /* attribution optional — jangan pernah break nav */ }
   })();

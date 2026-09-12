@@ -6,13 +6,16 @@ export interface Props {
   description: string;
   pubDate?: Date;
   author?: string;
+  /** Attribution tag for signup CTAs, e.g. `blog:<slug>`. Must pass console filter: ^[a-z0-9][a-z0-9:_\-./]{0,63}$. */
+  source?: string;
 }
 
-const { title, description, pubDate, author = 'Packory' } = Astro.props;
+const { title, description, pubDate, author = 'Packory', source = 'blog' } = Astro.props;
 const pretty = pubDate
   ? new Date(pubDate).toLocaleDateString('en-MY', { day: 'numeric', month: 'short', year: 'numeric' })
   : '';
 const CONSOLE = 'https://console.packory.app';
+const SIGNUP = `${CONSOLE}/signup?source=${source}`;
 ---
 
 <Base title={`${title} | Packory`} description={description}>
@@ -22,7 +25,7 @@ const CONSOLE = 'https://console.packory.app';
       <nav class="links">
         <a href="/">Home</a>
         <a href="/blog" class="active">Blog</a>
-        <a href={`${CONSOLE}/signup`} class="btn btn-primary btn-sm">Start Free</a>
+        <a href={SIGNUP} class="btn btn-primary btn-sm">Start Free</a>
       </nav>
     </div>
   </header>
@@ -52,7 +55,7 @@ const CONSOLE = 'https://console.packory.app';
         <h2>Put every order on the record.</h2>
         <p>Hands-free packing video, timestamped and dispute-proof. Free to start — your videos stay in your own cloud storage.</p>
         <div class="hero-actions">
-          <a href={`${CONSOLE}/signup`} class="btn btn-primary">Start Free</a>
+          <a href={SIGNUP} class="btn btn-primary">Start Free</a>
           <a href="/#workflow" class="btn btn-ghost-dark">See how it works</a>
         </div>
       </aside>
