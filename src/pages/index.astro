@@ -20,7 +20,7 @@ const PRICE_TIERS = [
     y: null,
     allowance: '25 verified videos',
     cameras: 1,
-    bullets: ['Hands-free packing video', 'Evidence link to your buyer', 'Footage in your own Drive'],
+    bullets: ['Hands-free packing video', 'Buyer evidence link', 'Footage in your own Drive'],
     cta: 'Start Free',
     href: `${CONSOLE}/signup?source=hero:web`,
     free: true,
@@ -32,8 +32,8 @@ const PRICE_TIERS = [
     y: 'RM129',
     allowance: '75 verified videos',
     cameras: 1,
-    bullets: ['Everything in Proof', 'RM0.19 per extra video', 'Cancel or upgrade anytime'],
-    cta: 'Choose Starter',
+    bullets: ['Everything in Proof', 'RM0.19 per extra video', 'Cancel anytime'],
+    cta: 'Choose plan',
     href: `${CONSOLE}/signup?plan=starter&billing=m&source=hero:pricing`,
   },
   {
@@ -43,8 +43,8 @@ const PRICE_TIERS = [
     y: 'RM399',
     allowance: '300 verified videos',
     cameras: 2,
-    bullets: ['Everything in Starter', 'RM0.13 per video at this tier', 'Two packing stations'],
-    cta: 'Choose Verified',
+    bullets: ['Everything in Starter', 'RM0.13 per video', 'Two packing stations'],
+    cta: 'Choose plan',
     href: `${CONSOLE}/signup?plan=verified&billing=m&source=hero:pricing`,
     popular: true,
   },
@@ -55,8 +55,8 @@ const PRICE_TIERS = [
     y: 'RM699',
     allowance: '600 verified videos',
     cameras: 5,
-    bullets: ['Everything in Verified', 'RM0.12 per video at this tier', 'Five packing stations'],
-    cta: 'Choose Verified Seller',
+    bullets: ['Everything in Verified', 'RM0.12 per video', 'Five packing stations'],
+    cta: 'Choose plan',
     href: `${CONSOLE}/signup?plan=verified-seller&billing=m&source=hero:pricing`,
   },
   {
@@ -66,8 +66,8 @@ const PRICE_TIERS = [
     y: 'RM1,490',
     allowance: '1,500 verified videos',
     cameras: 15,
-    bullets: ['Everything in Verified Seller', 'RM0.10 per video at this tier', 'Volume plan on request'],
-    cta: 'Choose Dispute-Proof',
+    bullets: ['Everything in Verified Seller', 'RM0.10 per video', 'Volume plan on request'],
+    cta: 'Choose plan',
     href: `${CONSOLE}/signup?plan=dispute-proof&billing=m&source=hero:pricing`,
   },
 ];
@@ -413,7 +413,7 @@ const faqSchema = {
                 <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>{b}</span></li>
               ))}
             </ul>
-            <a class={t.popular ? 'btn btn-blue' : 'btn btn-ghost'} href={t.href}>{t.cta}</a>
+            <a class={t.popular ? 'btn btn-blue' : 'btn btn-ghost'} href={t.href} aria-label={t.free ? 'Start free on the Proof plan' : `Choose the ${t.name} plan`}>{t.cta}</a>
           </div>
         ))}
       </div>
@@ -907,7 +907,7 @@ const faqSchema = {
   .price .val small{font-size:12.5px;color:var(--color-slate);font-weight:500;white-space:nowrap}
   .price .pmeta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-height:28px}
   .price .pcap{display:inline-block;background:var(--color-blue-soft);color:var(--color-blue-deep);border-radius:999px;padding:4px 10px;font-size:12.5px;font-weight:700;white-space:nowrap}
-  .price ul{list-style:none;padding:0;display:grid;gap:7px;font-size:14px;color:#4d5570;flex:1;align-content:start}
+  .price ul{list-style:none;padding:0;display:grid;gap:6px;font-size:13.5px;line-height:1.35;color:#4d5570;flex:1;align-content:start}
   .price li{display:flex;gap:8px;align-items:baseline;min-width:0}
   .price li span{min-width:0}
   .price li svg{flex-shrink:0;color:var(--color-blue)}
