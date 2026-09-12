@@ -201,11 +201,16 @@ const faqSchema = {
       <h2>You just pack. We capture the proof.</h2>
       <p class="sub">Packing verification that runs itself — automatic, hands-free, timestamped at capture. Scroll to walk through each step.</p>
     </div>
-    <div class="how-pin" id="howPin">
-      <div class="how-sticky">
-        <div class="how-meta">
-        <span class="how-line"><span class="how-fill" id="howFill"></span></span>
+    <div class="how-flow" id="howPin">
+      <div class="how-meta">
         <span class="how-count" id="howCount">01 / 04</span>
+        <span class="how-line"><span class="how-fill" id="howFill"></span></span>
+        <div class="how-rail" id="howRail" aria-label="Steps">
+          <button type="button" data-go="0" class="active" aria-current="true"><span>01</span></button>
+          <button type="button" data-go="1"><span>02</span></button>
+          <button type="button" data-go="2"><span>03</span></button>
+          <button type="button" data-go="3"><span>04</span></button>
+        </div>
       </div>
       <div class="how-stage" id="howStage">
           <div class="how-slide slide-1">
@@ -288,14 +293,6 @@ const faqSchema = {
             </div>
           </div>
         </div>
-        <div class="how-rail" id="howRail" aria-label="Steps">
-          <button type="button" data-go="0" class="active"><span>01</span></button>
-          <button type="button" data-go="1"><span>02</span></button>
-          <button type="button" data-go="2"><span>03</span></button>
-          <button type="button" data-go="3"><span>04</span></button>
-        </div>
-        <div class="how-hint">scroll</div>
-      </div>
     </div>
   </section>
 
@@ -375,7 +372,7 @@ const faqSchema = {
   </section>
 
   <section id="pricing">
-    <div class="wrap wrap-price center">
+    <div class="wrap center">
       <span class="kicker">Pricing</span>
       <h2>Pay by how many orders you verify</h2>
       <p class="sub">Every plan includes hands-free video proof and automatic evidence links. Start free — upgrade when your orders grow.</p>
@@ -386,9 +383,12 @@ const faqSchema = {
       <div class="price-grid" id="priceGrid">
         {PRICE_TIERS.map((t) => (
           <div class={t.popular ? 'price pop' : 'price'}>
-            {t.popular && <span class="pop-badge">Most popular</span>}
+            <div class="pcol">
             <div class="phead">
-              <div class="pname">{t.name}</div>
+              <div class="pname">
+                {t.name}
+                {t.popular && <span class="pop-chip">Most popular</span>}
+              </div>
               <div class="pfor">{t.tag}</div>
             </div>
             <div class="val">
@@ -407,13 +407,16 @@ const faqSchema = {
               <span class="pcap">{t.allowance}</span>
               <span class="y-badge" hidden>2 months free</span>
             </div>
+            </div>
             <ul>
               <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>{t.cameras} licensed camera{t.cameras > 1 ? 's' : ''}</span></li>
               {t.bullets.map((b) => (
                 <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>{b}</span></li>
               ))}
             </ul>
-            <a class={t.popular ? 'btn btn-blue' : 'btn btn-ghost'} href={t.href} aria-label={t.free ? 'Start free on the Proof plan' : `Choose the ${t.name} plan`}>{t.cta}</a>
+            <div class="pcta">
+              <a class={t.popular ? 'btn btn-blue' : 'btn btn-ghost'} href={t.href} aria-label={t.free ? 'Start free on the Proof plan' : `Choose the ${t.name} plan`}>{t.cta}</a>
+            </div>
           </div>
         ))}
       </div>
@@ -634,91 +637,51 @@ const faqSchema = {
     }
   }
 
-  // ===== How-it-works: horizontal scrollytelling — vertical scroll drives a sideways slide =====
-  const howPin = document.getElementById('howPin');
+  // ===== How-it-works: steps scroll normally; the bar tracks which step you are on =====
   const howStage = document.getElementById('howStage');
-  if (howPin && howStage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const slides = Array.from(howStage.children);
-    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-    // Each subsequent step starts one viewport to the LEFT; scrolling down moves the whole deck RIGHT.
-    slides.forEach((s, i) => {
-      s.style.transform = 'translate3d(-' + (i * 100) + '%,0,0)';
-    });
-    let active = 0;
-    let desired = 0;
-    let runner = false;
+  if (howStage) {
+    const slides = Array.from(howStage.querySelectorAll('.how-slide'));
     const countEl = document.getElementById('howCount');
     const fillEl = document.getElementById('howFill');
-    const setMeta = (i) => {
+    const railEl = document.getElementById('howRail');
+    const buttons = railEl ? Array.from(railEl.querySelectorAll('button')) : [];
+    const setActive = (i) => {
       if (countEl) countEl.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
       if (fillEl) fillEl.style.width = (((i + 1) / slides.length) * 100) + '%';
+      buttons.forEach((b, bi) => {
+        const on = bi === i;
+        b.classList.toggle('active', on);
+        if (on) b.setAttribute('aria-current', 'true');
+        else b.removeAttribute('aria-current');
+      });
     };
-    const applyIdx = () => {
-      howStage.style.transform = 'translate3d(' + (active * 100) + '%,0,0)';
-      setMeta(active);
-    };
-    const pump = () => {
-      if (active < desired) active++;
-      else if (active > desired) active--;
-      applyIdx();
-      if (active !== desired) {
-        setTimeout(pump, 560); // one snap at a time — no 1→3→2→4 skipping
-      } else {
-        runner = false;
-      }
-    };
-    setMeta(0);
-    const update = () => {
-      const total = Math.max(1, howPin.offsetHeight - window.innerHeight);
-      const p = clamp(-howPin.getBoundingClientRect().top / total, 0, 1);
-      desired = Math.min(slides.length - 1, Math.floor(p * slides.length + 0.001));
-      if (desired !== active && !runner) {
-        runner = true;
-        pump();
-      }
-    };
+    buttons.forEach((b, i) => {
+      b.addEventListener('click', () => {
+        if (!slides[i]) return;
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        slides[i].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+      });
+    });
     let ticking = false;
+    const pick = () => {
+      ticking = false;
+      const mid = window.innerHeight / 2;
+      let best = 0;
+      let bestDist = Infinity;
+      slides.forEach((slide, i) => {
+        const r = slide.getBoundingClientRect();
+        const d = Math.abs(r.top + r.height / 2 - mid);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      setActive(best);
+    };
     const onScroll = () => {
-      if (!ticking) {
-        ticking = true;
-        requestAnimationFrame(() => { update(); ticking = false; });
-      }
+      if (!ticking) { ticking = true; requestAnimationFrame(pick); }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    setInterval(onScroll, 200);
-    update();
-  }
-
-  // Mobile: scroll-linked sideways entrance — content slides IN from the sides while you scroll up/down
-  if (false) {
-    const mSlides = Array.from(howStage.children);
-    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-    const ease = (t) => 1 - Math.pow(1 - t, 3);
-    const setEl = (el, x, op) => {
-      if (!el) return;
-      if (Math.abs(x) < 0.5 && op >= 1) { el.style.transform = ''; el.style.opacity = ''; }
-      else { el.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,0)'; el.style.opacity = String(op); }
-    };
-    const mUpd = () => {
-      const vh = window.innerHeight;
-      for (const slide of mSlides) {
-        const r = slide.getBoundingClientRect();
-        if (r.bottom < 0 || r.top > vh) continue;
-        const prog = clamp((vh * 0.92 - r.top) / (vh * 0.6), 0, 1);
-        if (prog <= 0) continue;
-        const e = ease(prog);
-        const op = clamp(prog * 1.6, 0, 1);
-        setEl(slide.querySelector('.step-num'), -24 * (1 - e), op);
-        setEl(slide.querySelector('h3'), -38 * (1 - e), op);
-        setEl(slide.querySelector('p'), -38 * (1 - e), op);
-        setEl(slide.querySelector('.how-visual'), 42 * (1 - e), op);
-        setEl(slide.querySelector('.how-ghost'), 0, op);
-      }
-    };
-    window.addEventListener('scroll', mUpd, { passive: true });
-    setInterval(mUpd, 150);
-    mUpd();
+    window.addEventListener('resize', onScroll, { passive: true });
+    setActive(0);
+    pick();
   }
 
   // Nav: white → dark blue on scroll, logo inverts
@@ -893,29 +856,36 @@ const faqSchema = {
   .ic.b{background:var(--color-blue-soft);color:var(--color-blue-deep)}
   .ic.c{background:var(--color-amber-soft);color:var(--color-amber-deep)}
   .ben-card p{color:var(--color-slate);font-size:14.5px;margin:0}
-  .wrap-price{max-width:1240px}
-  .price-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:38px;align-items:stretch}
-  .price{background:#fff;border:1px solid var(--color-line);border-radius:var(--radius);padding:22px 20px;display:flex;flex-direction:column;gap:12px;position:relative;box-shadow:var(--shadow-sm);min-width:0}
-  .price.pop{border-color:var(--color-blue);box-shadow:0 18px 44px rgba(24,86,237,.16)}
+  .price-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:38px}
+  /* One tier per row: the page grows downwards, never sideways. */
+  .price{text-align:left;background:#fff;border:1px solid var(--color-line);border-radius:var(--radius);padding:22px 26px;display:grid;grid-template-columns:minmax(200px,268px) minmax(0,1fr) auto;align-items:center;gap:18px 32px;position:relative;box-shadow:var(--shadow-sm);min-width:0}
+  .price.pop{border-color:var(--color-blue);box-shadow:0 16px 40px rgba(24,86,237,.14)}
   .price.pop.pulse{animation:pulse-border 2s var(--ease-out) 1}
   @keyframes pulse-border{0%,100%{box-shadow:0 0 0 0 rgba(24,86,237,0)}40%{box-shadow:0 0 0 6px rgba(24,86,237,.18)}}
+  .price .pcol{display:flex;flex-direction:column;gap:9px;min-width:0}
   .price .phead{display:flex;flex-direction:column;gap:2px;min-width:0}
-  .price .pname{font-weight:800;font-size:15px;letter-spacing:-.01em}
+  .price .pname{font-weight:800;font-size:17px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .price .pname em{font-style:normal;color:var(--color-slate);font-weight:500}
-  .price .pfor{font-size:12.5px;color:var(--color-slate)}
-  .price .val{display:flex;align-items:baseline;gap:5px;flex-wrap:wrap;font-family:var(--font-display);font-size:clamp(23px,2vw,30px);font-weight:700;line-height:1.05;font-variant-numeric:tabular-nums;min-height:1.1em}
-  .price .val small{font-size:12.5px;color:var(--color-slate);font-weight:500;white-space:nowrap}
-  .price .pmeta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-height:28px}
-  .price .pcap{display:inline-block;background:var(--color-blue-soft);color:var(--color-blue-deep);border-radius:999px;padding:4px 10px;font-size:12.5px;font-weight:700;white-space:nowrap}
-  .price ul{list-style:none;padding:0;display:grid;gap:6px;font-size:13.5px;line-height:1.35;color:#4d5570;flex:1;align-content:start}
-  .price li{display:flex;gap:8px;align-items:baseline;min-width:0}
+  .price .pop-chip{background:var(--color-blue);color:#fff;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .price .pfor{font-size:13px;color:var(--color-slate)}
+  .price .val{display:flex;align-items:baseline;gap:5px;flex-wrap:wrap;font-family:var(--font-display);font-size:clamp(24px,2.1vw,32px);font-weight:700;line-height:1.05;font-variant-numeric:tabular-nums}
+  .price .val small{font-size:13px;color:var(--color-slate);font-weight:500;white-space:nowrap}
+  .price .pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-height:26px}
+  .price .pcap{display:inline-block;background:var(--color-blue-soft);color:var(--color-blue-deep);border-radius:999px;padding:4px 11px;font-size:12.5px;font-weight:700;white-space:nowrap}
+  .y-badge{display:inline-block;background:#e5f6ee;color:#0f7a52;font-size:12px;font-weight:700;border-radius:999px;padding:5px 12px}
+  .y-badge[hidden]{display:none}
+  .price ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 26px;font-size:14px;color:#4d5570;align-content:start;min-width:0}
+  .price li{display:flex;gap:9px;align-items:baseline;min-width:0}
   .price li span{min-width:0}
   .price li svg{flex-shrink:0;color:var(--color-blue)}
-  .price .btn{margin-top:2px;text-align:center}
-  .pop-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--color-blue);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:5px 14px;border-radius:999px;text-transform:uppercase;white-space:nowrap}
-  /* 5 cards stop fitting well below ~1150px: reflow 5 -> 3 -> 2 -> 1 instead of
-     squeezing 200px cards (prices wrapped mid-token). */
-  @media(max-width:1240px){.price-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+  .price .pcta{display:flex;justify-content:flex-end}
+  .price .pcta .btn{min-width:180px}
+  @media(max-width:900px){
+    .price{grid-template-columns:minmax(0,1fr);gap:16px;padding:20px 18px}
+    .price ul{grid-template-columns:minmax(0,1fr)}
+    .price .pcta{justify-content:stretch}
+    .price .pcta .btn{width:100%;min-width:0}
+  }
   .price-more{margin-top:18px;font-size:14px;color:var(--color-slate)}
   .price-more a{color:var(--color-blue);font-weight:700}
   .price-note{margin-top:8px;font-size:13px;color:#8a90a5}
@@ -968,13 +938,12 @@ const faqSchema = {
     .pain-grid{grid-template-columns:repeat(2,1fr)}
     .steps-grid{grid-template-columns:repeat(2,1fr)}
     .steps-grid::before{display:none}
-    .price-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     .ben{grid-template-columns:1fr}
     .v-grid{grid-template-columns:1fr;gap:34px}
     .nav-links a:not(.cta){display:none}
   }
   @media(max-width:600px){
-    .pain-grid,.steps-grid,.price-grid{grid-template-columns:1fr}
+    .pain-grid,.steps-grid{grid-template-columns:1fr}
     .ben{grid-template-columns:1fr}
     .hero h1{font-size:2.1rem}
     .cta-band{padding:48px 24px}
@@ -985,14 +954,9 @@ const faqSchema = {
   /* ===== How-it-works full-screen steps (scrollytelling) ===== */
   .how-head{padding:40px 0 4px}
   .how-head .sub{margin-bottom:16px}
-  .how-pin{}
-  .how-sticky{position:static;height:auto;overflow:visible}
+  .how-flow{position:relative}
   .how-stage{display:grid;gap:0;padding-bottom:8px}
-  html.js-ok .how-pin{height:480vh}
-  html.js-ok .how-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
-  html.js-ok .how-stage{display:flex;flex-direction:column;height:100%;padding-bottom:0}
-  .how-slide{position:relative;overflow:hidden;display:flex;align-items:center;min-height:70vh;padding:34px 0}
-  html.js-ok .how-slide{min-height:0;height:100%;padding:0}
+  .how-slide{position:relative;overflow:hidden;display:flex;align-items:center;padding:64px 0}
   .slide-1{background:radial-gradient(900px 480px at 82% 12%,rgba(24,86,237,.16),transparent 62%),linear-gradient(180deg,#edf2fe,#f7f9fd)}
   .slide-2{background:var(--grad-band);color:#fff}
   .slide-3{background:linear-gradient(180deg,#fff,#eef2fd)}
@@ -1036,99 +1000,27 @@ const faqSchema = {
   .wa-bubble span{color:var(--color-slate);font-size:13px}
   .wa-seen{text-align:right;padding:0 20px 14px;color:#8a90a5;font-size:12.5px}
   .wa-card .chip{margin:0 18px 18px}
-  .how-rail{position:absolute;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:4}
-  .how-meta{position:absolute;inset:0 0 auto 0;z-index:6;pointer-events:none;display:none}
-  .how-line{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(127,145,200,.16)}
-  .how-fill{display:block;height:100%;width:25%;background:linear-gradient(90deg,#2f4bff,#1856ED);box-shadow:0 0 10px rgba(47,75,255,.55);transition:width .55s var(--ease-out)}
-  .how-count{position:absolute;bottom:24px;right:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--color-ink);background:rgba(255,255,255,.72);border:1px solid rgba(16,22,58,.08);backdrop-filter:blur(8px);padding:6px 11px;border-radius:999px;box-shadow:0 6px 18px rgba(16,22,58,.12)}
+  /* Step bar stays visible while the steps scroll past — sticky, not scroll-jacked. */
+  /* sticks under the site nav (70px tall, 56px once darkened) */
+  .how-meta{position:sticky;top:56px;z-index:5;display:flex;align-items:center;gap:14px;padding:10px 24px;background:rgba(247,249,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(16,22,58,.07)}
+  .how-line{position:relative;flex:1;height:3px;background:rgba(127,145,200,.18);border-radius:999px;overflow:hidden}
+  .how-fill{display:block;height:100%;width:25%;background:linear-gradient(90deg,#2f4bff,#1856ED);box-shadow:0 0 10px rgba(47,75,255,.45);transition:width .35s var(--ease-out)}
+  .how-count{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--color-ink);white-space:nowrap}
+  .how-rail{display:flex;gap:6px}
   .how-visual{filter:drop-shadow(0 26px 44px rgba(24,86,237,.16))}
-  .how-rail button{width:42px;height:42px;border-radius:13px;border:1px solid rgba(16,22,58,.12);background:rgba(255,255,255,.7);backdrop-filter:blur(6px);color:var(--color-ink);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;transition:transform .2s var(--ease-out),background-color .2s,color .2s}
+  .how-rail button{width:34px;height:34px;border-radius:11px;border:1px solid rgba(16,22,58,.12);background:rgba(255,255,255,.7);backdrop-filter:blur(6px);color:var(--color-ink);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;transition:transform .2s var(--ease-out),background-color .2s,color .2s}
   .how-rail button.active{background:var(--color-blue);color:#fff;border-color:var(--color-blue)}
   @media(hover:hover){.how-rail button:hover{transform:translateX(-2px)}}
-  .how-hint{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:4;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9aa1b8;display:flex;gap:6px;align-items:center}
-  .how-hint::after{content:'↓';color:var(--color-blue);font-size:14px}
-  @media (prefers-reduced-motion: reduce){
-    html.js-ok .how-pin{height:auto}
-    html.js-ok .how-sticky{position:static;height:auto;overflow:visible}
-    html.js-ok .how-stage{display:grid;height:auto}
-    html.js-ok .how-slide{min-height:0;height:auto;padding:34px 0}
-    .how-slide{min-height:0}
-    .how-stage{display:grid;padding-bottom:8px}
-    .how-hint{display:none}
-  }
   @media(max-width:760px){
-    html.js-ok .how-pin{height:auto}
-    html.js-ok .how-sticky{position:static;height:auto;overflow:visible;display:block}
-    html.js-ok .how-stage{display:grid;height:auto;gap:6px}
-    html.js-ok .how-slide{min-height:0;height:auto;padding:36px 0}
+    .how-slide{padding:44px 0}
     .how-grid{grid-template-columns:1fr;gap:28px}
     .how-grid.alt .how-txt{order:1}
     .how-grid.alt .how-visual{order:2}
+    .how-txt h3{font-size:clamp(1.5rem,6vw,2rem)}
     .how-ghost{font-size:24vh;right:0;top:-2vh}
     .how-visual{width:min(430px,100%)}
-    .how-rail{position:static;transform:none;flex-direction:row;justify-content:center;gap:8px;padding:6px 0 0}
-    .how-hint{display:none}
-  }
-
-
-  /* scrollytelling: desktop pinned step swap */
-  @media (min-width:761px) and (prefers-reduced-motion: no-preference){
-    html.js-ok .how-pin{height:400vh}
-    html.js-ok .how-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:block}
-    html.js-ok .how-stage{display:block;position:relative;height:100%;width:100%;padding:0;will-change:transform;transition:transform .55s var(--ease-out)}
-    html.js-ok .how-slide{position:absolute;inset:0;opacity:1;visibility:visible;min-height:0;height:100%;padding:0;will-change:transform}
-    html.js-ok .how-slide.active{opacity:1;visibility:visible}
-    .how-meta{display:block}
-    .how-rail,.how-hint{display:none}
-  }
-  /* mobile slideshow — pinned + compact (non-reduce) */
-  @media (max-width:760px) and (prefers-reduced-motion: no-preference){
-    html.js-ok .how-pin{height:300svh}
-    html.js-ok .how-sticky{position:sticky;top:0;height:100svh;overflow:hidden;display:block}
-    html.js-ok .how-slide .wrap{height:100%;display:flex;flex-direction:column;justify-content:center;padding:72px 16px 34px}
-    html.js-ok .how-stage{display:block;position:relative;height:100%;width:100%;padding:0;will-change:transform;transition:transform .55s var(--ease-out)}
-    html.js-ok .how-slide{position:absolute;inset:0;opacity:1;visibility:visible;min-height:0;height:100%;padding:0;will-change:transform}
-    .how-meta{display:block}
-    .how-slide{display:flex;align-items:center}
-    .how-grid{grid-template-columns:1fr;gap:4px}
-    .how-txt{text-align:center}
-    .how-txt h3{font-size:clamp(19px,5.6vw,24px)}
-    .how-txt p{font-size:13.5px;max-width:36ch;margin:8px auto 0}
-    .how-visual{width:min(272px,80vw)}
-    .how-ghost{font-size:26vh;right:-3vw;top:-1vh}
-    .how-rail,.how-hint{display:none}
-  }
-  /* reduced-motion: stacked static (readable, no pin) */
-  @media (prefers-reduced-motion: reduce){
-    html.js-ok .how-pin{height:auto}
-    html.js-ok .how-sticky{position:static;height:auto;overflow:visible}
-    html.js-ok .how-stage{display:grid;height:auto;position:static;transform:none}
-    html.js-ok .how-slide{position:static;inset:auto;opacity:1!important;visibility:visible!important;height:auto;min-height:0;padding:36px 0;transition:none}
-    .how-rail,.how-hint{display:none}
-  }
-
-  /* mobile: layered scroll reveal (assemble feel, safe stacked) */
-  @media (max-width:760px){
-    html.anim-ready .how-slide .step-num,
-    html.anim-ready .how-slide h3,
-    html.anim-ready .how-slide p,
-    html.anim-ready .how-slide .how-visual,
-    html.anim-ready .how-slide .how-ghost{opacity:0}
-    html.anim-ready .how-slide .step-num{transform:translateY(-18px)}
-    html.anim-ready .how-slide h3{transform:translateX(-26px)}
-    html.anim-ready .how-slide p{transform:translateX(-26px)}
-    html.anim-ready .how-slide .how-visual{transform:translateX(30px)}
-    html.anim-ready .how-slide .how-ghost{transform:scale(.86)}
-    html.anim-ready .how-slide.seen .step-num,
-    html.anim-ready .how-slide.seen h3,
-    html.anim-ready .how-slide.seen p,
-    html.anim-ready .how-slide.seen .how-visual,
-    html.anim-ready .how-slide.seen .how-ghost{opacity:1;transform:none;transition:opacity .5s var(--ease-out),transform .5s var(--ease-out)}
-    html.anim-ready .how-slide.seen .step-num{transition-delay:.05s}
-    html.anim-ready .how-slide.seen h3{transition-delay:.15s}
-    html.anim-ready .how-slide.seen p{transition-delay:.25s}
-    html.anim-ready .how-slide.seen .how-visual{transition-delay:.1s}
-    html.anim-ready .how-slide.seen .how-ghost{transition-delay:.3s}
+    .how-meta{gap:10px;padding:8px 16px}
+    .how-rail button{width:30px;height:30px;font-size:11px}
   }
   .hamburger{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1px solid var(--color-line);background:#fff;color:var(--color-ink);cursor:pointer}
   .mobile-menu[hidden]{display:none}
