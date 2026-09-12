@@ -12,6 +12,66 @@ const FAQS = [
   { q: 'How does the free plan work?', a: 'Up to 25 verified orders a month, free. Need more? Upgrade anytime — and downgrade again if you want.' },
 ];
 
+const PRICE_TIERS = [
+  {
+    name: 'Proof',
+    tag: 'Free forever',
+    m: 'RM0',
+    y: null,
+    allowance: '25 verified videos',
+    cameras: 1,
+    bullets: ['Hands-free packing video', 'Evidence link to your buyer', 'Footage in your own Drive'],
+    cta: 'Start Free',
+    href: `${CONSOLE}/signup?source=hero:web`,
+    free: true,
+  },
+  {
+    name: 'Starter',
+    tag: 'Solo sellers',
+    m: 'RM12.99',
+    y: 'RM129',
+    allowance: '75 verified videos',
+    cameras: 1,
+    bullets: ['Everything in Proof', 'RM0.19 per extra video', 'Cancel or upgrade anytime'],
+    cta: 'Choose Starter',
+    href: `${CONSOLE}/signup?plan=starter&billing=m&source=hero:pricing`,
+  },
+  {
+    name: 'Verified',
+    tag: 'Most small shops',
+    m: 'RM39.99',
+    y: 'RM399',
+    allowance: '300 verified videos',
+    cameras: 2,
+    bullets: ['Everything in Starter', 'RM0.13 per video at this tier', 'Two packing stations'],
+    cta: 'Choose Verified',
+    href: `${CONSOLE}/signup?plan=verified&billing=m&source=hero:pricing`,
+    popular: true,
+  },
+  {
+    name: 'Verified Seller',
+    tag: 'Busy daily sellers',
+    m: 'RM69.99',
+    y: 'RM699',
+    allowance: '600 verified videos',
+    cameras: 5,
+    bullets: ['Everything in Verified', 'RM0.12 per video at this tier', 'Five packing stations'],
+    cta: 'Choose Verified Seller',
+    href: `${CONSOLE}/signup?plan=verified-seller&billing=m&source=hero:pricing`,
+  },
+  {
+    name: 'Dispute-Proof',
+    tag: 'Bigger operations',
+    m: 'RM149',
+    y: 'RM1,490',
+    allowance: '1,500 verified videos',
+    cameras: 15,
+    bullets: ['Everything in Verified Seller', 'RM0.10 per video at this tier', 'Volume plan on request'],
+    cta: 'Choose Dispute-Proof',
+    href: `${CONSOLE}/signup?plan=dispute-proof&billing=m&source=hero:pricing`,
+  },
+];
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -315,7 +375,7 @@ const faqSchema = {
   </section>
 
   <section id="pricing">
-    <div class="wrap center">
+    <div class="wrap wrap-price center">
       <span class="kicker">Pricing</span>
       <h2>Pay by how many orders you verify</h2>
       <p class="sub">Every plan includes hands-free video proof and automatic evidence links. Start free — upgrade when your orders grow.</p>
@@ -324,61 +384,38 @@ const faqSchema = {
         <button type="button" class="bill-btn" data-bill="y" aria-pressed="false">Yearly <span class="bill-save">2 months free</span></button>
       </div>
       <div class="price-grid" id="priceGrid">
-        <div class="price">
-          <div class="pname">Proof <em>· Free</em></div>
-          <div class="val">RM0 <small>/month</small></div>
-          <ul>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>25 videos a month</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Hands-free packing video</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Auto evidence link</li>
-          </ul>
-          <a class="btn btn-ghost" href={`${CONSOLE}/signup?source=hero:web`}>Start Free</a>
-        </div>
-        <div class="price">
-          <div class="pname">Starter</div>
-          <div class="val"><span class="pr-m">RM12.99</span><span class="pr-y" hidden>RM129</span> <small class="sfx-m">/month</small><small class="sfx-y" hidden>/year</small></div>
-          <span class="y-badge" hidden>Save up to 2 months</span>
-          <ul>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>75 videos a month</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything in Proof</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>For small shops</li>
-          </ul>
-          <a class="btn btn-ghost" href={`${CONSOLE}/signup?plan=starter&billing=m&source=hero:pricing`}>Choose Starter</a>
-        </div>
-        <div class="price">
-          <div class="pname">Verified</div>
-          <div class="val"><span class="pr-m">RM39.99</span><span class="pr-y" hidden>RM399</span> <small class="sfx-m">/month</small><small class="sfx-y" hidden>/year</small></div>
-          <span class="y-badge" hidden>Save up to 2 months</span>
-          <ul>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>300 videos a month</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything in Starter</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>For growing sellers</li>
-          </ul>
-          <a class="btn btn-ghost" href={`${CONSOLE}/signup?plan=verified&billing=m&source=hero:pricing`}>Choose Verified</a>
-        </div>
-        <div class="price pop" id="pop-tier">
-          <span class="pop-badge">Most popular</span>
-          <div class="pname">Verified Seller</div>
-          <div class="val"><span class="pr-m">RM69.99</span><span class="pr-y" hidden>RM699</span> <small class="sfx-m">/month</small><small class="sfx-y" hidden>/year</small></div>
-          <span class="y-badge" hidden>Save up to 2 months</span>
-          <ul>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>600 videos a month</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything in Verified</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>For busy daily sellers</li>
-          </ul>
-          <a class="btn btn-blue" href={`${CONSOLE}/signup?plan=verified-seller&billing=m&source=hero:pricing`}>Choose Verified Seller</a>
-        </div>
-        <div class="price">
-          <div class="pname">Dispute-Proof</div>
-          <div class="val"><span class="pr-m">RM149</span><span class="pr-y" hidden>RM1,490</span> <small class="sfx-m">/month</small><small class="sfx-y" hidden>/year</small></div>
-          <span class="y-badge" hidden>Save up to 2 months</span>
-          <ul>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>1,500 videos a month</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything in Verified Seller</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>For bigger operations</li>
-          </ul>
-          <a class="btn btn-ghost" href={`${CONSOLE}/signup?plan=dispute-proof&billing=m&source=hero:pricing`}>Choose Dispute-Proof</a>
-        </div>
+        {PRICE_TIERS.map((t) => (
+          <div class={t.popular ? 'price pop' : 'price'}>
+            {t.popular && <span class="pop-badge">Most popular</span>}
+            <div class="phead">
+              <div class="pname">{t.name}</div>
+              <div class="pfor">{t.tag}</div>
+            </div>
+            <div class="val">
+              {t.y ? (
+                <>
+                  <span class="pr-m">{t.m}</span><span class="pr-y" hidden>{t.y}</span>
+                  <small class="sfx-m">/month</small><small class="sfx-y" hidden>/year</small>
+                </>
+              ) : (
+                <>
+                  <span>{t.m}</span><small>/month</small>
+                </>
+              )}
+            </div>
+            <div class="pmeta">
+              <span class="pcap">{t.allowance}</span>
+              <span class="y-badge" hidden>2 months free</span>
+            </div>
+            <ul>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>{t.cameras} licensed camera{t.cameras > 1 ? 's' : ''}</span></li>
+              {t.bullets.map((b) => (
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>{b}</span></li>
+              ))}
+            </ul>
+            <a class={t.popular ? 'btn btn-blue' : 'btn btn-ghost'} href={t.href}>{t.cta}</a>
+          </div>
+        ))}
       </div>
       <p class="price-more">Shipping more than 1,500 videos a month? <a href="mailto:hello@packory.app">Email us</a> and we will sort a volume plan.</p>
       <p class="price-note">All plans: footage stays in your own cloud storage, timestamped at capture. Yearly = pay 10 months, get 12 (no extra allowance). International pricing coming soon.</p>
@@ -856,19 +893,29 @@ const faqSchema = {
   .ic.b{background:var(--color-blue-soft);color:var(--color-blue-deep)}
   .ic.c{background:var(--color-amber-soft);color:var(--color-amber-deep)}
   .ben-card p{color:var(--color-slate);font-size:14.5px;margin:0}
-  .price-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin-top:38px}
-  .price{background:#fff;border:1px solid var(--color-line);border-radius:var(--radius);padding:26px 24px;display:flex;flex-direction:column;gap:10px;position:relative;box-shadow:var(--shadow-sm)}
-  .price.pop{border:2px solid var(--color-blue);box-shadow:0 20px 50px rgba(24,86,237,.16)}
+  .wrap-price{max-width:1240px}
+  .price-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px;margin-top:38px;align-items:stretch}
+  .price{background:#fff;border:1px solid var(--color-line);border-radius:var(--radius);padding:22px 20px;display:flex;flex-direction:column;gap:12px;position:relative;box-shadow:var(--shadow-sm);min-width:0}
+  .price.pop{border-color:var(--color-blue);box-shadow:0 18px 44px rgba(24,86,237,.16)}
   .price.pop.pulse{animation:pulse-border 2s var(--ease-out) 1}
   @keyframes pulse-border{0%,100%{box-shadow:0 0 0 0 rgba(24,86,237,0)}40%{box-shadow:0 0 0 6px rgba(24,86,237,.18)}}
-  .price .pname{font-weight:800;font-size:15px}
+  .price .phead{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .price .pname{font-weight:800;font-size:15px;letter-spacing:-.01em}
   .price .pname em{font-style:normal;color:var(--color-slate);font-weight:500}
-  .price .val{display:flex;align-items:baseline;gap:6px;flex-wrap:nowrap;font-family:var(--font-display);font-size:clamp(26px,2.6vw,34px);font-weight:700;line-height:1.1;min-height:1.15em}
-  .price .val small{font-size:13px;color:var(--color-slate);font-weight:500;white-space:nowrap}
-  .price ul{list-style:none;padding:0;display:grid;gap:7px;font-size:14px;color:#4d5570;flex:1}
-  .price li{display:flex;gap:8px;align-items:baseline}
+  .price .pfor{font-size:12.5px;color:var(--color-slate)}
+  .price .val{display:flex;align-items:baseline;gap:5px;flex-wrap:wrap;font-family:var(--font-display);font-size:clamp(23px,2vw,30px);font-weight:700;line-height:1.05;font-variant-numeric:tabular-nums;min-height:1.1em}
+  .price .val small{font-size:12.5px;color:var(--color-slate);font-weight:500;white-space:nowrap}
+  .price .pmeta{display:flex;align-items:center;gap:6px;flex-wrap:wrap;min-height:28px}
+  .price .pcap{display:inline-block;background:var(--color-blue-soft);color:var(--color-blue-deep);border-radius:999px;padding:4px 10px;font-size:12.5px;font-weight:700;white-space:nowrap}
+  .price ul{list-style:none;padding:0;display:grid;gap:7px;font-size:14px;color:#4d5570;flex:1;align-content:start}
+  .price li{display:flex;gap:8px;align-items:baseline;min-width:0}
+  .price li span{min-width:0}
   .price li svg{flex-shrink:0;color:var(--color-blue)}
-  .pop-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--color-blue);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:5px 14px;border-radius:999px;text-transform:uppercase}
+  .price .btn{margin-top:2px;text-align:center}
+  .pop-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--color-blue);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:5px 14px;border-radius:999px;text-transform:uppercase;white-space:nowrap}
+  /* 5 cards stop fitting well below ~1150px: reflow 5 -> 3 -> 2 -> 1 instead of
+     squeezing 200px cards (prices wrapped mid-token). */
+  @media(max-width:1240px){.price-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
   .price-more{margin-top:18px;font-size:14px;color:var(--color-slate)}
   .price-more a{color:var(--color-blue);font-weight:700}
   .price-note{margin-top:8px;font-size:13px;color:#8a90a5}
@@ -921,7 +968,7 @@ const faqSchema = {
     .pain-grid{grid-template-columns:repeat(2,1fr)}
     .steps-grid{grid-template-columns:repeat(2,1fr)}
     .steps-grid::before{display:none}
-    .price-grid{grid-template-columns:repeat(2,1fr)}
+    .price-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
     .ben{grid-template-columns:1fr}
     .v-grid{grid-template-columns:1fr;gap:34px}
     .nav-links a:not(.cta){display:none}
