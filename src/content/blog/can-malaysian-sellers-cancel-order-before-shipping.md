@@ -72,6 +72,6 @@ This protects you twice: if the platform asks why you cancelled, you have an ans
 
 Before you decide your cancellation policy, build the habit that makes most disputes boring:
 
-👉 [Start free — 50 orders a month](https://console.packory.app/signup?source=blog:cancel-order-malaysia)
+👉 [Start free — 50 orders a month](https://console.packory.app/signup?source=blog:can-malaysian-sellers-cancel-order-before-shipping)
 
 And if you want early access to Buyer Check, [join the waitlist](/check-buyer) — a score you can act on, with evidence behind it, coming soon.
