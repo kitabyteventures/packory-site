@@ -84,4 +84,4 @@ Parcel swap and empty parcel claims are decided on evidence, and the evidence st
 
 ---
 
-*Every order. On video. Dispute-proof. Keep the evidence chain intact from pack to delivery. [start free](https://console.packory.app/signup) and protect every order you ship.*
+*Every order. On video. Dispute-proof. Keep the evidence chain intact from pack to delivery. [start free](https://console.packory.app/signup?source=blog:parcel-swap-protection-malaysia) and protect every order you ship.*

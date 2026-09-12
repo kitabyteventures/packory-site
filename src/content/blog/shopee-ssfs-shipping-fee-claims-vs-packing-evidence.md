@@ -44,4 +44,4 @@ Packory is the evidence layer for that second layer — from RM49 a month for 30
 
 ---
 
-*Every order. On video. Dispute-proof. Shopee's RM0.28 fee claim service recovers your courier costs; your packing video protects you from the disputes automation cannot decide. Packory is the evidence layer for Malaysian e-commerce — [start free](https://console.packory.app/signup) and make every order provable from the moment it leaves your hands.*
+*Every order. On video. Dispute-proof. Shopee's RM0.28 fee claim service recovers your courier costs; your packing video protects you from the disputes automation cannot decide. Packory is the evidence layer for Malaysian e-commerce — [start free](https://console.packory.app/signup?source=blog:shopee-ssfs-shipping-fee-claims-vs-packing-evidence) and make every order provable from the moment it leaves your hands.*

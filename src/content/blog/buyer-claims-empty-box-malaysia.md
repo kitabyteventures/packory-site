@@ -82,4 +82,4 @@ An empty box claim is stressful, but it's really a test of your records. Sellers
 
 ---
 
-*Every order. On video. Dispute-proof. Packing proof that holds up when it matters. [start free](https://console.packory.app/signup) and put every parcel on the record.*
+*Every order. On video. Dispute-proof. Packing proof that holds up when it matters. [start free](https://console.packory.app/signup?source=blog:buyer-claims-empty-box-malaysia) and put every parcel on the record.*
