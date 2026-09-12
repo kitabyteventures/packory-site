@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPost.astro
 title: "What Is Packing Verification? Automated Video Proof for E-commerce Orders"
 description: "Packing verification is automated video proof that your order was packed correctly — timestamped, hands-free, and ready for any dispute."
 pubDate: 2026-09-03

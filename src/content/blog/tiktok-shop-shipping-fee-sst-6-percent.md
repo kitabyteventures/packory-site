@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPost.astro
 title: "TikTok Shop Shipping Fee SST (6%): What Changes for Malaysian Sellers on 7 September"
 description: "TikTok Shop Malaysia applies 6% SST to seller shipping fees from 7 September 2026. See what it costs per order and how to protect thin margins."
 pubDate: 2026-09-04

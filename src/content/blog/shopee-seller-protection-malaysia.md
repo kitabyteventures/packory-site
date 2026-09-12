@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPost.astro
 title: "Shopee Seller Protection in Malaysia: What It Covers & What It Doesn't"
 description: "What Shopee seller protection in Malaysia covers, what it doesn't, and why your own packing video evidence closes gaps when claims turn into cases."
 pubDate: 2026-09-03

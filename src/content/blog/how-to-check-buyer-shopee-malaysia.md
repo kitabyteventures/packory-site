@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPost.astro
 title: "How to Check a Buyer on Shopee Malaysia: Red Flags You Can Actually Verify"
 description: "Wondering how to check a buyer on Shopee Malaysia before shipping? Here are red flags sellers can actually verify — and the limits of guessing."
 pubDate: 2026-09-05

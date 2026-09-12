@@ -1,14 +1,12 @@
 ---
+import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 
-// List all markdown posts in /blog (except this index page)
-const postModules = import.meta.glob('./*.md', { eager: true });
-const posts = Object.entries(postModules)
-  .map(([path, mod]) => ({
-    slug: path.replace('./', '').replace('.md', ''),
-    ...(mod as any).frontmatter,
-  }))
-  .sort((a: any, b: any) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
+// All blog posts live in the content collection (src/content/blog).
+// Dynamic route [...slug].astro renders each one at /blog/<slug>/.
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
 ---
 
 <Base
@@ -34,11 +32,11 @@ const posts = Object.entries(postModules)
     </div>
     <div class="container posts-grid">
       {posts.map((p) => (
-        <a class="post-card" href={`/blog/${p.slug}`}>
+        <a class="post-card" href={`/blog/${p.id}`}>
           <div>
-            <span class="post-date">{new Date(p.pubDate).toLocaleDateString('en-MY', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
-            <h2>{p.title}</h2>
-            <p>{p.description}</p>
+            <span class="post-date">{new Date(p.data.pubDate).toLocaleDateString('en-MY', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
+            <h2>{p.data.title}</h2>
+            <p>{p.data.description}</p>
           </div>
           <span class="post-more">Read →</span>
         </a>
@@ -55,7 +53,8 @@ const posts = Object.entries(postModules)
   .blog-nav .links { display: flex; align-items: center; gap: 1.5rem; font-size: 0.875rem; font-weight: 500; }
   .blog-nav .links a { color: #9aa3b2; }
   .blog-nav .links a:hover, .blog-nav .links a.active { color: #fff; }
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 8px; font-weight: 600; font-size: 0.9375rem; padding: 0.75rem 1.5rem; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; border-radius: 8px; font-weight: 600; font-size: 0.9375rem; padding: 0.75rem 1.5rem; transition: transform 0.15s, box-shadow 0.2s; }
+  .btn:hover { transform: translateY(-2px); }
   .btn-primary { background: #2f4bff; color: #fff; box-shadow: 0 6px 20px rgba(47, 75, 255, 0.35); }
   .btn-sm { min-height: 2.5rem; padding: 0.4rem 1.25rem; font-size: 0.8125rem; }
   .blog-wrap { padding: 7.5rem 0 4rem; min-height: 100vh; }

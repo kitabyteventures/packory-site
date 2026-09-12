@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPost.astro
 title: "Buyer Risk Signals Before You Pack (TikTok Shop Malaysia)"
 description: "Spot buyer risk signals before you pack a TikTok Shop order in Malaysia: account, address, chat pressure and the evidence habit that protects you."
 pubDate: 2026-09-05
