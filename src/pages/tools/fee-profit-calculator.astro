@@ -2,7 +2,7 @@
 import Tools from '../../layouts/Tools.astro';
 
 const CONSOLE = 'https://console.packory.app';
-const title = 'Fee & Profit Calculator for Shopee, TikTok Shop & Lazada (Malaysia) — Free';
+const title = 'Fee & Profit Calculator for Shopee, TikTok Shop & Lazada (Malaysia), Free';
 const description = 'Free per-order fee and profit calculator for Malaysian marketplace sellers. See what you keep after platform commission, shipping, Shopee SSFS (RM0.28) and TikTok Shop 6% shipping SST. No login needed.';
 const checked = '5 September 2026';
 ---
@@ -15,7 +15,7 @@ const checked = '5 September 2026';
       <p class="eyebrow">FEE &amp; PROFIT CALCULATOR · MALAYSIA</p>
       <h1 class="fpc-title">What do you actually keep per order?</h1>
       <p class="fpc-sub">
-        Settlement numbers bury the fees. Enter your price and costs once — see the honest per-order breakdown,
+        Settlement numbers bury the fees. Enter your price and costs once, see the honest per-order breakdown,
         including the <strong>RM0.28 Shopee SSFS</strong> and <strong>6% TikTok Shop shipping SST</strong>, and your real margin.
       </p>
     </div>
@@ -56,18 +56,18 @@ const checked = '5 September 2026';
           </label>
         </div>
 
-        <p class="fpc-label">2b · More fee lines (optional — check your Seller Centre)</p>
+        <p class="fpc-label">2b · More fee lines (optional, check your Seller Centre)</p>
         <div class="fpc-fields">
           <label class="fpc-field">
-            <span>Transaction / payment fee <em>% — e.g. SPayLater &amp; cards</em></span>
+            <span>Transaction / payment fee <em>%, e.g. SPayLater &amp; cards</em></span>
             <span class="fpc-pct"><input id="fpcTrx" type="number" inputmode="decimal" min="0" step="0.1" placeholder="0.0" /></span>
           </label>
           <label class="fpc-field">
-            <span>Programme / service fee <em>% — mall, free-shipping programme</em></span>
+            <span>Programme / service fee <em>%, mall, free-shipping programme</em></span>
             <span class="fpc-pct"><input id="fpcProg" type="number" inputmode="decimal" min="0" step="0.1" placeholder="0.0" /></span>
           </label>
           <label class="fpc-field">
-            <span>Pay-later / instalment fee <em>% — SPayLater, 0% plans</em></span>
+            <span>Pay-later / instalment fee <em>%, SPayLater, 0% plans</em></span>
             <span class="fpc-pct"><input id="fpcSpay" type="number" inputmode="decimal" min="0" step="0.1" placeholder="0.0" /></span>
           </label>
           <label class="fpc-field">
@@ -77,7 +77,7 @@ const checked = '5 September 2026';
         </div>
         <label class="fpc-check fpc-check-solo">
           <input type="checkbox" id="fpcSupport" />
-          <span><b>Platform support fee — RM0.54</b><em>Some sellers are exempt; untick if your Seller Centre does not charge it.</em></span>
+          <span><b>Platform support fee, RM0.54</b><em>Some sellers are exempt; untick if your Seller Centre does not charge it.</em></span>
         </label>
 
         <!-- Platform-specific extras -->
@@ -115,8 +115,8 @@ const checked = '5 September 2026';
         <div class="fpc-cta">
           <p class="eyebrow">PROTECT THIS MARGIN</p>
           <h2>Every order. On video. Dispute-proof.</h2>
-          <p>One lost packing dispute can erase the profit from dozens of orders. Packory records each parcel hands-free — timestamped evidence that answers the only question a dispute reviewer asks.</p>
-          <a href={`${CONSOLE}/signup?source=tools:fee-calculator`} class="btn btn-primary" data-pk-source>Start Free — RM0</a>
+          <p>One lost packing dispute can erase the profit from dozens of orders. Packory records each parcel hands-free, timestamped evidence that answers the only question a dispute reviewer asks.</p>
+          <a href={`${CONSOLE}/signup?source=tools:fee-calculator`} class="btn btn-primary" data-pk-source>Start Free, RM0</a>
           <p class="fpc-cta-note">Free to start · your videos stay in your own cloud · no card needed</p>
         </div>
       </section>
@@ -127,33 +127,33 @@ const checked = '5 September 2026';
       <details>
         <summary>Where do the fee numbers come from?</summary>
         <p>
-          <strong>Shopee SSFS</strong> (shipping fee claim service): <strong>RM0.28 per order</strong>, <strong>RM0.18 for Preferred Sellers</strong> (effective 1 March 2026) — an opt-in service that files courier-fee claims for you when a parcel is lost or delayed. Source: Shopee Seller Centre notices,
-          cross-checked against our explainer: <a href="/blog/shopee-ssfs-shipping-fee-claims-vs-packing-evidence/">SSFS: what RM0.28 covers — and what it doesn't</a>.
+          <strong>Shopee SSFS</strong> (shipping fee claim service): <strong>RM0.28 per order</strong>, <strong>RM0.18 for Preferred Sellers</strong> (effective 1 March 2026), an opt-in service that files courier-fee claims for you when a parcel is lost or delayed. Source: Shopee Seller Centre notices,
+          cross-checked against our explainer: <a href="/blog/shopee-ssfs-shipping-fee-claims-vs-packing-evidence/">SSFS: what RM0.28 covers, and what it doesn't</a>.
         </p>
         <p>
-          <strong>TikTok Shop 6% SST</strong>: Service Tax applied to seller shipping fees. TikTok Shop covers it for orders created 1–6 September 2026; from <strong>7 September 2026</strong> the seller bears it, including on forward and return shipping for unsuccessful orders.
+          <strong>TikTok Shop 6% SST</strong>: Service Tax applied to seller shipping fees. TikTok Shop covers it for orders created 1 to 6 September 2026; from <strong>7 September 2026</strong> the seller bears it, including on forward and return shipping for unsuccessful orders.
           Source: TikTok Shop Malaysia Seller University, cross-checked against: <a href="/blog/tiktok-shop-shipping-fee-sst-6-percent/">TikTok Shop shipping fee SST: what changes</a>.
         </p>
         <p>
-          Figures last checked {checked}. Marketplace rates change — always confirm current policy in your Seller Centre before relying on the maths.
+          Figures last checked {checked}. Marketplace rates change, always confirm current policy in your Seller Centre before relying on the maths.
         </p>
       </details>
       <details>
         <summary>Is the SSFS RM0.28 fee charged on every order?</summary>
         <p>
-          No — SSFS is <strong>opt-in</strong> and only sellers who enrol pay it. The service charges per order and, when a qualifying incident happens, recovers your courier fee. If you are not enrolled, set the toggle to “Not enrolled” — the calculator will not deduct it.
+          No, SSFS is <strong>opt-in</strong> and only sellers who enrol pay it. The service charges per order and, when a qualifying incident happens, recovers your courier fee. If you are not enrolled, set the toggle to “Not enrolled”, the calculator will not deduct it.
         </p>
       </details>
       <details>
         <summary>I don't know my platform commission. Where do I find it?</summary>
         <p>
-          Commission varies by category, seller tier and promotions, and it changes — that is why the calculator takes your number instead of guessing. Open your Seller Centre → fee / commission page and copy the rate for your main category. Most Malaysian sellers are between roughly 2% and 10%, but confirm yours: the whole point of this tool is not guessing.
+          Commission varies by category, seller tier and promotions, and it changes, that is why the calculator takes your number instead of guessing. Open your Seller Centre → fee / commission page and copy the rate for your main category. Most Malaysian sellers are between roughly 2% and 10%, but confirm yours: the whole point of this tool is not guessing.
         </p>
       </details>
       <details>
         <summary>What does this calculator not include?</summary>
         <p>
-          It is a per-order estimate, not a settlement statement. You can add your own optional lines above — transaction/payment, programme/service, pay-later, and fixed fees — using figures from your Seller Centre. The RM0.54 platform support fee is a toggle because some sellers are exempt. Still not included: promo discounts you fund, voucher costs, advertising, return/refund losses, and storage.
+          It is a per-order estimate, not a settlement statement. You can add your own optional lines above, transaction/payment, programme/service, pay-later, and fixed fees, using figures from your Seller Centre. The RM0.54 platform support fee is a toggle because some sellers are exempt. Still not included: promo discounts you fund, voucher costs, advertising, return/refund losses, and storage.
         </p>
       </details>
     </section>
@@ -178,7 +178,7 @@ const checked = '5 September 2026';
       lazada: {
         name: 'Lazada',
         extras: 'lazada',
-        helper: 'Lazada commission is set by category — no fixed per-order service fee is shown here.'
+        helper: 'Lazada commission is set by category, no fixed per-order service fee is shown here.'
       }
     };
 
@@ -324,10 +324,10 @@ const checked = '5 September 2026';
       $('fpcMargin').textContent = 'Margin: ' + (r.margin).toFixed(1) + '% of selling price';
       var verdict = $('fpcVerdict');
       if (r.price > 0 && r.profit < 0) {
-        verdict.textContent = 'Negative — you are losing ' + rm(Math.abs(r.profit)) + ' on every order at these numbers.';
+        verdict.textContent = 'Negative, you are losing ' + rm(Math.abs(r.profit)) + ' on every order at these numbers.';
         verdict.className = 'fpc-verdict is-bad';
       } else if (r.profit >= 0 && r.margin < 15 && r.price > 0) {
-        verdict.textContent = 'Thin margin — one lost dispute can wipe out many orders like this.';
+        verdict.textContent = 'Thin margin, one lost dispute can wipe out many orders like this.';
         verdict.className = 'fpc-verdict is-warn';
       } else {
         verdict.textContent = r.price > 0 ? 'Profit is per order before promo, ads and return losses.' : '';
@@ -350,12 +350,12 @@ const checked = '5 September 2026';
       if (!any) {
         var li = document.createElement('li');
         li.className = 'is-none';
-        li.innerHTML = '<span>No fees entered</span><span>—</span>';
+        li.innerHTML = '<span>No fees entered</span><span>, </span>';
         feesEl.appendChild(li);
       }
       $('fpcTotalFees').textContent = rm(r.total);
 
-      // GA4 — throttle sekali per 2 saat per interaksi bererti
+      // GA4, throttle sekali per 2 saat per interaksi bererti
       var now = Date.now();
       if (now - lastTrack > 2000 && r.price > 0) {
         lastTrack = now;
@@ -373,7 +373,7 @@ const checked = '5 September 2026';
     function summaryText() {
       var r = feeRows();
       var lines = [];
-      lines.push('Packory Fee & Profit Calculator — ' + PLATFORMS[state.platform].name + ' (MY)');
+      lines.push('Packory Fee & Profit Calculator, ' + PLATFORMS[state.platform].name + ' (MY)');
       lines.push('Selling price: ' + rm(r.price));
       r.rows.forEach(function (row) { lines.push(row.label + ': -' + rm(row.value)); });
       lines.push('Total fees & costs: ' + rm(r.total));

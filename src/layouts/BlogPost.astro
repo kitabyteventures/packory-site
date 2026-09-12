@@ -53,7 +53,7 @@ const SIGNUP = `${CONSOLE}/signup?source=${source}`;
       <aside class="blog-cta">
         <p class="eyebrow-dark">GET STARTED</p>
         <h2>Put every order on the record.</h2>
-        <p>Hands-free packing video, timestamped and dispute-proof. Free to start — your videos stay in your own cloud storage.</p>
+        <p>Hands-free packing video, timestamped and dispute-proof. Free to start, your videos stay in your own cloud storage.</p>
         <div class="hero-actions">
           <a href={SIGNUP} class="btn btn-primary">Start Free</a>
           <a href="/#workflow" class="btn btn-ghost-dark">See how it works</a>
@@ -77,13 +77,13 @@ const SIGNUP = `${CONSOLE}/signup?source=${source}`;
     if (loved) {
       heart.classList.add('loved');
       heart.setAttribute('aria-pressed', 'true');
-      label.textContent = 'Thanks — this helps other sellers. ♥';
+      label.textContent = 'Thanks, this helps other sellers. ♥';
     }
     heart.addEventListener('click', () => {
       const on = heart.classList.toggle('loved');
       heart.setAttribute('aria-pressed', String(on));
       label.textContent = on
-        ? 'Thanks — this helps other sellers. ♥'
+        ? 'Thanks, this helps other sellers. ♥'
         : 'Found this useful? Tap the heart.';
       localStorage.setItem(key, on ? '1' : '0');
     });

@@ -4,12 +4,12 @@ import Base from '../layouts/Base.astro';
 const CONSOLE = 'https://console.packory.app';
 
 const FAQS = [
-  { q: 'I already record packing with my phone. Why Packory?', a: 'A raw clip in your phone gallery has no link to the order — weeks later you cannot find it, and you cannot prove when it was shot. Packory files every clip under its AWB in your own cloud with a UTC timestamp, and sends the buyer a clean proof link automatically. Evidence you can actually find and send when a claim lands.' },
-  { q: "Where are the videos stored? I don't want my footage on someone's server.", a: "In your own cloud storage. Packory sets up the upload — we never keep your videos on our servers." },
+  { q: 'I already record packing with my phone. Why Packory?', a: 'A raw clip in your phone gallery has no link to the order, weeks later you cannot find it, and you cannot prove when it was shot. Packory files every clip under its AWB in your own cloud with a UTC timestamp, and sends the buyer a clean proof link automatically. Evidence you can actually find and send when a claim lands.' },
+  { q: "Where are the videos stored? I don't want my footage on someone's server.", a: "In your own cloud storage. Packory sets up the upload, we never keep your videos on our servers." },
   { q: 'My shop Wi-Fi is really bad. Will this still work?', a: "Yes. Clips save to the phone first and sync in the background whenever there's a connection. Drop out? It picks up where it left off." },
-  { q: 'Does the packer have to press anything for every order?', a: 'No. The AWB scan starts recording and the thumbs-up stops it — no screen touches, no workflow interruption.' },
-  { q: 'Will this actually help in a Shopee or TikTok dispute?', a: 'When a dispute opens, platforms ask for evidence. Timestamped footage showing the item packed and handed over is the strongest reply a seller can send — video does not guarantee an outcome, but arguing without it is far harder.' },
-  { q: 'How does the free plan work?', a: 'Up to 25 verified orders a month, free. Need more? Upgrade anytime — and downgrade again if you want.' },
+  { q: 'Does the packer have to press anything for every order?', a: 'No. The AWB scan starts recording and the thumbs-up stops it, no screen touches, no workflow interruption.' },
+  { q: 'Will this actually help in a Shopee or TikTok dispute?', a: 'When a dispute opens, platforms ask for evidence. Timestamped footage showing the item packed and handed over is the strongest reply a seller can send, video does not guarantee an outcome, but arguing without it is far harder.' },
+  { q: 'How does the free plan work?', a: 'Up to 25 verified orders a month, free. Need more? Upgrade anytime, and downgrade again if you want.' },
 ];
 
 const PRICE_TIERS = [
@@ -85,12 +85,12 @@ const faqSchema = {
 
 <Base
   title="Packing Verification for E-commerce Sellers (Malaysia) | Packory"
-  description="Every order gets its own video proof. Packory records hands-free packing video with timestamps, saves it to your own cloud and sends buyers a proof link — dispute-proof, automatically."
+  description="Every order gets its own video proof. Packory records hands-free packing video with timestamps, saves it to your own cloud and sends buyers a proof link, dispute-proof, automatically."
 >
   <script is:inline>document.documentElement.classList.add('js-ok');</script>
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
-  <div class="banner">Beta is open — Malaysian sellers get <a href="#pricing">founding pricing</a></div>
+  <div class="banner">Beta is open, Malaysian sellers get <a href="#pricing">founding pricing</a></div>
 
   <nav>
     <div class="wrap nav-inner">
@@ -131,11 +131,11 @@ const faqSchema = {
       <div class="hero-copy">
         <span class="pill"><span class="dot red"></span> For sellers on Shopee · TikTok Shop · Lazada · Amazon &amp; more</span>
         <h1>Every order gets its <span class="h1line2">own <span class="accent">video proof</span>.</span> <span class="h1line3"><span class="u">Easy as that.</span></span></h1>
-        <p class="hero-sub">When you pack, Packory records automatically — timestamped, saved to <b>your own cloud storage</b>, proof link reaches the buyer before the parcel does. A dispute shows up? Send the video.</p>
+        <p class="hero-sub">When you pack, Packory records automatically, timestamped, saved to <b>your own cloud storage</b>, proof link reaches the buyer before the parcel does. A dispute shows up? Send the video.</p>
       </div>
       <div class="hero-visual">
         <div class="white-card">
-          <img src="/hero-illustration-blue.webp" srcset="/hero-illustration-blue-640.webp 640w, /hero-illustration-blue.webp 1100w" sizes="(max-width: 640px) 92vw, 540px" width="1100" height="1100" alt="Seller packing an order while a phone on a tripod records — proof captured automatically" fetchpriority="high" />
+          <img src="/hero-illustration-blue.webp" srcset="/hero-illustration-blue-640.webp 640w, /hero-illustration-blue.webp 1100w" sizes="(max-width: 640px) 92vw, 540px" width="1100" height="1100" alt="Seller packing an order while a phone on a tripod records, proof captured automatically" fetchpriority="high" />
         </div>
       </div>
       <div class="hero-cta">
@@ -157,7 +157,7 @@ const faqSchema = {
 
   <div class="logos">
     <div class="wrap">
-      <p class="cap">Sell on any marketplace or store — ship with any courier. One proof link, everywhere.</p>
+      <p class="cap">Sell on any marketplace or store, ship with any courier. One proof link, everywhere.</p>
       <div class="logo-rows">
         <div class="logo-row-wrap">
           <div class="logo-row" id="row1"></div>
@@ -176,11 +176,11 @@ const faqSchema = {
     <div class="wrap center">
       <span class="kicker">The problem</span>
       <h2>Disputes are decided on evidence.<br />Most sellers don't have it.</h2>
-      <p class="sub">Claims like these eat into your margin and your time. Without a record of what you packed, arguing is hard — and refunding is easy.</p>
+      <p class="sub">Claims like these eat into your margin and your time. Without a record of what you packed, arguing is hard, and refunding is easy.</p>
       <div class="pain-grid">
         <div class="pain">
           <div class="c-head"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span><h3>"The box arrived empty"</h3></div>
-          <p>A buyer says the parcel came empty. You know you packed it right — but without video, it's your word against theirs.</p>
+          <p>A buyer says the parcel came empty. You know you packed it right, but without video, it's your word against theirs.</p>
         </div>
         <div class="pain">
           <div class="c-head"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span><h3>"That's not what I ordered"</h3></div>
@@ -188,7 +188,7 @@ const faqSchema = {
         </div>
         <div class="pain">
           <div class="c-head"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>No time to film every order</h3></div>
-          <p>Orders are piling up. Nobody stops to record one by one — until the day you really wish you had.</p>
+          <p>Orders are piling up. Nobody stops to record one by one, until the day you really wish you had.</p>
         </div>
       </div>
       <p class="flip"><span>That's why Packory exists.</span></p>
@@ -199,7 +199,7 @@ const faqSchema = {
     <div class="wrap center how-head">
       <span class="kicker">How it works</span>
       <h2>You just pack. We capture the proof.</h2>
-      <p class="sub">Packing verification that runs itself — automatic, hands-free, timestamped at capture. Scroll to walk through each step.</p>
+      <p class="sub">Packing verification that runs itself, automatic, hands-free, timestamped at capture. Scroll to walk through each step.</p>
     </div>
     <div class="how-flow" id="howPin">
       <div class="how-sticky">
@@ -219,8 +219,8 @@ const faqSchema = {
             <div class="wrap how-grid">
               <div class="how-txt">
                 <span class="step-num">Step 1 · Scan</span>
-                <h3>Scan the AWB — recording starts by itself</h3>
-                <p>One barcode scan every 1.5 seconds. No screen touching, no new workflow — the camera becomes a silent witness.</p>
+                <h3>Scan the AWB, recording starts by itself</h3>
+                <p>One barcode scan every 1.5 seconds. No screen touching, no new workflow, the camera becomes a silent witness.</p>
               </div>
               <div class="how-visual">
                 <div class="scene-scan">
@@ -241,7 +241,7 @@ const faqSchema = {
             <div class="wrap how-grid alt">
               <div class="how-txt">
                 <span class="step-num">Step 2 · Record</span>
-                <h3>Pack on camera — UTC burned into the frame</h3>
+                <h3>Pack on camera, UTC burned into the frame</h3>
                 <p>Every item goes into the box on video. The timestamp is part of the footage, so nobody can argue about when it was shot.</p>
               </div>
               <div class="how-visual">
@@ -259,7 +259,7 @@ const faqSchema = {
               <div class="how-txt">
                 <span class="step-num">Step 3 · Thumbs-up</span>
                 <h3>Done? File it under the order</h3>
-                <p>One thumbs-up stops the clip and files it under that AWB in your own cloud storage — findable in seconds, not buried in a phone gallery.</p>
+                <p>One thumbs-up stops the clip and files it under that AWB in your own cloud storage, findable in seconds, not buried in a phone gallery.</p>
               </div>
               <div class="how-visual">
                 <div class="drive-card">
@@ -267,7 +267,7 @@ const faqSchema = {
                   <div class="drive-row ok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>PKR-2009-7741.mp4</span><small>filed under order</small></div>
                   <div class="drive-row"><span>PKR-2009-7742.mp4</span><small>…</small></div>
                   <div class="drive-row"><span>PKR-2009-7743.mp4</span><small>…</small></div>
-                  <span class="chip ok-chip">Thumbs-up detected — clip saved ✓</span>
+                  <span class="chip ok-chip">Thumbs-up detected, clip saved ✓</span>
                 </div>
               </div>
             </div>
@@ -278,14 +278,14 @@ const faqSchema = {
               <div class="how-txt">
                 <span class="step-num">Step 4 · Share</span>
                 <h3>Buyer sees proof before the parcel ships</h3>
-                <p>The evidence link reaches the buyer automatically — no app for them, no chasing. Proof is there before the courier is.</p>
+                <p>The evidence link reaches the buyer automatically, no app for them, no chasing. Proof is there before the courier is.</p>
               </div>
               <div class="how-visual">
                 <div class="wa-card">
                   <div class="wa-head">Buyer chat · video received</div>
                   <div class="wa-bubble">
                     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
-                    <div><strong>Packory proof — order …7741</strong><span>Your parcel was packed on camera. Open to watch.</span></div>
+                    <div><strong>Packory proof, order …7741</strong><span>Your parcel was packed on camera. Open to watch.</span></div>
                   </div>
                   <div class="wa-seen">Delivered ✓✓ <span>12:07</span></div>
                   <span class="chip ok-chip">Evidence link sent automatically ✓</span>
@@ -318,28 +318,28 @@ const faqSchema = {
             </dl>
             <span class="vc-foot">Stored in your own cloud storage</span>
           </div>
-          <p class="vc-cap">Sample preview — what the buyer sees on the proof link.</p>
+          <p class="vc-cap">Sample preview, what the buyer sees on the proof link.</p>
         </div>
         <div class="v-txt">
           <span class="kicker">Verified capture</span>
           <h2>Recorded is one thing. <span class="accent-ink">Verified</span> is another.</h2>
-          <p class="sub">A phone clip is easy to question — when it was shot, which order it belongs to, whether it was edited. Packory seals every capture to its order with a cryptographic record the buyer can check themselves.</p>
+          <p class="sub">A phone clip is easy to question, when it was shot, which order it belongs to, whether it was edited. Packory seals every capture to its order with a cryptographic record the buyer can check themselves.</p>
           <ul class="v-items">
             <li>
               <span class="v-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
-              <div><h3>A capture card, not a raw link</h3><p>Buyers open the proof link and see VERIFIED with a SHA-256 fingerprint, capture time and a masked AWB — it reads like a record, not a file.</p></div>
+              <div><h3>A capture card, not a raw link</h3><p>Buyers open the proof link and see VERIFIED with a SHA-256 fingerprint, capture time and a masked AWB, it reads like a record, not a file.</p></div>
             </li>
             <li>
               <span class="v-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
-              <div><h3>Re-verified on the server</h3><p>After upload, Packory checks the Drive file against its fingerprint. Swap or edit a clip and the record breaks — no quiet replacements.</p></div>
+              <div><h3>Re-verified on the server</h3><p>After upload, Packory checks the Drive file against its fingerprint. Swap or edit a clip and the record breaks, no quiet replacements.</p></div>
             </li>
             <li>
               <span class="v-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>
-              <div><h3>Logs itself to Google Sheets</h3><p>AWB, video link, packer and time append to your own sheet automatically — an audit trail that writes itself.</p></div>
+              <div><h3>Logs itself to Google Sheets</h3><p>AWB, video link, packer and time append to your own sheet automatically, an audit trail that writes itself.</p></div>
             </li>
             <li>
               <span class="v-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></span>
-              <div><h3>Zero screen touches</h3><p>AWB scan starts, a thumbs-up stops it, and idle time auto-pauses to save battery — the packing flow never breaks.</p></div>
+              <div><h3>Zero screen touches</h3><p>AWB scan starts, a thumbs-up stops it, and idle time auto-pauses to save battery, the packing flow never breaks.</p></div>
             </li>
           </ul>
         </div>
@@ -351,15 +351,15 @@ const faqSchema = {
     <div class="wrap center">
       <span class="kicker">The evidence layer for e-commerce</span>
       <h2>Proof you can stand behind</h2>
-      <p class="sub">Packing verification only helps if it survives scrutiny — so every clip is timestamped at capture, filed under its order in your own Drive, and linked to the buyer before the parcel ships.</p>
+      <p class="sub">Packing verification only helps if it survives scrutiny, so every clip is timestamped at capture, filed under its order in your own Drive, and linked to the buyer before the parcel ships.</p>
       <div class="ben">
         <div class="ben-card">
           <div class="c-head"><span class="ic b"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M12 20h.01"/></svg></span><h3>Terrible Wi-Fi? Fine.</h3></div>
-          <p>Clips save to the phone first, then sync to Drive in the background — and reconnect automatically if it drops.</p>
+          <p>Clips save to the phone first, then sync to Drive in the background, and reconnect automatically if it drops.</p>
         </div>
         <div class="ben-card">
           <div class="c-head"><span class="ic c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><h3>Your videos, your hands</h3></div>
-          <p>Zero video on our servers. Everything lives in your own cloud storage — private, with no hidden storage fees.</p>
+          <p>Zero video on our servers. Everything lives in your own cloud storage, private, with no hidden storage fees.</p>
         </div>
         <div class="ben-card">
           <div class="c-head"><span class="ic b"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span><h3>A cheap phone is enough</h3></div>
@@ -367,7 +367,7 @@ const faqSchema = {
         </div>
         <div class="ben-card">
           <div class="c-head"><span class="ic c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg></span><h3>Buyers see it themselves</h3></div>
-          <p>A clean proof link — buyers watch their own order being packed properly. Trust goes up, disputes lose their fuel.</p>
+          <p>A clean proof link, buyers watch their own order being packed properly. Trust goes up, disputes lose their fuel.</p>
         </div>
       </div>
     </div>
@@ -377,7 +377,7 @@ const faqSchema = {
     <div class="wrap center">
       <span class="kicker">Pricing</span>
       <h2>Pay by how many orders you verify</h2>
-      <p class="sub">Every plan includes hands-free video proof and automatic evidence links. Start free — upgrade when your orders grow.</p>
+      <p class="sub">Every plan includes hands-free video proof and automatic evidence links. Start free, upgrade when your orders grow.</p>
       <div class="bill-toggle" id="billToggle">
         <button type="button" class="bill-btn on" data-bill="m" aria-pressed="true">Monthly</button>
         <button type="button" class="bill-btn" data-bill="y" aria-pressed="false">Yearly <span class="bill-save">2 months free</span></button>
@@ -448,7 +448,7 @@ const faqSchema = {
       <div class="cta-band">
         <span class="cta-eyebrow">Every order. On video. Dispute-proof.</span>
         <h2>Protect every parcel before it ships.</h2>
-        <p>Your next order can be the first one with video evidence — timestamped, filed under its AWB, proof link reaches the buyer automatically. Free to start. No card needed.</p>
+        <p>Your next order can be the first one with video evidence, timestamped, filed under its AWB, proof link reaches the buyer automatically. Free to start. No card needed.</p>
         <div class="cta-actions">
           <a class="btn btn-white" href={`${CONSOLE}/signup?source=hero:web`}>Start Free →</a>
           <a class="btn btn-ghost-soft" href="#how">See how it works</a>
@@ -478,7 +478,7 @@ const faqSchema = {
           <a href="/privacy">Privacy Policy</a>
           <a href="/terms">Terms of Service</a>
         </span>
-        <span>Built in Malaysia — for sellers everywhere</span>
+        <span>Built in Malaysia, for sellers everywhere</span>
       </div>
     </div>
   </footer>
@@ -503,7 +503,7 @@ const faqSchema = {
     const el = document.getElementById(id);
     if (el) el.innerHTML = list.map(chipHTML).join('') + list.map(chipHTML).join('');
   };
-  // Row 1 — marketplaces (moves right)
+  // Row 1, marketplaces (moves right)
   fillRow('row1', [
     ['Shopee', '/brands/shopee.svg', 'Marketplace'],
     ['TikTok Shop', '/brands/tiktok.svg', 'Marketplace'],
@@ -513,7 +513,7 @@ const faqSchema = {
     ['Walmart', '/brands/walmart.svg', 'Marketplace'],
     ['Etsy', '/brands/etsy.svg', 'Marketplace'],
   ]);
-  // Row 2 — store builders + proof layer (moves left)
+  // Row 2, store builders + proof layer (moves left)
   fillRow('row2', [
     ['Shopify', '/brands/shopify.svg', 'Store'],
     ['WordPress + WooCommerce', '/brands/woocommerce.svg', 'Store'],
@@ -522,7 +522,7 @@ const faqSchema = {
     ['WhatsApp', '/brands/whatsapp.svg', 'Proof delivery'],
     ['Google Drive', '/brands/googledrive.svg', 'Storage'],
   ]);
-  // Row 3 — couriers (moves right)
+  // Row 3, couriers (moves right)
   fillRow('row3', [
     ['DHL', '/brands/dhl.svg', 'Courier'],
     ['FedEx', '/brands/fedex.svg', 'Courier'],
@@ -986,7 +986,7 @@ const faqSchema = {
     .ben{grid-template-columns:1fr}
     .hero h1{font-size:2.1rem}
     .cta-band{padding:48px 24px}
-    /* card head flex kekal — tiada overlap */
+    /* card head flex kekal, tiada overlap */
     .step-card h3{flex-wrap:wrap}
   }
 
@@ -998,7 +998,7 @@ const faqSchema = {
   .how-stage{display:grid;gap:0;padding-bottom:8px}
   .how-slide{position:relative;overflow:hidden;display:flex;align-items:center;padding:64px 0}
   /* 761px+: the steps travel RIGHT -> LEFT while you scroll down. The deck is
-     pinned under the nav and translated continuously from scroll progress — one
+     pinned under the nav and translated continuously from scroll progress, one
      transform per frame, no timers, no jumping one slide at a time. */
   @media (min-width:761px) and (prefers-reduced-motion: no-preference){
     html.js-ok .how-flow{height:400vh}
@@ -1049,7 +1049,7 @@ const faqSchema = {
   .wa-bubble span{color:var(--color-slate);font-size:13px}
   .wa-seen{text-align:right;padding:0 20px 14px;color:#8a90a5;font-size:12.5px}
   .wa-card .chip{margin:0 18px 18px}
-  /* Step bar stays visible while the steps scroll past — sticky, not scroll-jacked. */
+  /* Step bar stays visible while the steps scroll past, sticky, not scroll-jacked. */
   .how-meta{position:relative;z-index:5;display:flex;align-items:center;gap:14px;padding:10px 24px;background:rgba(247,249,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(16,22,58,.07)}
   .how-line{position:relative;flex:1;height:3px;background:rgba(127,145,200,.18);border-radius:999px;overflow:hidden}
   .how-fill{display:block;height:100%;width:25%;background:linear-gradient(90deg,#2f4bff,#1856ED);box-shadow:0 0 10px rgba(47,75,255,.45);transition:width .35s var(--ease-out)}
