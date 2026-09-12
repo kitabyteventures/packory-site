@@ -69,7 +69,7 @@ Margin is only half the risk though. A thin margin means one disputed order can 
 
 Know the fee you pay. Keep proof for every order you ship. Then your margin survives both.
 
-Want the full fee list in one place? The [Fee & Profit Calculator](https://packory.app/tools/fee-profit-calculator/) is free, needs no login, and lists the lines most sellers only meet in their settlement.
+Want the full fee list in one place? The [Fee & Profit Calculator](https://console.packory.app/tools/fee-calculator?src=blog:gmv-fee-breakdown) is free — sign in once and it keeps your numbers, alongside the packing-proof tools that stop a thin margin becoming a lost dispute.
 
 ---
 
