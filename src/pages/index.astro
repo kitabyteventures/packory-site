@@ -203,6 +203,7 @@ const faqSchema = {
     </div>
     <div class="how-flow" id="howPin">
       <div class="how-meta">
+        <div class="wrap how-meta-in">
         <span class="how-count" id="howCount">1 / 4</span>
         <span class="how-line"><span class="how-fill" id="howFill"></span></span>
         <div class="how-rail" id="howRail" aria-label="Steps">
@@ -210,6 +211,7 @@ const faqSchema = {
           <button type="button" data-go="1"><span>2</span></button>
           <button type="button" data-go="2"><span>3</span></button>
           <button type="button" data-go="3"><span>4</span></button>
+        </div>
         </div>
       </div>
       <div class="how-stage" id="howStage">
@@ -974,12 +976,66 @@ const faqSchema = {
     .step-card h3{flex-wrap:wrap}
   }
 
-  /* ===== How-it-works full-screen steps (scrollytelling) ===== */
-  .how-head{padding:40px 0 4px}
+  /* ===== How it works: steps scroll down, tracker keeps the reader oriented ===== */
+  .how-head{padding:56px 0 8px}
   .how-head .sub{margin-bottom:16px}
   .how-flow{position:relative}
-  .how-stage{display:grid;gap:0;padding-bottom:8px}
-  .how-slide{position:relative;overflow:hidden;display:flex;align-items:center;padding:64px 0}
+  .how-stage{display:grid;gap:0}
+  .how-slide{position:relative;overflow:hidden;display:grid;align-items:center;padding:clamp(52px,6vw,92px) 0}
+  .slide-1{background:radial-gradient(900px 480px at 82% 12%,rgba(24,86,237,.16),transparent 62%),linear-gradient(180deg,#edf2fe,#f7f9fd)}
+  .slide-2{background:var(--grad-band);color:#fff}
+  .slide-3{background:linear-gradient(180deg,#fff,#eef2fd)}
+  .slide-4{background:var(--color-ink);color:#fff}
+  .how-ghost{position:absolute;right:1vw;top:-6vh;font-family:var(--font-display);font-weight:800;font-size:min(40vh,380px);line-height:1;color:rgba(16,22,58,.05);pointer-events:none;user-select:none;z-index:0}
+  .slide-2 .how-ghost,.slide-4 .how-ghost{color:rgba(255,255,255,.06)}
+  .how-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,4.5vw,72px);align-items:center;width:100%}
+  .how-grid.alt .how-txt{order:2}
+  .how-grid.alt .how-visual{order:1}
+  .how-txt{min-width:0;max-width:560px}
+  .how-txt .step-num{margin-bottom:14px}
+  .how-txt h3{font-size:clamp(1.7rem,3vw,2.6rem);line-height:1.12;margin-bottom:14px;color:inherit}
+  .how-txt p{color:var(--color-slate);font-size:clamp(15.5px,1.15vw,17px);line-height:1.6;max-width:48ch;margin:0}
+  .slide-2 .how-txt p,.slide-4 .how-txt p{color:#dbe6ff}
+  .slide-2 .step-num,.slide-4 .step-num{color:#ffc46b}
+  .how-visual{width:min(520px,100%);margin-inline:auto;position:relative;filter:drop-shadow(0 26px 44px rgba(24,86,237,.16))}
+  .scene-scan,.shot-card,.drive-card,.wa-card{background:#fff;border-radius:26px;box-shadow:0 30px 70px rgba(16,22,58,.16);position:relative}
+  .scene-scan{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:26px 22px;overflow:hidden}
+  .pkg{display:flex;align-items:center;justify-content:center;height:110px;color:#c9d4f0}
+  .barcode{display:flex;gap:5px;height:46px;align-items:stretch;padding:8px 14px;border:1.5px dashed #c7d6ff;border-radius:14px;background:#f6f8ff;max-width:100%}
+  .barcode i{width:var(--w);background:#10163a;border-radius:1px}
+  .scanline{position:absolute;top:auto;bottom:calc(42% + 20px);left:12%;right:12%;height:3px;background:linear-gradient(90deg,transparent,#1856ed,transparent);border-radius:3px;box-shadow:0 0 16px rgba(24,86,237,.55);animation:scanY 2.2s ease-in-out infinite}
+  @keyframes scanY{0%,100%{transform:translateY(0)}50%{transform:translateY(22px)}}
+  .chip{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.02em;background:var(--color-blue-soft);color:var(--color-blue-deep);padding:8px 14px;border-radius:999px;font-weight:700;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+  .shot-card{width:min(470px,100%);padding:12px;margin-inline:auto}
+  .shot-card img{width:100%;height:auto;aspect-ratio:1/1;max-height:min(44vh,420px);object-fit:cover;border-radius:18px;display:block}
+  .rec-chip{position:absolute;top:26px;left:26px;display:inline-flex;gap:8px;align-items:center;background:#10163a;color:#fff;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.08em;padding:7px 12px;border-radius:999px}
+  .rec-chip .dot{animation:recblink 1.1s ease-in-out infinite}
+  @keyframes recblink{0%,100%{opacity:1}50%{opacity:.25}}
+  .time-chip{position:absolute;bottom:26px;left:26px;background:rgba(16,22,58,.72);color:#fff;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;padding:7px 12px;border-radius:10px;backdrop-filter:blur(4px)}
+  .drive-card{width:min(470px,100%);margin-inline:auto;padding:22px}
+  .drive-top{display:flex;gap:10px;align-items:center;font-weight:700;font-size:15px;color:#4d5570;padding-bottom:12px;border-bottom:1px solid var(--color-line)}
+  .drive-row{display:flex;align-items:center;gap:10px;padding:13px 2px;border-bottom:1px solid #f0edf7;color:#232a4d;font-weight:600;font-size:14.5px}
+  .drive-row small{margin-left:auto;color:#a49a90;font-weight:500;font-size:12px}
+  .drive-row.ok svg{color:#0f9d6a}
+  .drive-card .chip{margin-top:16px}
+  .wa-card{width:min(450px,100%);margin-inline:auto;overflow:hidden}
+  .wa-head{background:#10163a;color:#fff;padding:14px 18px;font-weight:700;font-size:14px}
+  .wa-bubble{display:flex;gap:14px;align-items:center;margin:18px;background:#f2f5fb;border:1px solid #e4e9f5;border-radius:16px;padding:14px;color:var(--color-ink)}
+  .wa-bubble svg{flex:0 0 46px;width:46px;height:46px;padding:8px;box-sizing:border-box;background:var(--color-blue-soft);color:var(--color-blue-deep);border-radius:12px}
+  .wa-bubble strong{display:block;font-size:14px;margin-bottom:3px}
+  .wa-bubble span{color:var(--color-slate);font-size:13px}
+  .wa-seen{text-align:right;padding:0 20px 14px;color:#8a90a5;font-size:12.5px}
+  .wa-card .chip{margin:0 18px 18px}
+  /* Step bar: sticky under the nav, contents on the same container as the steps. */
+  .how-meta{position:sticky;top:56px;z-index:6;background:rgba(247,249,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(16,22,58,.07)}
+  .how-meta-in{display:flex;align-items:center;gap:16px;padding-block:10px}
+  .how-line{position:relative;flex:1;height:3px;background:rgba(127,145,200,.18);border-radius:999px;overflow:hidden;min-width:60px}
+  .how-fill{display:block;height:100%;width:25%;background:linear-gradient(90deg,#2f4bff,#1856ED);box-shadow:0 0 10px rgba(47,75,255,.45);transition:width .35s var(--ease-out)}
+  .how-count{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--color-ink);white-space:nowrap}
+  .how-rail{display:flex;gap:6px}
+  .how-rail button{width:34px;height:34px;border-radius:11px;border:1px solid rgba(16,22,58,.12);background:rgba(255,255,255,.7);backdrop-filter:blur(6px);color:var(--color-ink);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;transition:transform .2s var(--ease-out),background-color .2s,color .2s}
+  .how-rail button.active{background:var(--color-blue);color:#fff;border-color:var(--color-blue)}
+  @media(hover:hover){.how-rail button:hover{transform:translateX(-2px)}}
   /* Vertical tracker: the steps scroll down, this rail marks where you are. */
   .how-track{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;align-items:center;gap:16px;opacity:0;pointer-events:none;transition:opacity .2s var(--ease-out)}
   .how-track.on{opacity:1;pointer-events:auto}
@@ -988,70 +1044,22 @@ const faqSchema = {
   .how-dot{position:relative;z-index:1;width:34px;height:34px;border-radius:50%;border:1px solid rgba(16,22,58,.14);background:#fff;color:var(--color-slate);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:transform .2s var(--ease-out),background-color .2s,color .2s,border-color .2s}
   .how-dot.active{background:var(--color-blue);color:#fff;border-color:var(--color-blue);transform:scale(1.06)}
   @media(hover:hover){.how-dot:hover{border-color:var(--color-blue);color:var(--color-blue)}}
-  @media(max-width:1100px){.how-track{display:none}}
-  .how-head{padding:40px 0 4px}
-  .how-head .sub{margin-bottom:16px}
-  .slide-1{background:radial-gradient(900px 480px at 82% 12%,rgba(24,86,237,.16),transparent 62%),linear-gradient(180deg,#edf2fe,#f7f9fd)}
-  .slide-2{background:var(--grad-band);color:#fff}
-  .slide-3{background:linear-gradient(180deg,#fff,#eef2fd)}
-  .slide-4{background:var(--color-ink);color:#fff}
-  .how-ghost{position:absolute;right:1vw;top:-8vh;font-family:var(--font-display);font-weight:800;font-size:46vh;line-height:1;color:rgba(16,22,58,.05);pointer-events:none;user-select:none;z-index:0}
-  .slide-2 .how-ghost,.slide-4 .how-ghost{color:rgba(255,255,255,.06)}
-  .how-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;width:100%}
-  .how-grid.alt .how-txt{order:2}
-  .how-grid.alt .how-visual{order:1}
-  .how-txt .step-num{margin-bottom:16px}
-  .how-txt h3{font-size:clamp(1.8rem,3.2vw,2.7rem);line-height:1.12;margin-bottom:16px;color:inherit}
-  .how-txt p{color:var(--color-slate);font-size:17px;line-height:1.6;max-width:480px;margin:0}
-  .slide-2 .how-txt p,.slide-4 .how-txt p{color:#dbe6ff}
-  .slide-2 .step-num,.slide-4 .step-num{color:#ffc46b}
-  .how-visual{width:min(540px,100%);margin-inline:auto;position:relative}
-  .scene-scan,.shot-card,.drive-card,.wa-card{background:#fff;border-radius:26px;box-shadow:0 30px 70px rgba(16,22,58,.16);position:relative}
-  .scene-scan{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:26px 22px;overflow:hidden}
-  .pkg{display:flex;align-items:center;justify-content:center;height:110px;color:#c9d4f0}
-  .barcode{display:flex;gap:5px;height:46px;align-items:stretch;padding:8px 14px;border:1.5px dashed #c7d6ff;border-radius:14px;background:#f6f8ff}
-  .barcode i{width:var(--w);background:#10163a;border-radius:1px}
-  .scanline{position:absolute;top:auto;bottom:calc(42% + 20px);left:12%;right:12%;height:3px;background:linear-gradient(90deg,transparent,#1856ed,transparent);border-radius:3px;box-shadow:0 0 16px rgba(24,86,237,.55);animation:scanY 2.2s ease-in-out infinite}
-  @keyframes scanY{0%,100%{transform:translateY(0)}50%{transform:translateY(22px)}}
-  .chip{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.02em;background:var(--color-blue-soft);color:var(--color-blue-deep);padding:8px 14px;border-radius:999px;font-weight:700;white-space:nowrap}
-  .shot-card{width:min(480px,100%);padding:12px;margin-inline:auto}
-  .shot-card img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:18px;display:block}
-  .rec-chip{position:absolute;top:26px;left:26px;display:inline-flex;gap:8px;align-items:center;background:#10163a;color:#fff;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.08em;padding:7px 12px;border-radius:999px}
-  .rec-chip .dot{animation:recblink 1.1s ease-in-out infinite}
-  @keyframes recblink{0%,100%{opacity:1}50%{opacity:.25}}
-  .time-chip{position:absolute;bottom:26px;left:26px;background:rgba(16,22,58,.72);color:#fff;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;padding:7px 12px;border-radius:10px;backdrop-filter:blur(4px)}
-  .drive-card{width:min(480px,100%);margin-inline:auto;padding:22px}
-  .drive-top{display:flex;gap:10px;align-items:center;font-weight:700;font-size:15px;color:#4d5570;padding-bottom:12px;border-bottom:1px solid var(--color-line)}
-  .drive-row{display:flex;align-items:center;gap:10px;padding:13px 2px;border-bottom:1px solid #f0edf7;color:#232a4d;font-weight:600;font-size:14.5px}
-  .drive-row small{margin-left:auto;color:#a49a90;font-weight:500;font-size:12px}
-  .drive-row.ok svg{color:#0f9d6a}
-  .drive-card .chip{margin-top:16px}
-  .wa-card{width:min(460px,100%);margin-inline:auto;overflow:hidden}
-  .wa-head{background:#10163a;color:#fff;padding:14px 18px;font-weight:700;font-size:14px}
-  .wa-bubble{display:flex;gap:14px;align-items:center;margin:18px;background:#f2f5fb;border:1px solid #e4e9f5;border-radius:16px;padding:14px;color:var(--color-ink)}
-  .wa-bubble svg{flex:0 0 46px;width:46px;height:46px;padding:8px;box-sizing:border-box;background:var(--color-blue-soft);color:var(--color-blue-deep);border-radius:12px}
-  .wa-bubble strong{display:block;font-size:14px;margin-bottom:3px}
-  .wa-bubble span{color:var(--color-slate);font-size:13px}
-  .wa-seen{text-align:right;padding:0 20px 14px;color:#8a90a5;font-size:12.5px}
-  .wa-card .chip{margin:0 18px 18px}
-  /* Step bar stays visible while the steps scroll past, sticky, not scroll-jacked. */
-  .how-meta{position:sticky;top:56px;z-index:6;display:flex;align-items:center;gap:14px;padding:10px 24px;background:rgba(247,249,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(16,22,58,.07)}
-  .how-line{position:relative;flex:1;height:3px;background:rgba(127,145,200,.18);border-radius:999px;overflow:hidden}
-  .how-fill{display:block;height:100%;width:25%;background:linear-gradient(90deg,#2f4bff,#1856ED);box-shadow:0 0 10px rgba(47,75,255,.45);transition:width .35s var(--ease-out)}
-  .how-count{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--color-ink);white-space:nowrap}
-  .how-rail{display:flex;gap:6px}
-  .how-visual{filter:drop-shadow(0 26px 44px rgba(24,86,237,.16))}
-  .how-rail button{width:34px;height:34px;border-radius:11px;border:1px solid rgba(16,22,58,.12);background:rgba(255,255,255,.7);backdrop-filter:blur(6px);color:var(--color-ink);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;transition:transform .2s var(--ease-out),background-color .2s,color .2s}
-  .how-rail button.active{background:var(--color-blue);color:#fff;border-color:var(--color-blue)}
-  @media(hover:hover){.how-rail button:hover{transform:translateX(-2px)}}
-  @media(max-width:760px){
-    .how-slide{padding:44px 0}
-    .how-grid{gap:26px}
-    .how-txt{text-align:center}
-    .how-txt h3{font-size:clamp(1.5rem,6vw,2rem);margin-bottom:10px}
-    .how-txt p{max-width:38ch;margin:0 auto}
-    .how-visual{width:min(420px,100%)}
-    .how-ghost{font-size:24vh;right:0;top:-2vh}
+  @media(max-width:1280px){.how-track{display:none}}
+  /* Narrow screens incl. tablets: one column, centred, nothing squeezed side by side. */
+  @media(max-width:900px){
+    /* a step heading must clear the sticky bar when scrolled to */
+    .how-slide{padding:56px 0}
+    .how-grid{grid-template-columns:minmax(0,1fr);gap:22px}
+    .how-grid.alt .how-txt,.how-grid.alt .how-visual{order:0}
+    .how-txt{max-width:36rem;margin-inline:auto;text-align:center}
+    .how-txt .step-num{margin-bottom:10px}
+    .how-txt h3{font-size:clamp(1.45rem,5.6vw,1.9rem);margin-bottom:10px}
+    .how-txt p{max-width:46ch;margin:0 auto;font-size:15.5px}
+    .how-visual{width:min(430px,100%)}
+    .how-ghost{font-size:22vh;right:-2vw;top:-1vh}
+    .how-meta-in{gap:10px}
+    .how-count{font-size:10.5px;letter-spacing:.1em}
+    .how-rail button{width:30px;height:30px;border-radius:9px;font-size:11px}
   }
   .hamburger{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1px solid var(--color-line);background:#fff;color:var(--color-ink);cursor:pointer}
   .mobile-menu[hidden]{display:none}
