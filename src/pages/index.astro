@@ -650,8 +650,9 @@ const faqSchema = {
     const buttons = railEl ? Array.from(railEl.querySelectorAll('button')) : [];
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
     const clamped = (v, a, b) => Math.min(b, Math.max(a, v));
-    // Same condition as the deck CSS: pinned + sideways only on wider screens.
-    const deckMode = () => window.innerWidth > 760 && !reduce.matches;
+    // Same condition as the deck CSS: pinned + sideways, except reduced motion or a
+    // frame too short to hold a step (there the list falls back to stacked).
+    const deckMode = () => !reduce.matches && window.innerHeight > 700;
     const stepSpan = () => Math.max(1, slides.length - 1);
 
     const setActive = (i) => {
@@ -1000,7 +1001,10 @@ const faqSchema = {
   /* 761px+: the steps travel RIGHT -> LEFT while you scroll down. The deck is
      pinned under the nav and translated continuously from scroll progress, one
      transform per frame, no timers, no jumping one slide at a time. */
-  @media (min-width:761px) and (prefers-reduced-motion: no-preference){
+  /* A pinned panel only works when the frame can hold the step: below ~700px
+     tall (very small or landscape phones) the steps fall back to the plain
+     stacked list so nothing gets clipped. */
+  @media (prefers-reduced-motion: no-preference) and (min-height:701px){
     html.js-ok .how-flow{height:400vh}
     html.js-ok .how-sticky{position:sticky;top:56px;height:calc(100vh - 56px);display:flex;flex-direction:column;overflow:hidden}
     html.js-ok .how-stage{display:flex;flex-direction:row;flex-wrap:nowrap;flex:1 1 auto;min-height:0;width:400%;padding:0;will-change:transform}
@@ -1050,7 +1054,7 @@ const faqSchema = {
   .wa-seen{text-align:right;padding:0 20px 14px;color:#8a90a5;font-size:12.5px}
   .wa-card .chip{margin:0 18px 18px}
   /* Step bar stays visible while the steps scroll past, sticky, not scroll-jacked. */
-  .how-meta{position:relative;z-index:5;display:flex;align-items:center;gap:14px;padding:10px 24px;background:rgba(247,249,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(16,22,58,.07)}
+  .how-meta{position:relative;z-index:6;display:flex;align-items:center;gap:14px;padding:10px 24px;background:rgba(247,249,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(16,22,58,.07)}
   .how-line{position:relative;flex:1;height:3px;background:rgba(127,145,200,.18);border-radius:999px;overflow:hidden}
   .how-fill{display:block;height:100%;width:25%;background:linear-gradient(90deg,#2f4bff,#1856ED);box-shadow:0 0 10px rgba(47,75,255,.45);transition:width .35s var(--ease-out)}
   .how-count{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--color-ink);white-space:nowrap}
@@ -1061,6 +1065,15 @@ const faqSchema = {
   @media(hover:hover){.how-rail button:hover{transform:translateX(-2px)}}
   @media(max-width:760px){
     .how-slide{padding:44px 0}
+    /* deck mode on a phone: the panel is one screen tall, so keep it inside it */
+    html.js-ok .how-slide .wrap{padding:64px 16px 22px;gap:4px}
+    html.js-ok .how-grid{gap:14px}
+    html.js-ok .how-txt{text-align:center}
+    html.js-ok .how-txt h3{font-size:clamp(18px,5.4vw,23px);margin-bottom:8px}
+    html.js-ok .how-txt p{font-size:13.5px;line-height:1.5;max-width:36ch;margin:0 auto}
+    html.js-ok .how-visual{width:min(260px,66vw,30vh)}
+    html.js-ok .how-ghost{font-size:24vh;right:-4vw;top:-1vh}
+    html.js-ok .step-num{font-size:11px}
     .how-grid{grid-template-columns:1fr;gap:28px}
     .how-grid.alt .how-txt{order:1}
     .how-grid.alt .how-visual{order:2}
@@ -1069,6 +1082,30 @@ const faqSchema = {
     .how-visual{width:min(430px,100%)}
     .how-meta{gap:10px;padding:8px 16px}
     .how-rail button{width:30px;height:30px;font-size:11px}
+  }
+  /* When the deck is off (reduced motion, or a frame too short to pin) the steps
+     are a stacked list, and the progress bar must still float under the nav. */
+  @media (prefers-reduced-motion: reduce), (max-height:700px){
+    .how-meta{position:sticky;top:56px}
+  }
+  /* short frames (small or landscape phones): every panel must still fit one screen */
+  @media(max-height:720px){
+    html.js-ok .how-slide .wrap{padding:58px 16px 16px;gap:2px}
+    html.js-ok .how-visual{width:min(190px,26vh)}
+    html.js-ok .how-txt h3{font-size:clamp(16px,4.2vw,19px);margin-bottom:6px}
+    html.js-ok .how-txt p{font-size:12px;line-height:1.45;max-width:34ch}
+    html.js-ok .how-ghost{font-size:16vh}
+    html.js-ok .shot-card,html.js-ok .drive-card,html.js-ok .wa-card,html.js-ok .scene-scan{border-radius:16px}
+    html.js-ok .drive-row,html.js-ok .wa-bubble{padding:9px 2px;font-size:13px}
+    html.js-ok .wa-head{padding:11px 14px;font-size:13px}
+    html.js-ok .wa-bubble{margin:12px;padding:11px}
+    html.js-ok .wa-bubble strong{font-size:13px}
+    html.js-ok .wa-bubble span{font-size:12px}
+    html.js-ok .wa-seen{padding-bottom:10px;font-size:11.5px}
+    html.js-ok .wa-card .chip{margin:0 12px 12px}
+    html.js-ok .shot-card{padding:8px}
+    html.js-ok .scanline{bottom:calc(40% + 14px)}
+    html.js-ok .chip{font-size:11px;padding:6px 10px}
   }
   .hamburger{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1px solid var(--color-line);background:#fff;color:var(--color-ink);cursor:pointer}
   .mobile-menu[hidden]{display:none}
