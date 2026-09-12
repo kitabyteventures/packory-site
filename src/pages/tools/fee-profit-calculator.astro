@@ -56,6 +56,30 @@ const checked = '5 September 2026';
           </label>
         </div>
 
+        <p class="fpc-label">2b · More fee lines (optional — check your Seller Centre)</p>
+        <div class="fpc-fields">
+          <label class="fpc-field">
+            <span>Transaction / payment fee <em>% — e.g. SPayLater &amp; cards</em></span>
+            <span class="fpc-pct"><input id="fpcTrx" type="number" inputmode="decimal" min="0" step="0.1" placeholder="0.0" /></span>
+          </label>
+          <label class="fpc-field">
+            <span>Programme / service fee <em>% — mall, free-shipping programme</em></span>
+            <span class="fpc-pct"><input id="fpcProg" type="number" inputmode="decimal" min="0" step="0.1" placeholder="0.0" /></span>
+          </label>
+          <label class="fpc-field">
+            <span>Pay-later / instalment fee <em>% — SPayLater, 0% plans</em></span>
+            <span class="fpc-pct"><input id="fpcSpay" type="number" inputmode="decimal" min="0" step="0.1" placeholder="0.0" /></span>
+          </label>
+          <label class="fpc-field">
+            <span>Other fixed fee <em>RM per order</em></span>
+            <span class="fpc-money"><input id="fpcFixed" type="number" inputmode="decimal" min="0" step="0.01" placeholder="0.00" /></span>
+          </label>
+        </div>
+        <label class="fpc-check fpc-check-solo">
+          <input type="checkbox" id="fpcSupport" />
+          <span><b>Platform support fee — RM0.54</b><em>Some sellers are exempt; untick if your Seller Centre does not charge it.</em></span>
+        </label>
+
         <!-- Platform-specific extras -->
         <div class="fpc-extras" id="fpcExtras"></div>
       </section>
@@ -129,7 +153,7 @@ const checked = '5 September 2026';
       <details>
         <summary>What does this calculator not include?</summary>
         <p>
-          It is a per-order estimate, not a settlement statement. It does not include promo discounts you fund, voucher costs, advertising, return/refund losses, storage, or marketplace payment/transaction fees. Treat the result as a close planning figure — your exact settlement may differ by a few sen to a few ringgit depending on your programme.
+          It is a per-order estimate, not a settlement statement. You can add your own optional lines above — transaction/payment, programme/service, pay-later, and fixed fees — using figures from your Seller Centre. The RM0.54 platform support fee is a toggle because some sellers are exempt. Still not included: promo discounts you fund, voucher costs, advertising, return/refund losses, and storage.
         </p>
       </details>
     </section>
@@ -158,7 +182,7 @@ const checked = '5 September 2026';
       }
     };
 
-    var state = { platform: 'shopee', price: '', cost: '', shipping: '', commission: '', ssfs: 'none', sst: false };
+    var state = { platform: 'shopee', price: '', cost: '', shipping: '', commission: '', trx: '', prog: '', spay: '', fixed: '', support: false, ssfs: 'none', sst: false };
     var lastTrack = 0;
 
     function $(id) { return document.getElementById(id); }
@@ -181,6 +205,11 @@ const checked = '5 September 2026';
       if (state.cost !== '') q.set('c', state.cost);
       if (state.shipping !== '') q.set('s', state.shipping);
       if (state.commission !== '') q.set('m', state.commission);
+      if (state.trx !== '') q.set('x', state.trx);
+      if (state.prog !== '') q.set('g', state.prog);
+      if (state.spay !== '') q.set('y', state.spay);
+      if (state.fixed !== '') q.set('d', state.fixed);
+      if (state.support) q.set('u', '1');
       if (state.platform === 'shopee' && state.ssfs !== 'none') q.set('f', state.ssfs);
       if (state.platform === 'tiktok' && state.sst) q.set('t', '1');
       try { history.replaceState(null, '', window.location.pathname + '?' + q.toString()); } catch (e) { /* noop */ }
@@ -194,6 +223,11 @@ const checked = '5 September 2026';
         if (q.has('c')) state.cost = q.get('c');
         if (q.has('s')) state.shipping = q.get('s');
         if (q.has('m')) state.commission = q.get('m');
+        if (q.has('x')) state.trx = q.get('x');
+        if (q.has('g')) state.prog = q.get('g');
+        if (q.has('y')) state.spay = q.get('y');
+        if (q.has('d')) state.fixed = q.get('d');
+        if (q.has('u')) state.support = q.get('u') === '1';
         if (state.platform === 'shopee' && q.has('f') && ['std', 'pref'].indexOf(q.get('f')) >= 0) state.ssfs = q.get('f');
         if (state.platform === 'tiktok') state.sst = q.get('t') === '1';
       } catch (e) { /* defaults */ }
@@ -235,6 +269,8 @@ const checked = '5 September 2026';
       });
       var sst = $('fpcSst');
       if (sst) sst.addEventListener('change', function () { state.sst = sst.checked; render(); });
+      var support = $('fpcSupport');
+      if (support) support.addEventListener('change', function () { state.support = support.checked; render(); });
     }
 
     function feeRows() {
@@ -257,6 +293,13 @@ const checked = '5 September 2026';
       }
       if (cost > 0) rows.push({ label: 'Item cost (COGS)', value: cost, kind: 'cost' });
 
+      var trxPct = num(state.trx), progPct = num(state.prog), spayPct = num(state.spay), fixedFee = num(state.fixed);
+      if (trxPct > 0) rows.push({ label: 'Transaction / payment fee (' + trxPct + '%)', value: (price * trxPct) / 100, kind: 'fee' });
+      if (progPct > 0) rows.push({ label: 'Programme / service fee (' + progPct + '%)', value: (price * progPct) / 100, kind: 'fee' });
+      if (spayPct > 0) rows.push({ label: 'Pay-later / instalment fee (' + spayPct + '%)', value: (price * spayPct) / 100, kind: 'fee' });
+      if (fixedFee > 0) rows.push({ label: 'Other fixed fee', value: fixedFee, kind: 'fee' });
+      if (state.support) rows.push({ label: 'Platform support fee', value: 0.54, kind: 'fee', note: 'skip if you are exempt' });
+
       var fees = rows.filter(function (r) { return r.kind === 'fee'; }).reduce(function (a, r) { return a + r.value; }, 0);
       var total = fees + cost;
       var profit = price - total;
@@ -266,7 +309,7 @@ const checked = '5 September 2026';
 
     function render() {
       renderExtras();
-      var hasInput = state.price !== '' || state.cost !== '' || state.shipping !== '' || state.commission !== '';
+      var hasInput = state.price !== '' || state.cost !== '' || state.shipping !== '' || state.commission !== '' || state.trx !== '' || state.prog !== '' || state.spay !== '' || state.fixed !== '' || state.support;
       if (!hasInput) {
         $('fpcEmpty').hidden = false;
         $('fpcOut').hidden = true;
@@ -354,7 +397,11 @@ const checked = '5 September 2026';
         ['fpcPrice', 'price'],
         ['fpcCost', 'cost'],
         ['fpcShipping', 'shipping'],
-        ['fpcCommission', 'commission']
+        ['fpcCommission', 'commission'],
+        ['fpcTrx', 'trx'],
+        ['fpcProg', 'prog'],
+        ['fpcSpay', 'spay'],
+        ['fpcFixed', 'fixed']
       ].forEach(function (pair) {
         $(pair[0]).addEventListener('input', function () {
           state[pair[1]] = $(pair[0]).value;
@@ -391,8 +438,10 @@ const checked = '5 September 2026';
 
       renderExtras();
       // hydrate inputs
-      var map = { fpcPrice: 'price', fpcCost: 'cost', fpcShipping: 'shipping', fpcCommission: 'commission' };
+      var map = { fpcPrice: 'price', fpcCost: 'cost', fpcShipping: 'shipping', fpcCommission: 'commission', fpcTrx: 'trx', fpcProg: 'prog', fpcSpay: 'spay', fpcFixed: 'fixed' };
       Object.keys(map).forEach(function (id) { $(id).value = state[map[id]]; });
+      var supportBox = $('fpcSupport');
+      if (supportBox) supportBox.checked = !!state.support;
       var activeTab = document.querySelector('.fpc-tab[data-platform="' + state.platform + '"]');
       document.querySelectorAll('.fpc-tab').forEach(function (x) { x.setAttribute('aria-selected', String(x === activeTab)); });
       render();
@@ -459,6 +508,7 @@ const checked = '5 September 2026';
   .fpc-check input { margin-top: 0.25rem; accent-color: #2f4bff; width: 1rem; height: 1rem; }
   .fpc-check span { display: flex; flex-direction: column; font-size: 0.875rem; font-weight: 600; color: #0a0d1e; line-height: 1.4; }
   .fpc-check em { font-style: normal; font-size: 0.75rem; font-weight: 500; color: #6b7280; }
+  .fpc-check-solo { margin-top: 0.75rem; }
 
   .fpc-empty { padding: 2.25rem 0; text-align: center; }
   .fpc-empty-title { font-family: 'Space Grotesk', sans-serif; font-size: 1.35rem; color: #0a0d1e; font-weight: 600; margin-bottom: 0.5rem; }

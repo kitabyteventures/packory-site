@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPost.astro
 title: "Shopee Dispute Process in Malaysia: How Sellers Win Refund & Return Cases"
 description: "Shopee dispute process in Malaysia explained: common claim types sellers face, what evidence the review expects, and how packing video settles cases."
 pubDate: 2026-09-03

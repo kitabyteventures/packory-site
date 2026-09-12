@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogPost.astro
 title: "Parcel Swap & Empty Parcel Claims: How to Protect Every Order"
 description: "Parcel swap and empty parcel claims are decided on evidence. Learn how timestamped packing video protects every order you ship as a Malaysian seller."
 pubDate: 2026-09-03
