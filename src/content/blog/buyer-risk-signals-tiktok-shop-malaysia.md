@@ -66,6 +66,6 @@ COD orders add a second risk layer because payment happens at the door. If a par
 
 You do not need to wait for Buyer Check to protect this week's TikTok Shop orders.
 
-👉 [Start free — 50 orders a month](https://console.packory.app/signup?source=blog:buyer-risk-signals-tiktok-shop-malaysia)
+👉 [Start free, no card needed](https://console.packory.app/signup?source=blog:buyer-risk-signals-tiktok-shop-malaysia)
 
 Every order. On video. Dispute-proof. Get the record before the claim happens — and if you want early access to Buyer Check, [join the waitlist](/check-buyer).
