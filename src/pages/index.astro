@@ -202,7 +202,6 @@ const faqSchema = {
       <p class="sub">Packing verification that runs itself, automatic, hands-free, timestamped at capture. Scroll to walk through each step.</p>
     </div>
     <div class="how-flow" id="howPin">
-      <div class="how-sticky">
       <div class="how-meta">
         <span class="how-count" id="howCount">1 / 4</span>
         <span class="how-line"><span class="how-fill" id="howFill"></span></span>
@@ -294,7 +293,13 @@ const faqSchema = {
             </div>
           </div>
         </div>
-      </div>
+    </div>
+    <div class="how-track" id="howTrack" aria-label="Step tracker">
+      <span class="how-track-line"><span class="how-track-fill" id="howTrackFill"></span></span>
+      <button type="button" class="how-dot active" data-go="0" aria-current="true"><span>1</span></button>
+      <button type="button" class="how-dot" data-go="1"><span>2</span></button>
+      <button type="button" class="how-dot" data-go="2"><span>3</span></button>
+      <button type="button" class="how-dot" data-go="3"><span>4</span></button>
     </div>
   </section>
 
@@ -639,56 +644,32 @@ const faqSchema = {
     }
   }
 
-  // ===== How-it-works: steps travel right -> left as you scroll down =====
-  const howPin = document.getElementById('howPin');
+  // ===== How-it-works: steps scroll down, the tracker shows where you are =====
   const howStage = document.getElementById('howStage');
-  if (howPin && howStage) {
+  if (howStage) {
     const slides = Array.from(howStage.querySelectorAll('.how-slide'));
     const countEl = document.getElementById('howCount');
     const fillEl = document.getElementById('howFill');
-    const railEl = document.getElementById('howRail');
-    const buttons = railEl ? Array.from(railEl.querySelectorAll('button')) : [];
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const trackEl = document.getElementById('howTrack');
+    const trackFill = document.getElementById('howTrackFill');
+    const dots = trackEl ? Array.from(trackEl.querySelectorAll('button')) : [];
+    const chips = Array.from(document.querySelectorAll('#howRail button'));
     const clamped = (v, a, b) => Math.min(b, Math.max(a, v));
-    // Same condition as the deck CSS: pinned + sideways, except reduced motion or a
-    // frame too short to hold a step (there the list falls back to stacked).
-    const deckMode = () => !reduce.matches && window.innerHeight > 700;
-    const stepSpan = () => Math.max(1, slides.length - 1);
 
-    const setActive = (i) => {
-      const idx = clamped(i, 0, slides.length - 1);
+    const markActive = (idx) => {
       if (countEl) countEl.textContent = (idx + 1) + ' / ' + slides.length;
       if (fillEl) fillEl.style.width = (((idx + 1) / slides.length) * 100) + '%';
-      buttons.forEach((b, bi) => {
-        const on = bi === idx;
+      [...chips, ...dots].forEach((b) => {
+        const on = Number(b.dataset.go) === idx;
         b.classList.toggle('active', on);
         if (on) b.setAttribute('aria-current', 'true');
         else b.removeAttribute('aria-current');
       });
     };
 
-    const progress = () => {
-      const total = Math.max(1, howPin.offsetHeight - window.innerHeight);
-      return clamped(-howPin.getBoundingClientRect().top / total, 0, 1);
-    };
-
     const apply = () => {
-      if (deckMode()) {
-        // Ease within each step: the deck rests on a step for the first and last
-        // third of its scroll slice, then glides to the next one. Without this a
-        // fast scroll never lands on a readable step.
-        const span = stepSpan();
-        const seg = clamped(progress() * span, 0, span);
-        const whole = Math.floor(seg);
-        const f = seg - whole;
-        const eased = whole + f * f * (3 - 2 * f);
-        howStage.style.transform = 'translate3d(' + (-eased * 25).toFixed(4) + '%,0,0)';
-        setActive(Math.round(eased));
-        return;
-      }
-      // Stacked (phone / reduced motion): no transform, just follow the nearest step.
-      if (howStage.style.transform) howStage.style.transform = '';
-      const mid = window.innerHeight / 2;
+      const vh = window.innerHeight;
+      const mid = vh / 2;
       let best = 0;
       let bestDist = Infinity;
       slides.forEach((slide, i) => {
@@ -696,21 +677,23 @@ const faqSchema = {
         const d = Math.abs(r.top + r.height / 2 - mid);
         if (d < bestDist) { bestDist = d; best = i; }
       });
-      setActive(best);
+      markActive(best);
+
+      if (trackEl && trackFill) {
+        const stage = howStage.getBoundingClientRect();
+        const visible = stage.bottom > vh * 0.25 && stage.top < vh * 0.75;
+        trackEl.classList.toggle('on', visible);
+        const p = clamped((vh * 0.6 - stage.top) / Math.max(1, stage.height), 0, 1);
+        trackFill.style.height = (p * 100).toFixed(2) + '%';
+      }
     };
 
-    buttons.forEach((b, i) => {
-      b.addEventListener('click', () => {
-        const behavior = reduce.matches ? 'auto' : 'smooth';
-        if (deckMode()) {
-          const total = Math.max(1, howPin.offsetHeight - window.innerHeight);
-          const top = window.scrollY + howPin.getBoundingClientRect().top + (i / stepSpan()) * total;
-          window.scrollTo({ top, behavior });
-        } else if (slides[i]) {
-          slides[i].scrollIntoView({ behavior, block: 'center' });
-        }
-      });
-    });
+    const goTo = (i) => {
+      if (!slides[i]) return;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      slides[i].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+    };
+    [...chips, ...dots].forEach((b) => b.addEventListener('click', () => goTo(Number(b.dataset.go))));
 
     let ticking = false;
     const onScroll = () => {
@@ -995,21 +978,19 @@ const faqSchema = {
   .how-head{padding:40px 0 4px}
   .how-head .sub{margin-bottom:16px}
   .how-flow{position:relative}
-  .how-sticky{position:static}
   .how-stage{display:grid;gap:0;padding-bottom:8px}
   .how-slide{position:relative;overflow:hidden;display:flex;align-items:center;padding:64px 0}
-  /* 761px+: the steps travel RIGHT -> LEFT while you scroll down. The deck is
-     pinned under the nav and translated continuously from scroll progress, one
-     transform per frame, no timers, no jumping one slide at a time. */
-  /* A pinned panel only works when the frame can hold the step: below ~700px
-     tall (very small or landscape phones) the steps fall back to the plain
-     stacked list so nothing gets clipped. */
-  @media (prefers-reduced-motion: no-preference) and (min-height:701px){
-    html.js-ok .how-flow{height:400vh}
-    html.js-ok .how-sticky{position:sticky;top:56px;height:calc(100vh - 56px);display:flex;flex-direction:column;overflow:hidden}
-    html.js-ok .how-stage{display:flex;flex-direction:row;flex-wrap:nowrap;flex:1 1 auto;min-height:0;width:400%;padding:0;will-change:transform}
-    html.js-ok .how-slide{flex:0 0 25%;width:25%;height:100%;min-height:0;padding:0}
-  }
+  /* Vertical tracker: the steps scroll down, this rail marks where you are. */
+  .how-track{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;align-items:center;gap:16px;opacity:0;pointer-events:none;transition:opacity .2s var(--ease-out)}
+  .how-track.on{opacity:1;pointer-events:auto}
+  .how-track-line{position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:rgba(127,145,200,.3);border-radius:999px;overflow:hidden}
+  .how-track-fill{display:block;width:100%;height:0;background:linear-gradient(180deg,#2f4bff,#1856ED);box-shadow:0 0 12px rgba(47,75,255,.45);transition:height .18s linear}
+  .how-dot{position:relative;z-index:1;width:34px;height:34px;border-radius:50%;border:1px solid rgba(16,22,58,.14);background:#fff;color:var(--color-slate);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:transform .2s var(--ease-out),background-color .2s,color .2s,border-color .2s}
+  .how-dot.active{background:var(--color-blue);color:#fff;border-color:var(--color-blue);transform:scale(1.06)}
+  @media(hover:hover){.how-dot:hover{border-color:var(--color-blue);color:var(--color-blue)}}
+  @media(max-width:1100px){.how-track{display:none}}
+  .how-head{padding:40px 0 4px}
+  .how-head .sub{margin-bottom:16px}
   .slide-1{background:radial-gradient(900px 480px at 82% 12%,rgba(24,86,237,.16),transparent 62%),linear-gradient(180deg,#edf2fe,#f7f9fd)}
   .slide-2{background:var(--grad-band);color:#fff}
   .slide-3{background:linear-gradient(180deg,#fff,#eef2fd)}
@@ -1054,7 +1035,7 @@ const faqSchema = {
   .wa-seen{text-align:right;padding:0 20px 14px;color:#8a90a5;font-size:12.5px}
   .wa-card .chip{margin:0 18px 18px}
   /* Step bar stays visible while the steps scroll past, sticky, not scroll-jacked. */
-  .how-meta{position:relative;z-index:6;display:flex;align-items:center;gap:14px;padding:10px 24px;background:rgba(247,249,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(16,22,58,.07)}
+  .how-meta{position:sticky;top:56px;z-index:6;display:flex;align-items:center;gap:14px;padding:10px 24px;background:rgba(247,249,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(16,22,58,.07)}
   .how-line{position:relative;flex:1;height:3px;background:rgba(127,145,200,.18);border-radius:999px;overflow:hidden}
   .how-fill{display:block;height:100%;width:25%;background:linear-gradient(90deg,#2f4bff,#1856ED);box-shadow:0 0 10px rgba(47,75,255,.45);transition:width .35s var(--ease-out)}
   .how-count{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--color-ink);white-space:nowrap}
@@ -1065,47 +1046,12 @@ const faqSchema = {
   @media(hover:hover){.how-rail button:hover{transform:translateX(-2px)}}
   @media(max-width:760px){
     .how-slide{padding:44px 0}
-    /* deck mode on a phone: the panel is one screen tall, so keep it inside it */
-    html.js-ok .how-slide .wrap{padding:64px 16px 22px;gap:4px}
-    html.js-ok .how-grid{gap:14px}
-    html.js-ok .how-txt{text-align:center}
-    html.js-ok .how-txt h3{font-size:clamp(18px,5.4vw,23px);margin-bottom:8px}
-    html.js-ok .how-txt p{font-size:13.5px;line-height:1.5;max-width:36ch;margin:0 auto}
-    html.js-ok .how-visual{width:min(260px,66vw,30vh)}
-    html.js-ok .how-ghost{font-size:24vh;right:-4vw;top:-1vh}
-    html.js-ok .step-num{font-size:11px}
-    .how-grid{grid-template-columns:1fr;gap:28px}
-    .how-grid.alt .how-txt{order:1}
-    .how-grid.alt .how-visual{order:2}
-    .how-txt h3{font-size:clamp(1.5rem,6vw,2rem)}
+    .how-grid{gap:26px}
+    .how-txt{text-align:center}
+    .how-txt h3{font-size:clamp(1.5rem,6vw,2rem);margin-bottom:10px}
+    .how-txt p{max-width:38ch;margin:0 auto}
+    .how-visual{width:min(420px,100%)}
     .how-ghost{font-size:24vh;right:0;top:-2vh}
-    .how-visual{width:min(430px,100%)}
-    .how-meta{gap:10px;padding:8px 16px}
-    .how-rail button{width:30px;height:30px;font-size:11px}
-  }
-  /* When the deck is off (reduced motion, or a frame too short to pin) the steps
-     are a stacked list, and the progress bar must still float under the nav. */
-  @media (prefers-reduced-motion: reduce), (max-height:700px){
-    .how-meta{position:sticky;top:56px}
-  }
-  /* short frames (small or landscape phones): every panel must still fit one screen */
-  @media(max-height:720px){
-    html.js-ok .how-slide .wrap{padding:58px 16px 16px;gap:2px}
-    html.js-ok .how-visual{width:min(190px,26vh)}
-    html.js-ok .how-txt h3{font-size:clamp(16px,4.2vw,19px);margin-bottom:6px}
-    html.js-ok .how-txt p{font-size:12px;line-height:1.45;max-width:34ch}
-    html.js-ok .how-ghost{font-size:16vh}
-    html.js-ok .shot-card,html.js-ok .drive-card,html.js-ok .wa-card,html.js-ok .scene-scan{border-radius:16px}
-    html.js-ok .drive-row,html.js-ok .wa-bubble{padding:9px 2px;font-size:13px}
-    html.js-ok .wa-head{padding:11px 14px;font-size:13px}
-    html.js-ok .wa-bubble{margin:12px;padding:11px}
-    html.js-ok .wa-bubble strong{font-size:13px}
-    html.js-ok .wa-bubble span{font-size:12px}
-    html.js-ok .wa-seen{padding-bottom:10px;font-size:11.5px}
-    html.js-ok .wa-card .chip{margin:0 12px 12px}
-    html.js-ok .shot-card{padding:8px}
-    html.js-ok .scanline{bottom:calc(40% + 14px)}
-    html.js-ok .chip{font-size:11px;padding:6px 10px}
   }
   .hamburger{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1px solid var(--color-line);background:#fff;color:var(--color-ink);cursor:pointer}
   .mobile-menu[hidden]{display:none}
