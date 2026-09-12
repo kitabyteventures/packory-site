@@ -35,7 +35,7 @@ That habit does not care which platform you sell on or which logistics entity in
 
 ## Protecting margin on both sides of the ledger
 
-September's changes are mostly outside your control — the tax rate, the logistics entity, the platform's invoicing. What stays inside your control is the cost of being wrong in a dispute. Packory is the evidence layer for that: from RM49 a month for 300 verified orders, which works out to roughly RM0.16 per order for proof across every parcel — less than half of the RM0.48 SST on that RM8 shipping example, and it covers the disputes that tax changes and fee automation do not touch.
+September's changes are mostly outside your control — the tax rate, the logistics entity, the platform's invoicing. What stays inside your control is the cost of being wrong in a dispute. Packory is the evidence layer for that: from RM12.99 a month for 75 verified videos, which works out to roughly RM0.13 per video on the Verified plan for proof across every parcel — less than half of the RM0.48 SST on that RM8 shipping example, and it covers the disputes that tax changes and fee automation do not touch.
 
 Check your settlement, understand the new line items, and keep your packing record automatic. Costs go up; your proof does not have to be one of them.
 

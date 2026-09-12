@@ -59,7 +59,7 @@ If you are evaluating one, check for these properties rather than flashy feature
 
 Packory is built around those properties. It records hands-free packing video proof for sellers across any marketplace: the AWB scan auto-starts recording, a UTC timestamp is burned into every frame, a thumbs-up stops the clip, the video syncs to your own cloud storage, and the evidence link is sent to the buyer on WhatsApp.
 
-The pricing is built for real order volumes: a free tier covers 50 verified orders a month, then RM49 for 300 orders, RM99 for 600, and RM199 for 1,500 or more per month. The positioning is honest — jual proof, bukan fear. Sell proof, not fear. Every order. On video. Dispute-proof.
+The pricing is built for real order volumes: a free tier covers 25 verified videos a month, then RM12.99 for 75 videos, RM39.99 for 300, RM69.99 for 600, and RM149 for 1,500 or more per month. The positioning is honest — jual proof, bukan fear. Sell proof, not fear. Every order. On video. Dispute-proof.
 
 The test of a packing verification setup is not whether it records the order you were nervous about. It is whether it recorded all of them, without anyone noticing the extra work — so that when a claim comes, the answer is already on file.
 

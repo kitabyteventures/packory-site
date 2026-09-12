@@ -76,7 +76,7 @@ The reason sellers skip video isn't that they don't see the value — it's that 
 - The video syncs to **your own cloud storage** in the background
 - An evidence link is sent to the buyer on WhatsApp before the parcel ships
 
-It works with any marketplace — Shopee, TikTok Shop, Lazada, Shopify — so the workflow stays the same no matter where you sell. The free tier covers 50 verified orders a month, with paid plans starting at RM49 for 300 orders.
+It works with any marketplace — Shopee, TikTok Shop, Lazada, Shopify — so the workflow stays the same no matter where you sell. The free tier covers 25 verified videos a month, with paid plans starting at RM12.99 for 75 videos.
 
 An empty box claim is stressful, but it's really a test of your records. Sellers who walk into a dispute with a timestamped video of the parcel leaving their hands sealed and intact rarely have to argue twice. Build the habit before you need it — not after the first claim teaches you why.
 

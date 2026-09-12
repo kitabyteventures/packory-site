@@ -78,7 +78,7 @@ The problem with checklists is consistency — filming by hand works for a week,
 - The video syncs to **your own cloud storage**
 - The evidence link is sent to the buyer on WhatsApp automatically
 
-It works with any marketplace — Shopee, TikTok Shop, Lazada, Shopify — so protection is the same across channels. The free tier covers 50 verified orders a month, and paid plans start at RM49 for 300 orders.
+It works with any marketplace — Shopee, TikTok Shop, Lazada, Shopify — so protection is the same across channels. The free tier covers 25 verified videos a month, and paid plans start at RM12.99 for 75 videos.
 
 Parcel swap and empty parcel claims are decided on evidence, and the evidence starts at your packing table. Record the chain on every order, and the claims that do surface stop being a gamble.
 

@@ -40,7 +40,7 @@ The practical challenge has always been consistency. Recording every order by ha
 
 The two are not competitors; they cover different layers. The RM0.28 per order service looks after your fee claims, and your own packing video looks after the disputes that fee automation cannot see. Sellers who run both have the full picture: fees recovered automatically, and factual disputes answered with proof they already hold.
 
-Packory is the evidence layer for that second layer — from RM49 a month for 300 verified orders, which works out to about RM0.16 per order for evidence across every parcel, not just the expensive ones. It works with Shopee or any other channel you sell on, and it turns packing from a trust exercise into a routine that protects your margin either way.
+Packory is the evidence layer for that second layer — from RM12.99 a month for 75 verified videos, or about RM0.13 per video on the Verified plan (300 videos), for evidence across every parcel, not just the expensive ones. It works with Shopee or any other channel you sell on, and it turns packing from a trust exercise into a routine that protects your margin either way.
 
 ---
 
