@@ -202,22 +202,23 @@ const faqSchema = {
       <p class="sub">Packing verification that runs itself — automatic, hands-free, timestamped at capture. Scroll to walk through each step.</p>
     </div>
     <div class="how-flow" id="howPin">
+      <div class="how-sticky">
       <div class="how-meta">
-        <span class="how-count" id="howCount">01 / 04</span>
+        <span class="how-count" id="howCount">1 / 4</span>
         <span class="how-line"><span class="how-fill" id="howFill"></span></span>
         <div class="how-rail" id="howRail" aria-label="Steps">
-          <button type="button" data-go="0" class="active" aria-current="true"><span>01</span></button>
-          <button type="button" data-go="1"><span>02</span></button>
-          <button type="button" data-go="2"><span>03</span></button>
-          <button type="button" data-go="3"><span>04</span></button>
+          <button type="button" data-go="0" class="active" aria-current="true"><span>1</span></button>
+          <button type="button" data-go="1"><span>2</span></button>
+          <button type="button" data-go="2"><span>3</span></button>
+          <button type="button" data-go="3"><span>4</span></button>
         </div>
       </div>
       <div class="how-stage" id="howStage">
           <div class="how-slide slide-1">
-            <span class="how-ghost">01</span>
+            <span class="how-ghost">1</span>
             <div class="wrap how-grid">
               <div class="how-txt">
-                <span class="step-num">Step 01 · Scan</span>
+                <span class="step-num">Step 1 · Scan</span>
                 <h3>Scan the AWB — recording starts by itself</h3>
                 <p>One barcode scan every 1.5 seconds. No screen touching, no new workflow — the camera becomes a silent witness.</p>
               </div>
@@ -236,10 +237,10 @@ const faqSchema = {
             </div>
           </div>
           <div class="how-slide slide-2">
-            <span class="how-ghost">02</span>
+            <span class="how-ghost">2</span>
             <div class="wrap how-grid alt">
               <div class="how-txt">
-                <span class="step-num">Step 02 · Record</span>
+                <span class="step-num">Step 2 · Record</span>
                 <h3>Pack on camera — UTC burned into the frame</h3>
                 <p>Every item goes into the box on video. The timestamp is part of the footage, so nobody can argue about when it was shot.</p>
               </div>
@@ -253,10 +254,10 @@ const faqSchema = {
             </div>
           </div>
           <div class="how-slide slide-3">
-            <span class="how-ghost">03</span>
+            <span class="how-ghost">3</span>
             <div class="wrap how-grid">
               <div class="how-txt">
-                <span class="step-num">Step 03 · Thumbs-up</span>
+                <span class="step-num">Step 3 · Thumbs-up</span>
                 <h3>Done? File it under the order</h3>
                 <p>One thumbs-up stops the clip and files it under that AWB in your own cloud storage — findable in seconds, not buried in a phone gallery.</p>
               </div>
@@ -272,10 +273,10 @@ const faqSchema = {
             </div>
           </div>
           <div class="how-slide slide-4">
-            <span class="how-ghost">04</span>
+            <span class="how-ghost">4</span>
             <div class="wrap how-grid alt">
               <div class="how-txt">
-                <span class="step-num">Step 04 · Share</span>
+                <span class="step-num">Step 4 · Share</span>
                 <h3>Buyer sees proof before the parcel ships</h3>
                 <p>The evidence link reaches the buyer automatically — no app for them, no chasing. Proof is there before the courier is.</p>
               </div>
@@ -293,6 +294,7 @@ const faqSchema = {
             </div>
           </div>
         </div>
+      </div>
     </div>
   </section>
 
@@ -637,34 +639,54 @@ const faqSchema = {
     }
   }
 
-  // ===== How-it-works: steps scroll normally; the bar tracks which step you are on =====
+  // ===== How-it-works: steps travel right -> left as you scroll down =====
+  const howPin = document.getElementById('howPin');
   const howStage = document.getElementById('howStage');
-  if (howStage) {
+  if (howPin && howStage) {
     const slides = Array.from(howStage.querySelectorAll('.how-slide'));
     const countEl = document.getElementById('howCount');
     const fillEl = document.getElementById('howFill');
     const railEl = document.getElementById('howRail');
     const buttons = railEl ? Array.from(railEl.querySelectorAll('button')) : [];
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const clamped = (v, a, b) => Math.min(b, Math.max(a, v));
+    // Same condition as the deck CSS: pinned + sideways only on wider screens.
+    const deckMode = () => window.innerWidth > 760 && !reduce.matches;
+    const stepSpan = () => Math.max(1, slides.length - 1);
+
     const setActive = (i) => {
-      if (countEl) countEl.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
-      if (fillEl) fillEl.style.width = (((i + 1) / slides.length) * 100) + '%';
+      const idx = clamped(i, 0, slides.length - 1);
+      if (countEl) countEl.textContent = (idx + 1) + ' / ' + slides.length;
+      if (fillEl) fillEl.style.width = (((idx + 1) / slides.length) * 100) + '%';
       buttons.forEach((b, bi) => {
-        const on = bi === i;
+        const on = bi === idx;
         b.classList.toggle('active', on);
         if (on) b.setAttribute('aria-current', 'true');
         else b.removeAttribute('aria-current');
       });
     };
-    buttons.forEach((b, i) => {
-      b.addEventListener('click', () => {
-        if (!slides[i]) return;
-        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        slides[i].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
-      });
-    });
-    let ticking = false;
-    const pick = () => {
-      ticking = false;
+
+    const progress = () => {
+      const total = Math.max(1, howPin.offsetHeight - window.innerHeight);
+      return clamped(-howPin.getBoundingClientRect().top / total, 0, 1);
+    };
+
+    const apply = () => {
+      if (deckMode()) {
+        // Ease within each step: the deck rests on a step for the first and last
+        // third of its scroll slice, then glides to the next one. Without this a
+        // fast scroll never lands on a readable step.
+        const span = stepSpan();
+        const seg = clamped(progress() * span, 0, span);
+        const whole = Math.floor(seg);
+        const f = seg - whole;
+        const eased = whole + f * f * (3 - 2 * f);
+        howStage.style.transform = 'translate3d(' + (-eased * 25).toFixed(4) + '%,0,0)';
+        setActive(Math.round(eased));
+        return;
+      }
+      // Stacked (phone / reduced motion): no transform, just follow the nearest step.
+      if (howStage.style.transform) howStage.style.transform = '';
       const mid = window.innerHeight / 2;
       let best = 0;
       let bestDist = Infinity;
@@ -675,13 +697,30 @@ const faqSchema = {
       });
       setActive(best);
     };
+
+    buttons.forEach((b, i) => {
+      b.addEventListener('click', () => {
+        const behavior = reduce.matches ? 'auto' : 'smooth';
+        if (deckMode()) {
+          const total = Math.max(1, howPin.offsetHeight - window.innerHeight);
+          const top = window.scrollY + howPin.getBoundingClientRect().top + (i / stepSpan()) * total;
+          window.scrollTo({ top, behavior });
+        } else if (slides[i]) {
+          slides[i].scrollIntoView({ behavior, block: 'center' });
+        }
+      });
+    });
+
+    let ticking = false;
     const onScroll = () => {
-      if (!ticking) { ticking = true; requestAnimationFrame(pick); }
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(() => { ticking = false; apply(); });
+      }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll, { passive: true });
-    setActive(0);
-    pick();
+    apply();
   }
 
   // Nav: white → dark blue on scroll, logo inverts
@@ -955,8 +994,18 @@ const faqSchema = {
   .how-head{padding:40px 0 4px}
   .how-head .sub{margin-bottom:16px}
   .how-flow{position:relative}
+  .how-sticky{position:static}
   .how-stage{display:grid;gap:0;padding-bottom:8px}
   .how-slide{position:relative;overflow:hidden;display:flex;align-items:center;padding:64px 0}
+  /* 761px+: the steps travel RIGHT -> LEFT while you scroll down. The deck is
+     pinned under the nav and translated continuously from scroll progress — one
+     transform per frame, no timers, no jumping one slide at a time. */
+  @media (min-width:761px) and (prefers-reduced-motion: no-preference){
+    html.js-ok .how-flow{height:400vh}
+    html.js-ok .how-sticky{position:sticky;top:56px;height:calc(100vh - 56px);display:flex;flex-direction:column;overflow:hidden}
+    html.js-ok .how-stage{display:flex;flex-direction:row;flex-wrap:nowrap;flex:1 1 auto;min-height:0;width:400%;padding:0;will-change:transform}
+    html.js-ok .how-slide{flex:0 0 25%;width:25%;height:100%;min-height:0;padding:0}
+  }
   .slide-1{background:radial-gradient(900px 480px at 82% 12%,rgba(24,86,237,.16),transparent 62%),linear-gradient(180deg,#edf2fe,#f7f9fd)}
   .slide-2{background:var(--grad-band);color:#fff}
   .slide-3{background:linear-gradient(180deg,#fff,#eef2fd)}
@@ -1001,8 +1050,7 @@ const faqSchema = {
   .wa-seen{text-align:right;padding:0 20px 14px;color:#8a90a5;font-size:12.5px}
   .wa-card .chip{margin:0 18px 18px}
   /* Step bar stays visible while the steps scroll past — sticky, not scroll-jacked. */
-  /* sticks under the site nav (70px tall, 56px once darkened) */
-  .how-meta{position:sticky;top:56px;z-index:5;display:flex;align-items:center;gap:14px;padding:10px 24px;background:rgba(247,249,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(16,22,58,.07)}
+  .how-meta{position:relative;z-index:5;display:flex;align-items:center;gap:14px;padding:10px 24px;background:rgba(247,249,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(16,22,58,.07)}
   .how-line{position:relative;flex:1;height:3px;background:rgba(127,145,200,.18);border-radius:999px;overflow:hidden}
   .how-fill{display:block;height:100%;width:25%;background:linear-gradient(90deg,#2f4bff,#1856ED);box-shadow:0 0 10px rgba(47,75,255,.45);transition:width .35s var(--ease-out)}
   .how-count{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--color-ink);white-space:nowrap}
