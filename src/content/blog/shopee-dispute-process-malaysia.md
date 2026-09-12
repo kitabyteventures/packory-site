@@ -67,4 +67,4 @@ Packory works with Shopee and any other marketplace you sell on, and every recor
 
 ---
 
-*Every order. On video. Dispute-proof. The best position in a Shopee dispute is the one you built weeks earlier at the packing table. Packory is the evidence layer for Malaysian e-commerce — [start free](https://console.packory.app/signup) and make every order provable.*
+*Every order. On video. Dispute-proof. The best position in a Shopee dispute is the one you built weeks earlier at the packing table. Packory is the evidence layer for Malaysian e-commerce — [start free](https://console.packory.app/signup?source=blog:shopee-dispute-process-malaysia) and make every order provable.*

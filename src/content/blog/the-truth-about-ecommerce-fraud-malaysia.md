@@ -55,4 +55,4 @@ That's the direction Malaysian e-commerce is heading: the sellers who treat evid
 
 ---
 
-*Every order. On video. Dispute-proof. Packory is building the evidence layer for Malaysian e-commerce — packing verification that holds up when it matters. [Start free](https://console.packory.app/signup) and put your orders on the record.*
+*Every order. On video. Dispute-proof. Packory is building the evidence layer for Malaysian e-commerce — packing verification that holds up when it matters. [Start free](https://console.packory.app/signup?source=blog:the-truth-about-ecommerce-fraud-malaysia) and put your orders on the record.*

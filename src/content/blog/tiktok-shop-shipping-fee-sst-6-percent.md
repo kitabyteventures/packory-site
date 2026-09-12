@@ -41,4 +41,4 @@ Check your settlement, understand the new line items, and keep your packing reco
 
 ---
 
-*Every order. On video. Dispute-proof. TikTok Shop's 6% shipping fee SST lands on sellers from 7 September 2026 — and thin margins make evidence cheaper than a lost dispute. Packory is the evidence layer for Malaysian e-commerce — [start free](https://console.packory.app/signup) and make every order provable from the moment it leaves your hands.*
+*Every order. On video. Dispute-proof. TikTok Shop's 6% shipping fee SST lands on sellers from 7 September 2026 — and thin margins make evidence cheaper than a lost dispute. Packory is the evidence layer for Malaysian e-commerce — [start free](https://console.packory.app/signup?source=blog:tiktok-shop-shipping-fee-sst-6-percent) and make every order provable from the moment it leaves your hands.*

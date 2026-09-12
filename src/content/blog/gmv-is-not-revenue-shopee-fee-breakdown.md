@@ -73,4 +73,4 @@ Want the full fee list in one place? The [Fee & Profit Calculator](https://conso
 
 ---
 
-*Packory records packing video for every order — hands-free, order-linked and verifiable, so a claim becomes a question of facts rather than a story. Free for your first 50 orders a month: [start free](https://console.packory.app/signup)*
+*Packory records packing video for every order — hands-free, order-linked and verifiable, so a claim becomes a question of facts rather than a story. Free for your first 50 orders a month: [start free](https://console.packory.app/signup?source=blog:gmv-is-not-revenue-shopee-fee-breakdown)*

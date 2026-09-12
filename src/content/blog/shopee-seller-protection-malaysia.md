@@ -48,4 +48,4 @@ Seller protection is strongest when your own records cover the moments the polic
 
 ---
 
-*Every order. On video. Dispute-proof. Shopee seller protection covers the scenarios it can see; your packing video covers the rest. Packory is the evidence layer for Malaysian e-commerce — [start free](https://console.packory.app/signup) and make every order provable from the moment it leaves your hands.*
+*Every order. On video. Dispute-proof. Shopee seller protection covers the scenarios it can see; your packing video covers the rest. Packory is the evidence layer for Malaysian e-commerce — [start free](https://console.packory.app/signup?source=blog:shopee-seller-protection-malaysia) and make every order provable from the moment it leaves your hands.*

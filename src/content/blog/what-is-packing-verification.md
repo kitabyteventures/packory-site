@@ -65,4 +65,4 @@ The test of a packing verification setup is not whether it records the order you
 
 ---
 
-*Every order. On video. Dispute-proof. Packory is the evidence layer for e-commerce sellers — [start free](https://console.packory.app/signup) and put your orders on the record.*
+*Every order. On video. Dispute-proof. Packory is the evidence layer for e-commerce sellers — [start free](https://console.packory.app/signup?source=blog:what-is-packing-verification) and put your orders on the record.*
