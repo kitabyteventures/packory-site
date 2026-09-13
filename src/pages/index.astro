@@ -4,12 +4,72 @@ import Base from '../layouts/Base.astro';
 const CONSOLE = 'https://console.packory.app';
 
 const FAQS = [
-  { q: 'I already record packing with my phone. Why Packory?', a: 'A raw clip in your phone gallery has no link to the order — weeks later you cannot find it, and you cannot prove when it was shot. Packory files every clip under its AWB in your own cloud with a UTC timestamp, and sends the buyer a clean proof link automatically. Evidence you can actually find and send when a claim lands.' },
-  { q: "Where are the videos stored? I don't want my footage on someone's server.", a: "In your own cloud storage. Packory sets up the upload — we never keep your videos on our servers." },
+  { q: 'I already record packing with my phone. Why Packory?', a: 'A raw clip in your phone gallery has no link to the order, weeks later you cannot find it, and you cannot prove when it was shot. Packory files every clip under its AWB in your own cloud with a UTC timestamp, and sends the buyer a clean proof link automatically. Evidence you can actually find and send when a claim lands.' },
+  { q: "Where are the videos stored? I don't want my footage on someone's server.", a: "In your own cloud storage. Packory sets up the upload, we never keep your videos on our servers." },
   { q: 'My shop Wi-Fi is really bad. Will this still work?', a: "Yes. Clips save to the phone first and sync in the background whenever there's a connection. Drop out? It picks up where it left off." },
-  { q: 'Does the packer have to press anything for every order?', a: 'No. The AWB scan starts recording and the thumbs-up stops it — no screen touches, no workflow interruption.' },
-  { q: 'Will this actually help in a Shopee or TikTok dispute?', a: 'When a dispute opens, platforms ask for evidence. Timestamped footage showing the item packed and handed over is the strongest reply a seller can send — video does not guarantee an outcome, but arguing without it is far harder.' },
-  { q: 'How does the free plan work?', a: 'Up to 50 verified orders a month, free. Need more? Upgrade anytime — and downgrade again if you want.' },
+  { q: 'Does the packer have to press anything for every order?', a: 'No. The AWB scan starts recording and the thumbs-up stops it, no screen touches, no workflow interruption.' },
+  { q: 'Will this actually help in a Shopee or TikTok dispute?', a: 'When a dispute opens, platforms ask for evidence. Timestamped footage showing the item packed and handed over is the strongest reply a seller can send, video does not guarantee an outcome, but arguing without it is far harder.' },
+  { q: 'How does the free plan work?', a: 'Up to 25 verified orders a month, free. Need more? Upgrade anytime, and downgrade again if you want.' },
+];
+
+const PRICE_TIERS = [
+  {
+    name: 'Proof',
+    tag: 'Free forever',
+    m: 'RM0',
+    y: null,
+    allowance: '25 verified videos',
+    cameras: 1,
+    bullets: ['Hands-free packing video', 'Buyer evidence link', 'Footage in your own Drive'],
+    cta: 'Start Free',
+    href: `${CONSOLE}/signup?source=hero:web`,
+    free: true,
+  },
+  {
+    name: 'Starter',
+    tag: 'Solo sellers',
+    m: 'RM12.99',
+    y: 'RM129',
+    allowance: '75 verified videos',
+    cameras: 1,
+    bullets: ['Everything in Proof', 'RM0.19 per extra video', 'Cancel anytime'],
+    cta: 'Choose plan',
+    href: `${CONSOLE}/signup?plan=starter&billing=m&source=hero:pricing`,
+  },
+  {
+    name: 'Verified',
+    tag: 'Most small shops',
+    m: 'RM39.99',
+    y: 'RM399',
+    allowance: '300 verified videos',
+    cameras: 2,
+    bullets: ['Everything in Starter', 'RM0.13 per video', 'Two packing stations'],
+    cta: 'Choose plan',
+    href: `${CONSOLE}/signup?plan=verified&billing=m&source=hero:pricing`,
+    popular: true,
+  },
+  {
+    name: 'Verified Seller',
+    tag: 'Busy daily sellers',
+    m: 'RM69.99',
+    y: 'RM699',
+    allowance: '600 verified videos',
+    cameras: 5,
+    bullets: ['Everything in Verified', 'RM0.12 per video', 'Five packing stations'],
+    cta: 'Choose plan',
+    href: `${CONSOLE}/signup?plan=verified-seller&billing=m&source=hero:pricing`,
+  },
+  {
+    name: 'Dispute-Proof',
+    tag: 'Bigger operations',
+    m: 'RM149',
+    y: 'RM1,490',
+    allowance: '1,500 verified videos',
+    cameras: 15,
+    bullets: ['Everything in Verified Seller', 'RM0.10 per video', 'Volume plan on request'],
+    cta: 'Choose plan',
+    href: `${CONSOLE}/signup?plan=dispute-proof&billing=m&source=hero:pricing`,
+  },
 ];
 
 const faqSchema = {
@@ -25,12 +85,12 @@ const faqSchema = {
 
 <Base
   title="Packing Verification for E-commerce Sellers (Malaysia) | Packory"
-  description="Every order gets its own video proof. Packory records hands-free packing video with timestamps, saves it to your own cloud and sends buyers a proof link — dispute-proof, automatically."
+  description="Every order gets its own video proof. Packory records hands-free packing video with timestamps, saves it to your own cloud and sends buyers a proof link, dispute-proof, automatically."
 >
   <script is:inline>document.documentElement.classList.add('js-ok');</script>
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
-  <div class="banner">Beta is open — Malaysian sellers get <a href="#pricing">founding pricing</a></div>
+  <div class="banner">Beta is open, Malaysian sellers get <a href="#pricing">founding pricing</a></div>
 
   <nav>
     <div class="wrap nav-inner">
@@ -43,7 +103,7 @@ const faqSchema = {
         <a href="/blog">Blog</a>
         <a href="/check-buyer">Check a buyer</a>
         <a href="/tools/fee-profit-calculator">Fee calculator</a>
-        <a class="btn btn-blue btn-sm cta" href={`${CONSOLE}/signup`}>Start Free</a>
+        <a class="btn btn-blue btn-sm cta" href={`${CONSOLE}/signup?source=hero:web`}>Start Free</a>
       </div>
       <button class="hamburger" id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
@@ -61,7 +121,7 @@ const faqSchema = {
         <a class="m-link" href="/blog">Blog</a>
         <a class="m-link" href="/check-buyer">Check a buyer</a>
         <a class="m-link" href="/tools/fee-profit-calculator">Fee calculator</a>
-        <a class="btn btn-blue btn-sm m-cta" href={`${CONSOLE}/signup`}>Start Free</a>
+        <a class="btn btn-blue btn-sm m-cta" href={`${CONSOLE}/signup?source=hero:web`}>Start Free</a>
       </div>
     </div>
   </nav>
@@ -71,11 +131,11 @@ const faqSchema = {
       <div class="hero-copy">
         <span class="pill"><span class="dot red"></span> For sellers on Shopee · TikTok Shop · Lazada · Amazon &amp; more</span>
         <h1>Every order gets its <span class="h1line2">own <span class="accent">video proof</span>.</span> <span class="h1line3"><span class="u">Easy as that.</span></span></h1>
-        <p class="hero-sub">When you pack, Packory records automatically — timestamped, saved to <b>your own cloud storage</b>, proof link reaches the buyer before the parcel does. A dispute shows up? Send the video.</p>
+        <p class="hero-sub">When you pack, Packory records automatically, timestamped, saved to <b>your own cloud storage</b>, proof link reaches the buyer before the parcel does. A dispute shows up? Send the video.</p>
       </div>
       <div class="hero-visual">
         <div class="white-card">
-          <img src="/hero-illustration-blue.webp" srcset="/hero-illustration-blue-640.webp 640w, /hero-illustration-blue.webp 1100w" sizes="(max-width: 640px) 92vw, 540px" width="1100" height="1100" alt="Seller packing an order while a phone on a tripod records — proof captured automatically" fetchpriority="high" />
+          <img src="/hero-illustration-blue.webp" srcset="/hero-illustration-blue-640.webp 640w, /hero-illustration-blue.webp 1100w" sizes="(max-width: 640px) 92vw, 540px" width="1100" height="1100" alt="Seller packing an order while a phone on a tripod records, proof captured automatically" fetchpriority="high" />
         </div>
       </div>
       <div class="hero-cta">
@@ -90,14 +150,14 @@ const faqSchema = {
             Sign up with Google
           </a>
         </div>
-        <p class="micro"><span>✓ Free for 50 orders/mo</span><span>✓ No credit card</span><span>✓ Set up in minutes</span></p>
+        <p class="micro"><span>✓ Free to start</span><span>✓ No credit card</span><span>✓ Set up in minutes</span></p>
       </div>
     </div>
   </header>
 
   <div class="logos">
     <div class="wrap">
-      <p class="cap">Sell on any marketplace or store — ship with any courier. One proof link, everywhere.</p>
+      <p class="cap">Sell on any marketplace or store, ship with any courier. One proof link, everywhere.</p>
       <div class="logo-rows">
         <div class="logo-row-wrap">
           <div class="logo-row" id="row1"></div>
@@ -116,11 +176,11 @@ const faqSchema = {
     <div class="wrap center">
       <span class="kicker">The problem</span>
       <h2>Disputes are decided on evidence.<br />Most sellers don't have it.</h2>
-      <p class="sub">Claims like these eat into your margin and your time. Without a record of what you packed, arguing is hard — and refunding is easy.</p>
+      <p class="sub">Claims like these eat into your margin and your time. Without a record of what you packed, arguing is hard, and refunding is easy.</p>
       <div class="pain-grid">
         <div class="pain">
           <div class="c-head"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg></span><h3>"The box arrived empty"</h3></div>
-          <p>A buyer says the parcel came empty. You know you packed it right — but without video, it's your word against theirs.</p>
+          <p>A buyer says the parcel came empty. You know you packed it right, but without video, it's your word against theirs.</p>
         </div>
         <div class="pain">
           <div class="c-head"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span><h3>"That's not what I ordered"</h3></div>
@@ -128,7 +188,7 @@ const faqSchema = {
         </div>
         <div class="pain">
           <div class="c-head"><span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><h3>No time to film every order</h3></div>
-          <p>Orders are piling up. Nobody stops to record one by one — until the day you really wish you had.</p>
+          <p>Orders are piling up. Nobody stops to record one by one, until the day you really wish you had.</p>
         </div>
       </div>
       <p class="flip"><span>That's why Packory exists.</span></p>
@@ -139,22 +199,29 @@ const faqSchema = {
     <div class="wrap center how-head">
       <span class="kicker">How it works</span>
       <h2>You just pack. We capture the proof.</h2>
-      <p class="sub">Packing verification that runs itself — automatic, hands-free, timestamped at capture. Scroll to walk through each step.</p>
+      <p class="sub">Packing verification that runs itself, automatic, hands-free, timestamped at capture. Scroll to walk through each step.</p>
     </div>
-    <div class="how-pin" id="howPin">
-      <div class="how-sticky">
-        <div class="how-meta">
+    <div class="how-flow" id="howPin">
+      <div class="how-meta">
+        <div class="wrap how-meta-in">
+        <span class="how-count" id="howCount">1 / 4</span>
         <span class="how-line"><span class="how-fill" id="howFill"></span></span>
-        <span class="how-count" id="howCount">01 / 04</span>
+        <div class="how-rail" id="howRail" aria-label="Steps">
+          <button type="button" data-go="0" class="active" aria-current="true"><span>1</span></button>
+          <button type="button" data-go="1"><span>2</span></button>
+          <button type="button" data-go="2"><span>3</span></button>
+          <button type="button" data-go="3"><span>4</span></button>
+        </div>
+        </div>
       </div>
       <div class="how-stage" id="howStage">
           <div class="how-slide slide-1">
-            <span class="how-ghost">01</span>
+            <span class="how-ghost">1</span>
             <div class="wrap how-grid">
               <div class="how-txt">
-                <span class="step-num">Step 01 · Scan</span>
-                <h3>Scan the AWB — recording starts by itself</h3>
-                <p>One barcode scan every 1.5 seconds. No screen touching, no new workflow — the camera becomes a silent witness.</p>
+                <span class="step-num">Step 1 · Scan</span>
+                <h3>Scan the AWB, recording starts by itself</h3>
+                <p>One barcode scan every 1.5 seconds. No screen touching, no new workflow, the camera becomes a silent witness.</p>
               </div>
               <div class="how-visual">
                 <div class="scene-scan">
@@ -171,11 +238,11 @@ const faqSchema = {
             </div>
           </div>
           <div class="how-slide slide-2">
-            <span class="how-ghost">02</span>
+            <span class="how-ghost">2</span>
             <div class="wrap how-grid alt">
               <div class="how-txt">
-                <span class="step-num">Step 02 · Record</span>
-                <h3>Pack on camera — UTC burned into the frame</h3>
+                <span class="step-num">Step 2 · Record</span>
+                <h3>Pack on camera, UTC burned into the frame</h3>
                 <p>Every item goes into the box on video. The timestamp is part of the footage, so nobody can argue about when it was shot.</p>
               </div>
               <div class="how-visual">
@@ -188,12 +255,12 @@ const faqSchema = {
             </div>
           </div>
           <div class="how-slide slide-3">
-            <span class="how-ghost">03</span>
+            <span class="how-ghost">3</span>
             <div class="wrap how-grid">
               <div class="how-txt">
-                <span class="step-num">Step 03 · Thumbs-up</span>
+                <span class="step-num">Step 3 · Thumbs-up</span>
                 <h3>Done? File it under the order</h3>
-                <p>One thumbs-up stops the clip and files it under that AWB in your own cloud storage — findable in seconds, not buried in a phone gallery.</p>
+                <p>One thumbs-up stops the clip and files it under that AWB in your own cloud storage, findable in seconds, not buried in a phone gallery.</p>
               </div>
               <div class="how-visual">
                 <div class="drive-card">
@@ -201,25 +268,25 @@ const faqSchema = {
                   <div class="drive-row ok"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>PKR-2009-7741.mp4</span><small>filed under order</small></div>
                   <div class="drive-row"><span>PKR-2009-7742.mp4</span><small>…</small></div>
                   <div class="drive-row"><span>PKR-2009-7743.mp4</span><small>…</small></div>
-                  <span class="chip ok-chip">Thumbs-up detected — clip saved ✓</span>
+                  <span class="chip ok-chip">Thumbs-up detected, clip saved ✓</span>
                 </div>
               </div>
             </div>
           </div>
           <div class="how-slide slide-4">
-            <span class="how-ghost">04</span>
+            <span class="how-ghost">4</span>
             <div class="wrap how-grid alt">
               <div class="how-txt">
-                <span class="step-num">Step 04 · Share</span>
+                <span class="step-num">Step 4 · Share</span>
                 <h3>Buyer sees proof before the parcel ships</h3>
-                <p>The evidence link reaches the buyer automatically — no app for them, no chasing. Proof is there before the courier is.</p>
+                <p>The evidence link reaches the buyer automatically, no app for them, no chasing. Proof is there before the courier is.</p>
               </div>
               <div class="how-visual">
                 <div class="wa-card">
                   <div class="wa-head">Buyer chat · video received</div>
                   <div class="wa-bubble">
                     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
-                    <div><strong>Packory proof — order …7741</strong><span>Your parcel was packed on camera. Open to watch.</span></div>
+                    <div><strong>Packory proof, order …7741</strong><span>Your parcel was packed on camera. Open to watch.</span></div>
                   </div>
                   <div class="wa-seen">Delivered ✓✓ <span>12:07</span></div>
                   <span class="chip ok-chip">Evidence link sent automatically ✓</span>
@@ -228,14 +295,13 @@ const faqSchema = {
             </div>
           </div>
         </div>
-        <div class="how-rail" id="howRail" aria-label="Steps">
-          <button type="button" data-go="0" class="active"><span>01</span></button>
-          <button type="button" data-go="1"><span>02</span></button>
-          <button type="button" data-go="2"><span>03</span></button>
-          <button type="button" data-go="3"><span>04</span></button>
-        </div>
-        <div class="how-hint">scroll</div>
-      </div>
+    </div>
+    <div class="how-track" id="howTrack" aria-label="Step tracker">
+      <span class="how-track-line"><span class="how-track-fill" id="howTrackFill"></span></span>
+      <button type="button" class="how-dot active" data-go="0" aria-current="true"><span>1</span></button>
+      <button type="button" class="how-dot" data-go="1"><span>2</span></button>
+      <button type="button" class="how-dot" data-go="2"><span>3</span></button>
+      <button type="button" class="how-dot" data-go="3"><span>4</span></button>
     </div>
   </section>
 
@@ -259,28 +325,28 @@ const faqSchema = {
             </dl>
             <span class="vc-foot">Stored in your own cloud storage</span>
           </div>
-          <p class="vc-cap">Sample preview — what the buyer sees on the proof link.</p>
+          <p class="vc-cap">Sample preview, what the buyer sees on the proof link.</p>
         </div>
         <div class="v-txt">
           <span class="kicker">Verified capture</span>
           <h2>Recorded is one thing. <span class="accent-ink">Verified</span> is another.</h2>
-          <p class="sub">A phone clip is easy to question — when it was shot, which order it belongs to, whether it was edited. Packory seals every capture to its order with a cryptographic record the buyer can check themselves.</p>
+          <p class="sub">A phone clip is easy to question, when it was shot, which order it belongs to, whether it was edited. Packory seals every capture to its order with a cryptographic record the buyer can check themselves.</p>
           <ul class="v-items">
             <li>
               <span class="v-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg></span>
-              <div><h3>A capture card, not a raw link</h3><p>Buyers open the proof link and see VERIFIED with a SHA-256 fingerprint, capture time and a masked AWB — it reads like a record, not a file.</p></div>
+              <div><h3>A capture card, not a raw link</h3><p>Buyers open the proof link and see VERIFIED with a SHA-256 fingerprint, capture time and a masked AWB, it reads like a record, not a file.</p></div>
             </li>
             <li>
               <span class="v-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></span>
-              <div><h3>Re-verified on the server</h3><p>After upload, Packory checks the Drive file against its fingerprint. Swap or edit a clip and the record breaks — no quiet replacements.</p></div>
+              <div><h3>Re-verified on the server</h3><p>After upload, Packory checks the Drive file against its fingerprint. Swap or edit a clip and the record breaks, no quiet replacements.</p></div>
             </li>
             <li>
               <span class="v-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></span>
-              <div><h3>Logs itself to Google Sheets</h3><p>AWB, video link, packer and time append to your own sheet automatically — an audit trail that writes itself.</p></div>
+              <div><h3>Logs itself to Google Sheets</h3><p>AWB, video link, packer and time append to your own sheet automatically, an audit trail that writes itself.</p></div>
             </li>
             <li>
               <span class="v-ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg></span>
-              <div><h3>Zero screen touches</h3><p>AWB scan starts, a thumbs-up stops it, and idle time auto-pauses to save battery — the packing flow never breaks.</p></div>
+              <div><h3>Zero screen touches</h3><p>AWB scan starts, a thumbs-up stops it, and idle time auto-pauses to save battery, the packing flow never breaks.</p></div>
             </li>
           </ul>
         </div>
@@ -292,15 +358,15 @@ const faqSchema = {
     <div class="wrap center">
       <span class="kicker">The evidence layer for e-commerce</span>
       <h2>Proof you can stand behind</h2>
-      <p class="sub">Packing verification only helps if it survives scrutiny — so every clip is timestamped at capture, filed under its order in your own Drive, and linked to the buyer before the parcel ships.</p>
+      <p class="sub">Packing verification only helps if it survives scrutiny, so every clip is timestamped at capture, filed under its order in your own Drive, and linked to the buyer before the parcel ships.</p>
       <div class="ben">
         <div class="ben-card">
           <div class="c-head"><span class="ic b"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13a10 10 0 0 1 14 0"/><path d="M8.5 16.5a5 5 0 0 1 7 0"/><path d="M2 8.82a15 15 0 0 1 20 0"/><path d="M12 20h.01"/></svg></span><h3>Terrible Wi-Fi? Fine.</h3></div>
-          <p>Clips save to the phone first, then sync to Drive in the background — and reconnect automatically if it drops.</p>
+          <p>Clips save to the phone first, then sync to Drive in the background, and reconnect automatically if it drops.</p>
         </div>
         <div class="ben-card">
           <div class="c-head"><span class="ic c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span><h3>Your videos, your hands</h3></div>
-          <p>Zero video on our servers. Everything lives in your own cloud storage — private, with no hidden storage fees.</p>
+          <p>Zero video on our servers. Everything lives in your own cloud storage, private, with no hidden storage fees.</p>
         </div>
         <div class="ben-card">
           <div class="c-head"><span class="ic b"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span><h3>A cheap phone is enough</h3></div>
@@ -308,7 +374,7 @@ const faqSchema = {
         </div>
         <div class="ben-card">
           <div class="c-head"><span class="ic c"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01M12 12h.01M16 12h.01"/></svg></span><h3>Buyers see it themselves</h3></div>
-          <p>A clean proof link — buyers watch their own order being packed properly. Trust goes up, disputes lose their fuel.</p>
+          <p>A clean proof link, buyers watch their own order being packed properly. Trust goes up, disputes lose their fuel.</p>
         </div>
       </div>
     </div>
@@ -318,59 +384,53 @@ const faqSchema = {
     <div class="wrap center">
       <span class="kicker">Pricing</span>
       <h2>Pay by how many orders you verify</h2>
-      <p class="sub">Every plan includes hands-free video proof and automatic evidence links. Start free — upgrade when your orders grow.</p>
+      <p class="sub">Every plan includes hands-free video proof and automatic evidence links. Start free, upgrade when your orders grow.</p>
       <div class="bill-toggle" id="billToggle">
         <button type="button" class="bill-btn on" data-bill="m" aria-pressed="true">Monthly</button>
         <button type="button" class="bill-btn" data-bill="y" aria-pressed="false">Yearly <span class="bill-save">2 months free</span></button>
       </div>
       <div class="price-grid" id="priceGrid">
-        <div class="price">
-          <div class="pname">Proof <em>· Free</em></div>
-          <div class="val">RM0 <small>/month</small></div>
-          <ul>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>50 verified orders a month</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Hands-free packing video</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Auto evidence link</li>
-          </ul>
-          <a class="btn btn-ghost" href={`${CONSOLE}/signup`}>Start Free</a>
-        </div>
-        <div class="price">
-          <div class="pname">Verified</div>
-          <div class="val"><span class="pr-m">RM49</span><span class="pr-y" hidden>RM490</span> <small class="sfx-m">/month</small><small class="sfx-y" hidden>/year</small></div>
-          <span class="y-badge" hidden>2 months free</span>
-          <ul>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="am-m">300</span><span class="am-y" hidden>600</span> verified orders a month<span class="bonus-y" hidden> · +300 yearly bonus</span></li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything in Proof</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>For growing sellers</li>
-          </ul>
-          <a class="btn btn-ghost" href={`${CONSOLE}/signup?plan=verified&billing=m`}>Choose Verified</a>
-        </div>
-        <div class="price pop" id="pop-tier">
-          <span class="pop-badge">Most popular</span>
-          <div class="pname">Verified Seller</div>
-          <div class="val"><span class="pr-m">RM99</span><span class="pr-y" hidden>RM990</span> <small class="sfx-m">/month</small><small class="sfx-y" hidden>/year</small></div>
-          <span class="y-badge" hidden>2 months free</span>
-          <ul>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="am-m">600</span><span class="am-y" hidden>900</span> verified orders a month<span class="bonus-y" hidden> · +300 yearly bonus</span></li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything in Verified</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>For busy daily sellers</li>
-          </ul>
-          <a class="btn btn-blue" href={`${CONSOLE}/signup?plan=verified-seller&billing=m`}>Choose Verified Seller</a>
-        </div>
-        <div class="price">
-          <div class="pname">Dispute-Proof</div>
-          <div class="val"><span class="pr-m">RM199</span><span class="pr-y" hidden>RM1,990</span> <small class="sfx-m">/month</small><small class="sfx-y" hidden>/year</small></div>
-          <span class="y-badge" hidden>2 months free</span>
-          <ul>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span class="am-m">1,500+</span><span class="am-y" hidden>1,800+</span> verified orders a month<span class="bonus-y" hidden> · +300 yearly bonus</span></li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Everything in Verified Seller</li>
-            <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>For bigger operations</li>
-          </ul>
-          <a class="btn btn-ghost" href={`${CONSOLE}/signup?plan=dispute-proof&billing=m`}>Choose Dispute-Proof</a>
-        </div>
+        {PRICE_TIERS.map((t) => (
+          <div class={t.popular ? 'price pop' : 'price'}>
+            <div class="pcol">
+            <div class="phead">
+              <div class="pname">
+                {t.name}
+                {t.popular && <span class="pop-chip">Most popular</span>}
+              </div>
+              <div class="pfor">{t.tag}</div>
+            </div>
+            <div class="val">
+              {t.y ? (
+                <>
+                  <span class="pr-m">{t.m}</span><span class="pr-y" hidden>{t.y}</span>
+                  <small class="sfx-m">/month</small><small class="sfx-y" hidden>/year</small>
+                </>
+              ) : (
+                <>
+                  <span>{t.m}</span><small>/month</small>
+                </>
+              )}
+            </div>
+            <div class="pmeta">
+              <span class="pcap">{t.allowance}</span>
+              <span class="y-badge" hidden>2 months free</span>
+            </div>
+            </div>
+            <ul>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>{t.cameras} licensed camera{t.cameras > 1 ? 's' : ''}</span></li>
+              {t.bullets.map((b) => (
+                <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>{b}</span></li>
+              ))}
+            </ul>
+            <div class="pcta">
+              <a class={t.popular ? 'btn btn-blue' : 'btn btn-ghost'} href={t.href} aria-label={t.free ? 'Start free on the Proof plan' : `Choose the ${t.name} plan`}>{t.cta}</a>
+            </div>
+          </div>
+        ))}
       </div>
-      <p class="price-more">Shipping more than 1,500 orders a month? <a href="mailto:hello@packory.app">Email us</a> — we'll sort a volume plan.</p>
-      <p class="price-note">All plans: footage stays on your own cloud storage, timestamped at capture. Yearly = pay 10 months, get 12, plus 300 extra verified orders every month. International pricing coming soon.</p>
+      <p class="price-more">Shipping more than 1,500 videos a month? <a href="mailto:hello@packory.app">Email us</a> and we will sort a volume plan.</p>
+      <p class="price-note">All plans: footage stays in your own cloud storage, timestamped at capture. Yearly = pay 10 months, get 12 (no extra allowance). International pricing coming soon.</p>
     </div>
   </section>
 
@@ -395,9 +455,9 @@ const faqSchema = {
       <div class="cta-band">
         <span class="cta-eyebrow">Every order. On video. Dispute-proof.</span>
         <h2>Protect every parcel before it ships.</h2>
-        <p>Your next order can be the first one with video evidence — timestamped, filed under its AWB, proof link reaches the buyer automatically. Free for 50 orders a month, no credit card.</p>
+        <p>Your next order can be the first one with video evidence, timestamped, filed under its AWB, proof link reaches the buyer automatically. Free to start. No card needed.</p>
         <div class="cta-actions">
-          <a class="btn btn-white" href={`${CONSOLE}/signup`}>Start Free →</a>
+          <a class="btn btn-white" href={`${CONSOLE}/signup?source=hero:web`}>Start Free →</a>
           <a class="btn btn-ghost-soft" href="#how">See how it works</a>
         </div>
       </div>
@@ -428,7 +488,7 @@ const faqSchema = {
           <a href="/terms">Terms of Service</a>
           <a href="mailto:support@packory.app">Contact</a>
         </span>
-        <span>Built in Malaysia — for sellers everywhere</span>
+        <span>Built in Malaysia, for sellers everywhere</span>
       </div>
     </div>
   </footer>
@@ -453,7 +513,7 @@ const faqSchema = {
     const el = document.getElementById(id);
     if (el) el.innerHTML = list.map(chipHTML).join('') + list.map(chipHTML).join('');
   };
-  // Row 1 — marketplaces (moves right)
+  // Row 1, marketplaces (moves right)
   fillRow('row1', [
     ['Shopee', '/brands/shopee.svg', 'Marketplace'],
     ['TikTok Shop', '/brands/tiktok.svg', 'Marketplace'],
@@ -463,7 +523,7 @@ const faqSchema = {
     ['Walmart', '/brands/walmart.svg', 'Marketplace'],
     ['Etsy', '/brands/etsy.svg', 'Marketplace'],
   ]);
-  // Row 2 — store builders + proof layer (moves left)
+  // Row 2, store builders + proof layer (moves left)
   fillRow('row2', [
     ['Shopify', '/brands/shopify.svg', 'Store'],
     ['WordPress + WooCommerce', '/brands/woocommerce.svg', 'Store'],
@@ -472,7 +532,7 @@ const faqSchema = {
     ['WhatsApp', '/brands/whatsapp.svg', 'Proof delivery'],
     ['Google Drive', '/brands/googledrive.svg', 'Storage'],
   ]);
-  // Row 3 — couriers (moves right)
+  // Row 3, couriers (moves right)
   fillRow('row3', [
     ['DHL', '/brands/dhl.svg', 'Courier'],
     ['FedEx', '/brands/fedex.svg', 'Courier'],
@@ -589,91 +649,67 @@ const faqSchema = {
     }
   }
 
-  // ===== How-it-works: horizontal scrollytelling — vertical scroll drives a sideways slide =====
-  const howPin = document.getElementById('howPin');
+  // ===== How-it-works: steps scroll down, the tracker shows where you are =====
   const howStage = document.getElementById('howStage');
-  if (howPin && howStage && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    const slides = Array.from(howStage.children);
-    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-    // Each subsequent step starts one viewport to the LEFT; scrolling down moves the whole deck RIGHT.
-    slides.forEach((s, i) => {
-      s.style.transform = 'translate3d(-' + (i * 100) + '%,0,0)';
-    });
-    let active = 0;
-    let desired = 0;
-    let runner = false;
+  if (howStage) {
+    const slides = Array.from(howStage.querySelectorAll('.how-slide'));
     const countEl = document.getElementById('howCount');
     const fillEl = document.getElementById('howFill');
-    const setMeta = (i) => {
-      if (countEl) countEl.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
-      if (fillEl) fillEl.style.width = (((i + 1) / slides.length) * 100) + '%';
+    const trackEl = document.getElementById('howTrack');
+    const trackFill = document.getElementById('howTrackFill');
+    const dots = trackEl ? Array.from(trackEl.querySelectorAll('button')) : [];
+    const chips = Array.from(document.querySelectorAll('#howRail button'));
+    const clamped = (v, a, b) => Math.min(b, Math.max(a, v));
+
+    const markActive = (idx) => {
+      if (countEl) countEl.textContent = (idx + 1) + ' / ' + slides.length;
+      if (fillEl) fillEl.style.width = (((idx + 1) / slides.length) * 100) + '%';
+      [...chips, ...dots].forEach((b) => {
+        const on = Number(b.dataset.go) === idx;
+        b.classList.toggle('active', on);
+        if (on) b.setAttribute('aria-current', 'true');
+        else b.removeAttribute('aria-current');
+      });
     };
-    const applyIdx = () => {
-      howStage.style.transform = 'translate3d(' + (active * 100) + '%,0,0)';
-      setMeta(active);
-    };
-    const pump = () => {
-      if (active < desired) active++;
-      else if (active > desired) active--;
-      applyIdx();
-      if (active !== desired) {
-        setTimeout(pump, 560); // one snap at a time — no 1→3→2→4 skipping
-      } else {
-        runner = false;
+
+    const apply = () => {
+      const vh = window.innerHeight;
+      const mid = vh / 2;
+      let best = 0;
+      let bestDist = Infinity;
+      slides.forEach((slide, i) => {
+        const r = slide.getBoundingClientRect();
+        const d = Math.abs(r.top + r.height / 2 - mid);
+        if (d < bestDist) { bestDist = d; best = i; }
+      });
+      markActive(best);
+
+      if (trackEl && trackFill) {
+        const stage = howStage.getBoundingClientRect();
+        const visible = stage.bottom > vh * 0.25 && stage.top < vh * 0.75;
+        trackEl.classList.toggle('on', visible);
+        const p = clamped((vh * 0.6 - stage.top) / Math.max(1, stage.height), 0, 1);
+        trackFill.style.height = (p * 100).toFixed(2) + '%';
       }
     };
-    setMeta(0);
-    const update = () => {
-      const total = Math.max(1, howPin.offsetHeight - window.innerHeight);
-      const p = clamp(-howPin.getBoundingClientRect().top / total, 0, 1);
-      desired = Math.min(slides.length - 1, Math.floor(p * slides.length + 0.001));
-      if (desired !== active && !runner) {
-        runner = true;
-        pump();
-      }
+
+    const goTo = (i) => {
+      if (!slides[i]) return;
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      slides[i].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
     };
+    [...chips, ...dots].forEach((b) => b.addEventListener('click', () => goTo(Number(b.dataset.go))));
+
     let ticking = false;
     const onScroll = () => {
       if (!ticking) {
         ticking = true;
-        requestAnimationFrame(() => { update(); ticking = false; });
+        requestAnimationFrame(() => { ticking = false; apply(); });
       }
     };
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    setInterval(onScroll, 200);
-    update();
-  }
-
-  // Mobile: scroll-linked sideways entrance — content slides IN from the sides while you scroll up/down
-  if (false) {
-    const mSlides = Array.from(howStage.children);
-    const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
-    const ease = (t) => 1 - Math.pow(1 - t, 3);
-    const setEl = (el, x, op) => {
-      if (!el) return;
-      if (Math.abs(x) < 0.5 && op >= 1) { el.style.transform = ''; el.style.opacity = ''; }
-      else { el.style.transform = 'translate3d(' + x.toFixed(1) + 'px,0,0)'; el.style.opacity = String(op); }
-    };
-    const mUpd = () => {
-      const vh = window.innerHeight;
-      for (const slide of mSlides) {
-        const r = slide.getBoundingClientRect();
-        if (r.bottom < 0 || r.top > vh) continue;
-        const prog = clamp((vh * 0.92 - r.top) / (vh * 0.6), 0, 1);
-        if (prog <= 0) continue;
-        const e = ease(prog);
-        const op = clamp(prog * 1.6, 0, 1);
-        setEl(slide.querySelector('.step-num'), -24 * (1 - e), op);
-        setEl(slide.querySelector('h3'), -38 * (1 - e), op);
-        setEl(slide.querySelector('p'), -38 * (1 - e), op);
-        setEl(slide.querySelector('.how-visual'), 42 * (1 - e), op);
-        setEl(slide.querySelector('.how-ghost'), 0, op);
-      }
-    };
-    window.addEventListener('scroll', mUpd, { passive: true });
-    setInterval(mUpd, 150);
-    mUpd();
+    window.addEventListener('resize', onScroll, { passive: true });
+    apply();
   }
 
   // Nav: white → dark blue on scroll, logo inverts
@@ -848,19 +884,36 @@ const faqSchema = {
   .ic.b{background:var(--color-blue-soft);color:var(--color-blue-deep)}
   .ic.c{background:var(--color-amber-soft);color:var(--color-amber-deep)}
   .ben-card p{color:var(--color-slate);font-size:14.5px;margin:0}
-  .price-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:38px}
-  .price{background:#fff;border:1px solid var(--color-line);border-radius:var(--radius);padding:26px 24px;display:flex;flex-direction:column;gap:10px;position:relative;box-shadow:var(--shadow-sm)}
-  .price.pop{border:2px solid var(--color-blue);box-shadow:0 20px 50px rgba(24,86,237,.16)}
+  .price-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;margin-top:38px}
+  /* One tier per row: the page grows downwards, never sideways. */
+  .price{text-align:left;background:#fff;border:1px solid var(--color-line);border-radius:var(--radius);padding:22px 26px;display:grid;grid-template-columns:minmax(200px,268px) minmax(0,1fr) auto;align-items:center;gap:18px 32px;position:relative;box-shadow:var(--shadow-sm);min-width:0}
+  .price.pop{border-color:var(--color-blue);box-shadow:0 16px 40px rgba(24,86,237,.14)}
   .price.pop.pulse{animation:pulse-border 2s var(--ease-out) 1}
   @keyframes pulse-border{0%,100%{box-shadow:0 0 0 0 rgba(24,86,237,0)}40%{box-shadow:0 0 0 6px rgba(24,86,237,.18)}}
-  .price .pname{font-weight:800;font-size:15px}
+  .price .pcol{display:flex;flex-direction:column;gap:9px;min-width:0}
+  .price .phead{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .price .pname{font-weight:800;font-size:17px;letter-spacing:-.01em;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
   .price .pname em{font-style:normal;color:var(--color-slate);font-weight:500}
-  .price .val{display:flex;align-items:baseline;gap:6px;flex-wrap:nowrap;font-family:var(--font-display);font-size:clamp(26px,2.6vw,34px);font-weight:700;line-height:1.1;min-height:1.15em}
+  .price .pop-chip{background:var(--color-blue);color:#fff;font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .price .pfor{font-size:13px;color:var(--color-slate)}
+  .price .val{display:flex;align-items:baseline;gap:5px;flex-wrap:wrap;font-family:var(--font-display);font-size:clamp(24px,2.1vw,32px);font-weight:700;line-height:1.05;font-variant-numeric:tabular-nums}
   .price .val small{font-size:13px;color:var(--color-slate);font-weight:500;white-space:nowrap}
-  .price ul{list-style:none;padding:0;display:grid;gap:7px;font-size:14px;color:#4d5570;flex:1}
-  .price li{display:flex;gap:8px;align-items:baseline}
+  .price .pmeta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-height:26px}
+  .price .pcap{display:inline-block;background:var(--color-blue-soft);color:var(--color-blue-deep);border-radius:999px;padding:4px 11px;font-size:12.5px;font-weight:700;white-space:nowrap}
+  .y-badge{display:inline-block;background:#e5f6ee;color:#0f7a52;font-size:12px;font-weight:700;border-radius:999px;padding:5px 12px}
+  .y-badge[hidden]{display:none}
+  .price ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 26px;font-size:14px;color:#4d5570;align-content:start;min-width:0}
+  .price li{display:flex;gap:9px;align-items:baseline;min-width:0}
+  .price li span{min-width:0}
   .price li svg{flex-shrink:0;color:var(--color-blue)}
-  .pop-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--color-blue);color:#fff;font-size:11px;font-weight:800;letter-spacing:.08em;padding:5px 14px;border-radius:999px;text-transform:uppercase}
+  .price .pcta{display:flex;justify-content:flex-end}
+  .price .pcta .btn{min-width:180px}
+  @media(max-width:900px){
+    .price{grid-template-columns:minmax(0,1fr);gap:16px;padding:20px 18px}
+    .price ul{grid-template-columns:minmax(0,1fr)}
+    .price .pcta{justify-content:stretch}
+    .price .pcta .btn{width:100%;min-width:0}
+  }
   .price-more{margin-top:18px;font-size:14px;color:var(--color-slate)}
   .price-more a{color:var(--color-blue);font-weight:700}
   .price-note{margin-top:8px;font-size:13px;color:#8a90a5}
@@ -913,67 +966,73 @@ const faqSchema = {
     .pain-grid{grid-template-columns:repeat(2,1fr)}
     .steps-grid{grid-template-columns:repeat(2,1fr)}
     .steps-grid::before{display:none}
-    .price-grid{grid-template-columns:repeat(2,1fr)}
     .ben{grid-template-columns:1fr}
     .v-grid{grid-template-columns:1fr;gap:34px}
     .nav-links a:not(.cta){display:none}
   }
   @media(max-width:600px){
-    .pain-grid,.steps-grid,.price-grid{grid-template-columns:1fr}
+    .pain-grid,.steps-grid{grid-template-columns:1fr}
     .ben{grid-template-columns:1fr}
     .hero h1{font-size:2.1rem}
     .cta-band{padding:48px 24px}
-    /* card head flex kekal — tiada overlap */
+    /* card head flex kekal, tiada overlap */
     .step-card h3{flex-wrap:wrap}
   }
 
-  /* ===== How-it-works full-screen steps (scrollytelling) ===== */
-  .how-head{padding:40px 0 4px}
+  /* ===== How it works: steps scroll down, tracker keeps the reader oriented ===== */
+  .how-head{padding:56px 0 8px}
   .how-head .sub{margin-bottom:16px}
-  .how-pin{}
-  .how-sticky{position:static;height:auto;overflow:visible}
-  .how-stage{display:grid;gap:0;padding-bottom:8px}
-  html.js-ok .how-pin{height:480vh}
-  html.js-ok .how-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
-  html.js-ok .how-stage{display:flex;flex-direction:column;height:100%;padding-bottom:0}
-  .how-slide{position:relative;overflow:hidden;display:flex;align-items:center;min-height:70vh;padding:34px 0}
-  html.js-ok .how-slide{min-height:0;height:100%;padding:0}
+  .how-flow{position:relative}
+  .how-stage{display:grid;gap:0}
+  .how-slide{position:relative;overflow:hidden;display:grid;align-items:center;padding:clamp(40px,4vw,64px) 0}
   .slide-1{background:radial-gradient(900px 480px at 82% 12%,rgba(24,86,237,.16),transparent 62%),linear-gradient(180deg,#edf2fe,#f7f9fd)}
   .slide-2{background:var(--grad-band);color:#fff}
   .slide-3{background:linear-gradient(180deg,#fff,#eef2fd)}
   .slide-4{background:var(--color-ink);color:#fff}
-  .how-ghost{position:absolute;right:1vw;top:-8vh;font-family:var(--font-display);font-weight:800;font-size:46vh;line-height:1;color:rgba(16,22,58,.05);pointer-events:none;user-select:none;z-index:0}
+  .how-ghost{position:absolute;right:1vw;top:-6vh;font-family:var(--font-display);font-weight:800;font-size:min(40vh,380px);line-height:1;color:rgba(16,22,58,.05);pointer-events:none;user-select:none;z-index:0}
   .slide-2 .how-ghost,.slide-4 .how-ghost{color:rgba(255,255,255,.06)}
-  .how-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px;align-items:center;width:100%}
+  .how-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,4.5vw,72px);align-items:center;width:100%}
   .how-grid.alt .how-txt{order:2}
   .how-grid.alt .how-visual{order:1}
-  .how-txt .step-num{margin-bottom:16px}
-  .how-txt h3{font-size:clamp(1.8rem,3.2vw,2.7rem);line-height:1.12;margin-bottom:16px;color:inherit}
-  .how-txt p{color:var(--color-slate);font-size:17px;line-height:1.6;max-width:480px;margin:0}
+  .how-txt{min-width:0;max-width:560px}
+  .how-txt .step-num{margin-bottom:14px}
+  .how-txt h3{font-size:clamp(1.7rem,3vw,2.6rem);line-height:1.12;margin-bottom:14px;color:inherit}
+  .how-txt p{color:var(--color-slate);font-size:clamp(15.5px,1.15vw,17px);line-height:1.6;max-width:48ch;margin:0}
   .slide-2 .how-txt p,.slide-4 .how-txt p{color:#dbe6ff}
   .slide-2 .step-num,.slide-4 .step-num{color:#ffc46b}
-  .how-visual{width:min(540px,100%);margin-inline:auto;position:relative}
+  .how-visual{width:min(520px,100%);margin-inline:auto;position:relative;filter:drop-shadow(0 26px 44px rgba(24,86,237,.16));display:grid;place-items:center}
+  /* One height for every step's visual so the four bands share a rhythm instead of
+     each one ending wherever its card happens to stop. */
+  @media(min-width:901px){
+    .how-visual{height:clamp(240px,34vh,360px)}
+    .scene-scan,.drive-card,.wa-card{width:min(470px,100%);height:100%}
+    .shot-card{height:100%;display:grid;place-items:center}
+    .shot-card img{max-height:100%}
+    .drive-card,.wa-card{display:flex;flex-direction:column;justify-content:center}
+    .wa-card .chip{margin-top:0}
+  }
   .scene-scan,.shot-card,.drive-card,.wa-card{background:#fff;border-radius:26px;box-shadow:0 30px 70px rgba(16,22,58,.16);position:relative}
-  .scene-scan{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:26px 22px;overflow:hidden}
-  .pkg{display:flex;align-items:center;justify-content:center;height:110px;color:#c9d4f0}
-  .barcode{display:flex;gap:5px;height:46px;align-items:stretch;padding:8px 14px;border:1.5px dashed #c7d6ff;border-radius:14px;background:#f6f8ff}
+  .scene-scan{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:30px 24px;overflow:hidden}
+  .pkg{display:flex;align-items:center;justify-content:center;height:118px;color:#c9d4f0}
+  .pkg svg{width:98px;height:98px}
+  .barcode{display:flex;gap:5px;height:52px;align-items:stretch;padding:8px 14px;border:1.5px dashed #c7d6ff;border-radius:14px;background:#f6f8ff;max-width:100%}
   .barcode i{width:var(--w);background:#10163a;border-radius:1px}
   .scanline{position:absolute;top:auto;bottom:calc(42% + 20px);left:12%;right:12%;height:3px;background:linear-gradient(90deg,transparent,#1856ed,transparent);border-radius:3px;box-shadow:0 0 16px rgba(24,86,237,.55);animation:scanY 2.2s ease-in-out infinite}
   @keyframes scanY{0%,100%{transform:translateY(0)}50%{transform:translateY(22px)}}
-  .chip{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.02em;background:var(--color-blue-soft);color:var(--color-blue-deep);padding:8px 14px;border-radius:999px;font-weight:700;white-space:nowrap}
-  .shot-card{width:min(480px,100%);padding:12px;margin-inline:auto}
-  .shot-card img{width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:18px;display:block}
+  .chip{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.02em;background:var(--color-blue-soft);color:var(--color-blue-deep);padding:8px 14px;border-radius:999px;font-weight:700;white-space:nowrap;max-width:100%;overflow:hidden;text-overflow:ellipsis}
+  .shot-card{width:min(470px,100%);padding:12px;margin-inline:auto}
+  .shot-card img{width:100%;height:auto;aspect-ratio:1/1;max-height:min(44vh,420px);object-fit:cover;border-radius:18px;display:block}
   .rec-chip{position:absolute;top:26px;left:26px;display:inline-flex;gap:8px;align-items:center;background:#10163a;color:#fff;font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.08em;padding:7px 12px;border-radius:999px}
   .rec-chip .dot{animation:recblink 1.1s ease-in-out infinite}
   @keyframes recblink{0%,100%{opacity:1}50%{opacity:.25}}
   .time-chip{position:absolute;bottom:26px;left:26px;background:rgba(16,22,58,.72);color:#fff;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.06em;padding:7px 12px;border-radius:10px;backdrop-filter:blur(4px)}
-  .drive-card{width:min(480px,100%);margin-inline:auto;padding:22px}
+  .drive-card{width:min(470px,100%);margin-inline:auto;padding:22px}
   .drive-top{display:flex;gap:10px;align-items:center;font-weight:700;font-size:15px;color:#4d5570;padding-bottom:12px;border-bottom:1px solid var(--color-line)}
   .drive-row{display:flex;align-items:center;gap:10px;padding:13px 2px;border-bottom:1px solid #f0edf7;color:#232a4d;font-weight:600;font-size:14.5px}
   .drive-row small{margin-left:auto;color:#a49a90;font-weight:500;font-size:12px}
   .drive-row.ok svg{color:#0f9d6a}
   .drive-card .chip{margin-top:16px}
-  .wa-card{width:min(460px,100%);margin-inline:auto;overflow:hidden}
+  .wa-card{width:min(450px,100%);margin-inline:auto;overflow:hidden}
   .wa-head{background:#10163a;color:#fff;padding:14px 18px;font-weight:700;font-size:14px}
   .wa-bubble{display:flex;gap:14px;align-items:center;margin:18px;background:#f2f5fb;border:1px solid #e4e9f5;border-radius:16px;padding:14px;color:var(--color-ink)}
   .wa-bubble svg{flex:0 0 46px;width:46px;height:46px;padding:8px;box-sizing:border-box;background:var(--color-blue-soft);color:var(--color-blue-deep);border-radius:12px}
@@ -981,99 +1040,40 @@ const faqSchema = {
   .wa-bubble span{color:var(--color-slate);font-size:13px}
   .wa-seen{text-align:right;padding:0 20px 14px;color:#8a90a5;font-size:12.5px}
   .wa-card .chip{margin:0 18px 18px}
-  .how-rail{position:absolute;right:24px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:10px;z-index:4}
-  .how-meta{position:absolute;inset:0 0 auto 0;z-index:6;pointer-events:none;display:none}
-  .how-line{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(127,145,200,.16)}
-  .how-fill{display:block;height:100%;width:25%;background:linear-gradient(90deg,#2f4bff,#1856ED);box-shadow:0 0 10px rgba(47,75,255,.55);transition:width .55s var(--ease-out)}
-  .how-count{position:absolute;bottom:24px;right:20px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--color-ink);background:rgba(255,255,255,.72);border:1px solid rgba(16,22,58,.08);backdrop-filter:blur(8px);padding:6px 11px;border-radius:999px;box-shadow:0 6px 18px rgba(16,22,58,.12)}
-  .how-visual{filter:drop-shadow(0 26px 44px rgba(24,86,237,.16))}
-  .how-rail button{width:42px;height:42px;border-radius:13px;border:1px solid rgba(16,22,58,.12);background:rgba(255,255,255,.7);backdrop-filter:blur(6px);color:var(--color-ink);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;transition:transform .2s var(--ease-out),background-color .2s,color .2s}
+  /* Step bar: sticky under the nav, contents on the same container as the steps. */
+  .how-meta{position:sticky;top:56px;z-index:6;background:rgba(247,249,253,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(16,22,58,.07)}
+  .how-meta-in{display:flex;align-items:center;gap:16px;padding-block:10px}
+  .how-line{position:relative;flex:1;height:3px;background:rgba(127,145,200,.18);border-radius:999px;overflow:hidden;min-width:60px}
+  .how-fill{display:block;height:100%;width:25%;background:linear-gradient(90deg,#2f4bff,#1856ED);box-shadow:0 0 10px rgba(47,75,255,.45);transition:width .35s var(--ease-out)}
+  .how-count{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;color:var(--color-ink);white-space:nowrap}
+  .how-rail{display:flex;gap:6px}
+  .how-rail button{width:34px;height:34px;border-radius:11px;border:1px solid rgba(16,22,58,.12);background:rgba(255,255,255,.7);backdrop-filter:blur(6px);color:var(--color-ink);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;transition:transform .2s var(--ease-out),background-color .2s,color .2s}
   .how-rail button.active{background:var(--color-blue);color:#fff;border-color:var(--color-blue)}
   @media(hover:hover){.how-rail button:hover{transform:translateX(-2px)}}
-  .how-hint{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);z-index:4;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#9aa1b8;display:flex;gap:6px;align-items:center}
-  .how-hint::after{content:'↓';color:var(--color-blue);font-size:14px}
-  @media (prefers-reduced-motion: reduce){
-    html.js-ok .how-pin{height:auto}
-    html.js-ok .how-sticky{position:static;height:auto;overflow:visible}
-    html.js-ok .how-stage{display:grid;height:auto}
-    html.js-ok .how-slide{min-height:0;height:auto;padding:34px 0}
-    .how-slide{min-height:0}
-    .how-stage{display:grid;padding-bottom:8px}
-    .how-hint{display:none}
-  }
-  @media(max-width:760px){
-    html.js-ok .how-pin{height:auto}
-    html.js-ok .how-sticky{position:static;height:auto;overflow:visible;display:block}
-    html.js-ok .how-stage{display:grid;height:auto;gap:6px}
-    html.js-ok .how-slide{min-height:0;height:auto;padding:36px 0}
-    .how-grid{grid-template-columns:1fr;gap:28px}
-    .how-grid.alt .how-txt{order:1}
-    .how-grid.alt .how-visual{order:2}
-    .how-ghost{font-size:24vh;right:0;top:-2vh}
+  /* Vertical tracker: the steps scroll down, this rail marks where you are. */
+  .how-track{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:40;display:flex;flex-direction:column;align-items:center;gap:16px;opacity:0;pointer-events:none;transition:opacity .2s var(--ease-out)}
+  .how-track.on{opacity:1;pointer-events:auto}
+  .how-track-line{position:absolute;top:0;bottom:0;left:50%;width:2px;margin-left:-1px;background:rgba(127,145,200,.3);border-radius:999px;overflow:hidden}
+  .how-track-fill{display:block;width:100%;height:0;background:linear-gradient(180deg,#2f4bff,#1856ED);box-shadow:0 0 12px rgba(47,75,255,.45);transition:height .18s linear}
+  .how-dot{position:relative;z-index:1;width:34px;height:34px;border-radius:50%;border:1px solid rgba(16,22,58,.14);background:#fff;color:var(--color-slate);font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;transition:transform .2s var(--ease-out),background-color .2s,color .2s,border-color .2s}
+  .how-dot.active{background:var(--color-blue);color:#fff;border-color:var(--color-blue);transform:scale(1.06)}
+  @media(hover:hover){.how-dot:hover{border-color:var(--color-blue);color:var(--color-blue)}}
+  @media(max-width:1280px){.how-track{display:none}}
+  /* Narrow screens incl. tablets: one column, centred, nothing squeezed side by side. */
+  @media(max-width:900px){
+    /* a step heading must clear the sticky bar when scrolled to */
+    .how-slide{padding:52px 0 40px}
+    .how-grid{grid-template-columns:minmax(0,1fr);gap:22px}
+    .how-grid.alt .how-txt,.how-grid.alt .how-visual{order:0}
+    .how-txt{max-width:36rem;margin-inline:auto;text-align:center}
+    .how-txt .step-num{margin-bottom:10px}
+    .how-txt h3{font-size:clamp(1.45rem,5.6vw,1.9rem);margin-bottom:10px}
+    .how-txt p{max-width:46ch;margin:0 auto;font-size:15.5px}
     .how-visual{width:min(430px,100%)}
-    .how-rail{position:static;transform:none;flex-direction:row;justify-content:center;gap:8px;padding:6px 0 0}
-    .how-hint{display:none}
-  }
-
-
-  /* scrollytelling: desktop pinned step swap */
-  @media (min-width:761px) and (prefers-reduced-motion: no-preference){
-    html.js-ok .how-pin{height:400vh}
-    html.js-ok .how-sticky{position:sticky;top:0;height:100vh;overflow:hidden;display:block}
-    html.js-ok .how-stage{display:block;position:relative;height:100%;width:100%;padding:0;will-change:transform;transition:transform .55s var(--ease-out)}
-    html.js-ok .how-slide{position:absolute;inset:0;opacity:1;visibility:visible;min-height:0;height:100%;padding:0;will-change:transform}
-    html.js-ok .how-slide.active{opacity:1;visibility:visible}
-    .how-meta{display:block}
-    .how-rail,.how-hint{display:none}
-  }
-  /* mobile slideshow — pinned + compact (non-reduce) */
-  @media (max-width:760px) and (prefers-reduced-motion: no-preference){
-    html.js-ok .how-pin{height:300svh}
-    html.js-ok .how-sticky{position:sticky;top:0;height:100svh;overflow:hidden;display:block}
-    html.js-ok .how-slide .wrap{height:100%;display:flex;flex-direction:column;justify-content:center;padding:72px 16px 34px}
-    html.js-ok .how-stage{display:block;position:relative;height:100%;width:100%;padding:0;will-change:transform;transition:transform .55s var(--ease-out)}
-    html.js-ok .how-slide{position:absolute;inset:0;opacity:1;visibility:visible;min-height:0;height:100%;padding:0;will-change:transform}
-    .how-meta{display:block}
-    .how-slide{display:flex;align-items:center}
-    .how-grid{grid-template-columns:1fr;gap:4px}
-    .how-txt{text-align:center}
-    .how-txt h3{font-size:clamp(19px,5.6vw,24px)}
-    .how-txt p{font-size:13.5px;max-width:36ch;margin:8px auto 0}
-    .how-visual{width:min(272px,80vw)}
-    .how-ghost{font-size:26vh;right:-3vw;top:-1vh}
-    .how-rail,.how-hint{display:none}
-  }
-  /* reduced-motion: stacked static (readable, no pin) */
-  @media (prefers-reduced-motion: reduce){
-    html.js-ok .how-pin{height:auto}
-    html.js-ok .how-sticky{position:static;height:auto;overflow:visible}
-    html.js-ok .how-stage{display:grid;height:auto;position:static;transform:none}
-    html.js-ok .how-slide{position:static;inset:auto;opacity:1!important;visibility:visible!important;height:auto;min-height:0;padding:36px 0;transition:none}
-    .how-rail,.how-hint{display:none}
-  }
-
-  /* mobile: layered scroll reveal (assemble feel, safe stacked) */
-  @media (max-width:760px){
-    html.anim-ready .how-slide .step-num,
-    html.anim-ready .how-slide h3,
-    html.anim-ready .how-slide p,
-    html.anim-ready .how-slide .how-visual,
-    html.anim-ready .how-slide .how-ghost{opacity:0}
-    html.anim-ready .how-slide .step-num{transform:translateY(-18px)}
-    html.anim-ready .how-slide h3{transform:translateX(-26px)}
-    html.anim-ready .how-slide p{transform:translateX(-26px)}
-    html.anim-ready .how-slide .how-visual{transform:translateX(30px)}
-    html.anim-ready .how-slide .how-ghost{transform:scale(.86)}
-    html.anim-ready .how-slide.seen .step-num,
-    html.anim-ready .how-slide.seen h3,
-    html.anim-ready .how-slide.seen p,
-    html.anim-ready .how-slide.seen .how-visual,
-    html.anim-ready .how-slide.seen .how-ghost{opacity:1;transform:none;transition:opacity .5s var(--ease-out),transform .5s var(--ease-out)}
-    html.anim-ready .how-slide.seen .step-num{transition-delay:.05s}
-    html.anim-ready .how-slide.seen h3{transition-delay:.15s}
-    html.anim-ready .how-slide.seen p{transition-delay:.25s}
-    html.anim-ready .how-slide.seen .how-visual{transition-delay:.1s}
-    html.anim-ready .how-slide.seen .how-ghost{transition-delay:.3s}
+    .how-ghost{font-size:22vh;right:-2vw;top:-1vh}
+    .how-meta-in{gap:10px}
+    .how-count{font-size:10.5px;letter-spacing:.1em}
+    .how-rail button{width:30px;height:30px;border-radius:9px;font-size:11px}
   }
   .hamburger{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;border:1px solid var(--color-line);background:#fff;color:var(--color-ink);cursor:pointer}
   .mobile-menu[hidden]{display:none}
