@@ -981,7 +981,7 @@ const faqSchema = {
   .how-head .sub{margin-bottom:16px}
   .how-flow{position:relative}
   .how-stage{display:grid;gap:0}
-  .how-slide{position:relative;overflow:hidden;display:grid;align-items:center;padding:clamp(52px,6vw,92px) 0}
+  .how-slide{position:relative;overflow:hidden;display:grid;align-items:center;padding:clamp(40px,4vw,64px) 0}
   .slide-1{background:radial-gradient(900px 480px at 82% 12%,rgba(24,86,237,.16),transparent 62%),linear-gradient(180deg,#edf2fe,#f7f9fd)}
   .slide-2{background:var(--grad-band);color:#fff}
   .slide-3{background:linear-gradient(180deg,#fff,#eef2fd)}
@@ -997,11 +997,22 @@ const faqSchema = {
   .how-txt p{color:var(--color-slate);font-size:clamp(15.5px,1.15vw,17px);line-height:1.6;max-width:48ch;margin:0}
   .slide-2 .how-txt p,.slide-4 .how-txt p{color:#dbe6ff}
   .slide-2 .step-num,.slide-4 .step-num{color:#ffc46b}
-  .how-visual{width:min(520px,100%);margin-inline:auto;position:relative;filter:drop-shadow(0 26px 44px rgba(24,86,237,.16))}
+  .how-visual{width:min(520px,100%);margin-inline:auto;position:relative;filter:drop-shadow(0 26px 44px rgba(24,86,237,.16));display:grid;place-items:center}
+  /* One height for every step's visual so the four bands share a rhythm instead of
+     each one ending wherever its card happens to stop. */
+  @media(min-width:901px){
+    .how-visual{height:clamp(240px,34vh,360px)}
+    .scene-scan,.drive-card,.wa-card{width:min(470px,100%);height:100%}
+    .shot-card{height:100%;display:grid;place-items:center}
+    .shot-card img{max-height:100%}
+    .drive-card,.wa-card{display:flex;flex-direction:column;justify-content:center}
+    .wa-card .chip{margin-top:0}
+  }
   .scene-scan,.shot-card,.drive-card,.wa-card{background:#fff;border-radius:26px;box-shadow:0 30px 70px rgba(16,22,58,.16);position:relative}
-  .scene-scan{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:26px 22px;overflow:hidden}
-  .pkg{display:flex;align-items:center;justify-content:center;height:110px;color:#c9d4f0}
-  .barcode{display:flex;gap:5px;height:46px;align-items:stretch;padding:8px 14px;border:1.5px dashed #c7d6ff;border-radius:14px;background:#f6f8ff;max-width:100%}
+  .scene-scan{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:30px 24px;overflow:hidden}
+  .pkg{display:flex;align-items:center;justify-content:center;height:118px;color:#c9d4f0}
+  .pkg svg{width:98px;height:98px}
+  .barcode{display:flex;gap:5px;height:52px;align-items:stretch;padding:8px 14px;border:1.5px dashed #c7d6ff;border-radius:14px;background:#f6f8ff;max-width:100%}
   .barcode i{width:var(--w);background:#10163a;border-radius:1px}
   .scanline{position:absolute;top:auto;bottom:calc(42% + 20px);left:12%;right:12%;height:3px;background:linear-gradient(90deg,transparent,#1856ed,transparent);border-radius:3px;box-shadow:0 0 16px rgba(24,86,237,.55);animation:scanY 2.2s ease-in-out infinite}
   @keyframes scanY{0%,100%{transform:translateY(0)}50%{transform:translateY(22px)}}
@@ -1048,7 +1059,7 @@ const faqSchema = {
   /* Narrow screens incl. tablets: one column, centred, nothing squeezed side by side. */
   @media(max-width:900px){
     /* a step heading must clear the sticky bar when scrolled to */
-    .how-slide{padding:56px 0}
+    .how-slide{padding:52px 0 40px}
     .how-grid{grid-template-columns:minmax(0,1fr);gap:22px}
     .how-grid.alt .how-txt,.how-grid.alt .how-visual{order:0}
     .how-txt{max-width:36rem;margin-inline:auto;text-align:center}
