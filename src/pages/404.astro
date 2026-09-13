@@ -6,7 +6,7 @@ const SUPPORT_EMAIL = 'support@packory.app';
 
 // Copy owner: Aisyah (support). Reason this page exists:
 // before this, every unknown URL on packory.app returned HTTP 200 with the homepage
-// (a "soft 404") — so a seller who mistyped a link, or clicked a stale link we sent,
+// (a "soft 404"), so a seller who mistyped a link, or clicked a stale link we sent,
 // silently landed on the homepage with no explanation. Cloudflare Pages serves
 // /404.html when that file exists, otherwise it falls back to index.html with status 200.
 const LINKS = [
@@ -24,10 +24,10 @@ const LINKS = [
   title="Page not found"
   kicker="Packory · 404"
   noindex
-  description="That link does not exist on packory.app. Here are the pages sellers use most — or email support@packory.app and we will point you to the right place."
+  description="That link does not exist on packory.app. Here are the pages sellers use most, or email support@packory.app and we will point you to the right place."
 >
   <p>
-    That page does not exist (or it moved). Nothing is broken on your account — the link just points somewhere that is
+    That page does not exist (or it moved). Nothing is broken on your account, the link just points somewhere that is
     not here.
   </p>
 
@@ -42,10 +42,10 @@ const LINKS = [
   <h2>Still stuck?</h2>
   <p>
     Email <a href={`mailto:${SUPPORT_EMAIL}`}><strong>{SUPPORT_EMAIL}</strong></a> with your shop name and, if it is
-    about a specific order, the AWB — we will take it from there.
+    about a specific order, the AWB. We will take it from there.
   </p>
   <p>
-    Looking for something that used to be here? Tell us the link you followed and we will fix it — a dead link is our
+    Looking for something that used to be here? Tell us the link you followed and we will fix it. A dead link is our
     bug, not yours.
   </p>
 </Legal>

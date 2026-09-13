@@ -5,19 +5,21 @@ const CONSOLE = 'https://console.packory.app';
 const SUPPORT_EMAIL = 'support@packory.app';
 
 // Copy owner: Aisyah (support). Source: deliverables/Aisyah/2026-09-10-faq-help-content-pack.md §1.
+// Price copy aligned to the LOCKED ladder (price card v2, Man 12/9): Free 25 · RM12.99/75 ·
+// RM39.99/300 · RM69.99/600 · RM149/1,500 · annual RM129/399/699/1,490 · overage RM0.19.
 // Deliberately does NOT duplicate the 6 questions already answered on the homepage (#faq).
 const FAQS = [
   {
     q: 'How do I start?',
-    a: 'Sign up at console.packory.app/signup (Google or email), then finish the 5-step onboarding: shop → address → storefronts & volume → WhatsApp number → plan. Pick Start Free (RM0) — no credit card. Install the terminal on your packing phone, scan a test AWB, and your first order records.',
+    a: 'Sign up at console.packory.app/signup (Google or email), then finish the 5-step onboarding: shop, address, storefronts & volume, WhatsApp number, plan. Pick Start Free (RM0), no credit card. Install the terminal on your packing phone, scan a test AWB, and your first order records.',
   },
   {
     q: 'Which marketplaces work?',
-    a: 'Shopee, TikTok Shop, Lazada, Amazon and more. Packory does not need a platform integration to record — you scan the AWB, so any marketplace (or a manual/offline order) works the same way.',
+    a: 'Shopee, TikTok Shop, Lazada, Amazon and more. Packory does not need a platform integration to record: you scan the AWB, so any marketplace (or a manual/offline order) works the same way.',
   },
   {
     q: 'Does the buyer need the app?',
-    a: 'No. The buyer just gets a proof link (sent by WhatsApp or copied into chat) — no login, no app to install.',
+    a: 'No. The buyer just gets a proof link (sent by WhatsApp or copied into chat), no login and no app to install.',
   },
   {
     q: 'What exactly does the buyer see?',
@@ -25,31 +27,31 @@ const FAQS = [
   },
   {
     q: 'Is there an audit trail?',
-    a: 'Yes — every capture is logged automatically to a Google Sheets row (AWB, timestamp, verify status) so you have a searchable record, and the server re-verifies the clip.',
+    a: 'Yes. Every capture is logged automatically to a Google Sheets row (AWB, timestamp, verify status) so you have a searchable record, and the server re-verifies the clip.',
   },
   {
     q: 'Can I import my orders so the proof link goes out faster?',
-    a: 'Yes — in the console, import a CSV export from Shopee / TikTok Shop / Lazada. Packory auto-detects the columns, then the WhatsApp compose box pre-fills the buyer message and proof link for you to tap send.',
+    a: 'Yes. In the console, import a CSV export from Shopee / TikTok Shop / Lazada. Packory auto-detects the columns, then the WhatsApp compose box pre-fills the buyer message and proof link for you to tap send.',
   },
   {
     q: 'What if my internet drops mid-pack?',
-    a: 'Nothing is lost — the clip saves to the phone first, then syncs in the background and resumes where it stopped.',
+    a: 'Nothing is lost. The clip saves to the phone first, then syncs in the background and resumes where it stopped.',
   },
   {
     q: 'What about price after the free plan?',
-    a: 'Free covers 50 orders a month. After that: RM49/300, RM99/600, RM199/1,500+ orders per month. Yearly billing is 10 months for 12 (plus bonus orders). Founding-beta pricing is locked for 60 days after beta — the price goes up after that.',
+    a: 'Free covers 25 verified orders a month. After that: RM12.99 for 75 orders/month, RM39.99 for 300, RM69.99 for 600 and RM149 for 1,500 or more. Extra orders beyond your allowance are RM0.19 each. Yearly billing is 10 months for 12 (RM129, RM399, RM699, RM1,490), same monthly allowance, no bonus orders. Founding-beta pricing is locked for 60 days after beta, then it goes up.',
   },
   {
     q: 'Is this a subscription that auto-charges me?',
     a: 'No auto-charge. Billing is manual renewal (30-day monthly or 12-month yearly) through CHIP/FPX. You renew when you want to.',
   },
   {
-    q: 'Where is my data stored — is it PDPA-safe?',
+    q: 'Where is my data stored, and is it PDPA-safe?',
     a: 'Your videos stay in your own cloud storage; we never keep footage on our servers. The personal data we do handle (buyer phone for WhatsApp compose, claim details) is encrypted and minimised. See our Privacy Policy and Terms of Service for the detail.',
   },
   {
     q: 'What is "Check a buyer"?',
-    a: 'An evidence-first risk check. It returns a neutral risk score — never a "scammer" label. Nothing is published about a buyer unless a seller submits evidence and our team verifies it as true. Cross-seller scoring is still off (Phase 2, and it needs buyer consent).',
+    a: 'An evidence-first risk check. It returns a neutral risk score, never a "scammer" label. Nothing is published about a buyer unless a seller submits evidence and our team verifies it as true. Cross-seller scoring is still off (Phase 2, and it needs buyer consent).',
   },
   {
     q: 'Do I get a receipt or invoice for my payment?',
@@ -71,13 +73,13 @@ const faqSchema = {
 <Legal
   title="Help & FAQ"
   kicker="Packory · Support"
-  description="Answers to the questions Packory sellers ask most — getting started, marketplaces, buyer proof links, offline recording, pricing, billing and data."
+  description="Answers to the questions Packory sellers ask most: getting started, marketplaces, buyer proof links, offline recording, pricing, billing and data."
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <p>
     Quick answers below. If your question is about how Packory works in practice, this page is the fastest place to
-    look — and if it is not here, <a href={`mailto:${SUPPORT_EMAIL}`}>email support</a>.
+    look, and if it is not here, <a href={`mailto:${SUPPORT_EMAIL}`}>email support</a>.
   </p>
 
   <h2>Getting started</h2>
@@ -138,7 +140,7 @@ const faqSchema = {
     your question is about a specific order) and we will take it from there.
   </p>
   <p>
-    Setting up? The 5-step onboarding takes about five minutes — start at
+    Setting up? The 5-step onboarding takes about five minutes. Start at
     <a href={`${CONSOLE}/signup`}>{CONSOLE.replace('https://', '')}/signup</a>. Going deeper:
     <a href="/blog/what-is-packing-verification">what packing verification is</a> ·
     <a href="/blog">all guides</a> · <a href="/check-buyer">check a buyer</a>.
