@@ -1,0 +1,19 @@
+# Security headers for the public marketing site (packory.app + www.packory.app).
+# Owner: Aina (marketing) · request: Hafiz pentest finding F6 (14/9).
+# Cloudflare Pages reads this file at build time and copies it to dist/_headers.
+# Two-space indentation is required. Values apply to this Pages project only,
+# so console.packory.app (its own project) is NOT affected.
+# Note: packory.app already serves Referrer-Policy + X-Content-Type-Options from
+# the Pages project config; they are repeated here so the policy is visible in
+# one place (same value, so no conflicting duplicate).
+# CSP was first deployed in Report-Only mode 2026-09-14, verified in a real browser
+# (fonts, Google Tag, GA beacons, page render all clean), then switched to enforcing
+# the same day. Full policy notes: deliverables/Aina/2026-09-14-site-security-headers.md §5.
+
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
