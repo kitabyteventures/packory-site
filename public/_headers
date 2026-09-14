@@ -1,0 +1,16 @@
+# Security headers for the public marketing site (packory.app + www.packory.app).
+# Owner: Aina (marketing) · request: Hafiz pentest finding F6 (14/9).
+# Cloudflare Pages reads this file at build time and copies it to dist/_headers.
+# Two-space indentation is required. Values apply to this Pages project only,
+# so console.packory.app (its own project) is NOT affected.
+# Note: packory.app already serves Referrer-Policy + X-Content-Type-Options from
+# the Pages project config; they are repeated here so the policy is visible in
+# one place (same value, so no conflicting duplicate).
+# CSP is phase 2: see deliverables/Aina/2026-09-14-site-security-headers.md §5.
+
+/*
+  Strict-Transport-Security: max-age=63072000; includeSubDomains
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
