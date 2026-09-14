@@ -70,6 +70,6 @@ If any box feels uncertain, do not cancel immediately. Message the buyer, verify
 
 You can start protecting orders today without waiting for Buyer Check. Packory's free plan records hands-free packing video, files each clip under its order, and gives you a proof link you can send when a claim appears.
 
-👉 [Start free, no card needed](https://console.packory.app/signup?source=blog:how-to-check-buyer-shopee-malaysia)
+👉 [Start free, no card needed to start](https://console.packory.app/signup?source=blog:how-to-check-buyer-shopee-malaysia)
 
 And if you want early access to Buyer Check, [join the waitlist](/check-buyer), we will tell you the moment it is live.

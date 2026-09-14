@@ -43,7 +43,7 @@ The practical challenge isn't *whether* to record, it's how to record every orde
 - UTC timestamp burned into every frame
 - Thumbs-up stops the clip, packers never touch the screen
 - Video syncs to **your own cloud storage** in the background
-- Evidence link reaches the buyer on WhatsApp before the parcel even ships
+- Send the buyer an evidence link on WhatsApp before the parcel even ships
 
 When proof is automatic, it actually happens, on every order, not just the ones you're worried about. And the disputes you never see are the ones that pay for the system.
 

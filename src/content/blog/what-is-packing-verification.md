@@ -40,9 +40,9 @@ An automated system turns recording from a conscious act into a byproduct of pac
 2. **The timestamp is burned into every frame.** A UTC clock in the video makes it verifiable, the clip can't be backdated or reordered.
 3. **A thumbs-up stops the clip.** Packing done, one gesture, done. The packer never touches a screen, so hands stay on the work.
 4. **The video syncs to the seller's own cloud storage.** Storage is organized, searchable by order, and owned by the seller, not held hostage inside an app.
-5. **An evidence link goes to the buyer on WhatsApp.** The buyer sees the proof before the parcel even ships, which prevents a large share of disputes from ever being filed.
+5. **Send the buyer an evidence link on WhatsApp.** The buyer sees the proof before the parcel even ships, which prevents a large share of disputes from ever being filed.
 
-Each step exists for a reason. The scan start guarantees coverage; the burned-in timestamp guarantees integrity; the seller-owned Drive guarantees control; the WhatsApp link guarantees the proof actually reaches the person who might dispute.
+Each step exists for a reason. The scan start guarantees coverage; the burned-in timestamp guarantees integrity; the seller-owned Drive guarantees control; sending the link on WhatsApp puts the proof in front of the person who might dispute.
 
 ## What to look for in a packing verification system
 
@@ -57,7 +57,7 @@ If you are evaluating one, check for these properties rather than flashy feature
 
 ## Packory, as the example
 
-Packory is built around those properties. It records hands-free packing video proof for sellers across any marketplace: the AWB scan auto-starts recording, a UTC timestamp is burned into every frame, a thumbs-up stops the clip, the video syncs to your own cloud storage, and the evidence link is sent to the buyer on WhatsApp.
+Packory is built around those properties. It records hands-free packing video proof for sellers across any marketplace: the AWB scan auto-starts recording, a UTC timestamp is burned into every frame, a thumbs-up stops the clip, the video syncs to your own cloud storage, and the evidence link reaches the buyer on WhatsApp when you send it.
 
 The pricing is built for real order volumes: a free tier covers 25 verified videos a month, then RM12.99 for 75 videos, RM39.99 for 300, RM69.99 for 600, and RM149 for 1,500 or more per month. The positioning is honest, jual proof, bukan fear. Sell proof, not fear. Every order. On video. Dispute-proof.
 

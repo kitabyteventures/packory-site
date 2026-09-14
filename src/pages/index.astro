@@ -11,7 +11,7 @@ const latestPosts = (await getCollection('blog'))
   .slice(0, 3);
 
 const FAQS = [
-  { q: 'I already record packing with my phone. Why Packory?', a: 'A raw clip in your phone gallery has no link to the order, weeks later you cannot find it, and you cannot prove when it was shot. Packory files every clip under its AWB in your own cloud with a UTC timestamp, and sends the buyer a clean proof link automatically. Evidence you can actually find and send when a claim lands.' },
+  { q: 'I already record packing with my phone. Why Packory?', a: 'A raw clip in your phone gallery has no link to the order, weeks later you cannot find it, and you cannot prove when it was shot. Packory files every clip under its AWB in your own cloud with a UTC timestamp, and gives you a clean proof link to send the buyer. Evidence you can actually find and send when a claim lands.' },
   { q: "Where are the videos stored? I don't want my footage on someone's server.", a: "In your own cloud storage. Packory sets up the upload, we never keep your videos on our servers." },
   { q: 'My shop Wi-Fi is really bad. Will this still work?', a: "Yes. Clips save to the phone first and sync in the background whenever there's a connection. Drop out? It picks up where it left off." },
   { q: 'Does the packer have to press anything for every order?', a: 'No. The AWB scan starts recording and the thumbs-up stops it, no screen touches, no workflow interruption.' },
@@ -138,7 +138,7 @@ const faqSchema = {
       <div class="hero-copy">
         <span class="pill"><span class="dot red"></span> For sellers on Shopee · TikTok Shop · Lazada · Amazon &amp; more</span>
         <h1>Every order gets its <span class="h1line2">own <span class="accent">video proof</span>.</span> <span class="h1line3"><span class="u">Easy as that.</span></span></h1>
-        <p class="hero-sub">When you pack, Packory records automatically, timestamped, saved to <b>your own cloud storage</b>, proof link reaches the buyer before the parcel does. A dispute shows up? Send the video.</p>
+        <p class="hero-sub">When you pack, Packory records automatically, timestamped, saved to <b>your own cloud storage</b>, a proof link you can send the buyer before the parcel does. A dispute shows up? Send the video.</p>
       </div>
       <div class="hero-visual">
         <div class="white-card">
@@ -157,7 +157,7 @@ const faqSchema = {
             Sign up with Google
           </a>
         </div>
-        <p class="micro"><span>✓ Free to start</span><span>✓ No credit card</span><span>✓ Set up in minutes</span></p>
+        <p class="micro"><span>✓ Free to start</span><span>✓ No card to start</span><span>✓ Set up in minutes</span></p>
       </div>
     </div>
   </header>
@@ -286,7 +286,7 @@ const faqSchema = {
               <div class="how-txt">
                 <span class="step-num">Step 4 · Share</span>
                 <h3>Buyer sees proof before the parcel ships</h3>
-                <p>The evidence link reaches the buyer automatically, no app for them, no chasing. Proof is there before the courier is.</p>
+                <p>The evidence link is ready to send, no app for the buyer to install, no chasing. Send it before the courier leaves.</p>
               </div>
               <div class="how-visual">
                 <div class="wa-card">
@@ -296,7 +296,7 @@ const faqSchema = {
                     <div><strong>Packory proof, order …7741</strong><span>Your parcel was packed on camera. Open to watch.</span></div>
                   </div>
                   <div class="wa-seen">Delivered ✓✓ <span>12:07</span></div>
-                  <span class="chip ok-chip">Evidence link sent automatically ✓</span>
+                  <span class="chip ok-chip">Evidence link ready to send ✓</span>
                 </div>
               </div>
             </div>
@@ -462,7 +462,7 @@ const faqSchema = {
       <div class="cta-band">
         <span class="cta-eyebrow">Every order. On video. Dispute-proof.</span>
         <h2>Protect every parcel before it ships.</h2>
-        <p>Your next order can be the first one with video evidence, timestamped, filed under its AWB, proof link reaches the buyer automatically. Free to start. No card needed.</p>
+        <p>Your next order can be the first one with video evidence, timestamped, filed under its AWB, and a proof link you can send the buyer in one tap. Free to start. No card needed to start.</p>
         <div class="cta-actions">
           <a class="btn btn-white" href={`${CONSOLE}/signup?source=hero:web`}>Start Free →</a>
           <a class="btn btn-ghost-soft" href="#how">See how it works</a>
@@ -539,7 +539,7 @@ const faqSchema = {
     ['WordPress + WooCommerce', '/brands/woocommerce.svg', 'Store'],
     ['BigCommerce', '/brands/bigcommerce.svg', 'Store'],
     ['Wix', '/brands/wix.svg', 'Store'],
-    ['WhatsApp', '/brands/whatsapp.svg', 'Proof delivery'],
+    ['WhatsApp', '/brands/whatsapp.svg', 'Share link'],
     ['Google Drive', '/brands/googledrive.svg', 'Storage'],
   ]);
   // Row 3, couriers (moves right)

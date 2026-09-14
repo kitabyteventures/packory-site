@@ -51,7 +51,7 @@ The pack link is where most claims are won or lost, and it's the link a video an
 - The UTC timestamp is burned into every frame, so the clip cannot be backdated
 - The seal is shown intact at the moment of handover
 
-That single clip answers the question a parcel swap dispute is really asking: *was this item in this parcel when it left the seller?* And when the buyer receives the evidence link on WhatsApp before the parcel even ships, the conversation usually changes before a claim is filed.
+That single clip answers the question a parcel swap dispute is really asking: *was this item in this parcel when it left the seller?* And when you send the buyer the evidence link on WhatsApp before the parcel even ships, the conversation usually changes before a claim is filed.
 
 ## Practical protection checklist
 
@@ -76,7 +76,7 @@ The problem with checklists is consistency, filming by hand works for a week, th
 - A UTC timestamp is burned into every frame
 - A thumbs-up stops the clip, packers never touch the screen
 - The video syncs to **your own cloud storage**
-- The evidence link is sent to the buyer on WhatsApp automatically
+- The evidence link is ready to send to the buyer on WhatsApp in one tap
 
 It works with any marketplace, Shopee, TikTok Shop, Lazada, Shopify, so protection is the same across channels. The free tier covers 25 verified videos a month, and paid plans start at RM12.99 for 75 videos.
 
