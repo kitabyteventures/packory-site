@@ -6,7 +6,9 @@
 # Note: packory.app already serves Referrer-Policy + X-Content-Type-Options from
 # the Pages project config; they are repeated here so the policy is visible in
 # one place (same value, so no conflicting duplicate).
-# CSP is phase 2: see deliverables/Aina/2026-09-14-site-security-headers.md §5.
+# CSP was first deployed in Report-Only mode 2026-09-14, verified in a real browser
+# (fonts, Google Tag, GA beacons, page render all clean), then switched to enforcing
+# the same day. Full policy notes: deliverables/Aina/2026-09-14-site-security-headers.md §5.
 
 /*
   Strict-Transport-Security: max-age=63072000; includeSubDomains
@@ -14,4 +16,4 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://www.googletagmanager.com 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https://www.google-analytics.com https://*.google-analytics.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'
