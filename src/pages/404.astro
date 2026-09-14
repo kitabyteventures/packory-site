@@ -1,51 +1,136 @@
 ---
-import Legal from '../layouts/Legal.astro';
+import Base from '../layouts/Base.astro';
 
 const CONSOLE = 'https://console.packory.app';
-const SUPPORT_EMAIL = 'support@packory.app';
-
-// Copy owner: Aisyah (support). Reason this page exists:
-// before this, every unknown URL on packory.app returned HTTP 200 with the homepage
-// (a "soft 404"), so a seller who mistyped a link, or clicked a stale link we sent,
-// silently landed on the homepage with no explanation. Cloudflare Pages serves
-// /404.html when that file exists, otherwise it falls back to index.html with status 200.
 const LINKS = [
-  { href: '/faq', label: 'Help & FAQ' },
-  { href: '/', label: 'Homepage' },
-  { href: '/blog', label: 'Guides & blog' },
-  { href: '/tools/', label: 'Free tools' },
-  { href: '/check-buyer', label: 'Check a buyer' },
-  { href: '/privacy', label: 'Privacy Policy' },
-  { href: '/terms', label: 'Terms of Service' },
+  { href: '/', label: 'Homepage', hint: 'How Packory works, end to end' },
+  { href: '/tools/', label: 'Free seller tools', hint: 'Fee & profit calculator for Shopee, TikTok, Lazada' },
+  { href: '/blog/', label: 'Seller guides', hint: 'Disputes, platform fees, evidence' },
 ];
 ---
 
-<Legal
-  title="Page not found"
-  kicker="Packory · 404"
+<Base
+  title="Page not found | Packory"
+  description="This page doesn't exist. Head back to the homepage, the free seller tools, or the Packory blog."
   noindex
-  description="That link does not exist on packory.app. Here are the pages sellers use most, or email support@packory.app and we will point you to the right place."
 >
-  <p>
-    That page does not exist (or it moved). Nothing is broken on your account, the link just points somewhere that is
-    not here.
-  </p>
+  <main class="nf">
+    <div class="container">
+      <span class="nf-eyebrow">404 · PAGE NOT FOUND</span>
+      <h1>This page doesn't exist.</h1>
+      <p class="nf-sub">
+        The link may be old, or the address has a typo. Nothing is broken on your side — here are the
+        places people usually meant to open.
+      </p>
+      <div class="nf-actions">
+        <a class="nf-btn nf-btn-primary" href="/">Back to homepage</a>
+        <a class="nf-btn nf-btn-ghost" href={`${CONSOLE}/signup?source=404`}>Start free</a>
+      </div>
+      <ul class="nf-links">
+        {LINKS.map((l) => (
+          <li>
+            <a href={l.href}>
+              <strong>{l.label}</strong>
+              <span>{l.hint}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </main>
+</Base>
 
-  <h2>Where were you going?</h2>
-  <ul>
-    {LINKS.map((l) => (
-      <li><a href={l.href}>{l.label}</a></li>
-    ))}
-    <li><a href={`${CONSOLE}/login`}>Sign in to the seller console</a> (orders, packing stations, ledger)</li>
-  </ul>
+<style>
+  .nf {
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+    background: #0a0d1e;
+    color: #f7f7f4;
+    padding: 6rem 0;
+  }
 
-  <h2>Still stuck?</h2>
-  <p>
-    Email <a href={`mailto:${SUPPORT_EMAIL}`}><strong>{SUPPORT_EMAIL}</strong></a> with your shop name and, if it is
-    about a specific order, the AWB. We will take it from there.
-  </p>
-  <p>
-    Looking for something that used to be here? Tell us the link you followed and we will fix it. A dead link is our
-    bug, not yours.
-  </p>
-</Legal>
+  .nf-eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.16em;
+    color: #8b93b8;
+  }
+
+  .nf h1 {
+    margin: 1rem 0 0;
+    font-size: clamp(2rem, 6vw, 3.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  .nf-sub {
+    margin-top: 1rem;
+    max-width: 46ch;
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: #c3c8dd;
+  }
+
+  .nf-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+
+  .nf-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.4rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid transparent;
+  }
+
+  .nf-btn-primary {
+    background: #2f4bff;
+    color: #fff;
+  }
+
+  .nf-btn-ghost {
+    border-color: #3a4370;
+    color: #f7f7f4;
+  }
+
+  .nf-links {
+    list-style: none;
+    padding: 0;
+    margin: 3rem 0 0;
+    display: grid;
+    gap: 0.75rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .nf-links a {
+    display: block;
+    padding: 1rem 1.1rem;
+    border: 1px solid #262d4d;
+    border-radius: 14px;
+    background: #11162c;
+  }
+
+  .nf-links a:hover {
+    border-color: #2f4bff;
+  }
+
+  .nf-links strong {
+    display: block;
+    font-size: 0.95rem;
+  }
+
+  .nf-links span {
+    display: block;
+    margin-top: 0.35rem;
+    font-size: 0.82rem;
+    line-height: 1.45;
+    color: #9aa2c4;
+  }
+</style>

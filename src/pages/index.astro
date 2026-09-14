@@ -1,7 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
 
 const CONSOLE = 'https://console.packory.app';
+
+// Latest guides in the footer: the homepage is the page Google crawls most, so
+// linking the newest posts here gives them a real crawl path.
+const latestPosts = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 
 const FAQS = [
   { q: 'I already record packing with my phone. Why Packory?', a: 'A raw clip in your phone gallery has no link to the order, weeks later you cannot find it, and you cannot prove when it was shot. Packory files every clip under its AWB in your own cloud with a UTC timestamp, and sends the buyer a clean proof link automatically. Evidence you can actually find and send when a claim lands.' },
@@ -466,6 +473,12 @@ const faqSchema = {
 
   <footer>
     <div class="wrap">
+      <div class="foot-latest">
+        <span class="foot-cap">Latest guides</span>
+        <div class="foot-latest-links">
+          {latestPosts.map((p) => <a href={`/blog/${p.id}/`}>{p.data.title}</a>)}
+        </div>
+      </div>
       <div class="foot-grid">
         <div class="foot-brand"><span class="dot"></span>Packory</div>
         <div class="foot-links">
@@ -938,6 +951,11 @@ const faqSchema = {
   .foot-grid{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;margin-bottom:24px}
   .foot-brand{color:#fff;font-weight:700;font-size:18px;display:flex;gap:10px;align-items:center}
   .foot-links{display:flex;gap:22px;flex-wrap:wrap}
+  .foot-latest{margin-bottom:26px}
+  .foot-cap{display:block;color:#7b84a3;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+  .foot-latest-links{display:flex;flex-wrap:wrap;gap:12px 26px}
+  .foot-latest-links a{color:#c9d0e4;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.16);padding-bottom:2px;transition:color .18s,border-color .18s}
+  @media(hover:hover){.foot-latest-links a:hover{color:#fff;border-bottom-color:#fff}}
   .foot-links a:hover{color:#fff}
   .foot-note{border-top:1px solid rgba(255,255,255,.12);padding-top:18px;font-size:12.5px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
   .foot-legal{display:inline-flex;gap:14px}

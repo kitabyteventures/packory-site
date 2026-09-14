@@ -2,7 +2,7 @@
 export interface Props {
   title: string;
   description: string;
-  /** Set on error pages (404) so search engines do not index them. Default: false. */
+  /** Keep a page out of search indexes (e.g. the 404 page). Defaults to false. */
   noindex?: boolean;
 }
 
@@ -16,7 +16,6 @@ const { title, description, noindex = false } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    {noindex && <meta name="robots" content="noindex, follow" />}
     <meta name="theme-color" content="#0a0d1e" />
     <meta name="google-site-verification" content="AyM3CmmvoUwbFroq_SYZPzITzP0dwgKcdo4_dBgCFHE" />
 
@@ -36,10 +35,11 @@ const { title, description, noindex = false } = Astro.props;
     <meta name="twitter:image" content={new URL('og.png', Astro.site).href} />
 
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="alternate" type="application/rss+xml" title="Packory Blog" href="/rss.xml" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180.png" />
-    {!noindex && <link rel="canonical" href={Astro.url.href} />}
+    {noindex ? <meta name="robots" content="noindex,follow" /> : <link rel="canonical" href={Astro.url.href} />}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
