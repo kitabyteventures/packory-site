@@ -75,6 +75,8 @@ A claim is a deadline, not a debate. If the record exists, your reply is one mes
 
 That difference is the whole point of treating evidence as part of shipping, rather than something you assemble after something goes wrong.
 
-Packory records the packing of every order on video, links each clip to its tracking number, and keeps the record searchable by order when a dispute opens. Free to start, no credit card needed.
+Packory records the packing of every order on video, links each clip to its tracking number, and keeps the record searchable by order when a dispute opens. Free to start, no card needed to start.
 
 [See how packing verification works](/blog/what-is-packing-verification/), [check a buyer before you ship](/check-buyer/), or [run your own numbers with the free fee calculator](/tools/fee-profit-calculator/).
+
+*Every order. On video. Dispute-proof. Packory is the evidence layer for Malaysian e-commerce, [start free](https://console.packory.app/signup?source=blog:proof-of-shipment-malaysia) and put every order on the record.*

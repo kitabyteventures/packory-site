@@ -61,6 +61,8 @@ The practical response is not to panic about the headline, it is to know your ow
 
 Every order is a small bet on the buyer behaving. The sellers who keep their margin are the ones who can settle the losing bets quickly, with proof of what they shipped, rather than arguing from memory.
 
-Packory records the packing of every order on video, links each clip to its tracking number, and keeps the record ready when a dispute opens. Free to start, no credit card needed.
+Packory records the packing of every order on video, links each clip to its tracking number, and keeps the record ready when a dispute opens. Free to start, no card needed to start.
 
 [Check your fees with the free calculator](/tools/fee-profit-calculator/), or [see how packing verification works](/blog/what-is-packing-verification/).
+
+*Every order. On video. Dispute-proof. Packory is the evidence layer for Malaysian e-commerce, [start free](https://console.packory.app/signup?source=blog:lazada-commission-fees-malaysia-2026) and put every order on the record.*
