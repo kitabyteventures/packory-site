@@ -1,0 +1,182 @@
+---
+import Legal from '../layouts/Legal.astro';
+
+const CONSOLE = 'https://console.packory.app';
+const SUPPORT_EMAIL = 'support@packory.app';
+
+// Copy owner: Aisyah (support). Source: deliverables/Aisyah/2026-09-10-faq-help-content-pack.md §1.
+// Price copy aligned to the LOCKED ladder (price card v2, Man 12/9): Free 25 · RM12.99/75 ·
+// RM39.99/300 · RM69.99/600 · RM149/1,500 · annual RM129/399/699/1,490 · overage RM0.19.
+// Deliberately does NOT duplicate the 6 questions already answered on the homepage (#faq).
+const FAQS = [
+  {
+    q: 'How do I start?',
+    a: 'Sign up at console.packory.app/signup (Google or email), then finish the 5-step onboarding: shop, address, storefronts & volume, WhatsApp number, plan. Pick Start Free (RM0), no credit card. Install the terminal on your packing phone, scan a test AWB, and your first order records.',
+  },
+  {
+    q: 'Which marketplaces work?',
+    a: 'Shopee, TikTok Shop, Lazada, Amazon and more. Packory does not need a platform integration to record: you scan the AWB, so any marketplace (or a manual/offline order) works the same way.',
+  },
+  {
+    q: 'Does the buyer need the app?',
+    a: 'No. The buyer just gets a proof link (sent by WhatsApp or copied into chat), no login and no app to install.',
+  },
+  {
+    q: 'What exactly does the buyer see?',
+    a: 'A clean proof page: a VERIFIED badge, the SHA-256 integrity hash, the UTC timestamp, and the AWB (masked). They do not get your raw cloud-storage link.',
+  },
+  {
+    q: 'Is there an audit trail?',
+    a: 'Yes. Every capture is logged automatically to a Google Sheets row (AWB, timestamp, verify status) so you have a searchable record, and the server re-verifies the clip.',
+  },
+  {
+    q: 'Can I import my orders so the proof link goes out faster?',
+    a: 'Yes. In the console, import a CSV export from Shopee / TikTok Shop / Lazada. Packory auto-detects the columns, then the WhatsApp compose box pre-fills the buyer message and proof link for you to tap send.',
+  },
+  {
+    q: 'What if my internet drops mid-pack?',
+    a: 'Nothing is lost. The clip saves to the phone first, then syncs in the background and resumes where it stopped.',
+  },
+  {
+    q: 'What about price after the free plan?',
+    a: 'Free covers 25 verified orders a month. After that: RM12.99 for 75 orders/month, RM39.99 for 300, RM69.99 for 600 and RM149 for 1,500 or more. Extra orders beyond your allowance are RM0.19 each. Yearly billing is 10 months for 12 (RM129, RM399, RM699, RM1,490), same monthly allowance, no bonus orders. Founding-beta pricing is locked for 60 days after beta, then it goes up.',
+  },
+  {
+    q: 'Is this a subscription that auto-charges me?',
+    a: 'Paid plans are billed by card. If you pick a subscription it renews automatically at the end of each period (monthly or yearly) at the price in force when you subscribed, until you cancel. You can cancel at any time from Billing in your dashboard: cancellation stops future charges and your access continues until the end of the period you already paid for. Where a plan is sold as a one-time payment instead, no recurring charge is made and you renew only when you choose.',
+  },
+  {
+    q: 'What payment methods do you accept?',
+    a: 'Card only: credit or debit card. FPX and online-banking transfers are not available, because a subscription has to renew on its own and those rails cannot do that. If you need a company invoice or SST details, email support@packory.app and we will sort it out.',
+  },
+  {
+    q: 'Where is my data stored, and is it PDPA-safe?',
+    a: 'Your videos stay in your own cloud storage; we never keep footage on our servers. The personal data we do handle (buyer phone for WhatsApp compose, claim details) is encrypted and minimised. See our Privacy Policy and Terms of Service for the detail.',
+  },
+  {
+    q: 'What is "Check a buyer"?',
+    a: 'An evidence-first risk check. It returns a neutral risk score, never a "scammer" label. Nothing is published about a buyer unless a seller submits evidence and our team verifies it as true. Cross-seller scoring is still off (Phase 2, and it needs buyer consent).',
+  },
+  {
+    q: 'Can I get a refund?',
+    a: 'Yes, if the charge qualifies. In Settings in your dashboard you can cancel and refund your subscription: it is available within 7 days of the charge and while 10 or fewer videos have been recorded on that term. Requesting one returns the charge and ends the term the same day, so your plan goes back to Free, and your evidence and connected accounts are not touched. One-time payments are not refundable this way. If the card tells you that you are not eligible and you think that is wrong, email support@packory.app and a human will look at it with you.',
+  },
+  {
+    q: 'Do I get a receipt or invoice for my payment?',
+    a: 'Yes. Card payments are processed by our payment gateway, which emails a receipt for each successful payment. For anything bespoke (company invoice, SST details) email support and we will sort it out.',
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+
+<Legal
+  title="Help & FAQ"
+  kicker="Packory · Support"
+  description="Answers to the questions Packory sellers ask most: getting started, marketplaces, buyer proof links, offline recording, pricing, billing and data."
+>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <p>
+    Quick answers below. If your question is about how Packory works in practice, this page is the fastest place to
+    look, and if it is not here, <a href={`mailto:${SUPPORT_EMAIL}`}>email support</a>.
+  </p>
+
+  <h2>Getting started</h2>
+  <div class="faq-list">
+    {FAQS.slice(0, 2).map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+
+  <h2>The buyer side</h2>
+  <div class="faq-list">
+    {FAQS.slice(2, 5).map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+
+  <h2>Daily packing</h2>
+  <div class="faq-list">
+    {FAQS.slice(5, 7).map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+
+  <h2>Pricing &amp; billing</h2>
+  <div class="faq-list">
+    {FAQS.slice(7, 9).map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+
+  <h2>Data, privacy &amp; buyer checks</h2>
+  <div class="faq-list">
+    {FAQS.slice(9).map((f) => (
+      <details>
+        <summary>{f.q}</summary>
+        <p>{f.a}</p>
+      </details>
+    ))}
+  </div>
+
+  <hr />
+
+  <h2>Still stuck?</h2>
+  <p>
+    Email <a href={`mailto:${SUPPORT_EMAIL}`}><strong>{SUPPORT_EMAIL}</strong></a> with your shop name and the AWB (if
+    your question is about a specific order) and we will take it from there.
+  </p>
+  <p>
+    Setting up? The 5-step onboarding takes about five minutes. Start at
+    <a href={`${CONSOLE}/signup`}>{CONSOLE.replace('https://', '')}/signup</a>. Going deeper:
+    <a href="/blog/what-is-packing-verification">what packing verification is</a> ·
+    <a href="/blog">all guides</a> · <a href="/check-buyer">check a buyer</a>.
+  </p>
+</Legal>
+
+<style is:global>
+  .legal-article .faq-list { margin: 0 0 1.5rem; }
+  .legal-article .faq-list details {
+    border: 1px solid rgba(10, 13, 30, 0.12);
+    border-radius: 12px;
+    background: #fff;
+    padding: 0.15rem 1.15rem;
+    margin-bottom: 0.7rem;
+  }
+  .legal-article .faq-list summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: #0a0d1e;
+    padding: 0.95rem 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .legal-article .faq-list summary::-webkit-details-marker { display: none; }
+  .legal-article .faq-list summary::after { content: '+'; color: #2f4bff; font-size: 1.3rem; font-weight: 600; line-height: 1; }
+  .legal-article .faq-list details[open] summary::after { content: '–'; }
+  .legal-article .faq-list details p { margin: 0 0 1rem; font-size: 1rem; }
+</style>
