@@ -1,6 +1,6 @@
 ---
 title: "GMV Is Not Revenue: A Shopee Fee Breakdown (2026)"
-description: "A 2026 shopee fee breakdown for Malaysian sellers: commission, programme, transaction and RM0.54 lines, and the margin they quietly take."
+description: "Shopee and Lazada fee breakdown 2026: commission, programme and RM0.54 lines, Lazada's 14 Aug 2026 revision, and the margin they quietly take."
 pubDate: 2026-09-12
 author: Packory
 ---
@@ -64,6 +64,26 @@ Practical sequence, about ten minutes per SKU group:
 4. Only then decide the percentage margin you are happy with.
 
 Our free **Fee & Profit Calculator** covers Shopee, TikTok Shop and Lazada with the full line list, and the shipping SST change is covered in our post on [TikTok Shop SST 6%](https://packory.app/blog/tiktok-shop-shipping-fee-sst-6-percent/).
+
+## What changed on Lazada in August 2026
+
+Lazada is the other platform where this catches sellers, and its card moved recently. Lazada Malaysia revised commission for all local sellers effective **14 August 2026**, and the revision landed on every Marketplace cluster:
+
+- General Merchandise: 15.5% to 19% before, **18.5% to 22%** after
+- FMCG: 0% to 19.5% before, **0% to 22.5%** after
+- Fashion: 16% to 17% before, **18.5% to 20%** after
+- Electronics: 12.5% to 18.5% before, **15% to 21.5%** after
+- Digital Goods: 22.5% before, **25.5%** after
+
+Those rates are subject to 8% SST and are all-inclusive. They already carry campaign vouchers, Basic LazCoins and free shipping, which is why Lazada calls it an all-in-one model with no separate platform support fee and no campaign voucher fee to join campaigns. LazMall runs on its own, higher card.
+
+Three details decide whether your own number matches the ranges above:
+
+- **Your sub-category.** Inside FMCG alone, the official sub-category rates run from 13.5% to 21%. A cluster range is a map, not your address.
+- **The order date, not the delivery date.** Orders created before 14 August 2026 keep the old rate even if they were delivered later.
+- **Returns and failed deliveries.** Commission is charged on delivered orders, refunded when an order comes back (for a partial return, refunded on the returned item), and not charged at all on a failed delivery. New Marketplace sellers keep a 120-day commission waiver on their first store.
+
+Source: Lazada Malaysia Seller Help Center, "Marketplace Commission Rate (Effective 14th August 2026)", read 14 September 2026. Always confirm your own rate in Seller Center > Seller Settings > Commission before repricing.
 
 Margin is only half the risk though. A thin margin means one disputed order can wipe out the profit from a week of them, and a disputed order is decided on evidence of what you packed, empty-box, parcel-swap and item-not-received claims all turn on the same question. Our SSFS post explains [why fee automation does not cover packing disputes](https://packory.app/blog/shopee-ssfs-shipping-fee-claims-vs-packing-evidence/), and if a buyer pays with instalments and then claims, checking them first through [Buyer Check](https://packory.app/check-buyer/) costs nothing.
 

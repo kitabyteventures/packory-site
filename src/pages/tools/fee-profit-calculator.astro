@@ -4,7 +4,7 @@ import Tools from '../../layouts/Tools.astro';
 const CONSOLE = 'https://console.packory.app';
 const title = 'Fee & Profit Calculator for Shopee, TikTok Shop & Lazada (Malaysia), Free';
 const description = 'Free per-order fee and profit calculator for Malaysian marketplace sellers. See what you keep after platform commission, shipping, Shopee SSFS (RM0.28) and TikTok Shop 6% shipping SST. No login needed.';
-const checked = '5 September 2026';
+const checked = '14 September 2026';
 ---
 
 <Tools title={title} description={description} active="tools">
@@ -135,6 +135,9 @@ const checked = '5 September 2026';
           Source: TikTok Shop Malaysia Seller University, cross-checked against: <a href="/blog/tiktok-shop-shipping-fee-sst-6-percent/">TikTok Shop shipping fee SST: what changes</a>.
         </p>
         <p>
+          <strong>Lazada commission</strong>: revised for all local sellers effective <strong>14 August 2026</strong>, set by category and sub-category, and subject to <strong>8% SST</strong>. Marketplace cluster ranges after that revision: General Merchandise 18.5% to 22%, FMCG 0% to 22.5%, Fashion 18.5% to 20%, Electronics 15% to 21.5%, Digital Goods 25.5%. The rate is all-inclusive (campaign voucher, Basic LazCoins, free shipping), charged on delivered orders, refunded when an order is returned, and not charged on failed deliveries. Source: Lazada Malaysia Seller Help Center, Marketplace Commission Rate (Effective 14th August 2026), read 14 September 2026.
+        </p>
+        <p>
           Figures last checked {checked}. Marketplace rates change, always confirm current policy in your Seller Centre before relying on the maths.
         </p>
       </details>
@@ -147,7 +150,7 @@ const checked = '5 September 2026';
       <details>
         <summary>I don't know my platform commission. Where do I find it?</summary>
         <p>
-          Commission varies by category, seller tier and promotions, and it changes, that is why the calculator takes your number instead of guessing. Open your Seller Centre → fee / commission page and copy the rate for your main category. Most Malaysian sellers are between roughly 2% and 10%, but confirm yours: the whole point of this tool is not guessing.
+          Commission varies by category, seller tier and promotions, and it changes, that is why the calculator takes your number instead of guessing. Open your Seller Centre → fee / commission page and copy the rate for your main category. Rates differ a lot by platform and category, Lazada's Marketplace clusters alone run from 0% to 22.5% after the 14 August 2026 revision, so any single average would be wrong for most sellers. Confirm yours: the whole point of this tool is not guessing.
         </p>
       </details>
       <details>
@@ -178,7 +181,7 @@ const checked = '5 September 2026';
       lazada: {
         name: 'Lazada',
         extras: 'lazada',
-        helper: 'Lazada commission is set by category, no fixed per-order service fee is shown here.'
+        helper: 'Lazada revised commission on 14 Aug 2026. Rates run by category and include campaign voucher, Basic LazCoins and free shipping, subject to 8% SST. Check your own category rate in Seller Centre.'
       }
     };
 
