@@ -55,7 +55,7 @@ The practical objection is always the same: "I can't film every order, I have a 
 - Video syncs to your own cloud storage in the background
 - You can send the buyer an evidence link on WhatsApp before the parcel ships
 
-Because recording starts from the scan, every order gets a clip without a single extra step. And because the link reaches the buyer before delivery, many disputes never open in the first place, the buyer sees the proof before they file. If a TikTok Shop dispute does open, the same clip is ready to submit.
+Because recording starts from the scan, every order gets a clip without a single extra step. And because you can send the buyer that link before delivery, many disputes never open in the first place. The buyer sees the proof before they file. If a TikTok Shop dispute does open, the same clip is ready to submit.
 
 Packory is channel-neutral: the same flow covers TikTok Shop, Shopee, Lazada, and Shopify orders. There's a free tier for up to 25 verified videos a month, and paid plans start at RM12.99 for 75 videos, RM39.99 for 300, and RM149 for 1,500 or more, small next to the value of a single disputed live-sale order.
 
