@@ -12,7 +12,7 @@ Put simply: packing verification is video proof for e-commerce orders. This guid
 
 
 <figure class="post-figure">
-  <img src="/blog/what-is-packing-verification.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process beside a stack of courier labels ready for the next order. Illustrating a guide to packing Verification? Automated Video." width="1600" height="900" loading="lazy" decoding="async" />
+  <img src="/blog/what-is-packing-verification.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process beside a stack of courier labels ready for the next order. Illustrating a guide to packing Verification." width="1600" height="900" loading="lazy" decoding="async" />
   <figcaption>Packing an order while a phone on a tripod records the process beside a stack of courier labels ready for the next order.</figcaption>
 </figure>
 
