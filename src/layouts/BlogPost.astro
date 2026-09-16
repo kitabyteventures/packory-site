@@ -37,17 +37,7 @@ const SIGNUP = `${CONSOLE}/signup?source=${source}`;
       <p class="blog-kicker"><a href="/blog">← Packory Blog</a></p>
       <h1 class="blog-title">{title}</h1>
       <p class="blog-meta">{pretty} · {author}</p>
-      {image ? (
-        <figure class="blog-cover-img">
-          <img src={image} alt="" width="1600" height="900" loading="eager" decoding="async" />
-        </figure>
-      ) : (
-        <div class="blog-cover" aria-hidden="true">
-          <span class="bc-brand"><i></i>Packory</span>
-          <span class="bc-note">FIELD NOTES · FOR E-COMMERCE SELLERS</span>
-          <span class="bc-chip">Dispute-proof your shop</span>
-        </div>
-      )}
+      {/* cover photo now lives inside the article body, per Man 2026-09-16 */}
       <div class="blog-actions">
         <button id="blogHeart" type="button" class="blog-heart" aria-pressed="false">
           <svg class="heart-svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.7-10-9.3C.4 8.2 2.2 4.5 5.7 4.2c2-.2 3.7.9 4.6 2.4l1.7 2.6 1.7-2.6c.9-1.5 2.6-2.6 4.6-2.4 3.5.3 5.3 4 3.7 7.5C19.5 16.3 12 21 12 21z"/></svg>

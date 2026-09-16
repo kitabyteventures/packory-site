@@ -12,6 +12,10 @@ Every order. On video. Dispute-proof.
 
 Malaysian e-commerce sellers know the pattern: order ships, courier confirms delivery, and then the message arrives, *"box sampai kosong"*, *"saya tak terima barang"*, or a parcel-swap accusation. The product value is only part of the loss. You also lose the refund, the dispute time, and a slice of trust with every claim you can't prove.
 
+
+![The Truth About E-commerce Fraud in Malaysia: What Sellers Don't See](/blog/the-truth-about-ecommerce-fraud-malaysia.jpg)
+
+
 Screenshots don't settle these disputes. Timestamps can be argued, chat logs can be cropped, and a photo of a packed box doesn't show what actually left your hands.
 
 ## Why video evidence changes the equation

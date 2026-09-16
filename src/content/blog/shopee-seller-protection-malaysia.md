@@ -12,6 +12,10 @@ Shopee seller protection sounds like a safety net, something that catches you au
 
 At a high level, seller protection is Shopee's framework for shielding sellers from claims that are not genuinely their fault. The typical shape: if a buyer's claim falls into a defined scenario, such as misuse of the return process, or a non-delivery claim that contradicts courier records, and the seller has followed the platform's rules for listings, shipping, and tracking, protection can apply to the seller's side of the case.
 
+
+![Shopee Seller Protection in Malaysia: What It Covers & What It Doesn't](/blog/shopee-seller-protection-malaysia.jpg)
+
+
 Two caveats matter before you rely on it. First, the specific scenarios, conditions, and procedures are defined by Shopee Malaysia and they change over time, check your Seller Centre for the current policy rather than acting on a summary you read somewhere. Second, protection is conditional. Sellers who skip required steps, such as uploading valid tracking or shipping within the promised window, start the review in a weaker position no matter how innocent the claim is.
 
 ## What it doesn't cover, and why that's not a conspiracy

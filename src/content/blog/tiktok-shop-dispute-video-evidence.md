@@ -10,6 +10,10 @@ TikTok Shop disputes are part of running a live-selling business. Volume moves f
 
 The first answer, honestly, is that timelines vary. The second answer is more useful: disputes are decided on evidence, and timestamped packing video is the strongest evidence a seller can submit. This post walks through the general shape of a TikTok Shop dispute, why video evidence carries weight, and how to record it without slowing down your packing line.
 
+
+![TikTok Shop Disputes: How Long They Take & How to Win With Video Evidence](/blog/tiktok-shop-dispute-video-evidence.jpg)
+
+
 ## How long do TikTok Shop disputes take?
 
 There is no single number, and anyone quoting one is guessing. Resolution time depends on the case type, how quickly both sides respond, the quality of the evidence, and TikTok Shop's current policy, which is updated regularly. The reliable move is to open your Seller Centre and read the dispute section as it stands today, because response windows and review timelines do change.

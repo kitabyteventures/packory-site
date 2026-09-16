@@ -10,6 +10,10 @@ Packing verification is the practice of recording an order while it is being pac
 
 Put simply: packing verification is video proof for e-commerce orders. This guide explains where the need comes from, how it differs from casually filming your packing table, and what an automated system actually does.
 
+
+![What Is Packing Verification? Automated Video Proof for E-commerce Orders](/blog/what-is-packing-verification.jpg)
+
+
 ## Why e-commerce created the need for packing verification
 
 Several realities of online selling make packing verification necessary rather than nice-to-have:

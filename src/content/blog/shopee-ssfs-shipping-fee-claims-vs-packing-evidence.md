@@ -10,6 +10,10 @@ Every order. On video. Dispute-proof.
 
 Sellers across Malaysia started September with a new notice in their Seller Centre: a Shopee shipping fee claim service that automates refunds of courier costs for RM0.28 per order (Preferred Sellers pay RM0.18). It sounds like a small number, and for many shops the reaction is to sign up quickly and move on. The more useful question is what the service actually covers, because fee claims and packing disputes are not the same game, and the one that threatens your margin is the one automation does not touch.
 
+
+![Shopee Shipping Fee Claim Automation (SSFS): What RM0.28 Per Order Covers, and What It Doesn't](/blog/shopee-ssfs-shipping-fee-claims-vs-packing-evidence.jpg)
+
+
 ## What the Shopee shipping fee claim service covers
 
 The service, often shortened to SSFS, handles a specific job: when a parcel is lost or delayed and you are entitled to recover the shipping fee you paid, the claim is submitted and followed up for you. Instead of tracking web forms and deadlines yourself, you pay RM0.28 per order and the recovery is automated. For sellers who ship enough volume that courier fee claims happen regularly, the arithmetic can genuinely work in their favour.

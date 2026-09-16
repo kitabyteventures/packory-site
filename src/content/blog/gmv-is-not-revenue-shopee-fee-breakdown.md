@@ -10,6 +10,10 @@ Every order. On video. Dispute-proof.
 
 A seller in a Malaysian marketplace group put it plainly last week: sales are up, the bank account is not. Nothing dramatic happened, no big refund, no lost parcel. The order volume simply grew, and the percentage lines grew with it. That is the trap in a shopee fee breakdown: the number you see in the app is not the number you keep.
 
+
+![GMV Is Not Revenue: A Shopee Fee Breakdown (2026)](/blog/gmv-is-not-revenue-shopee-fee-breakdown.jpg)
+
+
 If you price from gross merchandise value (GMV), you are pricing from a number that was never yours. Here is what actually happens to a RM100 order in 2026, line by line.
 
 ## What a RM100 order actually keeps

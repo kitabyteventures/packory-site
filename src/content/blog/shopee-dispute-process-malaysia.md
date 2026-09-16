@@ -12,6 +12,10 @@ No seller searches for "shopee dispute process" out of curiosity. The search usu
 
 At a high level, the flow is consistent. A buyer opens a return or refund request, and if you accept it, the case usually ends there. If you decline, or if the two sides cannot agree, the buyer can ask Shopee's team to review the case, that review is what sellers mean when they talk about a dispute. The team weighs the order record, tracking and delivery information, your replies, and the evidence both parties attach.
 
+
+![Shopee Dispute Process in Malaysia: How Sellers Win Refund & Return Cases](/blog/shopee-dispute-process-malaysia.jpg)
+
+
 Two things are worth knowing before a dispute ever arrives. First, the process is evidence-based by design: a third party weighs what actually happened instead of taking either side's word. Second, the specific steps, timelines, and decision windows are set by Shopee Malaysia and do change over time, before any deadline matters, open your Seller Centre and read the current policy there. Treat the Seller Centre as the source of truth for the live process rather than relying on a blog post's summary of it.
 
 ## The claim types that reach disputes

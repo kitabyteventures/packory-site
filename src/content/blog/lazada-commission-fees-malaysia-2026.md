@@ -10,6 +10,10 @@ Lazada commission fees in Malaysia changed on 14 August 2026, and the new rate c
 
 This guide uses Lazada's own published rate card, taken from the public Lazada Seller Help Center, articles updated 11 September 2026. No third party blog, no guesswork.
 
+
+![Lazada Commission Fees in Malaysia: The Official 2026 Rate Card](/blog/lazada-commission-fees-malaysia-2026.jpg)
+
+
 ## Lazada commission fee table, effective 14 August 2026
 
 These are the official Marketplace rates for all sellers. The card states the rate is subject to 8% SST and is all inclusive, meaning campaign voucher, basic LazCoins and free shipping are already inside the number.

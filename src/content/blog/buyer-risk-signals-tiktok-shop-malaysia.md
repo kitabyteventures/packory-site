@@ -10,6 +10,10 @@ Every order. On video. Dispute-proof.
 
 TikTok Shop moves fast. A video goes viral, orders come in during a live session, and the packing table looks like a happy disaster. In that speed, the orders worth a second look are easy to miss.
 
+
+![Buyer Risk Signals Before You Pack (TikTok Shop Malaysia)](/blog/buyer-risk-signals-tiktok-shop-malaysia.jpg)
+
+
 Buyer risk signals are not about profiling people. They are about patterns that show up in the order itself, and about building a routine that protects you when a pattern turns into a problem.
 
 ## Why the pre-pack moment matters
