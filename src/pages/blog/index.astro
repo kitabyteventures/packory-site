@@ -33,6 +33,9 @@ const posts = (await getCollection('blog')).sort(
     <div class="container posts-grid">
       {posts.map((p) => (
         <a class="post-card" href={`/blog/${p.id}`}>
+          {p.data.image && (
+            <img class="post-thumb" src={p.data.image} alt="" width="1600" height="900" loading="lazy" decoding="async" />
+          )}
           <div>
             <span class="post-date">{new Date(p.data.pubDate).toLocaleDateString('en-MY', { day: 'numeric', month: 'short', year: 'numeric' })}</span>
             <h2>{p.data.title}</h2>
@@ -62,6 +65,7 @@ const posts = (await getCollection('blog')).sort(
   .blog-kicker { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #2f4bff; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
   .blog-head-sub { color: #6b7280; font-size: 1.0625rem; max-width: 40rem; line-height: 1.6; margin: 0; }
   .posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
+  .post-thumb { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 10px; display: block; margin-bottom: 0.25rem; }
   .post-card { display: flex; flex-direction: column; justify-content: space-between; gap: 1.25rem; background: #fff; border: 1px solid rgba(10, 13, 30, 0.1); border-radius: 14px; padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s; }
   .post-card:hover { transform: translateY(-3px); box-shadow: 0 14px 34px rgba(10, 13, 30, 0.08); border-color: #2f4bff; }
   .post-date { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; letter-spacing: 0.1em; text-transform: uppercase; color: #6b7280; }

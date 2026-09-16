@@ -3,11 +3,19 @@ title: "What Is Packing Verification? Automated Video Proof for E-commerce Order
 description: "Packing verification is automated video proof that your order was packed correctly, timestamped, hands-free, and ready for any dispute."
 pubDate: 2026-09-03
 author: Packory
+image: /blog/what-is-packing-verification.jpg
 ---
 
 Packing verification is the practice of recording an order while it is being packed, item in frame, packaging sealed, time on record, so the seller has objective proof of what left their hands. Done properly, it is not a phone propped against a box. It is an automated system that captures every order the same way, stores the clips where the seller controls them, and produces an evidence link that can be shared with a buyer or submitted to a marketplace dispute team.
 
 Put simply: packing verification is video proof for e-commerce orders. This guide explains where the need comes from, how it differs from casually filming your packing table, and what an automated system actually does.
+
+
+<figure class="post-figure">
+  <img src="/blog/what-is-packing-verification.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process beside a stack of courier labels ready for the next order. Illustrating a guide to packing verification." width="1600" height="900" loading="lazy" decoding="async" />
+  <figcaption>Packing an order while a phone on a tripod records the process beside a stack of courier labels ready for the next order.</figcaption>
+</figure>
+
 
 ## Why e-commerce created the need for packing verification
 

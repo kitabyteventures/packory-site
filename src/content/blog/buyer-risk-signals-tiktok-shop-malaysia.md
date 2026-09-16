@@ -3,11 +3,19 @@ title: "Buyer Risk Signals Before You Pack (TikTok Shop Malaysia)"
 description: "Spot buyer risk signals before you pack a TikTok Shop order in Malaysia: account, address, chat pressure and the evidence habit that protects you."
 pubDate: 2026-09-05
 author: Packory
+image: /blog/buyer-risk-signals-tiktok-shop-malaysia.jpg
 ---
 
 Every order. On video. Dispute-proof.
 
 TikTok Shop moves fast. A video goes viral, orders come in during a live session, and the packing table looks like a happy disaster. In that speed, the orders worth a second look are easy to miss.
+
+
+<figure class="post-figure">
+  <img src="/blog/buyer-risk-signals-tiktok-shop-malaysia.jpg" alt="A Malaysian e-commerce seller. Reviewing an order before shipping, a sealed parcel on the desk at a home packing table. Illustrating a guide to buyer risk signals before." width="1600" height="900" loading="lazy" decoding="async" />
+  <figcaption>Reviewing an order before shipping, a sealed parcel on the desk at a home packing table.</figcaption>
+</figure>
+
 
 Buyer risk signals are not about profiling people. They are about patterns that show up in the order itself, and about building a routine that protects you when a pattern turns into a problem.
 

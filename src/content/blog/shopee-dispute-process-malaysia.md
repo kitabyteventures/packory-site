@@ -3,6 +3,7 @@ title: "Shopee Dispute Process in Malaysia: How Sellers Win Refund & Return Case
 description: "Shopee dispute process in Malaysia explained: common claim types sellers face, what evidence the review expects, and how packing video settles cases."
 pubDate: 2026-09-03
 author: Packory
+image: /blog/shopee-dispute-process-malaysia.jpg
 ---
 
 No seller searches for "shopee dispute process" out of curiosity. The search usually happens the day a return request stops being a chat thread and becomes something more formal, a buyer says the box arrived empty, a parcel-swap accusation appears, or courier records show delivery while the buyer insists nothing arrived. From that point, the conversation is a case, and both sides are expected to submit evidence. How it ends depends less on who is right and more on who can prove it.
@@ -10,6 +11,13 @@ No seller searches for "shopee dispute process" out of curiosity. The search usu
 ## What the Shopee dispute process in Malaysia actually involves
 
 At a high level, the flow is consistent. A buyer opens a return or refund request, and if you accept it, the case usually ends there. If you decline, or if the two sides cannot agree, the buyer can ask Shopee's team to review the case, that review is what sellers mean when they talk about a dispute. The team weighs the order record, tracking and delivery information, your replies, and the evidence both parties attach.
+
+
+<figure class="post-figure">
+  <img src="/blog/shopee-dispute-process-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process under warm shop light in the evening. Illustrating a guide to Shopee dispute process." width="1600" height="900" loading="lazy" decoding="async" />
+  <figcaption>Packing an order while a phone on a tripod records the process under warm shop light in the evening.</figcaption>
+</figure>
+
 
 Two things are worth knowing before a dispute ever arrives. First, the process is evidence-based by design: a third party weighs what actually happened instead of taking either side's word. Second, the specific steps, timelines, and decision windows are set by Shopee Malaysia and do change over time, before any deadline matters, open your Seller Centre and read the current policy there. Treat the Seller Centre as the source of truth for the live process rather than relying on a blog post's summary of it.
 

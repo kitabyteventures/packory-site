@@ -3,11 +3,19 @@ title: "Lazada Commission Fees in Malaysia: The Official 2026 Rate Card"
 description: "Lazada commission fees in Malaysia changed on 14 August 2026. See the official rate ranges, the rules behind them, and how to check your own rate."
 pubDate: 2026-09-15
 author: Packory
+image: /blog/lazada-commission-fees-malaysia-2026.jpg
 ---
 
 Lazada commission fees in Malaysia changed on 14 August 2026, and the new rate card is wider than most sellers expect. General merchandise now runs from 18.5% to 22%, fashion from 18.5% to 20%, and digital goods sits at 25.5%. Every one of those numbers comes with an asterisk, and the asterisk is where sellers lose money.
 
 This guide uses Lazada's own published rate card, taken from the public Lazada Seller Help Center, articles updated 11 September 2026. No third party blog, no guesswork.
+
+
+<figure class="post-figure">
+  <img src="/blog/lazada-commission-fees-malaysia-2026.jpg" alt="A Malaysian e-commerce seller. Checking marketplace fees and shipping costs on a laptop at a small neighbourhood parcel shop counter. Illustrating a guide to Lazada commission fees." width="1600" height="900" loading="lazy" decoding="async" />
+  <figcaption>Checking marketplace fees and shipping costs on a laptop at a small neighbourhood parcel shop counter.</figcaption>
+</figure>
+
 
 ## Lazada commission fee table, effective 14 August 2026
 

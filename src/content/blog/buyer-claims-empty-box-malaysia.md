@@ -3,6 +3,7 @@ title: "Buyer Claims Empty Box? What Malaysian Sellers Should Do"
 description: "Buyer claims the parcel arrived empty? What to check first, what evidence to gather, and how packing video protects Malaysian sellers."
 pubDate: 2026-09-03
 author: Packory
+image: /blog/buyer-claims-empty-box-malaysia.jpg
 ---
 
 Every order. On video. Dispute-proof.
@@ -10,6 +11,13 @@ Every order. On video. Dispute-proof.
 *"Encik, kotak sampai kosong. Barang tak ada dalam."* Few messages hit harder than this one. Your order shipped, the courier log shows delivery, and now the buyer says the parcel arrived empty. An **empty box claim** asks one simple question, did the item actually leave your hands?, and the answer decides a refund, a return, and possibly a formal dispute case.
 
 How you respond in the first few hours matters as much as the evidence you can produce later. Here's what to do when a buyer claims the box arrived empty: which first reactions to avoid, what the platform will ask for, and how to assemble a reply that actually holds up.
+
+
+<figure class="post-figure">
+  <img src="/blog/buyer-claims-empty-box-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process at a home packing table. Illustrating a guide to buyer claims empty box." width="1600" height="900" loading="lazy" decoding="async" />
+  <figcaption>Packing an order while a phone on a tripod records the process at a home packing table.</figcaption>
+</figure>
+
 
 ## First reactions to avoid
 
