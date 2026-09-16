@@ -13,7 +13,10 @@ Every order. On video. Dispute-proof.
 How you respond in the first few hours matters as much as the evidence you can produce later. Here's what to do when a buyer claims the box arrived empty: which first reactions to avoid, what the platform will ask for, and how to assemble a reply that actually holds up.
 
 
-![Buyer Claims Empty Box? What Malaysian Sellers Should Do](/blog/buyer-claims-empty-box-malaysia.jpg)
+<figure class="post-figure">
+  <img src="/blog/buyer-claims-empty-box-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process at a home packing table. Illustrating a guide to buyer Claims Empty Box?." width="1600" height="900" loading="lazy" decoding="async" />
+  <figcaption>Packing an order while a phone on a tripod records the process at a home packing table.</figcaption>
+</figure>
 
 
 ## First reactions to avoid

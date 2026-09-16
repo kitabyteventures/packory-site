@@ -11,7 +11,10 @@ Every order. On video. Dispute-proof.
 Some orders feel wrong before they ship. The username is a day old, the chat replies are pushy, the address looks off, and the amount is just large enough to hurt if it goes wrong. Most sellers ignore the feeling because they think they cannot do anything about it.
 
 
-![How to Check a Buyer on Shopee Malaysia: Red Flags You Can Actually Verify](/blog/how-to-check-buyer-shopee-malaysia.jpg)
+<figure class="post-figure">
+  <img src="/blog/how-to-check-buyer-shopee-malaysia.jpg" alt="A Malaysian e-commerce seller. Sealing and labelling parcels in a run at a small neighbourhood parcel shop counter. Illustrating a guide to check a Buyer on." width="1600" height="900" loading="lazy" decoding="async" />
+  <figcaption>Sealing and labelling parcels in a run at a small neighbourhood parcel shop counter.</figcaption>
+</figure>
 
 
 You can do something, but only if you check the right things. "How to check a buyer on Shopee Malaysia" is one of the most useful questions a seller can ask, because the answer separates real risk signals from paranoia.

@@ -11,7 +11,10 @@ Lazada commission fees in Malaysia changed on 14 August 2026, and the new rate c
 This guide uses Lazada's own published rate card, taken from the public Lazada Seller Help Center, articles updated 11 September 2026. No third party blog, no guesswork.
 
 
-![Lazada Commission Fees in Malaysia: The Official 2026 Rate Card](/blog/lazada-commission-fees-malaysia-2026.jpg)
+<figure class="post-figure">
+  <img src="/blog/lazada-commission-fees-malaysia-2026.jpg" alt="A Malaysian e-commerce seller. Checking marketplace fees and shipping costs on a laptop at a small neighbourhood parcel shop counter. Illustrating a guide to Lazada Commission Fees." width="1600" height="900" loading="lazy" decoding="async" />
+  <figcaption>Checking marketplace fees and shipping costs on a laptop at a small neighbourhood parcel shop counter.</figcaption>
+</figure>
 
 
 ## Lazada commission fee table, effective 14 August 2026

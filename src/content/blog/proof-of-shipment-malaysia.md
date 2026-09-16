@@ -11,7 +11,10 @@ Proof of shipment is the record that shows what left your hands, when it left, a
 This is not about expecting the worst from buyers. It is about removing ambiguity from an order before anyone has to argue about it. Here is the evidence stack that holds up, and the parts sellers usually skip.
 
 
-![Proof of Shipment: The Evidence That Settles a Marketplace Dispute](/blog/proof-of-shipment-malaysia.jpg)
+<figure class="post-figure">
+  <img src="/blog/proof-of-shipment-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process in a busy shop with shelves of boxes behind. Illustrating a guide to proof of Shipment." width="1600" height="900" loading="lazy" decoding="async" />
+  <figcaption>Packing an order while a phone on a tripod records the process in a busy shop with shelves of boxes behind.</figcaption>
+</figure>
 
 
 ## What a dispute team actually looks at
