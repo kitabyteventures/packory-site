@@ -14,7 +14,7 @@ At a high level, seller protection is Shopee's framework for shielding sellers f
 
 
 <figure class="post-figure">
-  <img src="/blog/shopee-seller-protection-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process at a table by the window in daylight. Illustrating a guide to Shopee Seller Protection." width="1600" height="900" loading="lazy" decoding="async" />
+  <img src="/blog/shopee-seller-protection-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process at a table by the window in daylight. Illustrating a guide to Shopee seller protection." width="1600" height="900" loading="lazy" decoding="async" />
   <figcaption>Packing an order while a phone on a tripod records the process at a table by the window in daylight.</figcaption>
 </figure>
 

@@ -14,7 +14,7 @@ Malaysian e-commerce sellers know the pattern: order ships, courier confirms del
 
 
 <figure class="post-figure">
-  <img src="/blog/the-truth-about-ecommerce-fraud-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process in a small stockroom stacked with packed boxes. Illustrating a guide to e-commerce Fraud." width="1600" height="900" loading="lazy" decoding="async" />
+  <img src="/blog/the-truth-about-ecommerce-fraud-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process in a small stockroom stacked with packed boxes. Illustrating a guide to e-commerce fraud." width="1600" height="900" loading="lazy" decoding="async" />
   <figcaption>Packing an order while a phone on a tripod records the process in a small stockroom stacked with packed boxes.</figcaption>
 </figure>
 

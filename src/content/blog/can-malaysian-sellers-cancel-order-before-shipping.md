@@ -12,7 +12,7 @@ A seller sees something wrong with an order and wants to cancel before it ships.
 
 
 <figure class="post-figure">
-  <img src="/blog/can-malaysian-sellers-cancel-order-before-shipping.jpg" alt="A Malaysian e-commerce seller. Sealing and labelling parcels in a run at a home packing table. Illustrating a guide to malaysian Sellers Cancel an." width="1600" height="900" loading="lazy" decoding="async" />
+  <img src="/blog/can-malaysian-sellers-cancel-order-before-shipping.jpg" alt="A Malaysian e-commerce seller. Sealing and labelling parcels in a run at a home packing table. Illustrating a guide to malaysian sellers cancel an." width="1600" height="900" loading="lazy" decoding="async" />
   <figcaption>Sealing and labelling parcels in a run at a home packing table.</figcaption>
 </figure>
 

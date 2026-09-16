@@ -12,7 +12,7 @@ Some orders feel wrong before they ship. The username is a day old, the chat rep
 
 
 <figure class="post-figure">
-  <img src="/blog/how-to-check-buyer-shopee-malaysia.jpg" alt="A Malaysian e-commerce seller. Sealing and labelling parcels in a run at a small neighbourhood parcel shop counter. Illustrating a guide to check a Buyer on." width="1600" height="900" loading="lazy" decoding="async" />
+  <img src="/blog/how-to-check-buyer-shopee-malaysia.jpg" alt="A Malaysian e-commerce seller. Sealing and labelling parcels in a run at a small neighbourhood parcel shop counter. Illustrating a guide to check a buyer on." width="1600" height="900" loading="lazy" decoding="async" />
   <figcaption>Sealing and labelling parcels in a run at a small neighbourhood parcel shop counter.</figcaption>
 </figure>
 

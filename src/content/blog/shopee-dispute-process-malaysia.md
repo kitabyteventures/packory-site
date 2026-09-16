@@ -14,7 +14,7 @@ At a high level, the flow is consistent. A buyer opens a return or refund reques
 
 
 <figure class="post-figure">
-  <img src="/blog/shopee-dispute-process-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process under warm shop light in the evening. Illustrating a guide to Shopee Dispute Process." width="1600" height="900" loading="lazy" decoding="async" />
+  <img src="/blog/shopee-dispute-process-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process under warm shop light in the evening. Illustrating a guide to Shopee dispute process." width="1600" height="900" loading="lazy" decoding="async" />
   <figcaption>Packing an order while a phone on a tripod records the process under warm shop light in the evening.</figcaption>
 </figure>
 

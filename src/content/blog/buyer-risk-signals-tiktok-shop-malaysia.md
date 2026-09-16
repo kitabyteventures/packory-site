@@ -12,7 +12,7 @@ TikTok Shop moves fast. A video goes viral, orders come in during a live session
 
 
 <figure class="post-figure">
-  <img src="/blog/buyer-risk-signals-tiktok-shop-malaysia.jpg" alt="A Malaysian e-commerce seller. Reviewing an order before shipping, a sealed parcel on the desk at a home packing table. Illustrating a guide to buyer Risk Signals Before." width="1600" height="900" loading="lazy" decoding="async" />
+  <img src="/blog/buyer-risk-signals-tiktok-shop-malaysia.jpg" alt="A Malaysian e-commerce seller. Reviewing an order before shipping, a sealed parcel on the desk at a home packing table. Illustrating a guide to buyer risk signals before." width="1600" height="900" loading="lazy" decoding="async" />
   <figcaption>Reviewing an order before shipping, a sealed parcel on the desk at a home packing table.</figcaption>
 </figure>
 

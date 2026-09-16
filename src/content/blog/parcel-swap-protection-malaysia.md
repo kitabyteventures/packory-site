@@ -14,7 +14,7 @@ Sellers report seeing these claims surface regularly in Malaysian marketplace co
 
 
 <figure class="post-figure">
-  <img src="/blog/parcel-swap-protection-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process at a small neighbourhood parcel shop counter. Illustrating a guide to parcel Swap & Empty." width="1600" height="900" loading="lazy" decoding="async" />
+  <img src="/blog/parcel-swap-protection-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process at a small neighbourhood parcel shop counter. Illustrating a guide to parcel swap & empty." width="1600" height="900" loading="lazy" decoding="async" />
   <figcaption>Packing an order while a phone on a tripod records the process at a small neighbourhood parcel shop counter.</figcaption>
 </figure>
 

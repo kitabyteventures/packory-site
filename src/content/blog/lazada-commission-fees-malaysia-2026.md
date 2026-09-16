@@ -12,7 +12,7 @@ This guide uses Lazada's own published rate card, taken from the public Lazada S
 
 
 <figure class="post-figure">
-  <img src="/blog/lazada-commission-fees-malaysia-2026.jpg" alt="A Malaysian e-commerce seller. Checking marketplace fees and shipping costs on a laptop at a small neighbourhood parcel shop counter. Illustrating a guide to Lazada Commission Fees." width="1600" height="900" loading="lazy" decoding="async" />
+  <img src="/blog/lazada-commission-fees-malaysia-2026.jpg" alt="A Malaysian e-commerce seller. Checking marketplace fees and shipping costs on a laptop at a small neighbourhood parcel shop counter. Illustrating a guide to Lazada commission fees." width="1600" height="900" loading="lazy" decoding="async" />
   <figcaption>Checking marketplace fees and shipping costs on a laptop at a small neighbourhood parcel shop counter.</figcaption>
 </figure>
 

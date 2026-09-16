@@ -14,7 +14,7 @@ How you respond in the first few hours matters as much as the evidence you can p
 
 
 <figure class="post-figure">
-  <img src="/blog/buyer-claims-empty-box-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process at a home packing table. Illustrating a guide to buyer Claims Empty Box." width="1600" height="900" loading="lazy" decoding="async" />
+  <img src="/blog/buyer-claims-empty-box-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process at a home packing table. Illustrating a guide to buyer claims empty box." width="1600" height="900" loading="lazy" decoding="async" />
   <figcaption>Packing an order while a phone on a tripod records the process at a home packing table.</figcaption>
 </figure>
 

@@ -12,7 +12,7 @@ A seller in a Malaysian marketplace group put it plainly last week: sales are up
 
 
 <figure class="post-figure">
-  <img src="/blog/gmv-is-not-revenue-shopee-fee-breakdown.jpg" alt="A Malaysian e-commerce seller. Checking marketplace fees and shipping costs on a laptop at a home packing table. Illustrating a guide to GMV Is Not Revenue." width="1600" height="900" loading="lazy" decoding="async" />
+  <img src="/blog/gmv-is-not-revenue-shopee-fee-breakdown.jpg" alt="A Malaysian e-commerce seller. Checking marketplace fees and shipping costs on a laptop at a home packing table. Illustrating a guide to GMV is not revenue." width="1600" height="900" loading="lazy" decoding="async" />
   <figcaption>Checking marketplace fees and shipping costs on a laptop at a home packing table.</figcaption>
 </figure>
 

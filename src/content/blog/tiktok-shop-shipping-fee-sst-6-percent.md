@@ -12,7 +12,7 @@ If you sell on TikTok Shop Malaysia, your September settlement will look differe
 
 
 <figure class="post-figure">
-  <img src="/blog/tiktok-shop-shipping-fee-sst-6-percent.jpg" alt="A Malaysian e-commerce seller. Checking marketplace fees and shipping costs on a laptop under warm shop light in the evening. Illustrating a guide to TikTok Shop Shipping Fee." width="1600" height="900" loading="lazy" decoding="async" />
+  <img src="/blog/tiktok-shop-shipping-fee-sst-6-percent.jpg" alt="A Malaysian e-commerce seller. Checking marketplace fees and shipping costs on a laptop under warm shop light in the evening. Illustrating a guide to TikTok shop shipping fee." width="1600" height="900" loading="lazy" decoding="async" />
   <figcaption>Checking marketplace fees and shipping costs on a laptop under warm shop light in the evening.</figcaption>
 </figure>
 

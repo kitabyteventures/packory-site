@@ -12,7 +12,7 @@ The first answer, honestly, is that timelines vary. The second answer is more us
 
 
 <figure class="post-figure">
-  <img src="/blog/tiktok-shop-dispute-video-evidence.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process at a long packing bench with rolls of tape within reach. Illustrating a guide to TikTok Shop Disputes." width="1600" height="900" loading="lazy" decoding="async" />
+  <img src="/blog/tiktok-shop-dispute-video-evidence.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process at a long packing bench with rolls of tape within reach. Illustrating a guide to TikTok shop disputes." width="1600" height="900" loading="lazy" decoding="async" />
   <figcaption>Packing an order while a phone on a tripod records the process at a long packing bench with rolls of tape within reach.</figcaption>
 </figure>
 

@@ -12,7 +12,7 @@ This is not about expecting the worst from buyers. It is about removing ambiguit
 
 
 <figure class="post-figure">
-  <img src="/blog/proof-of-shipment-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process in a busy shop with shelves of boxes behind. Illustrating a guide to proof of Shipment." width="1600" height="900" loading="lazy" decoding="async" />
+  <img src="/blog/proof-of-shipment-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process in a busy shop with shelves of boxes behind. Illustrating a guide to proof of shipment." width="1600" height="900" loading="lazy" decoding="async" />
   <figcaption>Packing an order while a phone on a tripod records the process in a busy shop with shelves of boxes behind.</figcaption>
 </figure>
 

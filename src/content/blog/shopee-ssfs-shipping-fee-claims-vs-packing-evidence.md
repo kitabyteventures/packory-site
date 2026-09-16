@@ -12,7 +12,7 @@ Sellers across Malaysia started September with a new notice in their Seller Cent
 
 
 <figure class="post-figure">
-  <img src="/blog/shopee-ssfs-shipping-fee-claims-vs-packing-evidence.jpg" alt="A Malaysian e-commerce seller. Checking marketplace fees and shipping costs on a laptop in a busy shop with shelves of boxes behind. Illustrating a guide to Shopee Shipping Fee Claim." width="1600" height="900" loading="lazy" decoding="async" />
+  <img src="/blog/shopee-ssfs-shipping-fee-claims-vs-packing-evidence.jpg" alt="A Malaysian e-commerce seller. Checking marketplace fees and shipping costs on a laptop in a busy shop with shelves of boxes behind. Illustrating a guide to Shopee shipping fee claim." width="1600" height="900" loading="lazy" decoding="async" />
   <figcaption>Checking marketplace fees and shipping costs on a laptop in a busy shop with shelves of boxes behind.</figcaption>
 </figure>
 
