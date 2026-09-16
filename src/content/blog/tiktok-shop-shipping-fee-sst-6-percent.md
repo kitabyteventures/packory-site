@@ -3,11 +3,19 @@ title: "TikTok Shop Shipping Fee SST (6%): What Changes for Malaysian Sellers on
 description: "TikTok Shop Malaysia applies 6% SST to seller shipping fees from 7 September 2026. See what it costs per order and how to protect thin margins."
 pubDate: 2026-09-04
 author: Packory
+image: /blog/tiktok-shop-shipping-fee-sst-6-percent.jpg
 ---
 
 Every order. On video. Dispute-proof.
 
 If you sell on TikTok Shop Malaysia, your September settlement will look different from August, the reason is the new TikTok Shop shipping fee SST. Starting this month, a 6% Service Tax (SST) applies to seller shipping fees. For orders created between 1 and 6 September, TikTok Shop covers the tax. For orders created from 7 September onwards, that cost moves to you, the seller. The shift is small in ringgit terms per parcel, but it lands in a year when sellers are already watching every sen of margin.
+
+
+<figure class="post-figure">
+  <img src="/blog/tiktok-shop-shipping-fee-sst-6-percent.jpg" alt="A Malaysian e-commerce seller. Checking marketplace fees and shipping costs on a laptop under warm shop light in the evening. Illustrating a guide to TikTok shop shipping fee." width="1600" height="900" loading="lazy" decoding="async" />
+  <figcaption>Checking marketplace fees and shipping costs on a laptop under warm shop light in the evening.</figcaption>
+</figure>
+
 
 ## What the TikTok Shop shipping fee SST changes
 

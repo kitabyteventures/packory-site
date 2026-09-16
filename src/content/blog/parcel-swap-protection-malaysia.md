@@ -3,6 +3,7 @@ title: "Parcel Swap & Empty Parcel Claims: How to Protect Every Order"
 description: "Parcel swap and empty parcel claims are decided on evidence. Learn how timestamped packing video protects every order you ship as a Malaysian seller."
 pubDate: 2026-09-03
 author: Packory
+image: /blog/parcel-swap-protection-malaysia.jpg
 ---
 
 Every order. On video. Dispute-proof.
@@ -10,6 +11,13 @@ Every order. On video. Dispute-proof.
 *"Seller, parcel saya tukar. Saya terima barang orang lain."* If you sell online in Malaysia long enough, you will hear some variation of the parcel swap story. A **parcel swap claim**, the buyer says the parcel they received was not what you sent, sits among the trickiest dispute categories for e-commerce sellers, because it touches every link of the journey: packing, courier, and delivery.
 
 Sellers report seeing these claims surface regularly in Malaysian marketplace communities: the wrong item inside the parcel, the empty parcel, the return that comes back as a different product. Without a record of what you actually packed, a parcel swap claim becomes your word against the buyer's, and screenshots don't change that.
+
+
+<figure class="post-figure">
+  <img src="/blog/parcel-swap-protection-malaysia.jpg" alt="A Malaysian e-commerce seller. Packing an order while a phone on a tripod records the process at a small neighbourhood parcel shop counter. Illustrating a guide to parcel swap & empty." width="1600" height="900" loading="lazy" decoding="async" />
+  <figcaption>Packing an order while a phone on a tripod records the process at a small neighbourhood parcel shop counter.</figcaption>
+</figure>
+
 
 ## What sellers mean by "parcel swap"
 

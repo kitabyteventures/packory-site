@@ -3,11 +3,19 @@ title: "GMV Is Not Revenue: A Shopee Fee Breakdown (2026)"
 description: "Shopee and Lazada fee breakdown 2026: commission, programme and RM0.54 lines, Lazada's 14 Aug 2026 revision, and the margin they quietly take."
 pubDate: 2026-09-12
 author: Packory
+image: /blog/gmv-is-not-revenue-shopee-fee-breakdown.jpg
 ---
 
 Every order. On video. Dispute-proof.
 
 A seller in a Malaysian marketplace group put it plainly last week: sales are up, the bank account is not. Nothing dramatic happened, no big refund, no lost parcel. The order volume simply grew, and the percentage lines grew with it. That is the trap in a shopee fee breakdown: the number you see in the app is not the number you keep.
+
+
+<figure class="post-figure">
+  <img src="/blog/gmv-is-not-revenue-shopee-fee-breakdown.jpg" alt="A Malaysian e-commerce seller. Checking marketplace fees and shipping costs on a laptop at a home packing table. Illustrating a guide to GMV is not revenue." width="1600" height="900" loading="lazy" decoding="async" />
+  <figcaption>Checking marketplace fees and shipping costs on a laptop at a home packing table.</figcaption>
+</figure>
+
 
 If you price from gross merchandise value (GMV), you are pricing from a number that was never yours. Here is what actually happens to a RM100 order in 2026, line by line.
 

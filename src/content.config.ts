@@ -8,6 +8,7 @@ const blog = defineCollection({
     description: z.string(),
     pubDate: z.coerce.date(),
     author: z.string().default('Packory'),
+    image: z.string().optional(),
   }),
 });
 

@@ -2,11 +2,13 @@
 export interface Props {
   title: string;
   description: string;
+  /** Optional social share image, e.g. /blog/<slug>.jpg */
+  image?: string;
   /** Keep a page out of search indexes (e.g. the 404 page). Defaults to false. */
   noindex?: boolean;
 }
 
-const { title, description, noindex = false } = Astro.props;
+const { title, description, noindex = false, image } = Astro.props;
 ---
 
 <!doctype html>
@@ -25,7 +27,7 @@ const { title, description, noindex = false } = Astro.props;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={Astro.url.href} />
     <meta property="og:locale" content="en_MY" />
-    <meta property="og:image" content={new URL('og.png', Astro.site).href} />
+    <meta property="og:image" content={image ? new URL(image, Astro.site).href : new URL('og.png', Astro.site).href} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Packory, Every order. On video. Dispute-proof. Packing verification for e-commerce." />

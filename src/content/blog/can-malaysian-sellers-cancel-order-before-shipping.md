@@ -3,11 +3,19 @@ title: "Can Malaysian Sellers Cancel an Order Before Shipping?"
 description: "Can you cancel or refuse an order before shipping in Malaysia? When it is allowed, when it hurts you, and how evidence keeps you safe either way."
 pubDate: 2026-09-05
 author: Packory
+image: /blog/can-malaysian-sellers-cancel-order-before-shipping.jpg
 ---
 
 Every order. On video. Dispute-proof.
 
 A seller sees something wrong with an order and wants to cancel before it ships. The first question is almost never legal, it is practical: *can I, without wrecking my shop?*
+
+
+<figure class="post-figure">
+  <img src="/blog/can-malaysian-sellers-cancel-order-before-shipping.jpg" alt="A Malaysian e-commerce seller. Sealing and labelling parcels in a run at a home packing table. Illustrating a guide to malaysian sellers cancel an." width="1600" height="900" loading="lazy" decoding="async" />
+  <figcaption>Sealing and labelling parcels in a run at a home packing table.</figcaption>
+</figure>
+
 
 Here is the honest answer for Malaysian marketplace sellers: yes, you can cancel before shipping in certain situations, but every marketplace treats cancellation differently, and the way you cancel matters more than the fact of cancelling.
 
