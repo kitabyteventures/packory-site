@@ -3,6 +3,7 @@ title: "TikTok Shop Disputes: How Long They Take & How to Win With Video Evidenc
 description: "How long TikTok Shop disputes take varies, here's what to expect, and how timestamped packing video evidence helps you win your case."
 pubDate: 2026-09-03
 author: Packory
+image: /blog/tiktok-shop-dispute-video-evidence.jpg
 ---
 
 TikTok Shop disputes are part of running a live-selling business. Volume moves fast, and with volume comes the occasional claim: the parcel arrived with the wrong item, the box showed up empty, or the buyer insists they never received what the courier's photo shows delivered. The moment a case opens, sellers want two answers: how long is this going to take, and what actually wins it?

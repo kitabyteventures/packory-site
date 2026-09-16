@@ -3,6 +3,7 @@ title: "Can Malaysian Sellers Cancel an Order Before Shipping?"
 description: "Can you cancel or refuse an order before shipping in Malaysia? When it is allowed, when it hurts you, and how evidence keeps you safe either way."
 pubDate: 2026-09-05
 author: Packory
+image: /blog/can-malaysian-sellers-cancel-order-before-shipping.jpg
 ---
 
 Every order. On video. Dispute-proof.

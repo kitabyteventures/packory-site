@@ -3,6 +3,7 @@ title: "Proof of Shipment: The Evidence That Settles a Marketplace Dispute"
 description: "Proof of shipment is more than a tracking number. Here is the evidence Malaysian sellers should keep for a dispute, and the parts most sellers miss."
 pubDate: 2026-09-15
 author: Packory
+image: /blog/proof-of-shipment-malaysia.jpg
 ---
 
 Proof of shipment is the record that shows what left your hands, when it left, and in what condition. A tracking number proves a parcel moved. It does not prove what was inside the parcel, and that gap is where most seller disputes are lost.

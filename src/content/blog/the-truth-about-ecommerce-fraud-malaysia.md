@@ -3,6 +3,7 @@ title: "The Truth About E-commerce Fraud in Malaysia: What Sellers Don't See"
 description: "Parcel-swap and empty-box claims cost Malaysian sellers money and trust. Here's why packing video evidence, not screenshots, is the proof that holds up in disputes."
 pubDate: 2026-09-03
 author: Packory
+image: /blog/the-truth-about-ecommerce-fraud-malaysia.jpg
 ---
 
 Every order. On video. Dispute-proof.

@@ -3,6 +3,7 @@ title: "How to Check a Buyer on Shopee Malaysia: Red Flags You Can Actually Veri
 description: "Wondering how to check a buyer on Shopee Malaysia before shipping? Here are red flags sellers can actually verify, and the limits of guessing."
 pubDate: 2026-09-05
 author: Packory
+image: /blog/how-to-check-buyer-shopee-malaysia.jpg
 ---
 
 Every order. On video. Dispute-proof.

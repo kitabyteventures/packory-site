@@ -3,6 +3,7 @@ title: "Shopee Shipping Fee Claim Automation (SSFS): What RM0.28 Per Order Cover
 description: "Shopee's SSFS automates shipping fee claims for RM0.28 per order, but packing disputes still need video evidence. See how to protect your margin."
 pubDate: 2026-09-04
 author: Packory
+image: /blog/shopee-ssfs-shipping-fee-claims-vs-packing-evidence.jpg
 ---
 
 Every order. On video. Dispute-proof.

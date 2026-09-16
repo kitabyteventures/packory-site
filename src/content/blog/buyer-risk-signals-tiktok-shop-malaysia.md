@@ -3,6 +3,7 @@ title: "Buyer Risk Signals Before You Pack (TikTok Shop Malaysia)"
 description: "Spot buyer risk signals before you pack a TikTok Shop order in Malaysia: account, address, chat pressure and the evidence habit that protects you."
 pubDate: 2026-09-05
 author: Packory
+image: /blog/buyer-risk-signals-tiktok-shop-malaysia.jpg
 ---
 
 Every order. On video. Dispute-proof.

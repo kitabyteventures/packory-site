@@ -3,6 +3,7 @@ title: "Buyer Claims Empty Box? What Malaysian Sellers Should Do"
 description: "Buyer claims the parcel arrived empty? What to check first, what evidence to gather, and how packing video protects Malaysian sellers."
 pubDate: 2026-09-03
 author: Packory
+image: /blog/buyer-claims-empty-box-malaysia.jpg
 ---
 
 Every order. On video. Dispute-proof.

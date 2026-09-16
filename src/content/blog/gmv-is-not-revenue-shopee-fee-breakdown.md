@@ -3,6 +3,7 @@ title: "GMV Is Not Revenue: A Shopee Fee Breakdown (2026)"
 description: "A 2026 shopee fee breakdown for Malaysian sellers: commission, programme, transaction and RM0.54 lines, and the margin they quietly take."
 pubDate: 2026-09-12
 author: Packory
+image: /blog/gmv-is-not-revenue-shopee-fee-breakdown.jpg
 ---
 
 Every order. On video. Dispute-proof.
