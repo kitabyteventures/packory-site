@@ -124,7 +124,10 @@ const SIGNUP = `${CONSOLE}/signup?source=${source}`;
   .blog-article blockquote p { margin: 0; }
   .blog-article hr { border: none; border-top: 1px solid rgba(10, 13, 30, 0.12); margin: 2.5rem 0; }
   .blog-article code { font-family: 'JetBrains Mono', monospace; font-size: 0.875em; background: #eceef5; padding: 0.15rem 0.4rem; border-radius: 5px; }
-  .blog-article img { border-radius: 12px; margin: 1.5rem 0; }
+  .blog-article img { border-radius: 12px; margin: 1.5rem 0; width: 100%; height: auto; display: block; }
+  .blog-article .post-figure { margin: 1.7rem 0; }
+  .blog-article .post-figure img { margin: 0; aspect-ratio: 16 / 9; object-fit: cover; }
+  .blog-article .post-figure figcaption { margin: 0.7rem 0 0; font-size: 0.8125rem; line-height: 1.55; color: #6b7280; font-family: "JetBrains Mono", ui-monospace, monospace; letter-spacing: 0.01em; }
 
   .blog-cta { margin-top: 3.5rem; background: #0a0d1e; border-radius: 16px; padding: 2.5rem; }
   .blog-cta h2 { color: #fff; font-size: 1.75rem; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
