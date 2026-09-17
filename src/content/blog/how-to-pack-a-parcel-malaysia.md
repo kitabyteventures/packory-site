@@ -17,7 +17,7 @@ Knowing how to pack a parcel for shipping in Malaysia is not just about making t
 </figure>
 
 
-A parcel gets judged at three points, when it leaves your table, when it moves through the sorting centre, and when it reaches the buyer. You control the first point, and the first point is what everything else is measured against.
+A parcel gets judged at three points, when it leaves your table, when it moves through the sorting centre, and when it reaches the buyer. You control the first point.
 
 ## Before you pack: materials that hold
 
@@ -27,7 +27,7 @@ A parcel gets judged at three points, when it leaves your table, when it moves t
 - A waterproof pouch or clear tape for the AWB, so rain and rubbing do not erase the barcode.
 - A marker for the parcel reference, and a kitchen scale if you want the weight on record.
 
-Buy these in bulk. A seller packing twenty orders a week spends less per parcel that way, and the standard holds even when orders spike during a campaign.
+Buy these in bulk. The cost per parcel drops, and the standard holds even when orders spike.
 
 ## How to pack a parcel for shipping: the order of steps
 
@@ -51,7 +51,7 @@ Whichever category you sell, check your courier's limits for size, weight, and r
 
 Packing well lowers the chance of damage. It does not prove what you packed. That is the gap a phone camera or a packing verification tool closes. A useful record is continuous and unedited: the item on the table, the item going into the box, the box being sealed, and the AWB in frame. It also carries a timestamp, because a claim can land weeks after delivery.
 
-Then store the clip where you can find it by order number, instead of scrolling through a camera roll. This is the part most sellers underestimate. When a dispute window opens you have days, not weeks, to produce evidence, and "let me search my gallery" is not a plan.
+Then store the clip where you can find it by order number, instead of scrolling through a camera roll. When a dispute window opens you have days, not weeks, to produce evidence, and "let me search my gallery" is not a plan.
 
 Packory exists for that habit. Scanning the AWB starts the recording, a timestamp is written into every frame, and the clip is filed under that order in your own cloud storage. When a buyer asks, you can share one clean proof link that shows the pack. The free tier covers up to 25 verified videos a month, and paid plans start at RM12.99 for 75 videos a month. For the longer version of how the record works, read [what is packing verification](/blog/what-is-packing-verification/).
 
