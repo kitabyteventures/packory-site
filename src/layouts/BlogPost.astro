@@ -48,6 +48,8 @@ const SIGNUP = `${CONSOLE}/signup?source=${source}`;
         <slot />
       </article>
 
+      <slot name="after-article" />
+
       <aside class="blog-cta">
         <p class="eyebrow-dark">GET STARTED</p>
         <h2>Put every order on the record.</h2>
@@ -129,6 +131,12 @@ const SIGNUP = `${CONSOLE}/signup?source=${source}`;
   .blog-article .post-figure img { margin: 0; aspect-ratio: 16 / 9; object-fit: cover; }
   .blog-article .post-figure figcaption { margin: 0.7rem 0 0; font-size: 0.8125rem; line-height: 1.55; color: #6b7280; font-family: "JetBrains Mono", ui-monospace, monospace; letter-spacing: 0.01em; }
 
+  .related-wrap { margin-top: 2.6rem; border-top: 1px solid rgba(10,13,30,.1); padding-top: 1.6rem; }
+  .related-wrap h2 { font-size: 1.05rem; letter-spacing: -.01em; margin: 0 0 .9rem; color: #0a0d1e; }
+  .related-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .6rem; }
+  .related-list a { display: block; padding: .85rem 1rem; border: 1px solid rgba(10,13,30,.1); border-radius: 12px; color: #0a0d1e; text-decoration: none; font-weight: 600; font-size: .9375rem; line-height: 1.45; transition: border-color .2s, transform .2s; }
+  .related-list a:hover { border-color: #1856ED; transform: translateY(-2px); }
+  .related-list span { display: block; font-weight: 400; font-size: .8125rem; color: #6b7280; margin-top: .2rem; }
   .blog-cta { margin-top: 3.5rem; background: #0a0d1e; border-radius: 16px; padding: 2.5rem; }
   .blog-cta h2 { color: #fff; font-size: 1.75rem; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
   .blog-cta p:not(.eyebrow-dark) { color: #9aa3b2; margin-bottom: 1.5rem; }
