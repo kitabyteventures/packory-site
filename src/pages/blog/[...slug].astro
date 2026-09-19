@@ -3,14 +3,35 @@ import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
 
 export async function getStaticPaths() {
+  const STOP = new Set(['the','and','for','with','that','this','your','you','from','are','was','not','but','how','what','why','when','who','into','than','then','they','them','their','have','has','had','can','will','its','our','out','about','after','before','over','under','more','most','some','any','all','one','two','shopee','malaysia','malaysian','packory']);
+  const keywords = (text) => new Set(
+    (text || '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ').split(/\s+/)
+      .filter((w) => w.length > 3 && !STOP.has(w))
+  );
   const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { slug: post.id },
-    props: { post },
-  }));
+  const byDate = [...posts].sort((a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate));
+  return posts.map((post) => {
+    const mine = keywords(`${post.data.title} ${post.data.description}`);
+    const related = posts
+      .filter((p) => p.id !== post.id)
+      .map((p) => {
+        const k = keywords(`${p.data.title} ${p.data.description}`);
+        let score = 0;
+        for (const w of k) if (mine.has(w)) score += 1;
+        return { p, score };
+      })
+      .sort((a, b) => b.score - a.score || +new Date(b.p.data.pubDate) - +new Date(a.p.data.pubDate))
+      .slice(0, 3)
+      .map((x) => x.p);
+    const i = byDate.findIndex((p) => p.id === post.id);
+    return {
+      params: { slug: post.id },
+      props: { post, related, newer: i > 0 ? byDate[i - 1] : null, older: i > -1 && i < byDate.length - 1 ? byDate[i + 1] : null },
+    };
+  });
 }
 
-const { post } = Astro.props;
+const { post, related = [], newer = null, older = null } = Astro.props;
 const { Content } = await render(post);
 ---
 
@@ -23,4 +44,26 @@ const { Content } = await render(post);
   source={`blog:${post.id}`}
 >
   <Content />
+
+  <section slot="after-article" class="related-wrap">
+    <h2>Keep reading</h2>
+    <ul class="related-list">
+      {related.map((r) => (
+        <li>
+          <a href={`/blog/${r.id}`}>
+            {r.data.title}
+            <span>{r.data.description}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <ul class="related-list" style="margin-top:.6rem">
+      {older && <li><a href={`/blog/${older.id}`}>Previous guide<span>{older.data.title}</span></a></li>}
+      {newer && <li><a href={`/blog/${newer.id}`}>Next guide<span>{newer.data.title}</span></a></li>}
+    </ul>
+    <ul class="related-list" style="margin-top:.6rem">
+      <li><a href="/tools/fee-profit-calculator/">Free fee and profit calculator<span>Check what each marketplace actually takes</span></a></li>
+      <li><a href="/check-buyer/">Check a buyer before you ship<span>Look at the record before the parcel leaves</span></a></li>
+    </ul>
+  </section>
 </BlogPost>
