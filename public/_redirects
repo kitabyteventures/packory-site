@@ -11,3 +11,16 @@
 /terms-of-service /terms 301
 /terms-of-service/* /terms 301
 /tos /terms 301
+
+# The app lives on console.packory.app. People (and old notes/bookmarks) type
+# packory.app/admin or packory.app/dashboard and land on this static site, where
+# those routes do not exist — the 404 reads as "the admin page is broken", and
+# logging in cannot fix it because there is nothing to log into here. Send every
+# app path to the console: its middleware then handles auth properly
+# (anonymous → /login?next=…, signed-in owner → the page).
+/admin https://console.packory.app/admin 301
+/admin/* https://console.packory.app/admin/:splat 301
+/dashboard https://console.packory.app/dashboard 301
+/dashboard/* https://console.packory.app/dashboard/:splat 301
+/login https://console.packory.app/login 301
+/signup https://console.packory.app/signup 301
