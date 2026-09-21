@@ -80,4 +80,4 @@ You can start protecting orders today without waiting for Buyer Check. Packory's
 
 👉 [Start free, no card needed to start](https://console.packory.app/signup?source=blog:how-to-check-buyer-shopee-malaysia)
 
-And if you want early access to Buyer Check, [join the waitlist](/check-buyer), we will tell you the moment it is live.
+And if you want early access to Buyer Check, [create a free account](/check-buyer). It is being built inside the Packory console.

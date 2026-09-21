@@ -76,4 +76,4 @@ You do not need to wait for Buyer Check to protect this week's TikTok Shop order
 
 👉 [Start free, no card needed to start](https://console.packory.app/signup?source=blog:buyer-risk-signals-tiktok-shop-malaysia)
 
-Every order. On video. Dispute-proof. Get the record before the claim happens, and if you want early access to Buyer Check, [join the waitlist](/check-buyer).
+Every order. On video. Dispute-proof. Get the record before the claim happens, and if you want early access to Buyer Check, [create a free account](/check-buyer).
