@@ -82,4 +82,4 @@ Before you decide your cancellation policy, build the habit that makes most disp
 
 👉 [Start free, no card needed](https://console.packory.app/signup?source=blog:can-malaysian-sellers-cancel-order-before-shipping)
 
-And if you want early access to Buyer Check, [join the waitlist](/check-buyer), a score you can act on, with evidence behind it, coming soon.
+And if you want early access to Buyer Check, [create a free account](/check-buyer), a score you can act on, with evidence behind it, coming soon.
