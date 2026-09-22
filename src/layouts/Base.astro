@@ -55,7 +55,12 @@ const { title, description, noindex = false, image } = Astro.props;
       window.dataLayer = window.dataLayer || [];
       function gtag() { dataLayer.push(arguments); }
       gtag('js', new Date());
-      gtag('config', 'G-SKKEJED4D3');
+      gtag('config', 'G-SKKEJED4D3', {
+        // Semua CTA "Start Free" bawa penjual ke console.packory.app/signup (domain lain).
+        // Tanpa linker, sesi terputus pada lompatan domain: konsol nampak "Referral"
+        // dan kita tak nampak sama ada klik signup berlaku. domains ini yang menyambungnya.
+        linker: { domains: ['console.packory.app', 'packory.app', 'www.packory.app'] }
+      });
     </script>
 
     <script type="application/ld+json" set:html={JSON.stringify({
