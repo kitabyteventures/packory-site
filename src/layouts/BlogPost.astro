@@ -1,5 +1,6 @@
 ---
 import Base from './Base.astro';
+import LeadSource from '../components/LeadSource.astro';
 
 export interface Props {
   title: string;
@@ -27,7 +28,7 @@ const SIGNUP = `${CONSOLE}/signup?source=${source}`;
       <nav class="links">
         <a href="/">Home</a>
         <a href="/blog" class="active">Blog</a>
-        <a href={SIGNUP} class="btn btn-primary btn-sm">Start Free</a>
+        <a href={SIGNUP} class="btn btn-primary btn-sm" data-pk-source>Start Free</a>
       </nav>
     </div>
   </header>
@@ -55,7 +56,7 @@ const SIGNUP = `${CONSOLE}/signup?source=${source}`;
         <h2>Put every order on the record.</h2>
         <p>Hands-free packing video, timestamped and dispute-proof. Free to start, your videos stay in your own cloud storage.</p>
         <div class="hero-actions">
-          <a href={SIGNUP} class="btn btn-primary">Start Free</a>
+          <a href={SIGNUP} class="btn btn-primary" data-pk-source>Start Free</a>
           <a href="/#workflow" class="btn btn-ghost-dark">See how it works</a>
         </div>
       </aside>
@@ -66,6 +67,7 @@ const SIGNUP = `${CONSOLE}/signup?source=${source}`;
       </footer>
     </div>
   </main>
+  <LeadSource />
 </Base>
 
 <script is:inline>

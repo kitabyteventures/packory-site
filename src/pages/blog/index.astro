@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
+import LeadSource from '../../components/LeadSource.astro';
 
 // All blog posts live in the content collection (src/content/blog).
 // Dynamic route [...slug].astro renders each one at /blog/<slug>/.
@@ -19,7 +20,7 @@ const posts = (await getCollection('blog')).sort(
       <nav class="links">
         <a href="/">Home</a>
         <a href="/blog" class="active">Blog</a>
-        <a href="https://console.packory.app/signup?source=blog:index" class="btn btn-primary btn-sm">Start Free</a>
+        <a href="https://console.packory.app/signup?source=blog:index" class="btn btn-primary btn-sm" data-pk-source>Start Free</a>
       </nav>
     </div>
   </header>
@@ -46,6 +47,7 @@ const posts = (await getCollection('blog')).sort(
       ))}
     </div>
   </div>
+  <LeadSource />
 </Base>
 
 <style is:global>
