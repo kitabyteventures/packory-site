@@ -1,0 +1,63 @@
+---
+/**
+ * Lead-source attribution (shared by Tools + Blog layouts).
+ *
+ * Reads ?source= / ?utm_source= / ?ref= when a visitor lands, stores it in
+ * localStorage (`pk_lead_source`), then rewrites the signup CTAs on the page so
+ * the tag that reaches console.packory.app/signup is the CHANNEL the visitor
+ * actually came from (e.g. `fb:<slug>`) and not only the static page tag
+ * (`blog:<slug>`).
+ *
+ * Why it is written this way:
+ * - no visit param -> nothing stored, static HTML tags stay exactly as built
+ * - waits for DOMContentLoaded when it runs before the CTAs exist, so component
+ *   placement cannot silently break it
+ * - SET (not append) so console reads one `source` param, and a real visit wins
+ *   over the static tag
+ * - covers `a[href*="console.packory.app/signup"]` as well as `[data-pk-source]`,
+ *   because markdown CTAs inside blog posts cannot carry attributes
+ * - never throws: attribution is optional, navigation must never depend on it
+ */
+---
+<script is:inline>
+  (function () {
+    function applyAttribution() {
+      try {
+        if (typeof localStorage === 'undefined') return;
+        var params = new URLSearchParams(window.location.search);
+        var src = params.get('source') || params.get('utm_source') || params.get('ref');
+        var campaign = params.get('utm_campaign') || params.get('source_campaign');
+        var key = 'pk_lead_source';
+        if (src) {
+          var val = campaign ? src + '|' + campaign : src;
+          localStorage.setItem(key, val);
+        }
+        var stored = localStorage.getItem(key);
+        if (!stored) return;
+        var split = stored.split('|');
+        var links = document.querySelectorAll(
+          'a[data-pk-source], a[href*="console.packory.app/signup"]'
+        );
+        for (var i = 0; i < links.length; i++) {
+          var a = links[i];
+          var href = a.getAttribute('href') || '';
+          try {
+            var url = new URL(href, window.location.origin);
+            url.searchParams.set('source', split[0]);
+            if (split[1]) url.searchParams.set('utm_campaign', split[1]);
+            a.setAttribute('href', url.href);
+          } catch (e) {
+            /* tag statik dalam HTML kekal, attribution optional */
+          }
+        }
+      } catch (e) {
+        /* attribution optional, jangan pernah break nav */
+      }
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', applyAttribution);
+    } else {
+      applyAttribution();
+    }
+  })();
+</script>

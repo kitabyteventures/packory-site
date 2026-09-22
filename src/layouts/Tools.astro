@@ -1,5 +1,6 @@
 ---
 import Base from './Base.astro';
+import LeadSource from '../components/LeadSource.astro';
 
 export interface Props {
   title: string;
@@ -36,44 +37,8 @@ const YEAR = new Date().getFullYear();
       <a href="/">Back to packory.app</a>
     </div>
   </footer>
+  <LeadSource />
 </Base>
-
-<script is:inline>
-  // Source/lead attribution: simpan source param (source|utm_source|ref) bila nampak,
-  // dan lekatkan pada SEMUA pautan "Start Free" (nav + body) supaya funnel konsisten.
-  (function () {
-    try {
-      if (typeof localStorage === 'undefined') return;
-      var params = new URLSearchParams(window.location.search);
-      var src = params.get('source') || params.get('utm_source') || params.get('ref');
-      var campaign = params.get('utm_campaign') || params.get('source_campaign');
-      var key = 'pk_lead_source';
-      if (src) {
-        var val = campaign ? src + '|' + campaign : src;
-        localStorage.setItem(key, val);
-      }
-      var stored = localStorage.getItem(key);
-      if (stored) {
-        var split = stored.split('|');
-        var compiled = document.querySelectorAll('a[data-pk-source]');
-        for (var i = 0; i < compiled.length; i++) {
-          var a = compiled[i];
-          var href = a.getAttribute('href') || '';
-          try {
-            // SET (bukan append): source lawatan sebenar menang atas tag statik,
-            // dan elak dua param `source` (console baca yang pertama je).
-            var url = new URL(href, window.location.origin);
-            url.searchParams.set('source', split[0]);
-            if (split[1]) url.searchParams.set('utm_campaign', split[1]);
-            a.setAttribute('href', url.href);
-          } catch (e) {
-            /* tag statik dalam HTML kekal, attribution optional */
-          }
-        }
-      }
-    } catch (e) { /* attribution optional, jangan pernah break nav */ }
-  })();
-</script>
 
 <style is:global>
   .tools-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(10, 13, 30, 0.92); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
